@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1120" viewBox="0 0 1800 1120" role="img" aria-labelledby="title desc">
+  <title id="title">Java: Wert (primitive) vs. Objekt (Wrapper)</title>
+  <desc id="desc">Didaktische Vergleichsgrafik für primitive Werte und Wrapper-Objekte in Java.</desc>
+
+  <defs>
+    <style>
+      .title { font: 700 40px Arial, Helvetica, sans-serif; fill: #111; }
+      .section { font: 700 30px Arial, Helvetica, sans-serif; fill: #111; }
+      .heading { font: 700 26px Arial, Helvetica, sans-serif; fill: #111; }
+      .text { font: 700 22px Arial, Helvetica, sans-serif; fill: #111; }
+      .text-regular { font: 400 22px Arial, Helvetica, sans-serif; fill: #111; }
+      .mono { font: 700 30px 'Courier New', Courier, monospace; }
+      .mono-small { font: 700 23px 'Courier New', Courier, monospace; }
+
+      .green { fill: #4d8f3a; }
+      .blue { fill: #2b65b3; }
+      .orange { fill: #c67f17; }
+      .muted { fill: #333; }
+
+      .panel { fill: #fbfcfb; stroke-width: 2.2; }
+      .panel-green { stroke: #6ca05f; }
+      .panel-blue { stroke: #6f9ce0; }
+
+      .header-green { fill: #dfead8; stroke: #6ca05f; stroke-width: 2; }
+      .header-blue { fill: #dfe8f7; stroke: #6f9ce0; stroke-width: 2; }
+
+      .codebox { fill: #eef2ee; stroke: #bcc8bc; stroke-width: 1.5; }
+      .memorybox { fill: #f3f5f7; stroke: #6b7078; stroke-width: 2.2; }
+
+      .inner-green { fill: #e6efdf; stroke: #9dbc86; stroke-width: 2; }
+      .inner-blue { fill: #e8eef9; stroke: #9eb6e4; stroke-width: 2; }
+
+      .heapbox { fill: #f8f1e1; stroke: #d89b37; stroke-width: 2.2; }
+      .object-cell { fill: #fffaf1; stroke: #d89b37; stroke-width: 2; }
+
+      .summary { fill: #f7f8fa; stroke: #b9bcc3; stroke-width: 2; }
+    </style>
+
+    <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#6ca05f"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2b65b3"/>
+    </marker>
+    <marker id="arrowOrange" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#c67f17"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1800" height="1120" fill="#ffffff"/>
+  <text x="900" y="72" text-anchor="middle" class="title">Java: Wert (primitive) vs. Objekt (Wrapper)</text>
+
+  <!-- LEFT -->
+  <rect x="40" y="120" rx="18" ry="18" width="710" height="710" class="panel panel-green"/>
+  <rect x="58" y="136" rx="16" ry="16" width="674" height="64" class="header-green"/>
+  <text x="395" y="178" text-anchor="middle" class="section">Wert (primitive)</text>
+
+  <rect x="170" y="228" rx="12" ry="12" width="430" height="88" class="codebox"/>
+  <text x="246" y="284" class="mono blue">int</text>
+  <text x="344" y="284" class="mono">x = </text>
+  <text x="464" y="284" class="mono green">5;</text>
+
+  <text x="395" y="372" text-anchor="middle" class="heading">Speicher</text>
+  <rect x="150" y="404" rx="20" ry="20" width="450" height="140" class="memorybox"/>
+  <text x="238" y="477" class="section">x</text>
+  <rect x="328" y="431" width="180" height="72" class="inner-green"/>
+  <text x="418" y="478" text-anchor="middle" class="section green">5</text>
+
+  <path d="M 418 626 L 418 507" stroke="#6ca05f" stroke-width="3.2" stroke-dasharray="10 8" fill="none" marker-end="url(#arrowGreen)"/>
+  <text x="418" y="666" text-anchor="middle" class="heading green">Der Wert wird</text>
+  <text x="418" y="704" text-anchor="middle" class="heading green">direkt gespeichert.</text>
+  <text x="418" y="758" text-anchor="middle" class="heading">Die Variable enthält</text>
+  <text x="418" y="796" text-anchor="middle" class="heading">direkt die Zahl 5.</text>
+
+  <!-- Divider -->
+  <line x1="786" y1="112" x2="786" y2="834" stroke="#cfcfcf" stroke-width="2" stroke-dasharray="8 10"/>
+
+  <!-- RIGHT -->
+  <rect x="826" y="120" rx="18" ry="18" width="934" height="710" class="panel panel-blue"/>
+  <rect x="844" y="136" rx="16" ry="16" width="898" height="64" class="header-blue"/>
+  <text x="1293" y="178" text-anchor="middle" class="section">Objekt (Wrapper)</text>
+
+  <rect x="1005" y="226" rx="12" ry="12" width="500" height="92" class="codebox"/>
+  <text x="1080" y="285" class="mono blue">Integer</text>
+  <text x="1290" y="285" class="mono">x = </text>
+  <text x="1405" y="285" class="mono green">5;</text>
+
+  <text x="1015" y="372" text-anchor="middle" class="heading">Speicher (Stack)</text>
+  <rect x="844" y="404" rx="20" ry="20" width="315" height="140" class="memorybox"/>
+  <text x="896" y="477" class="section">x</text>
+  <rect x="938" y="431" width="168" height="72" class="inner-blue"/>
+  <text x="1022" y="477" text-anchor="middle" class="mono-small blue">0x7fa2</text>
+
+  <text x="1460" y="372" text-anchor="middle" class="heading">Heap (Speicher für Objekte)</text>
+  <rect x="1225" y="404" rx="20" ry="20" width="450" height="270" class="heapbox"/>
+  <text x="1450" y="448" text-anchor="middle" class="heading">Integer Objekt</text>
+
+  <rect x="1252" y="468" width="150" height="66" class="object-cell"/>
+  <rect x="1402" y="468" width="246" height="66" class="object-cell"/>
+  <text x="1327" y="511" text-anchor="middle" class="text">Wert</text>
+  <text x="1525" y="511" text-anchor="middle" class="text orange">5</text>
+
+  <rect x="1252" y="534" width="396" height="114" rx="6" ry="6" class="object-cell"/>
+  <text x="1450" y="580" text-anchor="middle" class="text muted">zusätzliche Informationen</text>
+  <text x="1450" y="620" text-anchor="middle" class="text muted">und Methoden</text>
+
+  <line x1="1110" y1="450" x2="1220" y2="450" stroke="#2b65b3" stroke-width="3.2" stroke-dasharray="10 8" marker-end="url(#arrowBlue)"/>
+
+  <path d="M 1022 626 L 1022 507" stroke="#2b65b3" stroke-width="3.2" stroke-dasharray="10 8" fill="none" marker-end="url(#arrowBlue)"/>
+  <text x="1022" y="666" text-anchor="middle" class="heading blue">Die Variable enthält</text>
+  <text x="1022" y="704" text-anchor="middle" class="heading blue">eine Referenz (Adresse).</text>
+  <text x="1022" y="758" text-anchor="middle" class="heading">Sie zeigt auf das Objekt</text>
+  <text x="1022" y="796" text-anchor="middle" class="heading">im Heap.</text>
+
+  <path d="M 1450 732 L 1450 678" stroke="#c67f17" stroke-width="3.2" stroke-dasharray="10 8" fill="none" marker-end="url(#arrowOrange)"/>
+  <text x="1450" y="757" text-anchor="middle" class="heading orange">Das Objekt enthält den Wert und</text>
+  <text x="1450" y="795" text-anchor="middle" class="heading orange">bietet zusätzliche Funktionen.</text>
+
+  <!-- SUMMARY -->
+  <rect x="60" y="878" rx="20" ry="20" width="1680" height="178" class="summary"/>
+  <text x="98" y="924" class="section">Zusammenfassung</text>
+
+  <circle cx="112" cy="968" r="6.5" fill="#6ca05f"/>
+  <text x="132" y="976" class="text">Primitive Typen speichern den Wert direkt in der Variable.</text>
+
+  <circle cx="112" cy="1016" r="6.5" fill="#6ca05f"/>
+  <text x="132" y="1024" class="text">Schnell und speichereffizient.</text>
+
+  <circle cx="898" cy="968" r="6.5" fill="#2b65b3"/>
+  <text x="918" y="976" class="text">Wrapper-Klassen sind Objekte.</text>
+
+  <circle cx="898" cy="1016" r="6.5" fill="#2b65b3"/>
+  <text x="918" y="1024" class="text">Die Variable enthält eine Referenz auf das Objekt.</text>
+</svg>
