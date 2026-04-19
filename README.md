@@ -1,5 +1,5 @@
 # lehrninhalte
-Diese Repository enthält fertige Grafiken im SVG-Format für den Unterricht von Lernenden als Applikationsentwickler. Die Grafiken sind enthalten im Subdirectory [graphics]( /graphics   Aktuell sind folgende Grafiken vorhanden:
+Diese Repository enthält fertige Grafiken im SVG-Format für den Unterricht von Lernenden als Applikationsentwickler. Die Grafiken sind enthalten im Subdirectory [graphics]( /graphics)   Aktuell sind folgende Grafiken vorhanden:
 
 - [Primitiver Datentyp vs Wrapper](/graphics/java_wert_vs_objekt_wrapper.svg)
 
