@@ -2,9 +2,9 @@
 
 ## Grafiken
 
-![Konzept](./grafiken/tag5_konzept_immutability_string.svg)
-![Prozess](./grafiken/tag5_prozess_string_verketten_plus.svg)
-![Vergleich](./grafiken/tag5_vergleich_string_vs_stringbuilder.svg)
+![Konzept](./arbeitsblatt_grafiken/tag5_konzept_immutability_string.svg)
+![Prozess](./arbeitsblatt_grafiken/tag5_prozess_string_verketten_plus.svg)
+![Vergleich](./arbeitsblatt_grafiken/tag5_vergleich_string_vs_stringbuilder.svg)
 
 ## Theorie
 
