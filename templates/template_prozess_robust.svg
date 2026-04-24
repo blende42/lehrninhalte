@@ -55,7 +55,7 @@
 
   <rect x="0" y="0" width="1800" height="1120" fill="#ffffff"/>
   <text x="900" y="72" text-anchor="middle" class="title">[TITEL DES PROZESSDIAGRAMMS]</text>
-  <text x="900" y="104" text-anchor="middle" class="small">SVG-Vorlage für Unterrichtsunterlagen · Prozessdiagramm · de-CH · EFZ Applikationsentwicklung</text>
+  <text x="900" y="104" text-anchor="middle" class="small">Prozessdiagramm · de-CH · EFZ Applikationsentwicklung</text>
 
   <rect x="60" y="140" rx="20" ry="20" width="1680" height="620" class="panel panel-neutral"/>
   <rect x="80" y="158" rx="16" ry="16" width="1640" height="64" class="header-neutral"/>
@@ -127,5 +127,4 @@
   <circle cx="900" cy="1004" r="6.5" fill="#c67f17"/>
   <text x="920" y="1012" class="text-tight">[Punkt 6: Merksatz / Prüfungsrelevanz]</text>
 
-  <text x="60" y="1098" class="small">Hinweis: Untere Hinweisboxen bewusst verbreitert. Empfehlung: max. 2 Erklärzeilen pro unterer Box, max. 3 kurze Zeilen pro Schrittbox.</text>
 </svg>

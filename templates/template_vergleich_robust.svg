@@ -53,7 +53,7 @@
   <rect x="0" y="0" width="1800" height="1120" fill="#ffffff"/>
 
   <text x="900" y="72" text-anchor="middle" class="title">[TITEL DER VERGLEICHSGRAFIK]</text>
-  <text x="900" y="104" text-anchor="middle" class="small">SVG-Vorlage für Unterrichtsunterlagen · de-CH · EFZ Applikationsentwicklung</text>
+  <text x="900" y="104" text-anchor="middle" class="small">Vergleichsgrafik de-CH · EFZ Applikationsentwicklung</text>
 
   <!-- Linkes Panel -->
   <rect x="40" y="130" rx="18" ry="18" width="710" height="710" class="panel panel-left"/>
@@ -147,5 +147,4 @@
   <circle cx="898" cy="1026" r="6.5" fill="#2b65b3"/>
   <text x="918" y="1034" class="text-tight">[Zusammenfassung Punkt 2 rechts]</text>
 
-  <text x="60" y="1098" class="small">Hinweis: Inhaltsboxen mit Sicherheitsabständen geplant. Empfehlung: max. 2 Zeilen pro Kernaussageblock, max. 3 Zeilen im rechten Infoblock.</text>
 </svg>
