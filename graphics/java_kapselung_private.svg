@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1120" viewBox="0 0 1800 1120" role="img" aria-labelledby="title desc">
+  <title id="title">Java: Kapselung mit private</title>
+  <desc id="desc">Konzeptgrafik zu Kapselung, privaten Attributen und kontrolliertem Zugriff über Methoden in Java.</desc>
+  <defs>
+    <style>
+      .title { font: 700 40px Arial, Helvetica, sans-serif; fill: #111; }
+      .section { font: 700 30px Arial, Helvetica, sans-serif; fill: #111; }
+      .heading { font: 700 26px Arial, Helvetica, sans-serif; fill: #111; }
+      .text { font: 700 22px Arial, Helvetica, sans-serif; fill: #111; }
+      .text-tight { font: 700 20px Arial, Helvetica, sans-serif; fill: #111; }
+      .small { font: 400 18px Arial, Helvetica, sans-serif; fill: #555; }
+      .mono { font: 700 24px 'Courier New', Courier, monospace; fill: #111; }
+      .left-accent { fill: #4d8f3a; }
+      .right-accent { fill: #2b65b3; }
+      .hint-accent { fill: #c67f17; }
+      .danger { fill: #a33a2b; }
+      .panel { fill: #fbfcfb; stroke-width: 2.2; }
+      .panel-left { stroke: #6ca05f; }
+      .panel-right { stroke: #6f9ce0; }
+      .panel-neutral { stroke: #b9bcc3; }
+      .header-neutral { fill: #f2f4f7; stroke: #b9bcc3; stroke-width: 2; }
+      .codebox { fill: #eef2ee; stroke: #bcc8bc; stroke-width: 1.5; }
+      .objectbox { fill: #f8f1e1; stroke: #d89b37; stroke-width: 2.4; }
+      .privatebox { fill: #fff4f0; stroke: #c96b5a; stroke-width: 2.4; }
+      .methodbox { fill: #e8eef9; stroke: #6f9ce0; stroke-width: 2.4; }
+      .summary { fill: #f7f8fa; stroke: #b9bcc3; stroke-width: 2; }
+      .arrow-ok { stroke: #2b65b3; stroke-width: 3.2; fill: none; }
+      .arrow-no { stroke: #a33a2b; stroke-width: 3.2; stroke-dasharray: 10 8; fill: none; }
+    </style>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2b65b3"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#a33a2b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1800" height="1120" fill="#ffffff"/>
+  <text x="900" y="72" text-anchor="middle" class="title">Java: Kapselung mit private</text>
+  <text x="900" y="104" text-anchor="middle" class="small">Konzeptdiagramm · de-CH · EFZ Applikationsentwicklung</text>
+
+  <rect x="60" y="140" rx="20" ry="20" width="1680" height="640" class="panel panel-neutral"/>
+  <rect x="80" y="158" rx="16" ry="16" width="1640" height="64" class="header-neutral"/>
+  <text x="900" y="200" text-anchor="middle" class="section">Kapselung schützt den Zustand eines Objekts</text>
+
+  <rect x="110" y="285" rx="18" ry="18" width="470" height="170" class="codebox"/>
+  <text x="345" y="335" text-anchor="middle" class="heading danger">Direkter Zugriff</text>
+  <text x="345" y="382" text-anchor="middle" class="mono">konto.saldo = -500;</text>
+  <text x="345" y="425" text-anchor="middle" class="text-tight danger">Problem: ungültiger Zustand möglich</text>
+
+  <rect x="710" y="260" rx="24" ry="24" width="380" height="260" class="objectbox"/>
+  <text x="900" y="310" text-anchor="middle" class="section hint-accent">Bankkonto</text>
+  <rect x="760" y="345" rx="14" ry="14" width="280" height="72" class="privatebox"/>
+  <text x="900" y="390" text-anchor="middle" class="mono">private double saldo</text>
+  <rect x="760" y="435" rx="14" ry="14" width="280" height="56" class="methodbox"/>
+  <text x="900" y="471" text-anchor="middle" class="mono">einzahlen(...)</text>
+
+  <rect x="1220" y="285" rx="18" ry="18" width="470" height="170" class="codebox"/>
+  <text x="1455" y="335" text-anchor="middle" class="heading right-accent">Kontrollierter Zugriff</text>
+  <text x="1455" y="382" text-anchor="middle" class="mono">konto.einzahlen(100);</text>
+  <text x="1455" y="425" text-anchor="middle" class="text-tight right-accent">Methode prüft die Eingabe</text>
+
+  <line x1="580" y1="370" x2="700" y2="370" class="arrow-no" marker-end="url(#arrowRed)"/>
+  <text x="640" y="340" text-anchor="middle" class="heading danger">blockiert</text>
+  <line x1="1220" y1="370" x2="1100" y2="370" class="arrow-ok" marker-end="url(#arrowBlue)"/>
+  <text x="1160" y="340" text-anchor="middle" class="heading right-accent">erlaubt</text>
+
+  <rect x="155" y="585" rx="18" ry="18" width="400" height="112" class="panel panel-left"/>
+  <text x="355" y="632" text-anchor="middle" class="heading left-accent">private</text>
+  <text x="355" y="670" text-anchor="middle" class="text-tight">nur in der Klasse sichtbar</text>
+
+  <rect x="700" y="585" rx="18" ry="18" width="400" height="112" class="panel panel-right"/>
+  <text x="900" y="632" text-anchor="middle" class="heading right-accent">public Methode</text>
+  <text x="900" y="670" text-anchor="middle" class="text-tight">kontrolliert Zugriff</text>
+
+  <rect x="1245" y="585" rx="18" ry="18" width="400" height="112" class="panel panel-left"/>
+  <text x="1445" y="632" text-anchor="middle" class="heading left-accent">gültiger Zustand</text>
+  <text x="1445" y="670" text-anchor="middle" class="text-tight">Objekt bleibt verlässlich</text>
+
+  <rect x="220" y="810" rx="18" ry="18" width="1360" height="78" fill="#f8f1e1" stroke="#d89b37" stroke-width="2.2"/>
+  <text x="900" y="856" text-anchor="middle" class="heading hint-accent">Merksatz: Attribute privat halten, Änderungen über Methoden steuern.</text>
+
+  <rect x="60" y="930" rx="20" ry="20" width="1680" height="130" class="summary"/>
+  <text x="98" y="976" class="section">Zusammenfassung</text>
+  <circle cx="112" cy="1020" r="6.5" fill="#6ca05f"/>
+  <text x="132" y="1028" class="text-tight">Kapselung verhindert unkontrollierte Änderungen von Attributen.</text>
+  <circle cx="900" cy="1020" r="6.5" fill="#2b65b3"/>
+  <text x="920" y="1028" class="text-tight">Methoden entscheiden, welche Werte erlaubt sind.</text>
+</svg>

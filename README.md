@@ -7,7 +7,8 @@ Die verbindliche Policy für Codex mit `MUSS`, `SOLL`, `DARF NICHT`, Qualitätsg
 ## Inhaltsverzeichnis
 
 - [AGENTS.md](./AGENTS.md)
-- [CONTENT.md](./CONTENT.md) – strukturierte Übersicht über Arbeitsblätter, Konzeptgrafiken, Übungen und Musterlösungen
+- [CONTENT.md](./CONTENT.md) – empfohlene Unterrichtsreihenfolge und strukturierte Übersicht über Arbeitsblätter, Konzeptgrafiken, Übungen und Musterlösungen
+- [NEXT_STEPS.md](./NEXT_STEPS.md) – Übergabe zum aktuellen Stand und nächstem geplanten Unterrichtsblock
 
 ### Arbeitsblaetter
 Lehr- und Arbeitsblätter zu Java- und Grundlagenthemen:
@@ -15,6 +16,12 @@ Lehr- und Arbeitsblätter zu Java- und Grundlagenthemen:
 - [Arbeitsblatt_Arrays.md](./Arbeitsblaetter/Arbeitsblatt_Arrays.md)
 - [Arbeitsblatt_Arrays_Vertiefung.md](./Arbeitsblaetter/Arbeitsblatt_Arrays_Vertiefung.md)
 - [Arbeitsblatt_2D_Arrays_Vertiefung.md](./Arbeitsblaetter/Arbeitsblatt_2D_Arrays_Vertiefung.md)
+- [Arbeitsblatt_Methoden.md](./Arbeitsblaetter/Arbeitsblatt_Methoden.md)
+- [Arbeitsblatt_Methoden_Festigung.md](./Arbeitsblaetter/Arbeitsblatt_Methoden_Festigung.md)
+- [Arbeitsblatt_Klassen_und_Objekte.md](./Arbeitsblaetter/Arbeitsblatt_Klassen_und_Objekte.md)
+- [Arbeitsblatt_Kapselung_Getter_Setter.md](./Arbeitsblaetter/Arbeitsblatt_Kapselung_Getter_Setter.md)
+- [Arbeitsblatt_Objektarrays_Verwaltungslogik.md](./Arbeitsblaetter/Arbeitsblatt_Objektarrays_Verwaltungslogik.md)
+- [Arbeitsblatt_ArrayList.md](./Arbeitsblaetter/Arbeitsblatt_ArrayList.md)
 - [arbeitsblatt_java_wrapper.md](./Arbeitsblaetter/arbeitsblatt_java_wrapper.md)
 - [arbeitsblatt_stringbuilder.md](./Arbeitsblaetter/arbeitsblatt_stringbuilder.md)
 - [arbeitsblatt_theorie_kombiniert.md](./Arbeitsblaetter/arbeitsblatt_theorie_kombiniert.md)
@@ -36,6 +43,12 @@ SVG-Grafiken und zugehörige Datei für eingebettete Arbeitsblattgrafiken:
 - [Uebungen_Arrays.md](./Uebungen/Uebungen_Arrays.md)
 - [Uebungen_Arrays_Vertiefung.md](./Uebungen/Uebungen_Arrays_Vertiefung.md)
 - [Uebungen_2D_Arrays.md](./Uebungen/Uebungen_2D_Arrays.md)
+- [Uebungen_Methoden.md](./Uebungen/Uebungen_Methoden.md)
+- [Uebungen_Methoden_Festigung.md](./Uebungen/Uebungen_Methoden_Festigung.md)
+- [Uebungen_Klassen_und_Objekte.md](./Uebungen/Uebungen_Klassen_und_Objekte.md)
+- [Uebungen_Kapselung_Getter_Setter.md](./Uebungen/Uebungen_Kapselung_Getter_Setter.md)
+- [Uebungen_Objektarrays_Verwaltungslogik.md](./Uebungen/Uebungen_Objektarrays_Verwaltungslogik.md)
+- [Uebungen_ArrayList.md](./Uebungen/Uebungen_ArrayList.md)
 - [string_uebungen.md](./Uebungen/string_uebungen.md)
 - [string_uebungen_v2.md](./Uebungen/string_uebungen_v2.md)
 - [string_mini_projekt_v3.md](./Uebungen/string_mini_projekt_v3.md)
@@ -51,6 +64,12 @@ Kompakte Referenzlösungen zu den Übungen und Arbeitsblättern:
 - [Loesungen_Arrays.md](./Musterloesungen/Loesungen_Arrays.md)
 - [Loesungen_Arrays_im_Stil.md](./Musterloesungen/Loesungen_Arrays_im_Stil.md)
 - [Loesungen_2D_Arrays.md](./Musterloesungen/Loesungen_2D_Arrays.md)
+- [Loesungen_Methoden.md](./Musterloesungen/Loesungen_Methoden.md)
+- [Loesungen_Methoden_Festigung.md](./Musterloesungen/Loesungen_Methoden_Festigung.md)
+- [Loesungen_Klassen_und_Objekte.md](./Musterloesungen/Loesungen_Klassen_und_Objekte.md)
+- [Loesungen_Kapselung_Getter_Setter.md](./Musterloesungen/Loesungen_Kapselung_Getter_Setter.md)
+- [Loesungen_Objektarrays_Verwaltungslogik.md](./Musterloesungen/Loesungen_Objektarrays_Verwaltungslogik.md)
+- [Loesungen_ArrayList.md](./Musterloesungen/Loesungen_ArrayList.md)
 - [musterloesungen_stringbuilder.md](./Musterloesungen/musterloesungen_stringbuilder.md)
 - [string_parser_loesungen.md](./Musterloesungen/string_parser_loesungen.md)
 
@@ -59,6 +78,10 @@ Allgemeine SVG-Grafiken für den Unterricht:
 
 - [grafik_arrays_konzept.svg](./graphics/grafik_arrays_konzept.svg)
 - [grafik_arrays_konzept_beispiel.svg](./graphics/grafik_arrays_konzept_beispiel.svg)
+- [java_klasse_objekt_konzept.svg](./graphics/java_klasse_objekt_konzept.svg)
+- [java_kapselung_private.svg](./graphics/java_kapselung_private.svg)
+- [java_getter_setter_validierung.svg](./graphics/java_getter_setter_validierung.svg)
+- [java_objekt_referenz.svg](./graphics/java_objekt_referenz.svg)
 - [java_wert_vs_objekt_wrapper.svg](./graphics/java_wert_vs_objekt_wrapper.svg)
 - [parser_grafik.svg](./graphics/parser_grafik.svg)
 

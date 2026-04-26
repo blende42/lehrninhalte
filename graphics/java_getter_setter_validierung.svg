@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1120" viewBox="0 0 1800 1120" role="img" aria-labelledby="title desc">
+  <title id="title">Java: Getter, Setter und Validierung</title>
+  <desc id="desc">Prozessgrafik zum Lesen und kontrollierten Ändern privater Attribute mit Getter und Setter in Java.</desc>
+  <defs>
+    <style>
+      .title { font: 700 40px Arial, Helvetica, sans-serif; fill: #111; }
+      .section { font: 700 30px Arial, Helvetica, sans-serif; fill: #111; }
+      .heading { font: 700 26px Arial, Helvetica, sans-serif; fill: #111; }
+      .text { font: 700 22px Arial, Helvetica, sans-serif; fill: #111; }
+      .text-tight { font: 700 20px Arial, Helvetica, sans-serif; fill: #111; }
+      .small { font: 400 18px Arial, Helvetica, sans-serif; fill: #555; }
+      .mono { font: 700 24px 'Courier New', Courier, monospace; fill: #111; }
+      .blue { fill: #2b65b3; }
+      .green { fill: #4d8f3a; }
+      .orange { fill: #c67f17; }
+      .red { fill: #a33a2b; }
+      .panel { fill: #fbfcfb; stroke-width: 2.2; }
+      .panel-blue { stroke: #6f9ce0; }
+      .panel-green { stroke: #6ca05f; }
+      .panel-orange { stroke: #d89b37; }
+      .box-blue { fill: #e8eef9; stroke: #6f9ce0; stroke-width: 2.4; }
+      .box-green { fill: #e6efdf; stroke: #6ca05f; stroke-width: 2.4; }
+      .box-orange { fill: #f8f1e1; stroke: #d89b37; stroke-width: 2.4; }
+      .box-red { fill: #fff4f0; stroke: #c96b5a; stroke-width: 2.4; }
+      .summary { fill: #f7f8fa; stroke: #b9bcc3; stroke-width: 2; }
+      .arrow { stroke: #2b65b3; stroke-width: 3.2; fill: none; }
+      .arrow-red { stroke: #a33a2b; stroke-width: 3.2; stroke-dasharray: 10 8; fill: none; }
+    </style>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2b65b3"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#a33a2b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1800" height="1120" fill="#ffffff"/>
+  <text x="900" y="72" text-anchor="middle" class="title">Java: Getter, Setter und Validierung</text>
+  <text x="900" y="104" text-anchor="middle" class="small">Prozessgrafik · de-CH · EFZ Applikationsentwicklung</text>
+
+  <rect x="70" y="145" rx="20" ry="20" width="1660" height="300" class="panel panel-blue"/>
+  <text x="900" y="200" text-anchor="middle" class="section blue">Lesen mit Getter</text>
+  <rect x="150" y="255" rx="18" ry="18" width="360" height="100" class="box-blue"/>
+  <text x="330" y="316" text-anchor="middle" class="mono">produkt.getPreis()</text>
+  <rect x="720" y="255" rx="18" ry="18" width="360" height="100" class="box-orange"/>
+  <text x="900" y="296" text-anchor="middle" class="mono">private double preis</text>
+  <text x="900" y="332" text-anchor="middle" class="text-tight orange">Attribut bleibt geschützt</text>
+  <rect x="1290" y="255" rx="18" ry="18" width="360" height="100" class="box-green"/>
+  <text x="1470" y="316" text-anchor="middle" class="mono">return preis;</text>
+  <line x1="510" y1="305" x2="710" y2="305" class="arrow" marker-end="url(#arrowBlue)"/>
+  <line x1="1080" y1="305" x2="1280" y2="305" class="arrow" marker-end="url(#arrowBlue)"/>
+
+  <rect x="70" y="500" rx="20" ry="20" width="1660" height="360" class="panel panel-green"/>
+  <text x="900" y="555" text-anchor="middle" class="section green">Ändern mit Setter</text>
+  <rect x="150" y="620" rx="18" ry="18" width="360" height="100" class="box-blue"/>
+  <text x="330" y="681" text-anchor="middle" class="mono">setPreis(49.90)</text>
+  <rect x="690" y="620" rx="18" ry="18" width="420" height="100" class="box-orange"/>
+  <text x="900" y="661" text-anchor="middle" class="mono">if (preis &gt;= 0)</text>
+  <text x="900" y="697" text-anchor="middle" class="text-tight orange">Wert prüfen</text>
+  <rect x="1290" y="590" rx="18" ry="18" width="360" height="90" class="box-green"/>
+  <text x="1470" y="645" text-anchor="middle" class="mono">speichern</text>
+  <rect x="1290" y="720" rx="18" ry="18" width="360" height="90" class="box-red"/>
+  <text x="1470" y="775" text-anchor="middle" class="mono red">ablehnen</text>
+  <line x1="510" y1="670" x2="680" y2="670" class="arrow" marker-end="url(#arrowBlue)"/>
+  <line x1="1110" y1="650" x2="1280" y2="635" class="arrow" marker-end="url(#arrowBlue)"/>
+  <line x1="1110" y1="690" x2="1280" y2="765" class="arrow-red" marker-end="url(#arrowRed)"/>
+
+  <rect x="220" y="900" rx="18" ry="18" width="1360" height="78" class="box-orange"/>
+  <text x="900" y="946" text-anchor="middle" class="heading orange">Getter lesen Werte, Setter prüfen und ändern Werte kontrolliert.</text>
+
+  <rect x="60" y="1010" rx="20" ry="20" width="1680" height="70" class="summary"/>
+  <circle cx="112" cy="1048" r="6.5" fill="#6ca05f"/>
+  <text x="132" y="1056" class="text-tight">Nicht jedes Attribut braucht automatisch einen Setter.</text>
+  <circle cx="900" cy="1048" r="6.5" fill="#2b65b3"/>
+  <text x="920" y="1056" class="text-tight">Setter sind sinnvoll, wenn eine Änderung erlaubt und prüfbar sein soll.</text>
+</svg>
