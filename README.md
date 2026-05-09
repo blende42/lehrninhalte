@@ -22,6 +22,9 @@ Lehr- und Arbeitsblätter zu Java- und Grundlagenthemen:
 - [Arbeitsblatt_Kapselung_Getter_Setter.md](./Arbeitsblaetter/Arbeitsblatt_Kapselung_Getter_Setter.md)
 - [Arbeitsblatt_Objektarrays_Verwaltungslogik.md](./Arbeitsblaetter/Arbeitsblatt_Objektarrays_Verwaltungslogik.md)
 - [Arbeitsblatt_ArrayList.md](./Arbeitsblaetter/Arbeitsblatt_ArrayList.md)
+- [Arbeitsblatt_Packages.md](./Arbeitsblaetter/Arbeitsblatt_Packages.md)
+- [Arbeitsblatt_Algorithmen_Datenstrukturen.md](./Arbeitsblaetter/Arbeitsblatt_Algorithmen_Datenstrukturen.md)
+- [Arbeitsblatt_Sortieralgorithmen.md](./Arbeitsblaetter/Arbeitsblatt_Sortieralgorithmen.md)
 - [arbeitsblatt_java_wrapper.md](./Arbeitsblaetter/arbeitsblatt_java_wrapper.md)
 - [arbeitsblatt_stringbuilder.md](./Arbeitsblaetter/arbeitsblatt_stringbuilder.md)
 - [arbeitsblatt_theorie_kombiniert.md](./Arbeitsblaetter/arbeitsblatt_theorie_kombiniert.md)
@@ -38,7 +41,7 @@ SVG-Grafiken und zugehörige Datei für eingebettete Arbeitsblattgrafiken:
 - [tag5_stringbuilder_arbeitsblatt.md](./Arbeitsblaetter/arbeitsblatt_grafiken/tag5_stringbuilder_arbeitsblatt.md)
 
 ### Uebungen
-Übungsblätter, Vertiefungen und Mini-Projekte:
+Übungsblätter, Vertiefungen, Simulationen, Package-Strukturierungsaufgaben und Mini-Projekte:
 
 - [Uebungen_Arrays.md](./Uebungen/Uebungen_Arrays.md)
 - [Uebungen_Arrays_Vertiefung.md](./Uebungen/Uebungen_Arrays_Vertiefung.md)
@@ -49,6 +52,8 @@ SVG-Grafiken und zugehörige Datei für eingebettete Arbeitsblattgrafiken:
 - [Uebungen_Kapselung_Getter_Setter.md](./Uebungen/Uebungen_Kapselung_Getter_Setter.md)
 - [Uebungen_Objektarrays_Verwaltungslogik.md](./Uebungen/Uebungen_Objektarrays_Verwaltungslogik.md)
 - [Uebungen_ArrayList.md](./Uebungen/Uebungen_ArrayList.md)
+- [Uebungen_Packages.md](./Uebungen/Uebungen_Packages.md)
+- [Uebungen_Algorithmen_Datenstrukturen.md](./Uebungen/Uebungen_Algorithmen_Datenstrukturen.md)
 - [string_uebungen.md](./Uebungen/string_uebungen.md)
 - [string_uebungen_v2.md](./Uebungen/string_uebungen_v2.md)
 - [string_mini_projekt_v3.md](./Uebungen/string_mini_projekt_v3.md)
@@ -59,7 +64,7 @@ SVG-Grafiken und zugehörige Datei für eingebettete Arbeitsblattgrafiken:
 - [uebungen_stringbuilder.md](./Uebungen/uebungen_stringbuilder.md)
 
 ### Musterloesungen
-Kompakte Referenzlösungen zu den Übungen und Arbeitsblättern:
+Kompakte Referenzlösungen zu den Übungen, Simulationen, Package-Strukturierungen und Arbeitsblättern:
 
 - [Loesungen_Arrays.md](./Musterloesungen/Loesungen_Arrays.md)
 - [Loesungen_Arrays_im_Stil.md](./Musterloesungen/Loesungen_Arrays_im_Stil.md)
@@ -70,6 +75,8 @@ Kompakte Referenzlösungen zu den Übungen und Arbeitsblättern:
 - [Loesungen_Kapselung_Getter_Setter.md](./Musterloesungen/Loesungen_Kapselung_Getter_Setter.md)
 - [Loesungen_Objektarrays_Verwaltungslogik.md](./Musterloesungen/Loesungen_Objektarrays_Verwaltungslogik.md)
 - [Loesungen_ArrayList.md](./Musterloesungen/Loesungen_ArrayList.md)
+- [Loesungen_Packages.md](./Musterloesungen/Loesungen_Packages.md)
+- [Loesungen_Algorithmen_Datenstrukturen.md](./Musterloesungen/Loesungen_Algorithmen_Datenstrukturen.md)
 - [musterloesungen_stringbuilder.md](./Musterloesungen/musterloesungen_stringbuilder.md)
 - [string_parser_loesungen.md](./Musterloesungen/string_parser_loesungen.md)
 

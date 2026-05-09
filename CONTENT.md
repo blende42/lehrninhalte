@@ -159,14 +159,34 @@ Material:
 - [Übungen – ArrayList](./Uebungen/Uebungen_ArrayList.md)
 - [Lösungen – ArrayList](./Musterloesungen/Loesungen_ArrayList.md)
 
+### 15. Java-Packages
+
+Ziel: Mehrere Java-Klassen mit Packages strukturieren, Package-Namen nach umgekehrter Domain-Konvention verwenden und ohne Maven sauber nach `out` kompilieren.
+
+Material:
+
+- [Arbeitsblatt – Java-Packages](./Arbeitsblaetter/Arbeitsblatt_Packages.md)
+- [Übungen – Java-Packages](./Uebungen/Uebungen_Packages.md)
+- [Lösungen – Java-Packages](./Musterloesungen/Loesungen_Packages.md)
+
+### 16. Algorithmen und Datenstrukturen
+
+Ziel: Einfache Algorithmen auf Arrays verstehen, lineare Suche, Minimum, Maximum und Zählen anwenden, Bubble Sort und Selection Sort mit `int[]` nachvollziehen sowie einfache Simulationen mit Schleifen umsetzen.
+
+Material:
+
+- [Arbeitsblatt – Algorithmen und Datenstrukturen](./Arbeitsblaetter/Arbeitsblatt_Algorithmen_Datenstrukturen.md)
+- [Arbeitsblatt – Sortieralgorithmen](./Arbeitsblaetter/Arbeitsblatt_Sortieralgorithmen.md)
+- [Übungen – Algorithmen und Datenstrukturen](./Uebungen/Uebungen_Algorithmen_Datenstrukturen.md)
+- [Lösungen – Algorithmen und Datenstrukturen](./Musterloesungen/Loesungen_Algorithmen_Datenstrukturen.md)
+
 ### Nächster sinnvoller Block
 
-Nach `ArrayList` bietet sich als nächstes Thema **Java-Packages** an:
+Nach `Algorithmen und Datenstrukturen` bietet sich als nächstes Thema **mehrdateilige Java-Projekte vertiefen oder Einstieg in Maven** an:
 
-- Quellcode in Pakete aufteilen
-- `package`-Deklaration verstehen
-- Klassen aus anderen Paketen mit `import` verwenden
-- einfache Projektstruktur mit mehreren Klassen aufbauen
+- bekannte Produktverwaltung über mehrere Dateien festigen
+- Kompilieren und Starten mit `javac -d out` und `java -cp out` wiederholen
+- danach den Nutzen eines Build-Tools wie Maven vergleichen
 
 ## Arbeitsblätter
 
@@ -264,6 +284,23 @@ Arbeitsblätter führen neue Konzepte ein, enthalten kurze Theorie, Beispiele, t
   - `add`, `get`, `set`, `remove` und `size`
   - Schleifen über `ArrayList`
   - Verwaltungslogik mit dynamischer Sammlung
+- [Arbeitsblatt – Java-Packages](./Arbeitsblaetter/Arbeitsblatt_Packages.md)
+  - Package-Konvention mit umgekehrter Domain
+  - `package`-Deklaration und passende Ordnerstruktur
+  - Imports für eigene Klassen und Standardbibliothek
+  - Sichtbarkeit mit `public`, `private`, package-private und `protected` als Ausblick
+  - Algorithmen in Hilfsklassen und Packages aufteilen
+  - Pensionskassen-Simulation in `Main`, `simulation` und `service` strukturieren
+  - Kompilieren nach `out` ohne Maven
+- [Arbeitsblatt – Algorithmen und Datenstrukturen](./Arbeitsblaetter/Arbeitsblatt_Algorithmen_Datenstrukturen.md)
+  - Algorithmus und Datenstruktur unterscheiden
+  - lineare Suche, Minimum, Maximum und Zählen
+  - wiederholte Berechnung wie Zinseszins
+  - einfacher Aufwand, Simulationen und Randfälle
+- [Arbeitsblatt – Sortieralgorithmen](./Arbeitsblaetter/Arbeitsblatt_Sortieralgorithmen.md)
+  - Bubble Sort mit `int[]`
+  - Selection Sort mit `int[]`
+  - Vergleichen, Tauschen und Schleifengrenzen
 
 ## Konzeptgrafiken
 
@@ -416,6 +453,21 @@ Konzeptgrafiken visualisieren Beziehungen, Abläufe und typische Denkmodelle. Si
   - teuerstes Produkt finden
   - Preise kontrolliert verändern
   - Verwaltung ohne Berechnungsschleifen in `main`
+- [Übungen – Java-Packages](./Uebungen/Uebungen_Packages.md)
+  - Package-Deklarationen und Ordner zuordnen
+  - Produktverwaltung in `model`, `service` und `Main` aufteilen
+  - Imports für eigene Klassen ergänzen
+  - Sichtbarkeit von Klassen und Methoden begründen
+  - Algorithmen in `ArrayAlgorithmen` und `SortierAlgorithmen` strukturieren
+  - Pensionskassen-Simulation in Packages aufteilen und als CSV ausgeben
+  - ohne Maven nach `out` kompilieren und mit Classpath starten
+- [Übungen – Algorithmen und Datenstrukturen](./Uebungen/Uebungen_Algorithmen_Datenstrukturen.md)
+  - lineare Suche, Minimum, Maximum und Zählen
+  - Bubble Sort und Selection Sort ergänzen
+  - absteigend sortieren und Sortierung prüfen
+  - Preise und optional Produktobjekte sortieren
+  - Zinseszins mit Schleife berechnen
+  - Pensionskassenkapital simulieren und als CSV für Excel ausgeben
 
 ## Musterlösungen
 
@@ -439,6 +491,10 @@ Musterlösungen halten kompakte Referenzlösungen und Bewertungshilfen bereit.
   - Produktverwaltung mit Objektarray, Suche, Zählen, Maximum und Preisänderung
 - [Lösungen – ArrayList](./Musterloesungen/Loesungen_ArrayList.md)
   - Produktverwaltung mit `ArrayList`, Suche, Entfernen, Maximum und Preisänderung
+- [Lösungen – Java-Packages](./Musterloesungen/Loesungen_Packages.md)
+  - Produktverwaltung, Algorithmen und Pensionskassen-Simulation mit Package-Struktur, Imports, `javac -d out` und `java -cp out`
+- [Lösungen – Algorithmen und Datenstrukturen](./Musterloesungen/Loesungen_Algorithmen_Datenstrukturen.md)
+  - Such-, Zähl-, Minimum- und Maximum-Methoden, Bubble Sort, Selection Sort, Zinseszins und Pensionskassen-Simulation
 - [Musterlösungen – StringBuilder & Parser](./Musterloesungen/musterloesungen_stringbuilder.md)
   - StringBuilder-Methoden und vereinfachter Parser
 - [Musterlösungen – Mini-Projekt String Parser](./Musterloesungen/string_parser_loesungen.md)
