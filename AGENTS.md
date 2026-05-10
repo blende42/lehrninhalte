@@ -52,6 +52,7 @@ Dieses Repository dient zur Erstellung und Pflege von Lehrinhalten für die Ausb
 
 ## DARF NICHT
 - Keine Git-Schreibaktionen ausführen, ausser dies wird explizit verlangt.
+- Für Git-Abschlüsse den Skill `git-repo-updaten` verwenden; Git-Schreibaktionen bleiben nur bei ausdrücklicher Aufforderung erlaubt.
 - Keine unnötig komplexen Enterprise-, Architektur- oder Framework-Muster einführen.
 - Keine SVG-Layouts ohne klaren Nutzen umbauen.
 - Keine Grafiken rein dekorativ hinzufügen.

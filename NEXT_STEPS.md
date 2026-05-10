@@ -24,96 +24,92 @@ Aktuell vorbereitet sind:
 14. ArrayList
 15. Java-Packages
 16. Algorithmen und Datenstrukturen
+17. Maven Einstieg
 
-Die zuletzt erstellte Einheit ist **Algorithmen und Datenstrukturen**. In derselben Session wurde ausserdem der Block **Java-Packages** erstellt und danach mit einer Vertiefung zu Algorithmen in Packages ergänzt.
+Die zuletzt erstellte Unterrichtseinheit ist **Maven Einstieg**. Zusätzlich wurde eine kleine Prozess- und Begriffsbibliothek für KI-gestützte Lehrmittel-Erstellung angelegt.
 
-Neue Package-Dateien:
+Neue Maven-Dateien:
 
-- [Arbeitsblatt_Packages.md](./Arbeitsblaetter/Arbeitsblatt_Packages.md)
-- [Uebungen_Packages.md](./Uebungen/Uebungen_Packages.md)
-- [Loesungen_Packages.md](./Musterloesungen/Loesungen_Packages.md)
+- [Arbeitsblatt_Maven_Einstieg.md](./Arbeitsblaetter/Arbeitsblatt_Maven_Einstieg.md)
+- [Uebungen_Maven_Einstieg.md](./Uebungen/Uebungen_Maven_Einstieg.md)
+- [Loesungen_Maven_Einstieg.md](./Musterloesungen/Loesungen_Maven_Einstieg.md)
+- [maven_orchestriert_build.svg](./graphics/maven_orchestriert_build.svg)
 
-Neue Algorithmen-Dateien:
+Neue Dokumentations- und Skill-Bereiche:
 
-- [Arbeitsblatt_Algorithmen_Datenstrukturen.md](./Arbeitsblaetter/Arbeitsblatt_Algorithmen_Datenstrukturen.md)
-- [Arbeitsblatt_Sortieralgorithmen.md](./Arbeitsblaetter/Arbeitsblatt_Sortieralgorithmen.md)
-- [Uebungen_Algorithmen_Datenstrukturen.md](./Uebungen/Uebungen_Algorithmen_Datenstrukturen.md)
-- [Loesungen_Algorithmen_Datenstrukturen.md](./Musterloesungen/Loesungen_Algorithmen_Datenstrukturen.md)
+- [docs/begriffe](./docs/begriffe/) – kurze unterrichtstaugliche Begriffserklärungen
+- [docs/prozesse](./docs/prozesse/) – Checklisten für Erstellung und Review
+- [.codex/skills](./.codex/skills/) – lokale Skills für wiederkehrende Arbeitsabläufe
+- [.agents/skills/git-repo-updaten](./.agents/skills/git-repo-updaten/SKILL.md) – kontrollierter Git-Abschluss nur bei ausdrücklichem Benutzerauftrag
 
-Wichtige Inhalte aus der letzten Session:
+## Prozess- und Begriffsbibliothek
 
-- Package-Domain: `ch.allianz.youngoitv`
-- Packages mit umgekehrter Domain, Ordnerstruktur, Imports und Kompilieren ohne Maven nach `out`
-- Package-Block enthält einen kompakten Sichtbarkeitsabschnitt zu `public`, `private`, package-private und `protected` als Ausblick
-- Vertiefungsübung: `ArrayAlgorithmen`, `SortierAlgorithmen` und `Main` in Packages aufteilen
-- Vertiefungsübung Aufgabe 12: Pensionskassen-Simulation in `Main`, `simulation/PensionskassenSimulation` und `service/Beitragssaetze` aufteilen
-- Algorithmen-Einstieg mit linearer Suche, Minimum, Maximum und Zählen
-- Sortieralgorithmen mit `int[]`: Bubble Sort und Selection Sort
-- Transfer: Preise mit `double[]` und optional Produkte nach Preis sortieren
-- Zusatzübung Zinseszins: normale Zinsformel in einer Schleife, keine Potenzformel
-- Zusatzübung Pensionskasse: Kapitalentwicklung von Alter 20 bis 65 mit Mini, Standard und Maxi
-- Pensionskassenübung nutzt Sparbeiträge aus Anhang A-3 des lokalen Dokuments `/home/pm/Dokumente/Bvg/PK_AS_ID_2022_def.pdf`
-- Vereinfachung Pensionskasse: zuerst vorhandenes Kapital verzinsen, danach Arbeitnehmer- und Arbeitgeber-Sparbeiträge gutschreiben
-- CSV-Ausgabe mit Semikolon und stdout-Weiterleitung, danach Import in Excel und Liniendiagramm
+Die neuen Dateien unter `docs/begriffe` erklären zentrale Begriffe kurz und unterrichtstauglich. Die Dateien unter `docs/prozesse` formulieren konkrete Checklisten für Erstellung und Review von Lehrmitteln. Die lokalen Skills unter `.codex/skills` verweisen auf diese Prozesse und auf [AGENTS.md](./AGENTS.md), ohne die Repo-Regeln vollständig zu duplizieren. Der Agent-Skill `git-repo-updaten` beschreibt einen kontrollierten Git-Abschluss und bleibt ausdrücklich an einen Benutzerauftrag gebunden.
+
+## Wichtige Inhalte aus dem Maven-Einstieg
+
+- Maven wird als Build-Tool eingeführt, das Java nicht ersetzt.
+- Maven orchestriert bekannte Build-Schritte und ruft Werkzeuge wie `javac` in einem geordneten Ablauf auf.
+- Der Begriff **orchestrieren** wird mit einer Dirigent-/Orchester-Analogie erklärt.
+- Die Grafik `maven_orchestriert_build.svg` zeigt Quellcode, Maven, `javac` und `target/classes`.
+- `Convention over Configuration` ist der rote Faden.
+- Vergleich ohne Maven:
+  - `src`
+  - `out`
+  - `javac -d out`
+  - `java -cp out`
+- Vergleich mit Maven:
+  - `src/main/java`
+  - `target`
+  - `mvn compile`
+  - `mvn clean`
+- Es werden bewusst noch keine externen Dependencies, kein Maven Central, kein JUnit und kein Multi-Module eingeführt.
+- Kernübung: Produktverwaltung aus dem Package-Block von manueller Struktur in Maven-Struktur migrieren.
+- Transfer: Pensionskassen-Simulation in eine Maven-Struktur übertragen.
+- Typische Fehler:
+  - `target` mit `src` verwechseln
+  - aus dem falschen Arbeitsverzeichnis starten
+  - Package-Struktur falsch unter `src/main/java` abbilden
+  - Maven als Magie missverstehen
+  - `pom.xml` am falschen Ort ablegen
 
 ## Nächster geplanter Block
 
-Als nächstes kann das Thema **mehrdateilige Java-Projekte vertiefen oder Einstieg in Maven** vorbereitet werden.
+Als nächstes bietet sich **Maven-Projekte ausführen und paketieren** an.
 
 Sinnvolle Inhalte:
 
-- bestehende Produktverwaltung mit Packages nochmals praktisch festigen
-- Unterschied zwischen manuellem Kompilieren und Build-Tool sichtbar machen
-- Nutzen von Maven für Standardstruktur, Abhängigkeiten und wiederholbare Builds erklären
-- `src/main/java` als Maven-Konvention vorbereiten
-- bekannte Befehle mit `javac -d out` und `java -cp out` mit Maven-Zielen vergleichen
-- typische Fehler:
-  - manuelle `out`-Struktur mit Maven-`target` verwechseln
-  - aus dem falschen Arbeitsverzeichnis starten
-  - Package-Struktur in `src/main/java` falsch abbilden
-  - Maven zu früh als Magie verwenden, ohne Classpath verstanden zu haben
+- Produktverwaltung nach `mvn compile` gezielt starten
+- Unterschied zwischen Kompilieren, Ausführen und Paketieren erklären
+- `target/classes` und Classpath wieder sichtbar machen
+- einfache JAR-Idee vorbereiten
+- eventuell `mvn package` einführen
+- externe Dependencies, Maven Central und JUnit weiterhin erst später behandeln
 
 ## Passender Anschluss
 
-Der nächste Block sollte an die Produktverwaltung mit `ArrayList`, Packages und den Algorithmen-Übungen anschliessen.
-
-Aktuelle einfache Struktur im Package-Block:
+Der nächste Block sollte an diese Maven-Struktur anschliessen:
 
 ```text
-src/
-  ch/allianz/youngoitv/produktverwaltung/
-    Main.java
-    model/
-      Produkt.java
-    service/
-      ProduktVerwaltung.java
-out/
+produktverwaltung-maven/
+  pom.xml
+  src/main/java/
+    ch/allianz/youngoitv/produktverwaltung/
+      Main.java
+      model/Produkt.java
+      service/ProduktVerwaltung.java
+  target/
 ```
 
 Didaktisch sinnvoll ist als nächstes ein Vergleich:
 
-- ohne Maven: `src`, `out`, `javac -d out`, `java -cp out`
-- mit Maven: `src/main/java`, `target`, `mvn compile`, `mvn exec:java` oder später ein JAR
-
-Die Package-Wiederholungsübung mit der Pensionskassen-Simulation wurde bereits als Aufgabe 12 im bestehenden Package-Übungsblatt ergänzt. Der nächste fachlich sinnvolle Schritt ist deshalb der Maven-Einstieg.
-
-Empfohlener Startprompt für die nächste Session:
-
-```text
-Bitte lies AGENTS.md und NEXT_STEPS.md. Danach briefe mich kurz zum geplanten Block "Maven Einstieg", bevor du Dateien änderst. Der Block soll an Java-Packages, die Produktverwaltung und die Algorithmen-/Pensionskassenübungen anschliessen.
-```
-
-Mögliche neue Dateien für den Maven-Einstieg:
-
-- `Arbeitsblaetter/Arbeitsblatt_Maven_Einstieg.md`
-- `Uebungen/Uebungen_Maven_Einstieg.md`
-- `Musterloesungen/Loesungen_Maven_Einstieg.md`
-
-Beim Erstellen des Maven-Blocks `README.md`, `CONTENT.md` und `NEXT_STEPS.md` wieder mitführen.
+- `mvn compile` erzeugt `.class`-Dateien unter `target/classes`
+- Starten ist weiterhin ein Java-Thema
+- Maven kann später weitere Phasen orchestrieren, zum Beispiel Paketieren
 
 ## Verifikation der zuletzt erstellten Einheiten
 
-Für die letzten Java-Einheiten wurden temporäre Testklassen unter `/tmp` erstellt und geprüft:
+Für die früheren Java-Einheiten wurden temporäre Testklassen unter `/tmp` erstellt und geprüft:
 
 - Methoden
 - Methoden-Festigung
@@ -125,6 +121,8 @@ Für die letzten Java-Einheiten wurden temporäre Testklassen unter `/tmp` erste
 - Algorithmen und Datenstrukturen
 
 Die Java-Beispiele wurden mit `javac` kompiliert und mit `java` ausgeführt. Der Package-Block wurde ohne Maven mit Ausgabe nach `out` geprüft, inklusive Vertiefung mit `ArrayAlgorithmen`, `SortierAlgorithmen` und aufgeteilter Pensionskassen-Simulation. Der Algorithmen-Block wurde mit temporären Testklassen kompiliert und ausgeführt, inklusive Zinseszins, Sortierung und Pensionskassen-Simulation mit CSV-Ausgabe. SVG-Grafiken zu Klassen/Kapselung wurden mit `xmllint` geprüft und mit `rsvg-convert` gerendert.
+
+Für den Maven-Einstieg wurden Markdown-Struktur, Dateiverweise und Schreibweise geprüft. Die SVG-Grafik wurde auf XML-Wohlgeformtheit geprüft. Es wurden keine ausführbaren Projektdateien im Repository angelegt.
 
 ## Wichtige Repo-Regeln
 

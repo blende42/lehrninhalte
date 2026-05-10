@@ -2,9 +2,52 @@
 
 Diese Übersicht listet die vorhandenen Lerninhalte des Repositories nach Materialtyp und Thema. Sie dient als Orientierung für Unterrichtsplanung, Wiederholung und Weiterentwicklung der Unterlagen.
 
+## Begleitende Prozess- und Begriffsbibliothek
+
+Diese Dateien unterstützen die KI-gestützte Erstellung und Prüfung von Lehrmitteln. Die verbindlichen Regeln bleiben in [AGENTS.md](./AGENTS.md).
+
+### Begriffe
+
+- [Orchestrierung](./docs/begriffe/orchestrierung.md)
+  - kurze Erklärung für koordinierte Build- und Werkzeugabläufe
+- [Convention over Configuration](./docs/begriffe/convention_over_configuration.md)
+  - Maven-Konventionen wie `src/main/java` verständlich erklärt
+- [Build-Artefakt](./docs/begriffe/build_artifact.md)
+  - erzeugte Dateien wie `.class`-Dateien und Build-Ordner
+- [Classpath](./docs/begriffe/classpath.md)
+  - Suchort für kompilierte Klassen beim Starten mit `java`
+- [Package vs. Verzeichnis](./docs/begriffe/package_vs_directory.md)
+  - Zusammenhang zwischen Java-Package und Ordnerstruktur
+
+### Prozesse
+
+- [Arbeitsblatt erstellen](./docs/prozesse/arbeitsblatt_erstellen.md)
+  - Checkliste für lernzielorientierte Arbeitsblätter
+- [Übungen erstellen](./docs/prozesse/uebungen_erstellen.md)
+  - Checkliste für klare, gestaffelte Übungsaufträge
+- [Musterlösungen erstellen](./docs/prozesse/musterloesungen_erstellen.md)
+  - Checkliste für kompakte Referenzlösungen
+- [Review Didaktik](./docs/prozesse/review_didaktik.md)
+  - Prüfpunkte für EFZ-Niveau, Lernprogression und Verständlichkeit
+- [Review Java und Maven](./docs/prozesse/review_java_maven.md)
+  - Prüfpunkte für Java-, Package-, Classpath- und Maven-Korrektheit
+
+### Lokale Skills
+
+- [arbeitsblatt-erstellen](./.codex/skills/arbeitsblatt-erstellen/SKILL.md)
+- [uebungen-erstellen](./.codex/skills/uebungen-erstellen/SKILL.md)
+- [musterloesungen-erstellen](./.codex/skills/musterloesungen-erstellen/SKILL.md)
+- [svg-pruefen](./.codex/skills/svg-pruefen/SKILL.md)
+- [java-maven-validieren](./.codex/skills/java-maven-validieren/SKILL.md)
+
+### Agent-Skills
+
+- [git-repo-updaten](./.agents/skills/git-repo-updaten/SKILL.md)
+  - kontrollierter Git-Abschluss nur bei ausdrücklichem Benutzerauftrag
+
 ## Empfohlene Unterrichtsreihenfolge
 
-Diese Reihenfolge erfasst die bisher aufgebauten Konzepte und Übungen. Die Einträge bis und mit Methoden-Festigung sind als bereits vorbereitete Unterrichtssequenz gedacht.
+Diese Reihenfolge erfasst die bisher aufgebauten Konzepte und Übungen. Die Einträge bilden die bisher vorbereitete Unterrichtssequenz.
 
 ### 1. Primitive Datentypen, Wrapper und Parsing
 
@@ -180,13 +223,25 @@ Material:
 - [Übungen – Algorithmen und Datenstrukturen](./Uebungen/Uebungen_Algorithmen_Datenstrukturen.md)
 - [Lösungen – Algorithmen und Datenstrukturen](./Musterloesungen/Loesungen_Algorithmen_Datenstrukturen.md)
 
+### 17. Maven Einstieg
+
+Ziel: Maven als orchestrierendes Build-Tool verstehen, den bekannten manuellen Build-Prozess mit `javac -d out` und `java -cp out` mit `mvn compile`, `mvn clean`, `src/main/java` und `target` vergleichen sowie `Convention over Configuration` praktisch anwenden.
+
+Material:
+
+- [Arbeitsblatt – Maven Einstieg](./Arbeitsblaetter/Arbeitsblatt_Maven_Einstieg.md)
+- [Maven orchestriert den Java-Build](./graphics/maven_orchestriert_build.svg)
+- [Übungen – Maven Einstieg](./Uebungen/Uebungen_Maven_Einstieg.md)
+- [Lösungen – Maven Einstieg](./Musterloesungen/Loesungen_Maven_Einstieg.md)
+
 ### Nächster sinnvoller Block
 
-Nach `Algorithmen und Datenstrukturen` bietet sich als nächstes Thema **mehrdateilige Java-Projekte vertiefen oder Einstieg in Maven** an:
+Nach `Maven Einstieg` bietet sich als nächstes Thema **Maven-Projekte ausführen und paketieren** an:
 
-- bekannte Produktverwaltung über mehrere Dateien festigen
-- Kompilieren und Starten mit `javac -d out` und `java -cp out` wiederholen
-- danach den Nutzen eines Build-Tools wie Maven vergleichen
+- bekannte Produktverwaltung mit Maven starten
+- Unterschied zwischen Kompilieren, Ausführen und Paketieren klären
+- einfache JAR-Idee vorbereiten
+- externe Dependencies und JUnit weiterhin erst später einführen
 
 ## Arbeitsblätter
 
@@ -301,6 +356,13 @@ Arbeitsblätter führen neue Konzepte ein, enthalten kurze Theorie, Beispiele, t
   - Bubble Sort mit `int[]`
   - Selection Sort mit `int[]`
   - Vergleichen, Tauschen und Schleifengrenzen
+- [Arbeitsblatt – Maven Einstieg](./Arbeitsblaetter/Arbeitsblatt_Maven_Einstieg.md)
+  - Maven als orchestrierendes Build-Tool
+  - Dirigent-/Orchester-Analogie für den Begriff orchestrieren
+  - Prozessgrafik zu Quellcode, Maven, `javac`, `.class`-Dateien und `target/classes`
+  - `Convention over Configuration` mit `src/main/java` und `target`
+  - Vergleich von `src`, `out`, `javac -d out`, `java -cp out` mit `mvn compile` und `mvn clean`
+  - typische Fehler bei Maven-Struktur, Arbeitsverzeichnis und `pom.xml`
 
 ## Konzeptgrafiken
 
@@ -331,6 +393,11 @@ Konzeptgrafiken visualisieren Beziehungen, Abläufe und typische Denkmodelle. Si
 - [Java: Getter, Setter und Validierung](./graphics/java_getter_setter_validierung.svg)
   - Getter lesen Attributwerte
   - Setter prüfen und ändern Attributwerte kontrolliert
+- [Maven orchestriert den Java-Build](./graphics/maven_orchestriert_build.svg)
+  - Quellcode unter `src/main/java`
+  - Maven als Koordinator des Build-Ablaufs
+  - `javac` als weiterhin verwendetes Werkzeug
+  - erzeugte `.class`-Dateien unter `target/classes`
 
 ### Arbeitsblattgrafiken zu StringBuilder
 
@@ -468,6 +535,13 @@ Konzeptgrafiken visualisieren Beziehungen, Abläufe und typische Denkmodelle. Si
   - Preise und optional Produktobjekte sortieren
   - Zinseszins mit Schleife berechnen
   - Pensionskassenkapital simulieren und als CSV für Excel ausgeben
+- [Übungen – Maven Einstieg](./Uebungen/Uebungen_Maven_Einstieg.md)
+  - Begriffe rund um Maven, `javac`, `java`, `pom.xml`, `src/main/java` und `target` zuordnen
+  - Produktverwaltung von manueller Struktur nach Maven-Struktur migrieren
+  - `mvn clean` und `mvn compile` ausführen und einordnen
+  - Fehlerdiagnose zu falscher Projektstruktur und falschem Arbeitsverzeichnis
+  - Reflexion zu `Convention over Configuration`
+  - Transfer zur Pensionskassen-Simulation und optionaler Ausblick auf weitere Tools mit Konventionen
 
 ## Musterlösungen
 
@@ -495,6 +569,8 @@ Musterlösungen halten kompakte Referenzlösungen und Bewertungshilfen bereit.
   - Produktverwaltung, Algorithmen und Pensionskassen-Simulation mit Package-Struktur, Imports, `javac -d out` und `java -cp out`
 - [Lösungen – Algorithmen und Datenstrukturen](./Musterloesungen/Loesungen_Algorithmen_Datenstrukturen.md)
   - Such-, Zähl-, Minimum- und Maximum-Methoden, Bubble Sort, Selection Sort, Zinseszins und Pensionskassen-Simulation
+- [Lösungen – Maven Einstieg](./Musterloesungen/Loesungen_Maven_Einstieg.md)
+  - kompakte Lösungen zur Maven-Begriffsklärung, Projektstruktur, `pom.xml`, Fehlerdiagnose und Reflexion
 - [Musterlösungen – StringBuilder & Parser](./Musterloesungen/musterloesungen_stringbuilder.md)
   - StringBuilder-Methoden und vereinfachter Parser
 - [Musterlösungen – Mini-Projekt String Parser](./Musterloesungen/string_parser_loesungen.md)

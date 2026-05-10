@@ -10,6 +10,39 @@ Die verbindliche Policy für Codex mit `MUSS`, `SOLL`, `DARF NICHT`, Qualitätsg
 - [CONTENT.md](./CONTENT.md) – empfohlene Unterrichtsreihenfolge und strukturierte Übersicht über Arbeitsblätter, Konzeptgrafiken, Übungen und Musterlösungen
 - [NEXT_STEPS.md](./NEXT_STEPS.md) – Übergabe zum aktuellen Stand und nächstem geplanten Unterrichtsblock
 
+### docs
+Begriffs- und Prozessbibliothek für KI-gestützte Lehrmittel-Erstellung:
+
+#### docs/begriffe
+
+- [orchestrierung.md](./docs/begriffe/orchestrierung.md)
+- [convention_over_configuration.md](./docs/begriffe/convention_over_configuration.md)
+- [build_artifact.md](./docs/begriffe/build_artifact.md)
+- [classpath.md](./docs/begriffe/classpath.md)
+- [package_vs_directory.md](./docs/begriffe/package_vs_directory.md)
+
+#### docs/prozesse
+
+- [arbeitsblatt_erstellen.md](./docs/prozesse/arbeitsblatt_erstellen.md)
+- [uebungen_erstellen.md](./docs/prozesse/uebungen_erstellen.md)
+- [musterloesungen_erstellen.md](./docs/prozesse/musterloesungen_erstellen.md)
+- [review_didaktik.md](./docs/prozesse/review_didaktik.md)
+- [review_java_maven.md](./docs/prozesse/review_java_maven.md)
+
+### .codex/skills
+Lokale Skills für wiederkehrende Arbeitsabläufe in diesem Repository:
+
+- [arbeitsblatt-erstellen](./.codex/skills/arbeitsblatt-erstellen/SKILL.md)
+- [uebungen-erstellen](./.codex/skills/uebungen-erstellen/SKILL.md)
+- [musterloesungen-erstellen](./.codex/skills/musterloesungen-erstellen/SKILL.md)
+- [svg-pruefen](./.codex/skills/svg-pruefen/SKILL.md)
+- [java-maven-validieren](./.codex/skills/java-maven-validieren/SKILL.md)
+
+### .agents/skills
+Agent-Skills für kontrollierte Arbeitsabläufe:
+
+- [git-repo-updaten](./.agents/skills/git-repo-updaten/SKILL.md)
+
 ### Arbeitsblaetter
 Lehr- und Arbeitsblätter zu Java- und Grundlagenthemen:
 
@@ -25,6 +58,7 @@ Lehr- und Arbeitsblätter zu Java- und Grundlagenthemen:
 - [Arbeitsblatt_Packages.md](./Arbeitsblaetter/Arbeitsblatt_Packages.md)
 - [Arbeitsblatt_Algorithmen_Datenstrukturen.md](./Arbeitsblaetter/Arbeitsblatt_Algorithmen_Datenstrukturen.md)
 - [Arbeitsblatt_Sortieralgorithmen.md](./Arbeitsblaetter/Arbeitsblatt_Sortieralgorithmen.md)
+- [Arbeitsblatt_Maven_Einstieg.md](./Arbeitsblaetter/Arbeitsblatt_Maven_Einstieg.md)
 - [arbeitsblatt_java_wrapper.md](./Arbeitsblaetter/arbeitsblatt_java_wrapper.md)
 - [arbeitsblatt_stringbuilder.md](./Arbeitsblaetter/arbeitsblatt_stringbuilder.md)
 - [arbeitsblatt_theorie_kombiniert.md](./Arbeitsblaetter/arbeitsblatt_theorie_kombiniert.md)
@@ -54,6 +88,7 @@ SVG-Grafiken und zugehörige Datei für eingebettete Arbeitsblattgrafiken:
 - [Uebungen_ArrayList.md](./Uebungen/Uebungen_ArrayList.md)
 - [Uebungen_Packages.md](./Uebungen/Uebungen_Packages.md)
 - [Uebungen_Algorithmen_Datenstrukturen.md](./Uebungen/Uebungen_Algorithmen_Datenstrukturen.md)
+- [Uebungen_Maven_Einstieg.md](./Uebungen/Uebungen_Maven_Einstieg.md)
 - [string_uebungen.md](./Uebungen/string_uebungen.md)
 - [string_uebungen_v2.md](./Uebungen/string_uebungen_v2.md)
 - [string_mini_projekt_v3.md](./Uebungen/string_mini_projekt_v3.md)
@@ -77,6 +112,7 @@ Kompakte Referenzlösungen zu den Übungen, Simulationen, Package-Strukturierung
 - [Loesungen_ArrayList.md](./Musterloesungen/Loesungen_ArrayList.md)
 - [Loesungen_Packages.md](./Musterloesungen/Loesungen_Packages.md)
 - [Loesungen_Algorithmen_Datenstrukturen.md](./Musterloesungen/Loesungen_Algorithmen_Datenstrukturen.md)
+- [Loesungen_Maven_Einstieg.md](./Musterloesungen/Loesungen_Maven_Einstieg.md)
 - [musterloesungen_stringbuilder.md](./Musterloesungen/musterloesungen_stringbuilder.md)
 - [string_parser_loesungen.md](./Musterloesungen/string_parser_loesungen.md)
 
@@ -90,6 +126,7 @@ Allgemeine SVG-Grafiken für den Unterricht:
 - [java_getter_setter_validierung.svg](./graphics/java_getter_setter_validierung.svg)
 - [java_objekt_referenz.svg](./graphics/java_objekt_referenz.svg)
 - [java_wert_vs_objekt_wrapper.svg](./graphics/java_wert_vs_objekt_wrapper.svg)
+- [maven_orchestriert_build.svg](./graphics/maven_orchestriert_build.svg)
 - [parser_grafik.svg](./graphics/parser_grafik.svg)
 
 ### templates

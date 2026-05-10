@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1120" viewBox="0 0 1800 1120" role="img" aria-labelledby="title desc">
+  <title id="title">Maven orchestriert den Java-Build</title>
+  <desc id="desc">Prozessgrafik zum Maven-Einstieg: Quellcode in src/main/java, Maven als Koordinator, javac als Werkzeug und .class-Dateien in target/classes.</desc>
+  <defs>
+    <style>
+      .title { font: 700 40px Arial, Helvetica, sans-serif; fill: #111; }
+      .section { font: 700 30px Arial, Helvetica, sans-serif; fill: #111; }
+      .heading { font: 700 26px Arial, Helvetica, sans-serif; fill: #111; }
+      .text { font: 700 22px Arial, Helvetica, sans-serif; fill: #111; }
+      .text-regular { font: 400 22px Arial, Helvetica, sans-serif; fill: #222; }
+      .text-tight { font: 700 20px Arial, Helvetica, sans-serif; fill: #111; }
+      .text-small { font: 400 18px Arial, Helvetica, sans-serif; fill: #222; }
+      .mono { font: 700 26px 'Courier New', Courier, monospace; }
+      .small { font: 400 18px Arial, Helvetica, sans-serif; fill: #555; }
+
+      .left-accent { fill: #4d8f3a; }
+      .right-accent { fill: #2b65b3; }
+      .hint-accent { fill: #c67f17; }
+      .muted { fill: #666; }
+
+      .panel { fill: #fbfcfb; stroke-width: 2.2; }
+      .panel-left { stroke: #6ca05f; }
+      .panel-right { stroke: #6f9ce0; }
+      .panel-neutral { stroke: #b9bcc3; }
+
+      .header-neutral { fill: #f2f4f7; stroke: #b9bcc3; stroke-width: 2; }
+      .source-box { fill: #e6efdf; stroke: #6ca05f; stroke-width: 2.2; }
+      .maven-box { fill: #e8eef9; stroke: #2b65b3; stroke-width: 2.4; }
+      .tool-box { fill: #f8f1e1; stroke: #d89b37; stroke-width: 2.2; }
+      .target-box { fill: #f3f5f7; stroke: #6b7078; stroke-width: 2.2; }
+      .artifact-box { fill: #ffffff; stroke: #6b7078; stroke-width: 2; }
+      .hint-box { fill: #f8f1e1; stroke: #d89b37; stroke-width: 2.2; }
+      .summary { fill: #f7f8fa; stroke: #b9bcc3; stroke-width: 2; }
+
+      .arrow-right { stroke: #2b65b3; stroke-width: 3.2; fill: none; }
+      .arrow-hint { stroke: #c67f17; stroke-width: 3.2; stroke-dasharray: 10 8; fill: none; }
+      .arrow-source { stroke: #6ca05f; stroke-width: 3.2; fill: none; }
+      .flow { stroke: #2b65b3; stroke-width: 3.2; fill: none; }
+    </style>
+
+    <marker id="arrowRight" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2b65b3"/>
+    </marker>
+    <marker id="arrowSource" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#6ca05f"/>
+    </marker>
+    <marker id="arrowHint" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#c67f17"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1800" height="1120" fill="#ffffff"/>
+  <text x="900" y="72" text-anchor="middle" class="title">Maven orchestriert den Java-Build</text>
+  <text x="900" y="104" text-anchor="middle" class="small">Maven ersetzt die Werkzeuge nicht. Maven organisiert ihre Zusammenarbeit.</text>
+
+  <rect x="60" y="140" rx="20" ry="20" width="1680" height="620" class="panel panel-neutral"/>
+  <rect x="80" y="158" rx="16" ry="16" width="1640" height="64" class="header-neutral"/>
+  <text x="900" y="200" text-anchor="middle" class="section">Von Quellcode zu erzeugten Artefakten</text>
+
+  <rect x="120" y="320" rx="18" ry="18" width="280" height="150" class="source-box"/>
+  <text x="260" y="364" text-anchor="middle" class="heading left-accent">Quellcode</text>
+  <text x="260" y="404" text-anchor="middle" class="mono left-accent">src/main/java</text>
+  <text x="260" y="438" text-anchor="middle" class="text-tight">eigene .java-Dateien</text>
+
+  <rect x="510" y="292" rx="20" ry="20" width="330" height="206" class="maven-box"/>
+  <text x="675" y="338" text-anchor="middle" class="heading right-accent">Maven</text>
+  <text x="675" y="374" text-anchor="middle" class="text-tight">Dirigent / Koordinator</text>
+  <text x="675" y="414" text-anchor="middle" class="mono right-accent">mvn compile</text>
+  <text x="675" y="452" text-anchor="middle" class="text-tight">orchestriert Schritte</text>
+
+  <rect x="930" y="320" rx="18" ry="18" width="270" height="150" class="tool-box"/>
+  <text x="1065" y="364" text-anchor="middle" class="heading hint-accent">Werkzeug</text>
+  <text x="1065" y="404" text-anchor="middle" class="mono hint-accent">javac</text>
+  <text x="1065" y="438" text-anchor="middle" class="text-tight">kompiliert Java</text>
+
+  <rect x="1320" y="292" rx="20" ry="20" width="330" height="206" class="target-box"/>
+  <text x="1485" y="338" text-anchor="middle" class="heading muted">Ausgabe</text>
+  <text x="1485" y="374" text-anchor="middle" class="mono muted">target/classes</text>
+  <rect x="1355" y="404" width="260" height="50" rx="8" ry="8" class="artifact-box"/>
+  <text x="1485" y="437" text-anchor="middle" class="text-tight">erzeugte .class-Dateien</text>
+
+  <line x1="400" y1="395" x2="510" y2="395" class="arrow-source" marker-end="url(#arrowSource)"/>
+  <line x1="840" y1="395" x2="930" y2="395" class="flow" marker-end="url(#arrowRight)"/>
+  <line x1="1200" y1="395" x2="1320" y2="395" class="flow" marker-end="url(#arrowRight)"/>
+
+  <rect x="140" y="560" rx="18" ry="18" width="500" height="132" class="panel panel-left"/>
+  <text x="390" y="602" text-anchor="middle" class="heading left-accent">Quellcode bleibt Quellcode</text>
+  <text x="390" y="638" text-anchor="middle" class="text-tight">nur unter src/main/java</text>
+  <text x="390" y="668" text-anchor="middle" class="text-tight">nicht in target ablegen</text>
+
+  <rect x="650" y="560" rx="18" ry="18" width="500" height="132" class="panel panel-right"/>
+  <text x="900" y="602" text-anchor="middle" class="heading right-accent">Maven ersetzt nichts</text>
+  <text x="900" y="638" text-anchor="middle" class="text-tight">javac bleibt das Werkzeug</text>
+  <text x="900" y="668" text-anchor="middle" class="text-tight">Maven koordiniert den Ablauf</text>
+
+  <rect x="1160" y="560" rx="18" ry="18" width="500" height="132" class="hint-box"/>
+  <text x="1410" y="602" text-anchor="middle" class="heading hint-accent">Artefakte sind erzeugt</text>
+  <text x="1410" y="638" text-anchor="middle" class="text-tight">target darf gelöscht werden</text>
+  <text x="1410" y="668" text-anchor="middle" class="text-tight">mvn clean räumt auf</text>
+
+  <path d="M 390 560 L 315 470" class="arrow-source" marker-end="url(#arrowSource)"/>
+  <path d="M 900 560 L 740 492" class="arrow-right" marker-end="url(#arrowRight)"/>
+  <path d="M 1410 560 L 1485 498" class="arrow-hint" marker-end="url(#arrowHint)"/>
+
+  <rect x="60" y="820" rx="20" ry="20" width="1680" height="246" class="summary"/>
+  <text x="98" y="866" class="section">Merksätze</text>
+  <circle cx="112" cy="912" r="6.5" fill="#6ca05f"/>
+  <text x="132" y="920" class="text-tight">src/main/java enthält den Quellcode.</text>
+  <circle cx="112" cy="958" r="6.5" fill="#2b65b3"/>
+  <text x="132" y="966" class="text-tight">Maven orchestriert den Build-Ablauf.</text>
+  <circle cx="112" cy="1004" r="6.5" fill="#c67f17"/>
+  <text x="132" y="1012" class="text-tight">javac kompiliert weiterhin die Java-Dateien.</text>
+  <circle cx="900" cy="912" r="6.5" fill="#6b7078"/>
+  <text x="920" y="920" class="text-tight">target/classes enthält erzeugte .class-Dateien.</text>
+  <circle cx="900" cy="958" r="6.5" fill="#c67f17"/>
+  <text x="920" y="966" class="text-tight">target ist kein Ort für eigenen Quellcode.</text>
+  <circle cx="900" cy="1004" r="6.5" fill="#2b65b3"/>
+  <text x="920" y="1012" class="text-tight">mvn clean löscht erzeugte Build-Ergebnisse.</text>
+</svg>
