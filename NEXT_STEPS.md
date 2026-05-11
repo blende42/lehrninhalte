@@ -25,26 +25,31 @@ Aktuell vorbereitet sind:
 15. Java-Packages
 16. Algorithmen und Datenstrukturen
 17. Maven Einstieg
+18. Maven-Projekte ausführen und paketieren
 
-Die zuletzt erstellte Unterrichtseinheit ist **Maven Einstieg**. Zusätzlich wurde eine kleine Prozess- und Begriffsbibliothek für KI-gestützte Lehrmittel-Erstellung angelegt.
+Die zuletzt erstellte Unterrichtseinheit ist **Maven-Projekte ausführen und paketieren**. Zusätzlich wurde eine kleine Prozess- und Begriffsbibliothek für KI-gestützte Lehrmittel-Erstellung angelegt.
 
 Neue Maven-Dateien:
 
 - [Arbeitsblatt_Maven_Einstieg.md](./Arbeitsblaetter/Arbeitsblatt_Maven_Einstieg.md)
 - [Uebungen_Maven_Einstieg.md](./Uebungen/Uebungen_Maven_Einstieg.md)
 - [Loesungen_Maven_Einstieg.md](./Musterloesungen/Loesungen_Maven_Einstieg.md)
+- [Arbeitsblatt_Maven_Ausfuehren_und_Paketieren.md](./Arbeitsblaetter/Arbeitsblatt_Maven_Ausfuehren_und_Paketieren.md)
+- [Uebungen_Maven_Ausfuehren_und_Paketieren.md](./Uebungen/Uebungen_Maven_Ausfuehren_und_Paketieren.md)
+- [Loesungen_Maven_Ausfuehren_und_Paketieren.md](./Musterloesungen/Loesungen_Maven_Ausfuehren_und_Paketieren.md)
 - [maven_orchestriert_build.svg](./graphics/maven_orchestriert_build.svg)
+- [maven_compile_run_package.svg](./graphics/maven_compile_run_package.svg)
 
 Neue Dokumentations- und Skill-Bereiche:
 
 - [docs/begriffe](./docs/begriffe/) – kurze unterrichtstaugliche Begriffserklärungen
 - [docs/prozesse](./docs/prozesse/) – Checklisten für Erstellung und Review
-- [.codex/skills](./.codex/skills/) – lokale Skills für wiederkehrende Arbeitsabläufe
-- [.agents/skills/git-repo-updaten](./.agents/skills/git-repo-updaten/SKILL.md) – kontrollierter Git-Abschluss nur bei ausdrücklichem Benutzerauftrag
+- [.agents/skills](./.agents/skills/) – aktuelle Repo-Skills für wiederkehrende und kontrollierte Arbeitsabläufe
+- [.codex/skills](./.codex/skills/) – veraltete Skill-Ablage; die aktuellen Skills liegen unter `.agents/skills`
 
 ## Prozess- und Begriffsbibliothek
 
-Die neuen Dateien unter `docs/begriffe` erklären zentrale Begriffe kurz und unterrichtstauglich. Die Dateien unter `docs/prozesse` formulieren konkrete Checklisten für Erstellung und Review von Lehrmitteln. Die lokalen Skills unter `.codex/skills` verweisen auf diese Prozesse und auf [AGENTS.md](./AGENTS.md), ohne die Repo-Regeln vollständig zu duplizieren. Der Agent-Skill `git-repo-updaten` beschreibt einen kontrollierten Git-Abschluss und bleibt ausdrücklich an einen Benutzerauftrag gebunden.
+Die Dateien unter `docs/begriffe` erklären zentrale Begriffe kurz und unterrichtstauglich. Die Dateien unter `docs/prozesse` formulieren konkrete Checklisten für Erstellung und Review von Lehrmitteln. Die aktuellen Repo-Skills unter `.agents/skills` verweisen auf diese Prozesse und auf [AGENTS.md](./AGENTS.md), ohne die Repo-Regeln vollständig zu duplizieren. Die frühere Ablage `.codex/skills` ist veraltet. Der Skill `git-repo-updaten` beschreibt einen kontrollierten Git-Abschluss und bleibt ausdrücklich an einen Benutzerauftrag gebunden.
 
 ## Wichtige Inhalte aus dem Maven-Einstieg
 
@@ -73,22 +78,36 @@ Die neuen Dateien unter `docs/begriffe` erklären zentrale Begriffe kurz und unt
   - Maven als Magie missverstehen
   - `pom.xml` am falschen Ort ablegen
 
+## Wichtige Inhalte aus Maven-Projekte ausführen und paketieren
+
+- `mvn compile` erzeugt `.class`-Dateien unter `target/classes`.
+- Ein Programmstart bleibt sichtbar ein Java-Thema, zum Beispiel mit `java -cp target/classes ...Main`.
+- `mvn package` erzeugt ein Build-Artefakt, zum Beispiel `target/produktverwaltung-1.0.0.jar`.
+- Eine einfache JAR-Datei wird als Build-Ergebnis eingeordnet, noch nicht als speziell konfiguriertes startbares JAR.
+- Die Grafik `maven_compile_run_package.svg` zeigt `compile`, `run` und `package` als getrennte Schritte und hebt `target/classes` sowie eine JAR-Datei nach dem Schema `target/<artifactId>-<version>.jar` als Build-Ergebnisse hervor.
+- Java-`package` und Maven `package` werden ausdrücklich getrennt:
+  - Java-`package` strukturiert Klassen im Code.
+  - Maven `package` ist eine Build-Phase.
+- Maven-Lifecycle wird nur grob vorbereitet: `compile` vor `package`.
+- Reproduzierbare Builds werden über standardisierte Befehle wie `mvn clean package` erklärt.
+- Build-Server, Jenkins und CI/CD werden nur als Ausblick erwähnt.
+- Es werden bewusst noch keine externen Dependencies, kein Maven Central, kein JUnit, keine Plugin-Details, keine Fat Jars, kein Spring Boot und kein `install`/`deploy` eingeführt.
+
 ## Nächster geplanter Block
 
-Als nächstes bietet sich **Maven-Projekte ausführen und paketieren** an.
+Als nächstes bietet sich **Maven-Projekte mit einfachen Tests vorbereiten** an.
 
 Sinnvolle Inhalte:
 
-- Produktverwaltung nach `mvn compile` gezielt starten
-- Unterschied zwischen Kompilieren, Ausführen und Paketieren erklären
-- `target/classes` und Classpath wieder sichtbar machen
-- einfache JAR-Idee vorbereiten
-- eventuell `mvn package` einführen
-- externe Dependencies, Maven Central und JUnit weiterhin erst später behandeln
+- Unterschied zwischen manuellen Testausgaben und automatisierten Tests vorbereiten
+- bestehende `main`-Ausgaben von eigentlicher Logik trennen
+- Teststruktur nur grob vorbereiten
+- JUnit später gezielt einführen
+- externe Dependencies und Maven Central weiterhin nur sehr kontrolliert behandeln
 
 ## Passender Anschluss
 
-Der nächste Block sollte an diese Maven-Struktur anschliessen:
+Der nächste Block kann weiterhin an diese Maven-Struktur anschliessen:
 
 ```text
 produktverwaltung-maven/
@@ -103,9 +122,9 @@ produktverwaltung-maven/
 
 Didaktisch sinnvoll ist als nächstes ein Vergleich:
 
-- `mvn compile` erzeugt `.class`-Dateien unter `target/classes`
-- Starten ist weiterhin ein Java-Thema
-- Maven kann später weitere Phasen orchestrieren, zum Beispiel Paketieren
+- manuelle Testausgaben in `main`
+- kleine Methoden mit klaren Rückgabewerten
+- spätere automatisierte Tests als Wiederholung derselben Erwartungen
 
 ## Verifikation der zuletzt erstellten Einheiten
 
@@ -123,6 +142,8 @@ Für die früheren Java-Einheiten wurden temporäre Testklassen unter `/tmp` ers
 Die Java-Beispiele wurden mit `javac` kompiliert und mit `java` ausgeführt. Der Package-Block wurde ohne Maven mit Ausgabe nach `out` geprüft, inklusive Vertiefung mit `ArrayAlgorithmen`, `SortierAlgorithmen` und aufgeteilter Pensionskassen-Simulation. Der Algorithmen-Block wurde mit temporären Testklassen kompiliert und ausgeführt, inklusive Zinseszins, Sortierung und Pensionskassen-Simulation mit CSV-Ausgabe. SVG-Grafiken zu Klassen/Kapselung wurden mit `xmllint` geprüft und mit `rsvg-convert` gerendert.
 
 Für den Maven-Einstieg wurden Markdown-Struktur, Dateiverweise und Schreibweise geprüft. Die SVG-Grafik wurde auf XML-Wohlgeformtheit geprüft. Es wurden keine ausführbaren Projektdateien im Repository angelegt.
+
+Für **Maven-Projekte ausführen und paketieren** wurden Markdown-Struktur, Dateiverweise, de-CH-Schreibweise und die Maven-/Java-Begriffstrennung geprüft. Die Grafik `maven_compile_run_package.svg` wurde ergänzt und im Arbeitsblatt eingebunden. Es wurden keine ausführbaren Projektdateien im Repository angelegt.
 
 ## Wichtige Repo-Regeln
 

@@ -1,3 +1,8 @@
+---
+name: git-repo-updaten
+description: Verwenden, wenn der Benutzer Git-Schreibaktionen wie Commit oder Push ausdrücklich verlangt.
+---
+
 # name: git-repo-updaten
 
 description: Aktualisiert ein Git-Repository kontrolliert mit git status, git diff, git add, git commit und git push. Nur verwenden, wenn der Benutzer Git-Schreibaktionen ausdrücklich verlangt.

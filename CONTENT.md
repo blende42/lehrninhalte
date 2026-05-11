@@ -32,18 +32,22 @@ Diese Dateien unterstützen die KI-gestützte Erstellung und Prüfung von Lehrmi
 - [Review Java und Maven](./docs/prozesse/review_java_maven.md)
   - Prüfpunkte für Java-, Package-, Classpath- und Maven-Korrektheit
 
-### Lokale Skills
+### Repo-Skills
 
-- [arbeitsblatt-erstellen](./.codex/skills/arbeitsblatt-erstellen/SKILL.md)
-- [uebungen-erstellen](./.codex/skills/uebungen-erstellen/SKILL.md)
-- [musterloesungen-erstellen](./.codex/skills/musterloesungen-erstellen/SKILL.md)
-- [svg-pruefen](./.codex/skills/svg-pruefen/SKILL.md)
-- [java-maven-validieren](./.codex/skills/java-maven-validieren/SKILL.md)
-
-### Agent-Skills
-
+- [arbeitsblatt-erstellen](./.agents/skills/arbeitsblatt-erstellen/SKILL.md)
+  - unterstützt das Erstellen oder gezielte Überarbeiten von Arbeitsblättern
+- [uebungen-erstellen](./.agents/skills/uebungen-erstellen/SKILL.md)
+  - unterstützt klare, gestaffelte und prüfbare Übungsaufträge
+- [musterloesungen-erstellen](./.agents/skills/musterloesungen-erstellen/SKILL.md)
+  - unterstützt kompakte, fachlich korrekte Musterlösungen
+- [svg-pruefen](./.agents/skills/svg-pruefen/SKILL.md)
+  - unterstützt die Prüfung von SVG-Grafiken auf XML, Lesbarkeit und Einbindung
+- [java-maven-validieren](./.agents/skills/java-maven-validieren/SKILL.md)
+  - unterstützt die technische Prüfung von Java-, Package-, Classpath- und Maven-Beispielen
 - [git-repo-updaten](./.agents/skills/git-repo-updaten/SKILL.md)
   - kontrollierter Git-Abschluss nur bei ausdrücklichem Benutzerauftrag
+
+Hinweis: `.codex/skills` ist eine veraltete Skill-Ablage. Die aktuellen Repo-Skills liegen unter `.agents/skills`.
 
 ## Empfohlene Unterrichtsreihenfolge
 
@@ -234,14 +238,25 @@ Material:
 - [Übungen – Maven Einstieg](./Uebungen/Uebungen_Maven_Einstieg.md)
 - [Lösungen – Maven Einstieg](./Musterloesungen/Loesungen_Maven_Einstieg.md)
 
+### 18. Maven-Projekte ausführen und paketieren
+
+Ziel: `compile`, Programmstart und `package` unterscheiden, `target/classes` und einfache JAR-Dateien als Build-Ergebnisse einordnen, Java-`package` von Maven `package` trennen sowie reproduzierbare Builds als Grundlage für Build-Server und CI/CD vorbereiten.
+
+Material:
+
+- [Arbeitsblatt – Maven-Projekte ausführen und paketieren](./Arbeitsblaetter/Arbeitsblatt_Maven_Ausfuehren_und_Paketieren.md)
+- [Maven compile, run und package](./graphics/maven_compile_run_package.svg)
+- [Übungen – Maven-Projekte ausführen und paketieren](./Uebungen/Uebungen_Maven_Ausfuehren_und_Paketieren.md)
+- [Lösungen – Maven-Projekte ausführen und paketieren](./Musterloesungen/Loesungen_Maven_Ausfuehren_und_Paketieren.md)
+
 ### Nächster sinnvoller Block
 
-Nach `Maven Einstieg` bietet sich als nächstes Thema **Maven-Projekte ausführen und paketieren** an:
+Nach `Maven-Projekte ausführen und paketieren` bietet sich als nächstes Thema **Maven-Projekte mit einfachen Tests vorbereiten** an:
 
-- bekannte Produktverwaltung mit Maven starten
-- Unterschied zwischen Kompilieren, Ausführen und Paketieren klären
-- einfache JAR-Idee vorbereiten
-- externe Dependencies und JUnit weiterhin erst später einführen
+- Unterschied zwischen manuellen Testausgaben und automatisierten Tests vorbereiten
+- Projektstruktur für Tests grob einführen
+- JUnit erst dann gezielt und langsam einführen
+- externe Dependencies und Maven Central weiterhin bewusst begrenzen
 
 ## Arbeitsblätter
 
@@ -363,6 +378,13 @@ Arbeitsblätter führen neue Konzepte ein, enthalten kurze Theorie, Beispiele, t
   - `Convention over Configuration` mit `src/main/java` und `target`
   - Vergleich von `src`, `out`, `javac -d out`, `java -cp out` mit `mvn compile` und `mvn clean`
   - typische Fehler bei Maven-Struktur, Arbeitsverzeichnis und `pom.xml`
+- [Arbeitsblatt – Maven-Projekte ausführen und paketieren](./Arbeitsblaetter/Arbeitsblatt_Maven_Ausfuehren_und_Paketieren.md)
+  - Unterschied zwischen `compile`, Programmstart und `package`
+  - `target/classes` als Ort erzeugter `.class`-Dateien
+  - einfache JAR-Datei als Build-Artefakt
+  - Unterschied zwischen Java-`package` und Maven `package`
+  - reproduzierbare und standardisierte Builds
+  - kurzer Ausblick auf Build-Server, Jenkins und CI/CD ohne technische Tiefe
 
 ## Konzeptgrafiken
 
@@ -398,6 +420,11 @@ Konzeptgrafiken visualisieren Beziehungen, Abläufe und typische Denkmodelle. Si
   - Maven als Koordinator des Build-Ablaufs
   - `javac` als weiterhin verwendetes Werkzeug
   - erzeugte `.class`-Dateien unter `target/classes`
+- [Maven compile, run und package](./graphics/maven_compile_run_package.svg)
+  - `compile`, Programmstart und `package` als getrennte Schritte
+  - `target/classes` als erzeugtes Build-Ergebnis
+  - einfache JAR-Datei als Build-Artefakt
+  - Unterschied zwischen Java-`package` und Maven `package`
 
 ### Arbeitsblattgrafiken zu StringBuilder
 
@@ -542,6 +569,13 @@ Konzeptgrafiken visualisieren Beziehungen, Abläufe und typische Denkmodelle. Si
   - Fehlerdiagnose zu falscher Projektstruktur und falschem Arbeitsverzeichnis
   - Reflexion zu `Convention over Configuration`
   - Transfer zur Pensionskassen-Simulation und optionaler Ausblick auf weitere Tools mit Konventionen
+- [Übungen – Maven-Projekte ausführen und paketieren](./Uebungen/Uebungen_Maven_Ausfuehren_und_Paketieren.md)
+  - `compile`, Programmstart und `package` zuordnen
+  - `mvn compile` ausführen und `target/classes` untersuchen
+  - Produktverwaltung mit `java -cp target/classes` starten
+  - `mvn package` ausführen und JAR-Datei unter `target` einordnen
+  - Fehlerdiagnose zu Java-`package`, Maven `package`, `target`, Arbeitsverzeichnis und Maven-Magie
+  - reproduzierbare Builds und Build-Server-Ausblick reflektieren
 
 ## Musterlösungen
 
@@ -571,6 +605,8 @@ Musterlösungen halten kompakte Referenzlösungen und Bewertungshilfen bereit.
   - Such-, Zähl-, Minimum- und Maximum-Methoden, Bubble Sort, Selection Sort, Zinseszins und Pensionskassen-Simulation
 - [Lösungen – Maven Einstieg](./Musterloesungen/Loesungen_Maven_Einstieg.md)
   - kompakte Lösungen zur Maven-Begriffsklärung, Projektstruktur, `pom.xml`, Fehlerdiagnose und Reflexion
+- [Lösungen – Maven-Projekte ausführen und paketieren](./Musterloesungen/Loesungen_Maven_Ausfuehren_und_Paketieren.md)
+  - kompakte Lösungen zu `compile`, Programmstart, `package`, `target/classes`, JAR-Artefakt, Fehlerdiagnose und CI/CD-Ausblick
 - [Musterlösungen – StringBuilder & Parser](./Musterloesungen/musterloesungen_stringbuilder.md)
   - StringBuilder-Methoden und vereinfachter Parser
 - [Musterlösungen – Mini-Projekt String Parser](./Musterloesungen/string_parser_loesungen.md)

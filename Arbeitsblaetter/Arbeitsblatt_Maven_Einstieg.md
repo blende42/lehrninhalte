@@ -143,7 +143,7 @@ target
 | Ausgabeordner | `out` | `target` |
 | Kompilieren | `javac -d out ...` | `mvn compile` |
 | Aufräumen | `out` löschen | `mvn clean` |
-| Starten | `java -cp out ...` | später mit Plugin oder JAR |
+| Starten | `java -cp out ...` | mit Java über `target/classes`; später auch mit Plugin oder startbarem JAR |
 | Grundidee | du steuerst die Befehle selbst | Maven orchestriert die Schritte |
 
 In diesem Einstieg verwenden wir Maven noch ohne externe Dependencies.
