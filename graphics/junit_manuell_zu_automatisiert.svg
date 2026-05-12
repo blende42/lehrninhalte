@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1120" viewBox="0 0 1800 1120" role="img" aria-labelledby="title desc">
+  <title id="title">JUnit automatisiert manuelle Prüfungen</title>
+  <desc id="desc">Vergleichsgrafik: manueller Test mit menschlichem Vergleich und JUnit-Test mit assertEquals und mvn test.</desc>
+
+  <defs>
+    <style>
+      .title { font: 700 42px Arial, Helvetica, sans-serif; fill: #111; }
+      .subtitle { font: 400 20px Arial, Helvetica, sans-serif; fill: #555; }
+      .section { font: 700 30px Arial, Helvetica, sans-serif; fill: #111; }
+      .heading { font: 700 25px Arial, Helvetica, sans-serif; fill: #111; }
+      .text { font: 700 22px Arial, Helvetica, sans-serif; fill: #111; }
+      .text-tight { font: 700 20px Arial, Helvetica, sans-serif; fill: #111; }
+      .small { font: 400 18px Arial, Helvetica, sans-serif; fill: #555; }
+      .mono-small { font: 700 19px 'Courier New', Courier, monospace; fill: #111; }
+
+      .page { fill: #ffffff; }
+      .panel { fill: #fbfcfd; stroke: #b9bcc3; stroke-width: 2.2; }
+      .panel-left { fill: #fffaf0; stroke: #d89b37; stroke-width: 2.4; }
+      .panel-right { fill: #f1f6ff; stroke: #6f9ce0; stroke-width: 2.4; }
+      .box { fill: #ffffff; stroke: #b9bcc3; stroke-width: 2; }
+      .manual-box { fill: #fff7e8; stroke: #c67f17; stroke-width: 2.2; }
+      .junit-box { fill: #e8eef9; stroke: #2b65b3; stroke-width: 2.2; }
+      .logic-box { fill: #e6efdf; stroke: #6ca05f; stroke-width: 2.2; }
+      .test-box { fill: #edf3ff; stroke: #6f9ce0; stroke-width: 2.2; }
+      .run-box { fill: #f3f5f7; stroke: #6b7078; stroke-width: 2.2; }
+      .ok-box { fill: #edf6ea; stroke: #6ca05f; stroke-width: 2.2; }
+      .fail-box { fill: #fff1e0; stroke: #c67f17; stroke-width: 2.2; }
+
+      .orange { fill: #c67f17; }
+      .blue { fill: #2b65b3; }
+      .green { fill: #4d8f3a; }
+      .grey { fill: #555; }
+
+      .flow-orange { stroke: #c67f17; stroke-width: 3.4; fill: none; }
+      .flow-blue { stroke: #2b65b3; stroke-width: 3.4; fill: none; }
+      .flow-green { stroke: #6ca05f; stroke-width: 3.4; fill: none; }
+      .guide { fill: none; stroke: #c9cdd4; stroke-width: 1.5; stroke-dasharray: 8 8; }
+    </style>
+
+    <marker id="arrowOrange" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#c67f17"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2b65b3"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#6ca05f"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1800" height="1120" class="page"/>
+  <text x="900" y="72" text-anchor="middle" class="title">JUnit automatisiert bekannte manuelle Prüfungen</text>
+  <text x="900" y="106" text-anchor="middle" class="subtitle">gleiche Testidee · weniger Handarbeit · standardisierter Testlauf mit Maven</text>
+
+  <rect x="60" y="145" rx="20" ry="20" width="790" height="600" class="panel-left"/>
+  <rect x="950" y="145" rx="20" ry="20" width="790" height="600" class="panel-right"/>
+  <line x1="900" y1="150" x2="900" y2="745" class="guide"/>
+
+  <text x="455" y="198" text-anchor="middle" class="section orange">Manueller Test</text>
+  <text x="1345" y="198" text-anchor="middle" class="section blue">JUnit-Test</text>
+
+  <rect x="115" y="245" rx="16" ry="16" width="300" height="96" class="manual-box"/>
+  <text x="265" y="285" text-anchor="middle" class="heading">Methode aufrufen</text>
+  <text x="265" y="318" text-anchor="middle" class="mono-small">berechneRabattpreis()</text>
+
+  <rect x="505" y="245" rx="16" ry="16" width="300" height="96" class="manual-box"/>
+  <text x="655" y="285" text-anchor="middle" class="heading">Resultat ausgeben</text>
+  <text x="655" y="318" text-anchor="middle" class="mono-small">System.out.println</text>
+
+  <rect x="270" y="430" rx="16" ry="16" width="370" height="135" class="manual-box"/>
+  <text x="455" y="472" text-anchor="middle" class="heading">Mensch vergleicht</text>
+  <text x="455" y="510" text-anchor="middle" class="text-tight">erwartet: 9000</text>
+  <text x="455" y="542" text-anchor="middle" class="text-tight">tatsächlich: Ausgabe lesen</text>
+
+  <line x1="415" y1="293" x2="505" y2="293" class="flow-orange" marker-end="url(#arrowOrange)"/>
+  <path d="M 655 341 C 655 390 560 397 515 430" class="flow-orange" marker-end="url(#arrowOrange)"/>
+  <path d="M 265 341 C 265 390 350 397 395 430" class="flow-orange" marker-end="url(#arrowOrange)"/>
+
+  <rect x="160" y="620" rx="16" ry="16" width="590" height="74" class="box"/>
+  <text x="455" y="652" text-anchor="middle" class="text">Prüfung passiert im Kopf</text>
+  <text x="455" y="680" text-anchor="middle" class="small">Ausgabe allein ist noch keine saubere Teststrategie.</text>
+
+  <rect x="1005" y="245" rx="16" ry="16" width="300" height="96" class="junit-box"/>
+  <text x="1155" y="285" text-anchor="middle" class="heading">Methode aufrufen</text>
+  <text x="1155" y="318" text-anchor="middle" class="mono-small">berechneRabattpreis()</text>
+
+  <rect x="1395" y="245" rx="16" ry="16" width="300" height="96" class="junit-box"/>
+  <text x="1545" y="285" text-anchor="middle" class="heading">JUnit vergleicht</text>
+  <text x="1545" y="318" text-anchor="middle" class="mono-small">assertEquals</text>
+
+  <rect x="1130" y="430" rx="16" ry="16" width="430" height="135" class="run-box"/>
+  <text x="1345" y="472" text-anchor="middle" class="heading grey">mvn test</text>
+  <text x="1345" y="510" text-anchor="middle" class="text-tight">standardisierter Testlauf</text>
+  <text x="1345" y="542" text-anchor="middle" class="text-tight">meldet Erfolg oder Fehler</text>
+
+  <line x1="1305" y1="293" x2="1395" y2="293" class="flow-blue" marker-end="url(#arrowBlue)"/>
+  <path d="M 1545 341 C 1545 395 1445 398 1395 430" class="flow-blue" marker-end="url(#arrowBlue)"/>
+  <path d="M 1155 341 C 1155 395 1245 398 1295 430" class="flow-blue" marker-end="url(#arrowBlue)"/>
+
+  <rect x="1035" y="620" rx="16" ry="16" width="260" height="74" class="ok-box"/>
+  <text x="1165" y="650" text-anchor="middle" class="heading green">Erfolg</text>
+  <text x="1165" y="678" text-anchor="middle" class="small">Werte stimmen</text>
+
+  <rect x="1395" y="620" rx="16" ry="16" width="260" height="74" class="fail-box"/>
+  <text x="1525" y="650" text-anchor="middle" class="heading orange">Fehler</text>
+  <text x="1525" y="678" text-anchor="middle" class="small">Werte unterscheiden</text>
+
+  <path d="M 1265 565 L 1185 620" class="flow-green" marker-end="url(#arrowGreen)"/>
+  <path d="M 1425 565 L 1505 620" class="flow-orange" marker-end="url(#arrowOrange)"/>
+
+  <rect x="100" y="800" rx="20" ry="20" width="1600" height="230" class="panel"/>
+  <text x="900" y="852" text-anchor="middle" class="section">Projektstruktur und Testlauf</text>
+
+  <rect x="165" y="900" rx="16" ry="16" width="420" height="82" class="logic-box"/>
+  <text x="375" y="932" text-anchor="middle" class="heading green">src/main/java</text>
+  <text x="375" y="962" text-anchor="middle" class="text-tight">Fachlogik, nicht main</text>
+
+  <rect x="690" y="900" rx="16" ry="16" width="420" height="82" class="test-box"/>
+  <text x="900" y="932" text-anchor="middle" class="heading blue">src/test/java</text>
+  <text x="900" y="962" text-anchor="middle" class="text-tight">JUnit-Tests prüfen Fachlogik</text>
+
+  <rect x="1215" y="900" rx="16" ry="16" width="420" height="82" class="run-box"/>
+  <text x="1425" y="932" text-anchor="middle" class="heading grey">mvn test</text>
+  <text x="1425" y="962" text-anchor="middle" class="text-tight">führt Tests einheitlich aus</text>
+
+  <line x1="585" y1="941" x2="690" y2="941" class="flow-green" marker-end="url(#arrowGreen)"/>
+  <line x1="1110" y1="941" x2="1215" y2="941" class="flow-blue" marker-end="url(#arrowBlue)"/>
+
+  <text x="900" y="1076" text-anchor="middle" class="text">Merksatz: JUnit ersetzt nicht die Testidee, sondern automatisiert den Vergleich.</text>
+</svg>

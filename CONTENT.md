@@ -249,14 +249,45 @@ Material:
 - [Übungen – Maven-Projekte ausführen und paketieren](./Uebungen/Uebungen_Maven_Ausfuehren_und_Paketieren.md)
 - [Lösungen – Maven-Projekte ausführen und paketieren](./Musterloesungen/Loesungen_Maven_Ausfuehren_und_Paketieren.md)
 
+### 19. Maven-Projekte mit einfachen Tests vorbereiten
+
+Ziel: Fachlogik von `main` trennen, kleine prüfbare Methoden mit klaren Rückgabewerten schreiben, erwartete und tatsächliche Resultate systematisch vergleichen und Edge Cases bewusst prüfen, ohne bereits JUnit, externe Dependencies oder Maven Central einzuführen.
+
+Material:
+
+- [Arbeitsblatt – Maven-Projekte mit einfachen Tests vorbereiten](./Arbeitsblaetter/Arbeitsblatt_Maven_Einfache_Tests_Vorbereiten.md)
+- [Übungen – Maven-Projekte mit einfachen Tests vorbereiten](./Uebungen/Uebungen_Maven_Einfache_Tests_Vorbereiten.md)
+- [Lösungen – Maven-Projekte mit einfachen Tests vorbereiten](./Musterloesungen/Loesungen_Maven_Einfache_Tests_Vorbereiten.md)
+
+### 20. Von manuellen Tests zu automatisierten Tests mit JUnit
+
+Ziel: Die bekannte Testidee aus erwarteten und tatsächlichen Resultaten mit JUnit Jupiter automatisieren, Testcode unter `src/test/java` vom Produktivcode trennen, die erste externe Maven-Dependency kontrolliert einführen und `mvn test` als standardisierten Testlauf nutzen.
+
+Material:
+
+- [Arbeitsblatt – Von manuellen Tests zu automatisierten Tests mit JUnit](./Arbeitsblaetter/Arbeitsblatt_JUnit_Einstieg.md)
+- [JUnit: manuell zu automatisiert](./graphics/junit_manuell_zu_automatisiert.svg)
+- [Übungen – Von manuellen Tests zu automatisierten Tests mit JUnit](./Uebungen/Uebungen_JUnit_Einstieg.md)
+- [Lösungen – Von manuellen Tests zu automatisierten Tests mit JUnit](./Musterloesungen/Loesungen_JUnit_Einstieg.md)
+
+### 21. Wenn automatisierte Tests fehlschlagen
+
+Ziel: Fehlgeschlagene JUnit-Tests ruhig analysieren, `expected` und `actual` unterscheiden, Stacktraces grob einordnen, Fehler mit `mvn test` reproduzierbar prüfen, Edge Cases ergänzen und Regressionstests als Sicherheitsnetz verstehen.
+
+Material:
+
+- [Arbeitsblatt – Wenn automatisierte Tests fehlschlagen](./Arbeitsblaetter/Arbeitsblatt_JUnit_Fehleranalyse.md)
+- [JUnit: Workflow bei fehlgeschlagenen Tests](./graphics/junit_test_fehlschlag_workflow.svg)
+- [Übungen – Wenn automatisierte Tests fehlschlagen](./Uebungen/Uebungen_JUnit_Fehleranalyse.md)
+- [Lösungen – Wenn automatisierte Tests fehlschlagen](./Musterloesungen/Loesungen_JUnit_Fehleranalyse.md)
+
 ### Nächster sinnvoller Block
 
-Nach `Maven-Projekte ausführen und paketieren` bietet sich als nächstes Thema **Maven-Projekte mit einfachen Tests vorbereiten** an:
+Nach `Wenn automatisierte Tests fehlschlagen` bietet sich als nächstes Thema **Refactoring mit Tests absichern** an:
 
-- Unterschied zwischen manuellen Testausgaben und automatisierten Tests vorbereiten
-- Projektstruktur für Tests grob einführen
-- JUnit erst dann gezielt und langsam einführen
-- externe Dependencies und Maven Central weiterhin bewusst begrenzen
+- kleine Codeverbesserungen mit grünem Teststand vorbereiten
+- nach Änderungen `mvn test` als Sicherheitsnetz nutzen
+- CI/CD weiterhin nur als Ausblick behandeln
 
 ## Arbeitsblätter
 
@@ -385,6 +416,32 @@ Arbeitsblätter führen neue Konzepte ein, enthalten kurze Theorie, Beispiele, t
   - Unterschied zwischen Java-`package` und Maven `package`
   - reproduzierbare und standardisierte Builds
   - kurzer Ausblick auf Build-Server, Jenkins und CI/CD ohne technische Tiefe
+- [Arbeitsblatt – Maven-Projekte mit einfachen Tests vorbereiten](./Arbeitsblaetter/Arbeitsblatt_Maven_Einfache_Tests_Vorbereiten.md)
+  - Unterschied zwischen manuellen Testausgaben und systematischer Prüfung
+  - erwartetes Resultat und tatsächliches Resultat vergleichen
+  - Fachlogik von `main` trennen
+  - kleine prüfbare Methoden für Rabatt, Suche und Gesamtwert
+  - Edge Cases bewusst prüfen
+  - Prozessgrafik zur Trennung von `main`, Fachlogik und manueller Prüfung
+  - Abgrenzung zu JUnit, Dependencies und Maven Central
+- [Arbeitsblatt – Von manuellen Tests zu automatisierten Tests mit JUnit](./Arbeitsblaetter/Arbeitsblatt_JUnit_Einstieg.md)
+  - JUnit Jupiter als Automatisierung bekannter manueller Prüfungen
+  - `src/main/java` und `src/test/java` trennen
+  - `@Test` und `assertEquals` einführen
+  - erste externe Dependency mit `scope test` in `pom.xml`
+  - `.m2`-Repository und Maven Central kurz einordnen
+  - `mvn test` und `target/surefire-reports` als standardisierten Testlauf sichtbar machen
+  - Regressionstest einfach erklären
+  - Vergleichsgrafik von manueller Prüfung zu JUnit und `mvn test`
+  - erster Download nach Maven Central und lokales `.m2` nur kurz erwähnen
+- [Arbeitsblatt – Wenn automatisierte Tests fehlschlagen](./Arbeitsblaetter/Arbeitsblatt_JUnit_Fehleranalyse.md)
+  - fehlgeschlagene Tests als hilfreiche Rückmeldung verstehen
+  - `expected` und `actual` in `assertEquals`-Fehlermeldungen lesen
+  - Stacktrace grob einordnen
+  - `mvn test` bei fehlerhaften Tests und gestoppte Builds erklären
+  - `target/surefire-reports` kurz sichtbar machen
+  - Edge Cases und Regressionstests als Sicherheitsnetz nutzen
+  - Abgrenzung zu TDD, Mocking, Coverage, Integrationstests und technischer CI/CD-Umsetzung
 
 ## Konzeptgrafiken
 
@@ -425,6 +482,20 @@ Konzeptgrafiken visualisieren Beziehungen, Abläufe und typische Denkmodelle. Si
   - `target/classes` als erzeugtes Build-Ergebnis
   - einfache JAR-Datei als Build-Artefakt
   - Unterschied zwischen Java-`package` und Maven `package`
+- [Maven-Projekte mit einfachen Tests vorbereiten](./graphics/maven_tests_vorbereiten.svg)
+  - Trennung von `main` und Fachlogik
+  - Fachlogik mit klaren Eingaben und Rückgabewerten
+  - manuelle Prüfung mit erwartetem und tatsächlichem Resultat
+- [JUnit: manuell zu automatisiert](./graphics/junit_manuell_zu_automatisiert.svg)
+  - JUnit automatisiert bekannte manuelle Prüfungen
+  - Vergleich von Ausgabe plus menschlichem Vergleich mit `assertEquals`
+  - `src/main/java`, `src/test/java` und `mvn test` als Testlauf
+  - Fachlogik liegt nicht in `main`
+- [JUnit: Workflow bei fehlgeschlagenen Tests](./graphics/junit_test_fehlschlag_workflow.svg)
+  - roter Testlauf, Analyse und Korrektur als ruhiger Ablauf
+  - `expected` und `actual` als zentrale Hinweise
+  - erneuter grüner Testlauf nach der Korrektur
+  - Tests als Sicherheitsnetz gegen Regressionen
 
 ### Arbeitsblattgrafiken zu StringBuilder
 
@@ -576,6 +647,28 @@ Konzeptgrafiken visualisieren Beziehungen, Abläufe und typische Denkmodelle. Si
   - `mvn package` ausführen und JAR-Datei unter `target` einordnen
   - Fehlerdiagnose zu Java-`package`, Maven `package`, `target`, Arbeitsverzeichnis und Maven-Magie
   - reproduzierbare Builds und Build-Server-Ausblick reflektieren
+- [Übungen – Maven-Projekte mit einfachen Tests vorbereiten](./Uebungen/Uebungen_Maven_Einfache_Tests_Vorbereiten.md)
+  - Methode mit erwartetem Resultat manuell prüfen
+  - mehrere Testfälle mit `if`/`else` ausgeben
+  - Suche und Gesamtwert der Produktverwaltung prüfen
+  - Fachlogik aus `main` herauslösen
+  - Edge Cases bewusst ergänzen
+  - reflektieren, warum diese Struktur später für JUnit hilfreich ist
+- [Übungen – Von manuellen Tests zu automatisierten Tests mit JUnit](./Uebungen/Uebungen_JUnit_Einstieg.md)
+  - manuelle Prüfung in JUnit-Test umwandeln
+  - mehrere einfache Testmethoden mit `@Test` und `assertEquals` schreiben
+  - Edge Cases für Rabatt, Suche und Gesamtwert testen
+  - Fachlogik aus `main` herauslösen und prüfbar machen
+  - Produktverwaltung mit mehreren JUnit-Tests prüfen
+  - reflektieren, warum `mvn test` für Teamarbeit, Build-Server und CI/CD wichtig ist
+- [Übungen – Wenn automatisierte Tests fehlschlagen](./Uebungen/Uebungen_JUnit_Fehleranalyse.md)
+  - fehlgeschlagene `assertEquals`-Meldungen lesen
+  - absichtlich fehlerhafte Rabattberechnung korrigieren
+  - falsche Erwartung im Test erkennen
+  - Stacktrace grob einordnen
+  - mehrere Testfehler unterscheiden
+  - Edge Cases und Regressionen bewusst erzeugen und korrigieren
+  - Produktsuche und Gesamtwertberechnung mit Tests absichern
 
 ## Musterlösungen
 
@@ -607,6 +700,12 @@ Musterlösungen halten kompakte Referenzlösungen und Bewertungshilfen bereit.
   - kompakte Lösungen zur Maven-Begriffsklärung, Projektstruktur, `pom.xml`, Fehlerdiagnose und Reflexion
 - [Lösungen – Maven-Projekte ausführen und paketieren](./Musterloesungen/Loesungen_Maven_Ausfuehren_und_Paketieren.md)
   - kompakte Lösungen zu `compile`, Programmstart, `package`, `target/classes`, JAR-Artefakt, Fehlerdiagnose und CI/CD-Ausblick
+- [Lösungen – Maven-Projekte mit einfachen Tests vorbereiten](./Musterloesungen/Loesungen_Maven_Einfache_Tests_Vorbereiten.md)
+  - kompakte Lösungen zu erwarteten und tatsächlichen Resultaten, einfachen Prüfhilfen, Trennung von `main` und Fachlogik, Produktverwaltung, Edge Cases und Reflexion
+- [Lösungen – Von manuellen Tests zu automatisierten Tests mit JUnit](./Musterloesungen/Loesungen_JUnit_Einstieg.md)
+  - kompakte Lösung mit `pom.xml`, `src/main/java`, `src/test/java`, einfacher Testklasse, `@Test`, `assertEquals`, sparsam `assertTrue`, Edge Cases, Fehlerdiagnose und `mvn test`-Verifikation
+- [Lösungen – Wenn automatisierte Tests fehlschlagen](./Musterloesungen/Loesungen_JUnit_Fehleranalyse.md)
+  - kompakte Lösungen zu `expected` und `actual`, Fehlerursachen, korrigierter Fachlogik, Edge Cases, Regressionen, `mvn test`, einfachen Surefire-Hinweisen und Reflexion
 - [Musterlösungen – StringBuilder & Parser](./Musterloesungen/musterloesungen_stringbuilder.md)
   - StringBuilder-Methoden und vereinfachter Parser
 - [Musterlösungen – Mini-Projekt String Parser](./Musterloesungen/string_parser_loesungen.md)

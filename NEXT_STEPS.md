@@ -26,8 +26,11 @@ Aktuell vorbereitet sind:
 16. Algorithmen und Datenstrukturen
 17. Maven Einstieg
 18. Maven-Projekte ausführen und paketieren
+19. Maven-Projekte mit einfachen Tests vorbereiten
+20. Von manuellen Tests zu automatisierten Tests mit JUnit
+21. Wenn automatisierte Tests fehlschlagen
 
-Die zuletzt erstellte Unterrichtseinheit ist **Maven-Projekte ausführen und paketieren**. Zusätzlich wurde eine kleine Prozess- und Begriffsbibliothek für KI-gestützte Lehrmittel-Erstellung angelegt.
+Die zuletzt erstellte Unterrichtseinheit ist **Wenn automatisierte Tests fehlschlagen**. Zusätzlich wurde eine kleine Prozess- und Begriffsbibliothek für KI-gestützte Lehrmittel-Erstellung angelegt.
 
 Neue Maven-Dateien:
 
@@ -37,8 +40,20 @@ Neue Maven-Dateien:
 - [Arbeitsblatt_Maven_Ausfuehren_und_Paketieren.md](./Arbeitsblaetter/Arbeitsblatt_Maven_Ausfuehren_und_Paketieren.md)
 - [Uebungen_Maven_Ausfuehren_und_Paketieren.md](./Uebungen/Uebungen_Maven_Ausfuehren_und_Paketieren.md)
 - [Loesungen_Maven_Ausfuehren_und_Paketieren.md](./Musterloesungen/Loesungen_Maven_Ausfuehren_und_Paketieren.md)
+- [Arbeitsblatt_Maven_Einfache_Tests_Vorbereiten.md](./Arbeitsblaetter/Arbeitsblatt_Maven_Einfache_Tests_Vorbereiten.md)
+- [Uebungen_Maven_Einfache_Tests_Vorbereiten.md](./Uebungen/Uebungen_Maven_Einfache_Tests_Vorbereiten.md)
+- [Loesungen_Maven_Einfache_Tests_Vorbereiten.md](./Musterloesungen/Loesungen_Maven_Einfache_Tests_Vorbereiten.md)
+- [Arbeitsblatt_JUnit_Einstieg.md](./Arbeitsblaetter/Arbeitsblatt_JUnit_Einstieg.md)
+- [Uebungen_JUnit_Einstieg.md](./Uebungen/Uebungen_JUnit_Einstieg.md)
+- [Loesungen_JUnit_Einstieg.md](./Musterloesungen/Loesungen_JUnit_Einstieg.md)
+- [Arbeitsblatt_JUnit_Fehleranalyse.md](./Arbeitsblaetter/Arbeitsblatt_JUnit_Fehleranalyse.md)
+- [Uebungen_JUnit_Fehleranalyse.md](./Uebungen/Uebungen_JUnit_Fehleranalyse.md)
+- [Loesungen_JUnit_Fehleranalyse.md](./Musterloesungen/Loesungen_JUnit_Fehleranalyse.md)
 - [maven_orchestriert_build.svg](./graphics/maven_orchestriert_build.svg)
 - [maven_compile_run_package.svg](./graphics/maven_compile_run_package.svg)
+- [maven_tests_vorbereiten.svg](./graphics/maven_tests_vorbereiten.svg)
+- [junit_manuell_zu_automatisiert.svg](./graphics/junit_manuell_zu_automatisiert.svg)
+- [junit_test_fehlschlag_workflow.svg](./graphics/junit_test_fehlschlag_workflow.svg)
 
 Neue Dokumentations- und Skill-Bereiche:
 
@@ -95,15 +110,15 @@ Die Dateien unter `docs/begriffe` erklären zentrale Begriffe kurz und unterrich
 
 ## Nächster geplanter Block
 
-Als nächstes bietet sich **Maven-Projekte mit einfachen Tests vorbereiten** an.
+Als nächstes bietet sich **Refactoring mit Tests absichern** an.
 
 Sinnvolle Inhalte:
 
-- Unterschied zwischen manuellen Testausgaben und automatisierten Tests vorbereiten
-- bestehende `main`-Ausgaben von eigentlicher Logik trennen
-- Teststruktur nur grob vorbereiten
-- JUnit später gezielt einführen
-- externe Dependencies und Maven Central weiterhin nur sehr kontrolliert behandeln
+- vor kleinen Codeänderungen grünen Teststand herstellen
+- Methoden vereinfachen, ohne Verhalten absichtlich zu ändern
+- nach jeder Änderung `mvn test` ausführen
+- Build-Server und CI/CD weiterhin nur als Ausblick behandeln
+- weiterhin kein Mocking, keine Parameterized Tests, keine Integrationstests
 
 ## Passender Anschluss
 
@@ -122,9 +137,9 @@ produktverwaltung-maven/
 
 Didaktisch sinnvoll ist als nächstes ein Vergleich:
 
-- manuelle Testausgaben in `main`
-- kleine Methoden mit klaren Rückgabewerten
-- spätere automatisierte Tests als Wiederholung derselben Erwartungen
+- einfache Prüfmethode mit `if`/`else`
+- automatisierte Prüfung mit einem Testframework
+- gleiche Erwartung, aber weniger manuelle Auswertung
 
 ## Verifikation der zuletzt erstellten Einheiten
 
@@ -144,6 +159,57 @@ Die Java-Beispiele wurden mit `javac` kompiliert und mit `java` ausgeführt. Der
 Für den Maven-Einstieg wurden Markdown-Struktur, Dateiverweise und Schreibweise geprüft. Die SVG-Grafik wurde auf XML-Wohlgeformtheit geprüft. Es wurden keine ausführbaren Projektdateien im Repository angelegt.
 
 Für **Maven-Projekte ausführen und paketieren** wurden Markdown-Struktur, Dateiverweise, de-CH-Schreibweise und die Maven-/Java-Begriffstrennung geprüft. Die Grafik `maven_compile_run_package.svg` wurde ergänzt und im Arbeitsblatt eingebunden. Es wurden keine ausführbaren Projektdateien im Repository angelegt.
+
+## Wichtige Inhalte aus Maven-Projekte mit einfachen Tests vorbereiten
+
+- Der Block trennt manuelle Testausgaben von systematischer Prüfung.
+- Zentrale Testidee: erwartetes Resultat mit tatsächlichem Resultat vergleichen.
+- `main` wird als Startpunkt verstanden, nicht als Ort für die eigentliche Fachlogik.
+- Kleine Methoden mit Parametern und Rückgabewerten werden als prüfbare Fachlogik eingeübt.
+- Die Produktverwaltung dient weiter als Kontext:
+  - Rabattpreis berechnen
+  - Produkt suchen
+  - Gesamtwert berechnen
+- Einfache Prüfhilfen werden mit `if`/`else`, `true` und `false` umgesetzt.
+- Die Grafik `maven_tests_vorbereiten.svg` zeigt die Trennung von `main`, Fachlogik und manueller Prüfung.
+- Edge Cases wie kein Rabatt, voller Rabatt, leeres Produktarray und nicht gefundene Produkte werden bewusst formuliert.
+- Die Musterlösung zeigt eine kompakte Standardumsetzung mit `Produkt`, `ProduktVerwaltung` und `Main`.
+- Es werden bewusst noch kein JUnit, keine Test-Annotationen, keine Assertions-Bibliothek, keine externen Dependencies, kein Maven Central, keine Plugin-Details und keine Test-Lifecycle-Details eingeführt.
+
+## Wichtige Inhalte aus Von manuellen Tests zu automatisierten Tests mit JUnit
+
+- JUnit Jupiter wird als Automatisierung der bekannten manuellen Testidee eingeführt.
+- Die Kernidee bleibt: erwartetes Resultat mit tatsächlichem Resultat vergleichen.
+- Aus `if (resultat == erwartet)` mit Ausgabe wird `assertEquals(erwartet, resultat)`.
+- Testcode liegt unter `src/test/java`, Produktivcode unter `src/main/java`.
+- `@Test` markiert Testmethoden.
+- `assertEquals` wird als wichtigste Prüfung eingeführt; `assertTrue` wird nur sparsam für einfache Wahrheitsprüfungen verwendet.
+- JUnit ist die erste externe Dependency in `pom.xml`.
+- `scope test` wird grob als Test-Abhängigkeit erklärt.
+- Maven Central wird nur kurz als Quelle externer Bibliotheken erwähnt.
+- Das lokale `.m2`-Repository wird kurz als Cache für heruntergeladene Bibliotheken eingeordnet; der erste `mvn test` kann deshalb einen Download auslösen.
+- `mvn test` wird als standardisierter Testlauf eingeführt.
+- `target/surefire-reports` wird nur als Ergebnisort des Maven-Testlaufs erwähnt.
+- Regressionstests werden einfach als Tests erklärt, die alte Fehler gegen Wiederauftreten absichern.
+- Die Produktverwaltung bleibt Kontext für Rabattberechnung, Produktsuche und Gesamtwert.
+- Die Musterlösung `Loesungen_JUnit_Einstieg.md` zeigt eine kompakte Standardlösung mit `pom.xml`, Produktivcode, Testcode, Fehlerdiagnose und dokumentierter `mvn test`-Verifikation.
+- Die Grafik `junit_manuell_zu_automatisiert.svg` zeigt den Übergang von Ausgabe plus menschlichem Vergleich zu `assertEquals` und `mvn test` sowie die Trennung von Fachlogik und Tests.
+
+## Wichtige Inhalte aus Wenn automatisierte Tests fehlschlagen
+
+- Fehlgeschlagene Tests werden als hilfreiche Rückmeldung verstanden.
+- `expected` und `actual` werden in `assertEquals`-Fehlermeldungen unterschieden.
+- Stacktraces werden nur grob eingeordnet: Testklasse, Testmethode, Assert-Zeile und Werte.
+- `mvn test` wird bei fehlerhaften Tests als reproduzierbarer Testlauf verwendet.
+- Maven stoppt Builds, wenn Tests fehlschlagen; das macht Build-Qualität sichtbar.
+- `target/surefire-reports` wird nur kurz als Ort technischer Testberichte erwähnt.
+- Fehler werden bewusst provoziert, gelesen, korrigiert und erneut geprüft.
+- Edge Cases wie voller Rabatt, leeres Produktarray und nicht gefundene Produkte werden ergänzt.
+- Regressionstests werden als Schutz vor wiederkehrenden Fehlern erklärt.
+- Tests werden als Sicherheitsnetz für spätere Refactorings vorbereitet.
+- Die Musterlösung `Loesungen_JUnit_Fehleranalyse.md` zeigt kompakte Standardlösungen zu Fehlermeldungen, Ursachenanalyse, korrigierter Fachlogik, Regressionen und `mvn test`-Interpretation.
+- Die Grafik `junit_test_fehlschlag_workflow.svg` zeigt den Ablauf von Codeänderung, rotem Test, Analyse, Korrektur und erneut grünem Testlauf.
+- Nicht behandelt werden formales TDD, Mocking, komplexe Assertions, Coverage, technische CI/CD-Umsetzung, tiefer Debugger-Einsatz, Logging-Frameworks, Parameterized Tests und Integrationstests.
 
 ## Wichtige Repo-Regeln
 

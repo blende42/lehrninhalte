@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1120" viewBox="0 0 1800 1120" role="img" aria-labelledby="title desc">
+  <title id="title">Workflow bei fehlgeschlagenen JUnit-Tests</title>
+  <desc id="desc">Prozessgrafik: Code ändern, mvn test ausführen, Fehler analysieren, korrigieren und erneut prüfen.</desc>
+
+  <defs>
+    <style>
+      .title { font: 700 42px Arial, Helvetica, sans-serif; fill: #111; }
+      .subtitle { font: 400 20px Arial, Helvetica, sans-serif; fill: #555; }
+      .section { font: 700 30px Arial, Helvetica, sans-serif; fill: #111; }
+      .heading { font: 700 25px Arial, Helvetica, sans-serif; fill: #111; }
+      .text { font: 700 22px Arial, Helvetica, sans-serif; fill: #111; }
+      .text-tight { font: 700 20px Arial, Helvetica, sans-serif; fill: #111; }
+      .small { font: 400 18px Arial, Helvetica, sans-serif; fill: #555; }
+      .mono { font: 700 22px 'Courier New', Courier, monospace; fill: #111; }
+
+      .page { fill: #ffffff; }
+      .panel { fill: #fbfcfd; stroke: #b9bcc3; stroke-width: 2.2; }
+      .panel-soft { fill: #f7f8fa; stroke: #b9bcc3; stroke-width: 2.2; }
+      .change-box { fill: #f3f5f7; stroke: #6b7078; stroke-width: 2.4; }
+      .fix-box { fill: #eef2ee; stroke: #6ca05f; stroke-width: 2.4; }
+      .run-box { fill: #f3f5f7; stroke: #6b7078; stroke-width: 2.4; }
+      .fail-box { fill: #fff1f1; stroke: #c23b3b; stroke-width: 2.6; }
+      .analyse-box { fill: #fff7e8; stroke: #c67f17; stroke-width: 2.4; }
+      .ok-box { fill: #edf6ea; stroke: #4d8f3a; stroke-width: 2.6; }
+      .net-box { fill: #eef5ff; stroke: #2b65b3; stroke-width: 2.4; }
+
+      .green { fill: #4d8f3a; }
+      .red { fill: #b83232; }
+      .orange { fill: #c67f17; }
+      .blue { fill: #2b65b3; }
+      .grey { fill: #555; }
+
+      .flow { stroke: #6b7078; stroke-width: 3.4; fill: none; }
+      .flow-red { stroke: #b83232; stroke-width: 3.8; fill: none; }
+      .flow-green { stroke: #4d8f3a; stroke-width: 3.8; fill: none; }
+      .flow-blue { stroke: #2b65b3; stroke-width: 3.4; fill: none; stroke-dasharray: 10 8; }
+      .guide { fill: none; stroke: #c9cdd4; stroke-width: 1.5; stroke-dasharray: 8 8; }
+    </style>
+
+    <marker id="arrowGrey" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#6b7078"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#b83232"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#4d8f3a"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2b65b3"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1800" height="1120" class="page"/>
+  <text x="900" y="72" text-anchor="middle" class="title">Wenn Tests fehlschlagen: ruhig analysieren</text>
+  <text x="900" y="106" text-anchor="middle" class="subtitle">Fehlgeschlagene Tests helfen beim Finden und Absichern von Fehlern.</text>
+
+  <rect x="70" y="145" rx="20" ry="20" width="1660" height="610" class="panel"/>
+  <rect x="95" y="165" rx="16" ry="16" width="1610" height="66" class="panel-soft"/>
+  <text x="900" y="208" text-anchor="middle" class="section">Fehlerlauf und Korrekturlauf</text>
+
+  <rect x="130" y="285" rx="16" ry="16" width="230" height="108" class="change-box"/>
+  <text x="245" y="326" text-anchor="middle" class="heading grey">Code ändern</text>
+  <text x="245" y="360" text-anchor="middle" class="text-tight">Fachlogik anpassen</text>
+
+  <rect x="440" y="285" rx="16" ry="16" width="230" height="108" class="run-box"/>
+  <text x="555" y="326" text-anchor="middle" class="heading grey">mvn test</text>
+  <text x="555" y="360" text-anchor="middle" class="text-tight">Tests ausführen</text>
+
+  <rect x="750" y="285" rx="16" ry="16" width="250" height="108" class="fail-box"/>
+  <text x="875" y="326" text-anchor="middle" class="heading red">Rot</text>
+  <text x="875" y="360" text-anchor="middle" class="text-tight">Test fehlgeschlagen</text>
+
+  <rect x="1080" y="285" rx="16" ry="16" width="290" height="108" class="analyse-box"/>
+  <text x="1225" y="326" text-anchor="middle" class="heading orange">Analysieren</text>
+  <text x="1225" y="360" text-anchor="middle" class="text-tight">expected vs actual</text>
+
+  <rect x="1450" y="285" rx="16" ry="16" width="230" height="108" class="fix-box"/>
+  <text x="1565" y="326" text-anchor="middle" class="heading green">Korrigieren</text>
+  <text x="1565" y="360" text-anchor="middle" class="text-tight">Ursache beheben</text>
+
+  <line x1="360" y1="339" x2="440" y2="339" class="flow" marker-end="url(#arrowGrey)"/>
+  <line x1="670" y1="339" x2="750" y2="339" class="flow-red" marker-end="url(#arrowRed)"/>
+  <line x1="1000" y1="339" x2="1080" y2="339" class="flow-red" marker-end="url(#arrowRed)"/>
+  <line x1="1370" y1="339" x2="1450" y2="339" class="flow-green" marker-end="url(#arrowGreen)"/>
+
+  <rect x="440" y="535" rx="16" ry="16" width="270" height="108" class="run-box"/>
+  <text x="575" y="576" text-anchor="middle" class="heading grey">mvn test erneut</text>
+  <text x="575" y="610" text-anchor="middle" class="text-tight">gleicher Testlauf</text>
+
+  <rect x="800" y="535" rx="16" ry="16" width="270" height="108" class="ok-box"/>
+  <text x="935" y="576" text-anchor="middle" class="heading green">Grün</text>
+  <text x="935" y="610" text-anchor="middle" class="text-tight">Tests erfolgreich</text>
+
+  <path d="M 1565 393 C 1565 470 575 455 575 535" class="flow-green" marker-end="url(#arrowGreen)"/>
+  <line x1="710" y1="589" x2="800" y2="589" class="flow-green" marker-end="url(#arrowGreen)"/>
+
+  <rect x="1160" y="520" rx="18" ry="18" width="470" height="138" class="net-box"/>
+  <text x="1395" y="562" text-anchor="middle" class="heading blue">Tests als Sicherheitsnetz</text>
+  <text x="1395" y="598" text-anchor="middle" class="text-tight">Sie prüfen alte Fehler wieder.</text>
+  <text x="1395" y="628" text-anchor="middle" class="text-tight">Regressionen fallen früh auf.</text>
+
+  <path d="M 1070 589 C 1115 589 1125 589 1160 589" class="flow-blue" marker-end="url(#arrowBlue)"/>
+
+  <line x1="105" y1="455" x2="1695" y2="455" class="guide"/>
+  <text x="130" y="438" class="small">Fehlerlauf: Test meldet rot</text>
+  <text x="130" y="694" class="small">Korrekturlauf: gleicher Ablauf wird erneut geprüft</text>
+
+  <rect x="70" y="815" rx="20" ry="20" width="1660" height="225" class="panel-soft"/>
+  <text x="900" y="866" text-anchor="middle" class="section">Merksätze</text>
+
+  <circle cx="150" cy="922" r="8" fill="#b83232"/>
+  <text x="174" y="930" class="text-tight">Rot bedeutet: Die Rückmeldung ist hilfreich, nicht peinlich.</text>
+
+  <circle cx="150" cy="974" r="8" fill="#c67f17"/>
+  <text x="174" y="982" class="text-tight">expected vs actual zeigt, was erwartet war und was wirklich zurückkam.</text>
+
+  <circle cx="930" cy="922" r="8" fill="#4d8f3a"/>
+  <text x="954" y="930" class="text-tight">Grün bedeutet: Die geprüften Fälle passen wieder.</text>
+
+  <circle cx="930" cy="974" r="8" fill="#2b65b3"/>
+  <text x="954" y="982" class="text-tight">Regressionstest: Ein gefundener Fehler bleibt als Test gesichert.</text>
+
+  <text x="900" y="1080" text-anchor="middle" class="text">Merksatz: Tests finden Fehler und schützen Änderungen.</text>
+</svg>
