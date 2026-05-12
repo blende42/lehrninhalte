@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1120" viewBox="0 0 1800 1120" role="img" aria-labelledby="title desc">
+  <title id="title">Refactoring mit Tests absichern</title>
+  <desc id="desc">Prozessgrafik: Tests vor und nach kleinen Refactoring-Schritten ausführen, Verhalten absichern und Regressionen erkennen.</desc>
+
+  <defs>
+    <style>
+      .title { font: 700 42px Arial, Helvetica, sans-serif; fill: #111; }
+      .subtitle { font: 400 20px Arial, Helvetica, sans-serif; fill: #555; }
+      .section { font: 700 30px Arial, Helvetica, sans-serif; fill: #111; }
+      .heading { font: 700 25px Arial, Helvetica, sans-serif; fill: #111; }
+      .text { font: 700 22px Arial, Helvetica, sans-serif; fill: #111; }
+      .text-tight { font: 700 20px Arial, Helvetica, sans-serif; fill: #111; }
+      .small { font: 400 18px Arial, Helvetica, sans-serif; fill: #555; }
+
+      .page { fill: #ffffff; }
+      .panel { fill: #fbfcfd; stroke: #b9bcc3; stroke-width: 2.2; }
+      .panel-soft { fill: #f7f8fa; stroke: #b9bcc3; stroke-width: 2.2; }
+      .code-box { fill: #f3f5f7; stroke: #6b7078; stroke-width: 2.4; }
+      .run-box { fill: #eef5ff; stroke: #2b65b3; stroke-width: 2.4; }
+      .ok-box { fill: #edf6ea; stroke: #4d8f3a; stroke-width: 2.6; }
+      .step-box { fill: #fff7e8; stroke: #c67f17; stroke-width: 2.4; }
+      .analyse-box { fill: #fff1f1; stroke: #b83232; stroke-width: 2.6; }
+      .note-box { fill: #ffffff; stroke: #b9bcc3; stroke-width: 2.2; }
+
+      .blue { fill: #2b65b3; }
+      .green { fill: #4d8f3a; }
+      .orange { fill: #c67f17; }
+      .red { fill: #b83232; }
+      .grey { fill: #555; }
+
+      .flow { stroke: #6b7078; stroke-width: 3.4; fill: none; }
+      .flow-blue { stroke: #2b65b3; stroke-width: 3.6; fill: none; }
+      .flow-green { stroke: #4d8f3a; stroke-width: 3.8; fill: none; }
+      .flow-red { stroke: #b83232; stroke-width: 3.8; fill: none; }
+      .flow-loop { stroke: #4d8f3a; stroke-width: 3.4; fill: none; stroke-dasharray: 10 8; }
+    </style>
+
+    <marker id="arrowGrey" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#6b7078"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2b65b3"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#4d8f3a"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#b83232"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1800" height="1120" class="page"/>
+  <text x="900" y="72" text-anchor="middle" class="title">Refactoring mit Tests absichern</text>
+  <text x="900" y="106" text-anchor="middle" class="subtitle">Tests prüfen, ob das Verhalten trotz besserer Struktur gleich bleibt.</text>
+
+  <rect x="70" y="145" rx="20" ry="20" width="1660" height="640" class="panel"/>
+  <rect x="95" y="165" rx="16" ry="16" width="1610" height="66" class="panel-soft"/>
+  <text x="900" y="208" text-anchor="middle" class="section">Kleiner Schritt, dann wieder prüfen</text>
+
+  <rect x="115" y="285" rx="16" ry="16" width="220" height="108" class="code-box"/>
+  <text x="225" y="326" text-anchor="middle" class="heading grey">Ausgangscode</text>
+  <text x="225" y="360" text-anchor="middle" class="text-tight">bekannter Stand</text>
+
+  <rect x="405" y="285" rx="16" ry="16" width="210" height="108" class="run-box"/>
+  <text x="510" y="326" text-anchor="middle" class="heading blue">mvn test</text>
+  <text x="510" y="360" text-anchor="middle" class="text-tight">vor dem Umbau</text>
+
+  <rect x="685" y="285" rx="16" ry="16" width="220" height="108" class="ok-box"/>
+  <text x="795" y="326" text-anchor="middle" class="heading green">Tests grün</text>
+  <text x="795" y="360" text-anchor="middle" class="text-tight">Start ist sicher</text>
+
+  <rect x="975" y="285" rx="16" ry="16" width="265" height="108" class="step-box"/>
+  <text x="1108" y="326" text-anchor="middle" class="heading orange">Kleiner Schritt</text>
+  <text x="1108" y="360" text-anchor="middle" class="text-tight">Struktur verbessern</text>
+
+  <rect x="1310" y="285" rx="16" ry="16" width="210" height="108" class="run-box"/>
+  <text x="1415" y="326" text-anchor="middle" class="heading blue">mvn test</text>
+  <text x="1415" y="360" text-anchor="middle" class="text-tight">nach dem Schritt</text>
+
+  <line x1="335" y1="339" x2="405" y2="339" class="flow" marker-end="url(#arrowGrey)"/>
+  <line x1="615" y1="339" x2="685" y2="339" class="flow-blue" marker-end="url(#arrowBlue)"/>
+  <line x1="905" y1="339" x2="975" y2="339" class="flow-green" marker-end="url(#arrowGreen)"/>
+  <line x1="1240" y1="339" x2="1310" y2="339" class="flow-blue" marker-end="url(#arrowBlue)"/>
+
+  <rect x="455" y="555" rx="16" ry="16" width="300" height="118" class="ok-box"/>
+  <text x="605" y="598" text-anchor="middle" class="heading green">Weiterhin grün</text>
+  <text x="605" y="632" text-anchor="middle" class="text-tight">Verhalten bleibt gleich</text>
+
+  <rect x="925" y="555" rx="16" ry="16" width="330" height="118" class="analyse-box"/>
+  <text x="1090" y="592" text-anchor="middle" class="heading red">Fehler analysieren</text>
+  <text x="1090" y="625" text-anchor="middle" class="text-tight">Regression erkannt</text>
+  <text x="1090" y="652" text-anchor="middle" class="text-tight">korrigieren, dann weiter</text>
+
+  <rect x="1400" y="555" rx="16" ry="16" width="250" height="118" class="step-box"/>
+  <text x="1525" y="598" text-anchor="middle" class="heading orange">Nächster Schritt</text>
+  <text x="1525" y="632" text-anchor="middle" class="text-tight">wieder klein halten</text>
+
+  <path d="M 1415 393 C 1415 470 715 470 650 555" class="flow-green" marker-end="url(#arrowGreen)"/>
+  <path d="M 1415 393 C 1415 470 1040 480 1090 555" class="flow-red" marker-end="url(#arrowRed)"/>
+  <path d="M 755 614 C 980 700 1275 710 1400 614" class="flow-loop" marker-end="url(#arrowGreen)"/>
+  <path d="M 1255 614 C 1310 614 1345 614 1400 614" class="flow-red" marker-end="url(#arrowRed)"/>
+
+  <rect x="120" y="835" rx="18" ry="18" width="430" height="130" class="note-box"/>
+  <text x="335" y="878" text-anchor="middle" class="heading blue">Verhalten gleich</text>
+  <text x="335" y="914" text-anchor="middle" class="text-tight">gleiche Eingaben</text>
+  <text x="335" y="944" text-anchor="middle" class="text-tight">gleiche Resultate</text>
+
+  <rect x="685" y="835" rx="18" ry="18" width="430" height="130" class="note-box"/>
+  <text x="900" y="878" text-anchor="middle" class="heading green">Struktur besser</text>
+  <text x="900" y="914" text-anchor="middle" class="text-tight">kleinere Methoden</text>
+  <text x="900" y="944" text-anchor="middle" class="text-tight">klarere Namen</text>
+
+  <rect x="1250" y="835" rx="18" ry="18" width="430" height="130" class="note-box"/>
+  <text x="1465" y="878" text-anchor="middle" class="heading orange">Tests als Sicherheitsnetz</text>
+  <text x="1465" y="914" text-anchor="middle" class="text-tight">Regressionen fallen auf</text>
+  <text x="1465" y="944" text-anchor="middle" class="text-tight">vor dem nächsten Schritt</text>
+
+  <text x="900" y="1065" text-anchor="middle" class="text">Merksatz: Refactoring ist sicherer, wenn nach jedem kleinen Schritt getestet wird.</text>
+</svg>

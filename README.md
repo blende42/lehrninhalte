@@ -62,6 +62,7 @@ Lehr- und Arbeitsblätter zu Java- und Grundlagenthemen:
 - [Arbeitsblatt_Maven_Einfache_Tests_Vorbereiten.md](./Arbeitsblaetter/Arbeitsblatt_Maven_Einfache_Tests_Vorbereiten.md)
 - [Arbeitsblatt_JUnit_Einstieg.md](./Arbeitsblaetter/Arbeitsblatt_JUnit_Einstieg.md)
 - [Arbeitsblatt_JUnit_Fehleranalyse.md](./Arbeitsblaetter/Arbeitsblatt_JUnit_Fehleranalyse.md)
+- [Arbeitsblatt_Refactoring_mit_Tests.md](./Arbeitsblaetter/Arbeitsblatt_Refactoring_mit_Tests.md)
 - [arbeitsblatt_java_wrapper.md](./Arbeitsblaetter/arbeitsblatt_java_wrapper.md)
 - [arbeitsblatt_stringbuilder.md](./Arbeitsblaetter/arbeitsblatt_stringbuilder.md)
 - [arbeitsblatt_theorie_kombiniert.md](./Arbeitsblaetter/arbeitsblatt_theorie_kombiniert.md)
@@ -96,6 +97,7 @@ SVG-Grafiken und zugehörige Datei für eingebettete Arbeitsblattgrafiken:
 - [Uebungen_Maven_Einfache_Tests_Vorbereiten.md](./Uebungen/Uebungen_Maven_Einfache_Tests_Vorbereiten.md)
 - [Uebungen_JUnit_Einstieg.md](./Uebungen/Uebungen_JUnit_Einstieg.md)
 - [Uebungen_JUnit_Fehleranalyse.md](./Uebungen/Uebungen_JUnit_Fehleranalyse.md)
+- [Uebungen_Refactoring_mit_Tests.md](./Uebungen/Uebungen_Refactoring_mit_Tests.md)
 - [string_uebungen.md](./Uebungen/string_uebungen.md)
 - [string_uebungen_v2.md](./Uebungen/string_uebungen_v2.md)
 - [string_mini_projekt_v3.md](./Uebungen/string_mini_projekt_v3.md)
@@ -124,6 +126,7 @@ Kompakte Referenzlösungen zu den Übungen, Simulationen, Package-Strukturierung
 - [Loesungen_Maven_Einfache_Tests_Vorbereiten.md](./Musterloesungen/Loesungen_Maven_Einfache_Tests_Vorbereiten.md)
 - [Loesungen_JUnit_Einstieg.md](./Musterloesungen/Loesungen_JUnit_Einstieg.md)
 - [Loesungen_JUnit_Fehleranalyse.md](./Musterloesungen/Loesungen_JUnit_Fehleranalyse.md)
+- [Loesungen_Refactoring_mit_Tests.md](./Musterloesungen/Loesungen_Refactoring_mit_Tests.md)
 - [musterloesungen_stringbuilder.md](./Musterloesungen/musterloesungen_stringbuilder.md)
 - [string_parser_loesungen.md](./Musterloesungen/string_parser_loesungen.md)
 
@@ -142,6 +145,7 @@ Allgemeine SVG-Grafiken für den Unterricht:
 - [maven_tests_vorbereiten.svg](./graphics/maven_tests_vorbereiten.svg)
 - [junit_manuell_zu_automatisiert.svg](./graphics/junit_manuell_zu_automatisiert.svg)
 - [junit_test_fehlschlag_workflow.svg](./graphics/junit_test_fehlschlag_workflow.svg)
+- [refactoring_mit_tests_workflow.svg](./graphics/refactoring_mit_tests_workflow.svg)
 - [parser_grafik.svg](./graphics/parser_grafik.svg)
 
 ### templates

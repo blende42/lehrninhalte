@@ -29,10 +29,11 @@ Aktuell vorbereitet sind:
 19. Maven-Projekte mit einfachen Tests vorbereiten
 20. Von manuellen Tests zu automatisierten Tests mit JUnit
 21. Wenn automatisierte Tests fehlschlagen
+22. Refactoring mit Tests absichern
 
-Die zuletzt erstellte Unterrichtseinheit ist **Wenn automatisierte Tests fehlschlagen**. Zusätzlich wurde eine kleine Prozess- und Begriffsbibliothek für KI-gestützte Lehrmittel-Erstellung angelegt.
+Die zuletzt erstellte Unterrichtseinheit ist **Refactoring mit Tests absichern**. Zusätzlich wurde eine kleine Prozess- und Begriffsbibliothek für KI-gestützte Lehrmittel-Erstellung angelegt.
 
-Neue Maven-Dateien:
+Neue Dateien im Maven-, Testing- und Refactoring-Block:
 
 - [Arbeitsblatt_Maven_Einstieg.md](./Arbeitsblaetter/Arbeitsblatt_Maven_Einstieg.md)
 - [Uebungen_Maven_Einstieg.md](./Uebungen/Uebungen_Maven_Einstieg.md)
@@ -49,11 +50,15 @@ Neue Maven-Dateien:
 - [Arbeitsblatt_JUnit_Fehleranalyse.md](./Arbeitsblaetter/Arbeitsblatt_JUnit_Fehleranalyse.md)
 - [Uebungen_JUnit_Fehleranalyse.md](./Uebungen/Uebungen_JUnit_Fehleranalyse.md)
 - [Loesungen_JUnit_Fehleranalyse.md](./Musterloesungen/Loesungen_JUnit_Fehleranalyse.md)
+- [Arbeitsblatt_Refactoring_mit_Tests.md](./Arbeitsblaetter/Arbeitsblatt_Refactoring_mit_Tests.md)
+- [Uebungen_Refactoring_mit_Tests.md](./Uebungen/Uebungen_Refactoring_mit_Tests.md)
+- [Loesungen_Refactoring_mit_Tests.md](./Musterloesungen/Loesungen_Refactoring_mit_Tests.md)
 - [maven_orchestriert_build.svg](./graphics/maven_orchestriert_build.svg)
 - [maven_compile_run_package.svg](./graphics/maven_compile_run_package.svg)
 - [maven_tests_vorbereiten.svg](./graphics/maven_tests_vorbereiten.svg)
 - [junit_manuell_zu_automatisiert.svg](./graphics/junit_manuell_zu_automatisiert.svg)
 - [junit_test_fehlschlag_workflow.svg](./graphics/junit_test_fehlschlag_workflow.svg)
+- [refactoring_mit_tests_workflow.svg](./graphics/refactoring_mit_tests_workflow.svg)
 
 Neue Dokumentations- und Skill-Bereiche:
 
@@ -110,15 +115,15 @@ Die Dateien unter `docs/begriffe` erklären zentrale Begriffe kurz und unterrich
 
 ## Nächster geplanter Block
 
-Als nächstes bietet sich **Refactoring mit Tests absichern** an.
+Als nächstes bietet sich **Dateien und Persistenz** an.
 
 Sinnvolle Inhalte:
 
-- vor kleinen Codeänderungen grünen Teststand herstellen
-- Methoden vereinfachen, ohne Verhalten absichtlich zu ändern
-- nach jeder Änderung `mvn test` ausführen
-- Build-Server und CI/CD weiterhin nur als Ausblick behandeln
-- weiterhin kein Mocking, keine Parameterized Tests, keine Integrationstests
+- CSV-Dateien lesen und schreiben
+- Produktdaten laden und speichern
+- einfache Persistenz ohne Datenbank
+- Fehlerfälle bei Dateien ruhig einführen
+- weiterhin keine Datenbank und keine komplexen Frameworks
 
 ## Passender Anschluss
 
@@ -137,9 +142,9 @@ produktverwaltung-maven/
 
 Didaktisch sinnvoll ist als nächstes ein Vergleich:
 
-- einfache Prüfmethode mit `if`/`else`
-- automatisierte Prüfung mit einem Testframework
-- gleiche Erwartung, aber weniger manuelle Auswertung
+- Daten nur im Arbeitsspeicher
+- Daten aus einer CSV-Datei laden
+- Daten wieder in eine CSV-Datei speichern
 
 ## Verifikation der zuletzt erstellten Einheiten
 
@@ -210,6 +215,26 @@ Für **Maven-Projekte ausführen und paketieren** wurden Markdown-Struktur, Date
 - Die Musterlösung `Loesungen_JUnit_Fehleranalyse.md` zeigt kompakte Standardlösungen zu Fehlermeldungen, Ursachenanalyse, korrigierter Fachlogik, Regressionen und `mvn test`-Interpretation.
 - Die Grafik `junit_test_fehlschlag_workflow.svg` zeigt den Ablauf von Codeänderung, rotem Test, Analyse, Korrektur und erneut grünem Testlauf.
 - Nicht behandelt werden formales TDD, Mocking, komplexe Assertions, Coverage, technische CI/CD-Umsetzung, tiefer Debugger-Einsatz, Logging-Frameworks, Parameterized Tests und Integrationstests.
+
+## Wichtige Inhalte aus Refactoring mit Tests absichern
+
+- Refactoring wird als Strukturverbesserung verstanden, nicht als neue Funktion.
+- Verhalten und Struktur werden klar getrennt.
+- Vor einem Refactoring wird mit `mvn test` ein grüner Ausgangszustand hergestellt.
+- Nach jedem kleinen Refactoring-Schritt wird `mvn test` erneut ausgeführt.
+- Tests dienen als Sicherheitsnetz gegen Regressionen.
+- Die Produktverwaltung bleibt Kontext:
+  - Rabattberechnung
+  - Gesamtwertberechnung
+  - Produktsuche
+- `main` wird von Fachlogik entlastet.
+- Lange Methoden werden in kleinere Methoden mit sprechenden Namen aufgeteilt.
+- Doppelte Rabattberechnung wird zentralisiert.
+- Edge Cases wie `0` Prozent und `100` Prozent Rabatt bleiben durch Tests abgesichert.
+- Die Musterlösung `Loesungen_Refactoring_mit_Tests.md` zeigt kompakte Standardlösungen zu grünen Ausgangszuständen, kleinen Refactoring-Schritten, entlasteter `main`, zentralisierter Rabattlogik, Regressionen und `mvn test`-Verifikation.
+- Die Grafik `refactoring_mit_tests_workflow.svg` zeigt den Ablauf von grünem Ausgangszustand, kleinem Refactoring-Schritt, erneutem Testlauf und Korrektur bei Regression.
+- Build-Server und CI/CD werden nur kurz als spätere automatische Ausführung derselben Tests erwähnt.
+- Nicht behandelt werden formales TDD, Mocking, Test Doubles, komplexe Patterns, Clean Architecture, Coverage, Spring und Datenbanken.
 
 ## Wichtige Repo-Regeln
 

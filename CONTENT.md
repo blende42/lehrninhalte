@@ -281,13 +281,63 @@ Material:
 - [Übungen – Wenn automatisierte Tests fehlschlagen](./Uebungen/Uebungen_JUnit_Fehleranalyse.md)
 - [Lösungen – Wenn automatisierte Tests fehlschlagen](./Musterloesungen/Loesungen_JUnit_Fehleranalyse.md)
 
+### 22. Refactoring mit Tests absichern
+
+Ziel: Bestehenden Code in kleinen Schritten verbessern, ohne das gewünschte Verhalten absichtlich zu ändern, und mit `mvn test` vor und nach jedem Refactoring prüfen, ob die bekannten Erwartungen weiterhin erfüllt sind.
+
+Material:
+
+- [Arbeitsblatt – Refactoring mit Tests absichern](./Arbeitsblaetter/Arbeitsblatt_Refactoring_mit_Tests.md)
+- [Refactoring mit Tests absichern](./graphics/refactoring_mit_tests_workflow.svg)
+- [Übungen – Refactoring mit Tests absichern](./Uebungen/Uebungen_Refactoring_mit_Tests.md)
+- [Lösungen – Refactoring mit Tests absichern](./Musterloesungen/Loesungen_Refactoring_mit_Tests.md)
+
 ### Nächster sinnvoller Block
 
-Nach `Wenn automatisierte Tests fehlschlagen` bietet sich als nächstes Thema **Refactoring mit Tests absichern** an:
+Nach `Refactoring mit Tests absichern` bietet sich als nächstes Thema **Dateien und Persistenz** an:
 
-- kleine Codeverbesserungen mit grünem Teststand vorbereiten
-- nach Änderungen `mvn test` als Sicherheitsnetz nutzen
-- CI/CD weiterhin nur als Ausblick behandeln
+- CSV-Dateien lesen und schreiben
+- einfache Datenhaltung ohne Datenbank
+- Produktdaten laden und speichern
+
+## Geplante spätere Themenblöcke
+
+Nach der aktuellen Testing- und Refactoring-Sequenz sind folgende grössere Themenbereiche geplant.
+
+### 1. Dateien und Persistenz
+
+- CSV
+- Laden und Speichern
+- einfache Persistenz
+- praxisnahe Datenhaltung ohne Datenbank
+
+### 2. Vererbung und Interfaces
+
+- Vererbung
+- Polymorphie
+- Interfaces
+- gemeinsame Typen und austauschbare Implementierungen
+
+### 3. Architektur und Schichten
+
+- Trennung von Verantwortlichkeiten
+- Service-Schicht
+- Repository-Idee
+- Testbarkeit durch bessere Struktur
+
+### 4. REST und Client/Server
+
+- HTTP-Grundlagen
+- JSON
+- REST-APIs
+- Client/Server-Modell
+
+Didaktische Begründung:
+
+- zuerst greifbare Datenhaltung
+- danach objektorientierte Erweiterung
+- danach strukturelle Architektur
+- danach REST/API als Anwendung der vorherigen Konzepte
 
 ## Arbeitsblätter
 
@@ -442,6 +492,13 @@ Arbeitsblätter führen neue Konzepte ein, enthalten kurze Theorie, Beispiele, t
   - `target/surefire-reports` kurz sichtbar machen
   - Edge Cases und Regressionstests als Sicherheitsnetz nutzen
   - Abgrenzung zu TDD, Mocking, Coverage, Integrationstests und technischer CI/CD-Umsetzung
+- [Arbeitsblatt – Refactoring mit Tests absichern](./Arbeitsblaetter/Arbeitsblatt_Refactoring_mit_Tests.md)
+  - Refactoring als Strukturverbesserung bei gleichem Verhalten erklären
+  - Tests vor und nach kleinen Änderungen mit `mvn test` ausführen
+  - `main` von Fachlogik entlasten
+  - lange Methoden aufteilen, Methodennamen verbessern und Duplikate reduzieren
+  - Tests als Sicherheitsnetz gegen Regressionen nutzen
+  - kurzer Ausblick auf spätere Service- und Repository-Ideen
 
 ## Konzeptgrafiken
 
@@ -496,6 +553,11 @@ Konzeptgrafiken visualisieren Beziehungen, Abläufe und typische Denkmodelle. Si
   - `expected` und `actual` als zentrale Hinweise
   - erneuter grüner Testlauf nach der Korrektur
   - Tests als Sicherheitsnetz gegen Regressionen
+- [Refactoring mit Tests absichern](./graphics/refactoring_mit_tests_workflow.svg)
+  - `mvn test` vor und nach kleinen Refactoring-Schritten
+  - Verhalten bleibt gleich, Struktur wird besser
+  - Tests als Sicherheitsnetz gegen Regressionen
+  - grüner Pfad zum nächsten kleinen Schritt, roter Pfad zur Korrektur
 
 ### Arbeitsblattgrafiken zu StringBuilder
 
@@ -669,6 +731,14 @@ Konzeptgrafiken visualisieren Beziehungen, Abläufe und typische Denkmodelle. Si
   - mehrere Testfehler unterscheiden
   - Edge Cases und Regressionen bewusst erzeugen und korrigieren
   - Produktsuche und Gesamtwertberechnung mit Tests absichern
+- [Übungen – Refactoring mit Tests absichern](./Uebungen/Uebungen_Refactoring_mit_Tests.md)
+  - grünen Ausgangszustand mit `mvn test` herstellen
+  - Logik aus `main` verschieben
+  - lange Methoden schrittweise aufteilen
+  - doppelte Rabattberechnung zentralisieren
+  - sprechende Methodennamen wählen
+  - Regression bewusst erzeugen, erkennen und korrigieren
+  - Produktverwaltung schrittweise refaktorieren
 
 ## Musterlösungen
 
@@ -706,6 +776,8 @@ Musterlösungen halten kompakte Referenzlösungen und Bewertungshilfen bereit.
   - kompakte Lösung mit `pom.xml`, `src/main/java`, `src/test/java`, einfacher Testklasse, `@Test`, `assertEquals`, sparsam `assertTrue`, Edge Cases, Fehlerdiagnose und `mvn test`-Verifikation
 - [Lösungen – Wenn automatisierte Tests fehlschlagen](./Musterloesungen/Loesungen_JUnit_Fehleranalyse.md)
   - kompakte Lösungen zu `expected` und `actual`, Fehlerursachen, korrigierter Fachlogik, Edge Cases, Regressionen, `mvn test`, einfachen Surefire-Hinweisen und Reflexion
+- [Lösungen – Refactoring mit Tests absichern](./Musterloesungen/Loesungen_Refactoring_mit_Tests.md)
+  - kompakte Lösungen zu grünem Ausgangszustand, kleinen Refactoring-Schritten, entlasteter `main`, zentralisierter Fachlogik, Regressionen und `mvn test`-Verifikation
 - [Musterlösungen – StringBuilder & Parser](./Musterloesungen/musterloesungen_stringbuilder.md)
   - StringBuilder-Methoden und vereinfachter Parser
 - [Musterlösungen – Mini-Projekt String Parser](./Musterloesungen/string_parser_loesungen.md)
