@@ -82,6 +82,7 @@ Lehr- und Arbeitsblätter zu Java- und Grundlagenthemen:
 - [Arbeitsblatt_Refactoring_mit_Tests.md](./Arbeitsblaetter/Arbeitsblatt_Refactoring_mit_Tests.md)
 - [Arbeitsblatt_CSV_Laden.md](./Arbeitsblaetter/Arbeitsblatt_CSV_Laden.md)
 - [Arbeitsblatt_CSV_Speichern.md](./Arbeitsblaetter/Arbeitsblatt_CSV_Speichern.md)
+- [Arbeitsblatt_Persistenzablauf_Vertiefen.md](./Arbeitsblaetter/Arbeitsblatt_Persistenzablauf_Vertiefen.md)
 - [arbeitsblatt_java_wrapper.md](./Arbeitsblaetter/arbeitsblatt_java_wrapper.md)
 - [arbeitsblatt_stringbuilder.md](./Arbeitsblaetter/arbeitsblatt_stringbuilder.md)
 - [arbeitsblatt_theorie_kombiniert.md](./Arbeitsblaetter/arbeitsblatt_theorie_kombiniert.md)
@@ -119,6 +120,7 @@ SVG-Grafiken und zugehörige Datei für eingebettete Arbeitsblattgrafiken:
 - [Uebungen_Refactoring_mit_Tests.md](./Uebungen/Uebungen_Refactoring_mit_Tests.md)
 - [Uebungen_CSV_Laden.md](./Uebungen/Uebungen_CSV_Laden.md)
 - [Uebungen_CSV_Speichern.md](./Uebungen/Uebungen_CSV_Speichern.md)
+- [Uebungen_Persistenzablauf_Vertiefen.md](./Uebungen/Uebungen_Persistenzablauf_Vertiefen.md)
 - [string_uebungen.md](./Uebungen/string_uebungen.md)
 - [string_uebungen_v2.md](./Uebungen/string_uebungen_v2.md)
 - [string_mini_projekt_v3.md](./Uebungen/string_mini_projekt_v3.md)
@@ -150,6 +152,7 @@ Kompakte Referenzlösungen zu den Übungen, Simulationen, Package-Strukturierung
 - [Loesungen_Refactoring_mit_Tests.md](./Musterloesungen/Loesungen_Refactoring_mit_Tests.md)
 - [Loesungen_CSV_Laden.md](./Musterloesungen/Loesungen_CSV_Laden.md)
 - [Loesungen_CSV_Speichern.md](./Musterloesungen/Loesungen_CSV_Speichern.md)
+- [Loesungen_Persistenzablauf_Vertiefen.md](./Musterloesungen/Loesungen_Persistenzablauf_Vertiefen.md)
 - [musterloesungen_stringbuilder.md](./Musterloesungen/musterloesungen_stringbuilder.md)
 - [string_parser_loesungen.md](./Musterloesungen/string_parser_loesungen.md)
 
@@ -171,6 +174,7 @@ Allgemeine SVG-Grafiken für den Unterricht:
 - [refactoring_mit_tests_workflow.svg](./graphics/refactoring_mit_tests_workflow.svg)
 - [csv_laden_produktverwaltung.svg](./graphics/csv_laden_produktverwaltung.svg)
 - [csv_speichern_produktverwaltung.svg](./graphics/csv_speichern_produktverwaltung.svg)
+- [persistenzablauf_laden_bearbeiten_speichern.svg](./graphics/persistenzablauf_laden_bearbeiten_speichern.svg)
 - [parser_grafik.svg](./graphics/parser_grafik.svg)
 
 ### templates

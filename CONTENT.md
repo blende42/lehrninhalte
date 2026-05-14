@@ -327,13 +327,24 @@ Material:
 - [Übungen – Produktdaten als CSV-Dateien speichern](./Uebungen/Uebungen_CSV_Speichern.md)
 - [Lösungen – Produktdaten als CSV-Dateien speichern](./Musterloesungen/Loesungen_CSV_Speichern.md)
 
+### 26. Persistenzablauf vertiefen
+
+Ziel: Laden, Bearbeiten, Speichern und erneutes Laden als vollständigen Persistenzablauf verstehen, Arbeitsspeicher und Datei unterscheiden, Änderungen bewusst speichern, Speicher- und Ladeformat prüfen sowie einfache Praxisfälle wie Backup, Export, Kopfzeile und Änderungsstatistik einordnen.
+
+Material:
+
+- [Arbeitsblatt – Persistenzablauf vertiefen](./Arbeitsblaetter/Arbeitsblatt_Persistenzablauf_Vertiefen.md)
+- [Persistenzablauf: Laden, Bearbeiten, Speichern](./graphics/persistenzablauf_laden_bearbeiten_speichern.svg)
+- [Übungen – Persistenzablauf vertiefen](./Uebungen/Uebungen_Persistenzablauf_Vertiefen.md)
+- [Lösungen – Persistenzablauf vertiefen](./Musterloesungen/Loesungen_Persistenzablauf_Vertiefen.md)
+
 ### Nächster sinnvoller Block
 
-Nach `Produktdaten als CSV-Dateien speichern` bietet sich als nächstes Thema **Persistenzablauf vertiefen** an:
+Nach `Persistenzablauf vertiefen` bietet sich als nächstes Thema eine kompakte **Persistenz-Repetition oder einfache Architekturvorbereitung** an:
 
-- Laden, bearbeiten und speichern als vollständiger Ablauf
-- Speicher- und Ladeformat bewusst prüfen
-- einfache Sicherungen oder Exportdateien als Ausblick einordnen
+- vollständigen Lade-Bearbeiten-Speichern-Zyklus festigen
+- Verantwortlichkeiten in `Main`, Fachlogik und Dateilogik wiederholen
+- spätere Schichten-Ideen vorbereiten, ohne bereits formale Patterns einzuführen
 
 ## Geplante spätere Themenblöcke
 
@@ -547,6 +558,13 @@ Arbeitsblätter führen neue Konzepte ein, enthalten kurze Theorie, Beispiele, t
   - Überschreiben, leere Listen und einfache Fehlerfälle behandeln
   - Speicher- und Ladeformat durch erneutes Laden prüfen
   - Prozessgrafik zum Speichern von `ArrayList<Produkt>` als CSV-Datei
+- [Arbeitsblatt – Persistenzablauf vertiefen](./Arbeitsblaetter/Arbeitsblatt_Persistenzablauf_Vertiefen.md)
+  - Persistenz als Ablauf aus Laden, Bearbeiten, Speichern und erneutem Laden
+  - Arbeitsspeicher und Datei als unterschiedliche Orte für Zustand
+  - bewusste Speicherung von Änderungen
+  - Speicher- und Ladeformat mit Kopfzeile `name;preis` vergleichen
+  - Prozessgrafik zum vollständigen Ablauf mit Datei, Arbeitsspeicher, Fachlogik und Prüfung
+  - Fehlerfälle, Backup, Export und Ausblick auf spätere Schichten-Themen
 
 ## Konzeptgrafiken
 
@@ -616,6 +634,11 @@ Konzeptgrafiken visualisieren Beziehungen, Abläufe und typische Denkmodelle. Si
   - String-Verarbeitung als Verbindung zwischen Objekten und Textdateien
   - Speicher- und Ladeformat müssen zusammenpassen
   - Trennung von Datei- und Fachlogik
+- [Persistenzablauf: Laden, Bearbeiten, Speichern](./graphics/persistenzablauf_laden_bearbeiten_speichern.svg)
+  - vollständiger Ablauf von CSV-Datei über Laden, `ArrayList<Produkt>`, Bearbeiten, Speichern und erneutes Laden
+  - Arbeitsspeicher als temporär und Datei als dauerhaft sichtbar machen
+  - Speicher- und Ladeformat, Datei- und Fachlogik sowie Prüfung durch erneutes Laden einordnen
+  - Backup und Export als einfache Erweiterung markieren
 
 ### Arbeitsblattgrafiken zu StringBuilder
 
@@ -807,6 +830,12 @@ Konzeptgrafiken visualisieren Beziehungen, Abläufe und typische Denkmodelle. Si
   - mehrere Produkte in eine Datei speichern
   - gespeicherte Produkte erneut laden und prüfen
   - leere Listen, Überschreiben und einfache Fehlerfälle behandeln
+- [Übungen – Persistenzablauf vertiefen](./Uebungen/Uebungen_Persistenzablauf_Vertiefen.md)
+  - Produkte aus CSV laden, ausgeben, bearbeiten, speichern und erneut laden
+  - neues Produkt hinzufügen und Preis eines bestehenden Produkts ändern
+  - Gesamtwert vor und nach der Änderung vergleichen
+  - ungültige CSV-Zeilen zählen und leere Produktlisten behandeln
+  - Transfer mit Backup-Datei, Exportdatei, Kopfzeile und Änderungsstatistik
 
 ## Repetitionen
 
@@ -862,6 +891,11 @@ Musterlösungen halten kompakte Referenzlösungen und Bewertungshilfen bereit.
   - kompakte Standardlösung mit `CsvProduktLeser`, `Produkt`, `ProduktVerwaltung`, `ArrayList`, `split(";")`, `Double.parseDouble(...)` und einfachen Fehlerfällen
 - [Lösungen – Produktdaten als CSV-Dateien speichern](./Musterloesungen/Loesungen_CSV_Speichern.md)
   - kompakte Standardlösung mit `CsvProduktSpeicher`, `CsvProduktLeser`, `Produkt`, `ProduktVerwaltung`, `ArrayList`, `Files.write(...)`, erneutem Laden, leeren Listen und einfachen Fehlerfällen
+- [Lösungen – Persistenzablauf vertiefen](./Musterloesungen/Loesungen_Persistenzablauf_Vertiefen.md)
+  - kompakte Standardlösung mit `Produkt`, `ProduktVerwaltung`, `CsvProduktLeser`, `CsvProduktSpeicher` und `Main`
+  - vollständiger Ablauf aus Laden, Bearbeiten, Speichern, erneutem Laden und Prüfen
+  - Gesamtwertvergleich, fehlerhafte CSV-Zeilen, leere Listen, Backup, Export, Kopfzeile und Änderungsstatistik
+  - dokumentierte Validierung mit temporärem Maven-Projekt
 - [Musterlösungen – StringBuilder & Parser](./Musterloesungen/musterloesungen_stringbuilder.md)
   - StringBuilder-Methoden und vereinfachter Parser
 - [Musterlösungen – Mini-Projekt String Parser](./Musterloesungen/string_parser_loesungen.md)

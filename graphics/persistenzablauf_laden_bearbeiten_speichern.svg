@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1200" viewBox="0 0 1800 1200" role="img" aria-labelledby="title desc">
+  <title id="title">Persistenzablauf: Laden, Bearbeiten, Speichern</title>
+  <desc id="desc">Prozessgrafik: CSV-Datei laden, Produktliste im Arbeitsspeicher bearbeiten, speichern, erneut laden und Änderung prüfen.</desc>
+
+  <defs>
+    <style>
+      .title { font: 700 42px Arial, Helvetica, sans-serif; fill: #111; }
+      .subtitle { font: 400 20px Arial, Helvetica, sans-serif; fill: #555; }
+      .section { font: 700 28px Arial, Helvetica, sans-serif; fill: #111; }
+      .heading { font: 700 24px Arial, Helvetica, sans-serif; fill: #111; }
+      .text { font: 700 21px Arial, Helvetica, sans-serif; fill: #111; }
+      .text-small { font: 400 18px Arial, Helvetica, sans-serif; fill: #333; }
+      .mono { font: 700 23px "Courier New", Courier, monospace; fill: #111; }
+
+      .page { fill: #ffffff; }
+      .panel { fill: #fbfcfd; stroke: #b9bcc3; stroke-width: 2.2; }
+      .panel-soft { fill: #f7f8fa; stroke: #b9bcc3; stroke-width: 2; }
+      .file-zone { fill: #eef7ec; stroke: #6ca05f; stroke-width: 2.4; }
+      .memory-zone { fill: #eef5ff; stroke: #6f9ce0; stroke-width: 2.4; }
+      .logic-zone { fill: #fff7e8; stroke: #d89b37; stroke-width: 2.4; }
+      .file-box { fill: #edf6ea; stroke: #4d8f3a; stroke-width: 2.6; }
+      .memory-box { fill: #eef5ff; stroke: #2b65b3; stroke-width: 2.5; }
+      .logic-box { fill: #fff7e8; stroke: #c67f17; stroke-width: 2.5; }
+      .check-box { fill: #f1eefb; stroke: #7356b6; stroke-width: 2.5; }
+      .note-box { fill: #ffffff; stroke: #b9bcc3; stroke-width: 2.2; }
+      .hint-box { fill: #fff7e8; stroke: #c67f17; stroke-width: 2.2; }
+
+      .green { fill: #4d8f3a; }
+      .blue { fill: #2b65b3; }
+      .orange { fill: #c67f17; }
+      .purple { fill: #7356b6; }
+      .grey { fill: #555; }
+
+      .flow { stroke: #2b65b3; stroke-width: 3.4; fill: none; }
+      .flow-green { stroke: #4d8f3a; stroke-width: 3.4; fill: none; }
+      .flow-orange { stroke: #c67f17; stroke-width: 3.4; fill: none; }
+      .flow-dash { stroke: #6b7078; stroke-width: 3; fill: none; stroke-dasharray: 9 8; }
+    </style>
+
+    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2b65b3"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#4d8f3a"/>
+    </marker>
+    <marker id="arrowOrange" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#c67f17"/>
+    </marker>
+    <marker id="arrowGrey" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#6b7078"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1800" height="1200" class="page"/>
+  <text x="900" y="72" text-anchor="middle" class="title">Persistenz ist ein vollständiger Ablauf</text>
+  <text x="900" y="106" text-anchor="middle" class="subtitle">Laden, Bearbeiten, Speichern und Prüfen gehören zusammen.</text>
+
+  <rect x="70" y="145" rx="20" ry="20" width="1660" height="845" class="panel"/>
+  <rect x="95" y="165" rx="16" ry="16" width="1610" height="62" class="panel-soft"/>
+  <text x="900" y="205" text-anchor="middle" class="section">Vom gespeicherten Zustand zur geprüften Änderung</text>
+
+  <!-- Prozessspalte -->
+  <rect x="705" y="260" rx="16" ry="16" width="390" height="64" class="file-box"/>
+  <text x="900" y="300" text-anchor="middle" class="heading green">CSV-Datei vorher</text>
+
+  <rect x="765" y="355" rx="16" ry="16" width="270" height="58" class="logic-box"/>
+  <text x="900" y="391" text-anchor="middle" class="text orange">laden</text>
+
+  <rect x="705" y="444" rx="16" ry="16" width="390" height="64" class="memory-box"/>
+  <text x="900" y="484" text-anchor="middle" class="heading blue">ArrayList&lt;Produkt&gt;</text>
+
+  <rect x="765" y="539" rx="16" ry="16" width="270" height="58" class="logic-box"/>
+  <text x="900" y="575" text-anchor="middle" class="text orange">bearbeiten</text>
+
+  <rect x="705" y="628" rx="16" ry="16" width="390" height="64" class="memory-box"/>
+  <text x="900" y="668" text-anchor="middle" class="heading blue">ProduktVerwaltung</text>
+
+  <rect x="765" y="723" rx="16" ry="16" width="270" height="58" class="logic-box"/>
+  <text x="900" y="759" text-anchor="middle" class="text orange">speichern</text>
+
+  <rect x="705" y="812" rx="16" ry="16" width="390" height="64" class="file-box"/>
+  <text x="900" y="852" text-anchor="middle" class="heading green">CSV-Datei gespeichert</text>
+
+  <rect x="600" y="907" rx="16" ry="16" width="260" height="58" class="logic-box"/>
+  <text x="730" y="943" text-anchor="middle" class="text orange">erneut laden</text>
+
+  <rect x="940" y="907" rx="16" ry="16" width="260" height="58" class="check-box"/>
+  <text x="1070" y="943" text-anchor="middle" class="text purple">Änderung prüfen</text>
+
+  <line x1="900" y1="324" x2="900" y2="355" class="flow" marker-end="url(#arrowBlue)"/>
+  <line x1="900" y1="413" x2="900" y2="444" class="flow" marker-end="url(#arrowBlue)"/>
+  <line x1="900" y1="508" x2="900" y2="539" class="flow-orange" marker-end="url(#arrowOrange)"/>
+  <line x1="900" y1="597" x2="900" y2="628" class="flow" marker-end="url(#arrowBlue)"/>
+  <line x1="900" y1="692" x2="900" y2="723" class="flow-orange" marker-end="url(#arrowOrange)"/>
+  <line x1="900" y1="781" x2="900" y2="812" class="flow-green" marker-end="url(#arrowGreen)"/>
+  <path d="M 880 876 C 820 895 770 895 740 907" class="flow" marker-end="url(#arrowBlue)"/>
+  <path d="M 860 936 C 892 936 908 936 940 936" class="flow" marker-end="url(#arrowBlue)"/>
+
+  <!-- Zonen und Hinweise -->
+  <rect x="130" y="285" rx="18" ry="18" width="430" height="198" class="file-zone"/>
+  <text x="345" y="330" text-anchor="middle" class="heading green">Datei speichert dauerhaft</text>
+  <text x="345" y="368" text-anchor="middle" class="text-small">CSV bleibt nach Programmende</text>
+  <text x="345" y="398" text-anchor="middle" class="mono">name;preis</text>
+  <text x="345" y="430" text-anchor="middle" class="text-small">Format beim Laden und Speichern</text>
+  <text x="345" y="458" text-anchor="middle" class="text-small">muss zusammenpassen</text>
+
+  <rect x="1240" y="285" rx="18" ry="18" width="430" height="198" class="memory-zone"/>
+  <text x="1455" y="330" text-anchor="middle" class="heading blue">Arbeitsspeicher ist temporär</text>
+  <text x="1455" y="368" text-anchor="middle" class="text-small">Änderungen an Objekten</text>
+  <text x="1455" y="398" text-anchor="middle" class="text-small">sind zuerst nur im Programm</text>
+  <text x="1455" y="430" text-anchor="middle" class="text-small">Dauerhaft erst nach</text>
+  <text x="1455" y="458" text-anchor="middle" class="text-small">bewusstem Speichern</text>
+
+  <rect x="130" y="570" rx="18" ry="18" width="430" height="178" class="logic-zone"/>
+  <text x="345" y="615" text-anchor="middle" class="heading orange">Dateilogik</text>
+  <text x="345" y="653" text-anchor="middle" class="text-small">CsvProduktLeser</text>
+  <text x="345" y="683" text-anchor="middle" class="text-small">CsvProduktSpeicher</text>
+  <text x="345" y="720" text-anchor="middle" class="text-small">liest und schreibt Dateien</text>
+
+  <rect x="1240" y="570" rx="18" ry="18" width="430" height="178" class="logic-zone"/>
+  <text x="1455" y="615" text-anchor="middle" class="heading orange">Fachlogik</text>
+  <text x="1455" y="653" text-anchor="middle" class="text-small">ProduktVerwaltung</text>
+  <text x="1455" y="683" text-anchor="middle" class="text-small">ändert Preise und rechnet</text>
+  <text x="1455" y="720" text-anchor="middle" class="text-small">kennt keine Datei-Befehle</text>
+
+  <rect x="130" y="805" rx="18" ry="18" width="430" height="128" class="hint-box"/>
+  <text x="345" y="850" text-anchor="middle" class="heading orange">Erweiterung</text>
+  <text x="345" y="888" text-anchor="middle" class="text-small">Backup vor Überschreiben</text>
+  <text x="345" y="918" text-anchor="middle" class="text-small">Export unter anderem Namen</text>
+
+  <rect x="1240" y="805" rx="18" ry="18" width="430" height="128" class="note-box"/>
+  <text x="1455" y="850" text-anchor="middle" class="heading purple">Prüfung</text>
+  <text x="1455" y="888" text-anchor="middle" class="text-small">Nicht nur Liste anschauen</text>
+  <text x="1455" y="918" text-anchor="middle" class="text-small">Datei erneut laden</text>
+
+  <line x1="560" y1="384" x2="705" y2="292" class="flow-dash" marker-end="url(#arrowGrey)"/>
+  <line x1="1240" y1="384" x2="1095" y2="476" class="flow-dash" marker-end="url(#arrowGrey)"/>
+  <line x1="560" y1="660" x2="765" y2="384" class="flow-dash" marker-end="url(#arrowGrey)"/>
+  <line x1="1240" y1="660" x2="1095" y2="660" class="flow-dash" marker-end="url(#arrowGrey)"/>
+  <line x1="560" y1="868" x2="705" y2="844" class="flow-dash" marker-end="url(#arrowGrey)"/>
+  <line x1="1240" y1="868" x2="1070" y2="907" class="flow-dash" marker-end="url(#arrowGrey)"/>
+
+  <rect x="70" y="1030" rx="18" ry="18" width="1660" height="118" class="panel-soft"/>
+  <circle cx="120" cy="1076" r="7" class="green"/>
+  <text x="140" y="1084" class="text">Dateien halten den Zustand dauerhaft fest.</text>
+  <circle cx="650" cy="1076" r="7" class="blue"/>
+  <text x="670" y="1084" class="text">Arbeitsspeicher ist nur während des Programmlaufs aktuell.</text>
+  <circle cx="120" cy="1120" r="7" class="orange"/>
+  <text x="140" y="1128" class="text">Datei- und Fachlogik bleiben getrennt.</text>
+  <circle cx="650" cy="1120" r="7" class="purple"/>
+  <text x="670" y="1128" class="text">Erneutes Laden prüft, ob die Änderung wirklich gespeichert wurde.</text>
+</svg>

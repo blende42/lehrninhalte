@@ -33,8 +33,9 @@ Aktuell vorbereitet sind:
 23. Refactoring mit Tests absichern
 24. Produktdaten aus CSV-Dateien laden
 25. Produktdaten als CSV-Dateien speichern
+26. Persistenzablauf vertiefen
 
-Die zuletzt erstellte Unterrichtseinheit ist **Produktdaten als CSV-Dateien speichern**. Zusätzlich wurde eine kleine Prozess- und Begriffsbibliothek für KI-gestützte Lehrmittel-Erstellung angelegt.
+Die zuletzt erstellte Unterrichtseinheit ist **Persistenzablauf vertiefen**. Zusätzlich wurde eine kleine Prozess- und Begriffsbibliothek für KI-gestützte Lehrmittel-Erstellung angelegt.
 
 Neue Repetitions- und Vertiefungsübung:
 
@@ -73,6 +74,10 @@ Neue Dateien im Maven-, Testing-, Refactoring- und Persistenz-Block:
 - [Uebungen_CSV_Speichern.md](./Uebungen/Uebungen_CSV_Speichern.md)
 - [Loesungen_CSV_Speichern.md](./Musterloesungen/Loesungen_CSV_Speichern.md)
 - [csv_speichern_produktverwaltung.svg](./graphics/csv_speichern_produktverwaltung.svg)
+- [Arbeitsblatt_Persistenzablauf_Vertiefen.md](./Arbeitsblaetter/Arbeitsblatt_Persistenzablauf_Vertiefen.md)
+- [Uebungen_Persistenzablauf_Vertiefen.md](./Uebungen/Uebungen_Persistenzablauf_Vertiefen.md)
+- [Loesungen_Persistenzablauf_Vertiefen.md](./Musterloesungen/Loesungen_Persistenzablauf_Vertiefen.md)
+- [persistenzablauf_laden_bearbeiten_speichern.svg](./graphics/persistenzablauf_laden_bearbeiten_speichern.svg)
 - [maven_orchestriert_build.svg](./graphics/maven_orchestriert_build.svg)
 - [maven_compile_run_package.svg](./graphics/maven_compile_run_package.svg)
 - [maven_tests_vorbereiten.svg](./graphics/maven_tests_vorbereiten.svg)
@@ -135,15 +140,14 @@ Die Dateien unter `docs/begriffe` erklären zentrale Begriffe kurz und unterrich
 
 ## Nächster geplanter Block
 
-Als nächstes bietet sich **Persistenzablauf vertiefen** an.
+Als nächstes bietet sich eine **Persistenz-Repetition oder einfache Architekturvorbereitung** an.
 
 Sinnvolle Inhalte:
 
-- Produktdaten laden, bearbeiten und wieder speichern
-- Speicher- und Ladeformat bewusst vergleichen
-- einfache Sicherung oder Exportdatei als Ausblick
-- Datei- und Fachlogik weiter sauber trennen
-- Fehlerfälle bei Dateien ruhig weiterführen
+- vollständigen Lade-Bearbeiten-Speichern-Zyklus wiederholen
+- Dateilogik, Fachlogik und Ablaufsteuerung nochmals gezielt trennen
+- typische Fehlerbilder aus Laden, Speichern und Persistenzablauf diagnostisch prüfen
+- einfache Schichten-Idee als Ausblick vorbereiten
 - weiterhin keine Datenbank und keine komplexen Frameworks
 
 ## Passender Anschluss
@@ -166,6 +170,45 @@ Didaktisch sinnvoll ist als nächstes ein Vergleich:
 - Daten nur im Arbeitsspeicher
 - Daten aus einer CSV-Datei laden
 - Daten wieder in eine CSV-Datei speichern
+- Verantwortlichkeiten in `Main`, `ProduktVerwaltung`, `CsvProduktLeser` und `CsvProduktSpeicher`
+
+## Wichtige Inhalte aus Persistenzablauf vertiefen
+
+- Persistenz wird als vollständiger Ablauf verstanden:
+  - laden
+  - bearbeiten
+  - speichern
+  - erneut laden
+  - prüfen
+- Daten im Arbeitsspeicher sind temporär; CSV-Dateien speichern einen Zustand dauerhaft.
+- Änderungen an einer `ArrayList<Produkt>` werden erst durch bewusstes Speichern dauerhaft.
+- Die bekannte Produktverwaltung wird weiterverwendet:
+  - `Produkt`
+  - `ProduktVerwaltung`
+  - `CsvProduktLeser`
+  - `CsvProduktSpeicher`
+  - `Main`
+- Basisaufgaben führen durch Laden, Ausgeben, Hinzufügen, Preisänderung, Speichern und erneutes Laden.
+- Vertiefungsaufgaben behandeln Gesamtwertvergleich, ungültige CSV-Zeilen, leere Produktlisten, nicht gefundene Produkte und Formatvergleich.
+- Transferaufgaben sind fest integriert und behandeln:
+  - Backup-Datei vor dem Überschreiben
+  - Exportdatei mit anderem Namen
+  - Kopfzeile `name;preis`
+  - einfache Änderungsstatistik
+- Die Grafik `persistenzablauf_laden_bearbeiten_speichern.svg` zeigt den vollständigen Ablauf von CSV-Datei über Laden, `ArrayList<Produkt>`, Bearbeiten, `ProduktVerwaltung`, Speichern, erneutes Laden und Änderung prüfen. Sie macht temporären Arbeitsspeicher, dauerhafte Datei, passende Formate sowie getrennte Datei- und Fachlogik sichtbar.
+- Die Musterlösung `Loesungen_Persistenzablauf_Vertiefen.md` zeigt eine kompakte Standardlösung mit `Produkt`, `ProduktVerwaltung`, `CsvProduktLeser`, `CsvProduktSpeicher` und `Main`.
+- Die Java-Beispiele der Musterlösung wurden als temporäres Maven-Projekt unter `/tmp/persistenzablauf-validierung` mit `mvn package` geprüft; zusätzlich wurde die kompilierte `Main`-Klasse mit `java -cp target/classes ch.allianz.youngoitv.produktverwaltung.Main` ausgeführt.
+- Typische Fehlerbilder:
+  - Änderung wird nicht gespeichert
+  - Speicher- und Ladeformat passen nicht zusammen
+  - alles landet wieder in `main`
+  - Datei wird unbewusst überschrieben
+  - Preis bleibt `String` statt `double`
+  - Änderungen passieren an falscher Liste
+  - leere oder fehlerhafte Zeilen werden ignoriert, ohne gezählt zu werden
+  - Zielordner existiert nicht
+  - Datei- und Fachlogik werden vermischt
+- Datenbanken, ORM, JSON, Streams API, GUI, Spring, generische CSV-Frameworks und formales Repository-Pattern werden bewusst nicht behandelt.
 
 ## Wichtige Inhalte aus Produktdaten als CSV-Dateien speichern
 
@@ -224,6 +267,8 @@ Für **Maven-Projekte ausführen und paketieren** wurden Markdown-Struktur, Date
 Für **Produktdaten aus CSV-Dateien laden** wurden Arbeitsblatt, Übungen, Musterlösung, Übersichtseinträge und de-CH-Schreibweise geprüft. Die Java-Beispiele der Musterlösung wurden als temporäres Maven-Projekt unter `/tmp/csv-laden-validierung` mit `mvn test` geprüft; zusätzlich wurde die kompilierte `Main`-Klasse mit `java -cp target/classes ch.allianz.youngoitv.produktverwaltung.Main` ausgeführt. Die Grafik `csv_laden_produktverwaltung.svg` wurde mit `xmllint` validiert und mit `rsvg-convert` gerendert.
 
 Für **Produktdaten als CSV-Dateien speichern** wurden Arbeitsblatt, Übungen, Musterlösung, Übersichtseinträge, Markdown-Codeblöcke und de-CH-Schreibweise geprüft. Die zentralen Java-Beispiele zu `Produkt`, `CsvProduktLeser`, `CsvProduktSpeicher`, `ProduktVerwaltung`, `ArrayList`, `Files.write(...)` und `Main` wurden als temporäre Maven-Projekte unter `/tmp/csv-speichern-validierung` und `/tmp/csv-speichern-loesung-validierung` mit `mvn test` geprüft; zusätzlich wurde die kompilierte `Main`-Klasse mit `java -cp target/classes ch.allianz.youngoitv.produktverwaltung.Main` ausgeführt und die erzeugte CSV-Datei kontrolliert. Die Grafik `csv_speichern_produktverwaltung.svg` wurde mit `xmllint` validiert und mit `rsvg-convert` gerendert.
+
+Für **Persistenzablauf vertiefen** wurden Arbeitsblatt, Übungen, Musterlösung, Grafik, Übersichtseinträge, Markdown-Codeblöcke und de-CH-Schreibweise geprüft. Die Java-Beispiele der Musterlösung wurden als temporäres Maven-Projekt unter `/tmp/persistenzablauf-validierung` mit `mvn package` geprüft; zusätzlich wurde die kompilierte `Main`-Klasse mit `java -cp target/classes ch.allianz.youngoitv.produktverwaltung.Main` ausgeführt. Backup- und Exportdatei wurden erzeugt und kontrolliert. Die Grafik `persistenzablauf_laden_bearbeiten_speichern.svg` wurde mit `xmllint --noout` validiert und mit `rsvg-convert` gerendert.
 
 ## Wichtige Inhalte aus Maven-Projekte mit einfachen Tests vorbereiten
 
