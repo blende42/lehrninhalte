@@ -25,6 +25,8 @@ Diese Dateien unterstützen die KI-gestützte Erstellung und Prüfung von Lehrmi
   - Checkliste für lernzielorientierte Arbeitsblätter
 - [Übungen erstellen](./docs/prozesse/uebungen_erstellen.md)
   - Checkliste für klare, gestaffelte Übungsaufträge
+- [Repetition und Vertiefung erstellen](./docs/prozesse/repetition_und_vertiefung_erstellen.md)
+  - Checkliste für diagnostisch nutzbare Repetitions- und Vertiefungsübungen
 - [Musterlösungen erstellen](./docs/prozesse/musterloesungen_erstellen.md)
   - Checkliste für kompakte Referenzlösungen
 - [Review Didaktik](./docs/prozesse/review_didaktik.md)
@@ -38,6 +40,8 @@ Diese Dateien unterstützen die KI-gestützte Erstellung und Prüfung von Lehrmi
   - unterstützt das Erstellen oder gezielte Überarbeiten von Arbeitsblättern
 - [uebungen-erstellen](./.agents/skills/uebungen-erstellen/SKILL.md)
   - unterstützt klare, gestaffelte und prüfbare Übungsaufträge
+- [repetition-vertiefung-erstellen](./.agents/skills/repetition-vertiefung-erstellen/SKILL.md)
+  - unterstützt kurze, diagnostische Repetitions- und Vertiefungsübungen
 - [musterloesungen-erstellen](./.agents/skills/musterloesungen-erstellen/SKILL.md)
   - unterstützt kompakte, fachlich korrekte Musterlösungen
 - [svg-pruefen](./.agents/skills/svg-pruefen/SKILL.md)
@@ -206,7 +210,16 @@ Material:
 - [Übungen – ArrayList](./Uebungen/Uebungen_ArrayList.md)
 - [Lösungen – ArrayList](./Musterloesungen/Loesungen_ArrayList.md)
 
-### 15. Java-Packages
+### 15. Repetition Java Intro
+
+Ziel: Klassen und Objekte, Kapselung, `ArrayList` und Methoden in vielen kleinen Aufgaben kombinieren und diagnostisch sichtbar machen, ob die Grundlagen verinnerlicht wurden.
+
+Material:
+
+- [Repetition Java Intro – Lernenden-Version](./Repetitionen/Repetition_Java_Intro/Lernende/Repetition_Java_Intro.md)
+- [Repetition Java Intro – Lehrpersonen-Version](./Repetitionen/Repetition_Java_Intro/Lehrperson/Repetition_Java_Intro_LP.md)
+
+### 16. Java-Packages
 
 Ziel: Mehrere Java-Klassen mit Packages strukturieren, Package-Namen nach umgekehrter Domain-Konvention verwenden und ohne Maven sauber nach `out` kompilieren.
 
@@ -216,7 +229,7 @@ Material:
 - [Übungen – Java-Packages](./Uebungen/Uebungen_Packages.md)
 - [Lösungen – Java-Packages](./Musterloesungen/Loesungen_Packages.md)
 
-### 16. Algorithmen und Datenstrukturen
+### 17. Algorithmen und Datenstrukturen
 
 Ziel: Einfache Algorithmen auf Arrays verstehen, lineare Suche, Minimum, Maximum und Zählen anwenden, Bubble Sort und Selection Sort mit `int[]` nachvollziehen sowie einfache Simulationen mit Schleifen umsetzen.
 
@@ -227,7 +240,7 @@ Material:
 - [Übungen – Algorithmen und Datenstrukturen](./Uebungen/Uebungen_Algorithmen_Datenstrukturen.md)
 - [Lösungen – Algorithmen und Datenstrukturen](./Musterloesungen/Loesungen_Algorithmen_Datenstrukturen.md)
 
-### 17. Maven Einstieg
+### 18. Maven Einstieg
 
 Ziel: Maven als orchestrierendes Build-Tool verstehen, den bekannten manuellen Build-Prozess mit `javac -d out` und `java -cp out` mit `mvn compile`, `mvn clean`, `src/main/java` und `target` vergleichen sowie `Convention over Configuration` praktisch anwenden.
 
@@ -238,7 +251,7 @@ Material:
 - [Übungen – Maven Einstieg](./Uebungen/Uebungen_Maven_Einstieg.md)
 - [Lösungen – Maven Einstieg](./Musterloesungen/Loesungen_Maven_Einstieg.md)
 
-### 18. Maven-Projekte ausführen und paketieren
+### 19. Maven-Projekte ausführen und paketieren
 
 Ziel: `compile`, Programmstart und `package` unterscheiden, `target/classes` und einfache JAR-Dateien als Build-Ergebnisse einordnen, Java-`package` von Maven `package` trennen sowie reproduzierbare Builds als Grundlage für Build-Server und CI/CD vorbereiten.
 
@@ -249,7 +262,7 @@ Material:
 - [Übungen – Maven-Projekte ausführen und paketieren](./Uebungen/Uebungen_Maven_Ausfuehren_und_Paketieren.md)
 - [Lösungen – Maven-Projekte ausführen und paketieren](./Musterloesungen/Loesungen_Maven_Ausfuehren_und_Paketieren.md)
 
-### 19. Maven-Projekte mit einfachen Tests vorbereiten
+### 20. Maven-Projekte mit einfachen Tests vorbereiten
 
 Ziel: Fachlogik von `main` trennen, kleine prüfbare Methoden mit klaren Rückgabewerten schreiben, erwartete und tatsächliche Resultate systematisch vergleichen und Edge Cases bewusst prüfen, ohne bereits JUnit, externe Dependencies oder Maven Central einzuführen.
 
@@ -259,7 +272,7 @@ Material:
 - [Übungen – Maven-Projekte mit einfachen Tests vorbereiten](./Uebungen/Uebungen_Maven_Einfache_Tests_Vorbereiten.md)
 - [Lösungen – Maven-Projekte mit einfachen Tests vorbereiten](./Musterloesungen/Loesungen_Maven_Einfache_Tests_Vorbereiten.md)
 
-### 20. Von manuellen Tests zu automatisierten Tests mit JUnit
+### 21. Von manuellen Tests zu automatisierten Tests mit JUnit
 
 Ziel: Die bekannte Testidee aus erwarteten und tatsächlichen Resultaten mit JUnit Jupiter automatisieren, Testcode unter `src/test/java` vom Produktivcode trennen, die erste externe Maven-Dependency kontrolliert einführen und `mvn test` als standardisierten Testlauf nutzen.
 
@@ -270,7 +283,7 @@ Material:
 - [Übungen – Von manuellen Tests zu automatisierten Tests mit JUnit](./Uebungen/Uebungen_JUnit_Einstieg.md)
 - [Lösungen – Von manuellen Tests zu automatisierten Tests mit JUnit](./Musterloesungen/Loesungen_JUnit_Einstieg.md)
 
-### 21. Wenn automatisierte Tests fehlschlagen
+### 22. Wenn automatisierte Tests fehlschlagen
 
 Ziel: Fehlgeschlagene JUnit-Tests ruhig analysieren, `expected` und `actual` unterscheiden, Stacktraces grob einordnen, Fehler mit `mvn test` reproduzierbar prüfen, Edge Cases ergänzen und Regressionstests als Sicherheitsnetz verstehen.
 
@@ -281,7 +294,7 @@ Material:
 - [Übungen – Wenn automatisierte Tests fehlschlagen](./Uebungen/Uebungen_JUnit_Fehleranalyse.md)
 - [Lösungen – Wenn automatisierte Tests fehlschlagen](./Musterloesungen/Loesungen_JUnit_Fehleranalyse.md)
 
-### 22. Refactoring mit Tests absichern
+### 23. Refactoring mit Tests absichern
 
 Ziel: Bestehenden Code in kleinen Schritten verbessern, ohne das gewünschte Verhalten absichtlich zu ändern, und mit `mvn test` vor und nach jedem Refactoring prüfen, ob die bekannten Erwartungen weiterhin erfüllt sind.
 
@@ -292,17 +305,39 @@ Material:
 - [Übungen – Refactoring mit Tests absichern](./Uebungen/Uebungen_Refactoring_mit_Tests.md)
 - [Lösungen – Refactoring mit Tests absichern](./Musterloesungen/Loesungen_Refactoring_mit_Tests.md)
 
+### 24. Produktdaten aus CSV-Dateien laden
+
+Ziel: Einfache Persistenz mit CSV-Dateien verstehen, Produktdaten zeilenweise lesen, mit `split(";")` parsen, in `Produkt`-Objekte umwandeln und in einer `ArrayList` für die bekannte Produktverwaltung bereitstellen.
+
+Material:
+
+- [Arbeitsblatt – Produktdaten aus CSV-Dateien laden](./Arbeitsblaetter/Arbeitsblatt_CSV_Laden.md)
+- [CSV-Daten in Java-Objekte umwandeln](./graphics/csv_laden_produktverwaltung.svg)
+- [Übungen – Produktdaten aus CSV-Dateien laden](./Uebungen/Uebungen_CSV_Laden.md)
+- [Lösungen – Produktdaten aus CSV-Dateien laden](./Musterloesungen/Loesungen_CSV_Laden.md)
+
+### 25. Produktdaten als CSV-Dateien speichern
+
+Ziel: Persistenz vervollständigen, `Produkt`-Objekte in CSV-Zeilen umwandeln, mehrere Produkte aus einer `ArrayList` in eine Datei schreiben und das Speicherformat durch erneutes Laden prüfen.
+
+Material:
+
+- [Arbeitsblatt – Produktdaten als CSV-Dateien speichern](./Arbeitsblaetter/Arbeitsblatt_CSV_Speichern.md)
+- [Java-Objekte als CSV-Datei speichern](./graphics/csv_speichern_produktverwaltung.svg)
+- [Übungen – Produktdaten als CSV-Dateien speichern](./Uebungen/Uebungen_CSV_Speichern.md)
+- [Lösungen – Produktdaten als CSV-Dateien speichern](./Musterloesungen/Loesungen_CSV_Speichern.md)
+
 ### Nächster sinnvoller Block
 
-Nach `Refactoring mit Tests absichern` bietet sich als nächstes Thema **Dateien und Persistenz** an:
+Nach `Produktdaten als CSV-Dateien speichern` bietet sich als nächstes Thema **Persistenzablauf vertiefen** an:
 
-- CSV-Dateien lesen und schreiben
-- einfache Datenhaltung ohne Datenbank
-- Produktdaten laden und speichern
+- Laden, bearbeiten und speichern als vollständiger Ablauf
+- Speicher- und Ladeformat bewusst prüfen
+- einfache Sicherungen oder Exportdateien als Ausblick einordnen
 
 ## Geplante spätere Themenblöcke
 
-Nach der aktuellen Testing- und Refactoring-Sequenz sind folgende grössere Themenbereiche geplant.
+Nach der aktuellen Testing-, Refactoring- und Persistenz-Sequenz sind folgende grössere Themenbereiche geplant.
 
 ### 1. Dateien und Persistenz
 
@@ -499,6 +534,19 @@ Arbeitsblätter führen neue Konzepte ein, enthalten kurze Theorie, Beispiele, t
   - lange Methoden aufteilen, Methodennamen verbessern und Duplikate reduzieren
   - Tests als Sicherheitsnetz gegen Regressionen nutzen
   - kurzer Ausblick auf spätere Service- und Repository-Ideen
+- [Arbeitsblatt – Produktdaten aus CSV-Dateien laden](./Arbeitsblaetter/Arbeitsblatt_CSV_Laden.md)
+  - Persistenz als dauerhafte Speicherung ausserhalb des Programms
+  - CSV als einfache strukturierte Textdatei
+  - Produktdaten mit `split(";")` und Parsing in Objekte umwandeln
+  - Dateilogik und Fachlogik trennen
+  - Prozessgrafik zur Umwandlung von CSV-Zeilen in `ArrayList<Produkt>`
+- [Arbeitsblatt – Produktdaten als CSV-Dateien speichern](./Arbeitsblaetter/Arbeitsblatt_CSV_Speichern.md)
+  - Persistenz um das Speichern ergänzen
+  - Produktobjekte in CSV-Zeilen umwandeln
+  - mehrere Produkte aus einer `ArrayList` in eine Datei schreiben
+  - Überschreiben, leere Listen und einfache Fehlerfälle behandeln
+  - Speicher- und Ladeformat durch erneutes Laden prüfen
+  - Prozessgrafik zum Speichern von `ArrayList<Produkt>` als CSV-Datei
 
 ## Konzeptgrafiken
 
@@ -558,6 +606,16 @@ Konzeptgrafiken visualisieren Beziehungen, Abläufe und typische Denkmodelle. Si
   - Verhalten bleibt gleich, Struktur wird besser
   - Tests als Sicherheitsnetz gegen Regressionen
   - grüner Pfad zum nächsten kleinen Schritt, roter Pfad zur Korrektur
+- [CSV-Daten in Java-Objekte umwandeln](./graphics/csv_laden_produktverwaltung.svg)
+  - CSV-Datei, Zeile lesen, `split(";")`, Produkt erzeugen und `ArrayList<Produkt>`
+  - Parsing als Verbindung zwischen Strings und Objekten
+  - Trennung von Dateilogik und Fachlogik
+  - einfache Fehlerfälle beim Laden
+- [Java-Objekte als CSV-Datei speichern](./graphics/csv_speichern_produktverwaltung.svg)
+  - `ArrayList<Produkt>`, Produktobjekte durchlaufen, CSV-Zeile erzeugen, Datei schreiben und CSV-Datei
+  - String-Verarbeitung als Verbindung zwischen Objekten und Textdateien
+  - Speicher- und Ladeformat müssen zusammenpassen
+  - Trennung von Datei- und Fachlogik
 
 ### Arbeitsblattgrafiken zu StringBuilder
 
@@ -739,6 +797,28 @@ Konzeptgrafiken visualisieren Beziehungen, Abläufe und typische Denkmodelle. Si
   - sprechende Methodennamen wählen
   - Regression bewusst erzeugen, erkennen und korrigieren
   - Produktverwaltung schrittweise refaktorieren
+- [Übungen – Produktdaten aus CSV-Dateien laden](./Uebungen/Uebungen_CSV_Laden.md)
+  - CSV-Zeilen in Produkte umwandeln
+  - mehrere Produkte aus Datei laden
+  - `ArrayList<Produkt>` füllen und auswerten
+  - leere, unvollständige und ungültige Zeilen behandeln
+- [Übungen – Produktdaten als CSV-Dateien speichern](./Uebungen/Uebungen_CSV_Speichern.md)
+  - Produkte in CSV-Zeilen umwandeln
+  - mehrere Produkte in eine Datei speichern
+  - gespeicherte Produkte erneut laden und prüfen
+  - leere Listen, Überschreiben und einfache Fehlerfälle behandeln
+
+## Repetitionen
+
+Repetitionen kombinieren mehrere bekannte Lerneinheiten und dienen der Diagnose, ob zentrale Konzepte verinnerlicht wurden. Sie liegen getrennt von normalen Übungen unter `Repetitionen/<Name>/` und bestehen standardmässig aus einer Lernenden-Version und einer Lehrpersonen-Version mit gegenseitigen Links.
+
+- [Repetition Java Intro – Lernenden-Version](./Repetitionen/Repetition_Java_Intro/Lernende/Repetition_Java_Intro.md)
+  - direkt abgabefähige Repetitionsserie
+  - Pflichtteil, Vertiefung und optionale Transferaufgaben
+  - Produktverwaltung mit Klassen, Kapselung, `ArrayList` und Methoden
+- [Repetition Java Intro – Lehrpersonen-Version](./Repetitionen/Repetition_Java_Intro/Lehrperson/Repetition_Java_Intro_LP.md)
+  - gleicher Aufgabenkern mit didaktischen Hinweisen
+  - Diagnosehinweise, Beobachtungspunkte, Hilfestellungen und Zeitangaben
 
 ## Musterlösungen
 
@@ -778,6 +858,10 @@ Musterlösungen halten kompakte Referenzlösungen und Bewertungshilfen bereit.
   - kompakte Lösungen zu `expected` und `actual`, Fehlerursachen, korrigierter Fachlogik, Edge Cases, Regressionen, `mvn test`, einfachen Surefire-Hinweisen und Reflexion
 - [Lösungen – Refactoring mit Tests absichern](./Musterloesungen/Loesungen_Refactoring_mit_Tests.md)
   - kompakte Lösungen zu grünem Ausgangszustand, kleinen Refactoring-Schritten, entlasteter `main`, zentralisierter Fachlogik, Regressionen und `mvn test`-Verifikation
+- [Lösungen – Produktdaten aus CSV-Dateien laden](./Musterloesungen/Loesungen_CSV_Laden.md)
+  - kompakte Standardlösung mit `CsvProduktLeser`, `Produkt`, `ProduktVerwaltung`, `ArrayList`, `split(";")`, `Double.parseDouble(...)` und einfachen Fehlerfällen
+- [Lösungen – Produktdaten als CSV-Dateien speichern](./Musterloesungen/Loesungen_CSV_Speichern.md)
+  - kompakte Standardlösung mit `CsvProduktSpeicher`, `CsvProduktLeser`, `Produkt`, `ProduktVerwaltung`, `ArrayList`, `Files.write(...)`, erneutem Laden, leeren Listen und einfachen Fehlerfällen
 - [Musterlösungen – StringBuilder & Parser](./Musterloesungen/musterloesungen_stringbuilder.md)
   - StringBuilder-Methoden und vereinfachter Parser
 - [Musterlösungen – Mini-Projekt String Parser](./Musterloesungen/string_parser_loesungen.md)

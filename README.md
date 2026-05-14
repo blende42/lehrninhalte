@@ -25,6 +25,7 @@ Begriffs- und Prozessbibliothek für KI-gestützte Lehrmittel-Erstellung:
 
 - [arbeitsblatt_erstellen.md](./docs/prozesse/arbeitsblatt_erstellen.md)
 - [uebungen_erstellen.md](./docs/prozesse/uebungen_erstellen.md)
+- [repetition_und_vertiefung_erstellen.md](./docs/prozesse/repetition_und_vertiefung_erstellen.md)
 - [musterloesungen_erstellen.md](./docs/prozesse/musterloesungen_erstellen.md)
 - [review_didaktik.md](./docs/prozesse/review_didaktik.md)
 - [review_java_maven.md](./docs/prozesse/review_java_maven.md)
@@ -34,6 +35,7 @@ Repo-Skills für wiederkehrende und kontrollierte Arbeitsabläufe:
 
 - [arbeitsblatt-erstellen](./.agents/skills/arbeitsblatt-erstellen/SKILL.md)
 - [uebungen-erstellen](./.agents/skills/uebungen-erstellen/SKILL.md)
+- [repetition-vertiefung-erstellen](./.agents/skills/repetition-vertiefung-erstellen/SKILL.md)
 - [musterloesungen-erstellen](./.agents/skills/musterloesungen-erstellen/SKILL.md)
 - [svg-pruefen](./.agents/skills/svg-pruefen/SKILL.md)
 - [java-maven-validieren](./.agents/skills/java-maven-validieren/SKILL.md)
@@ -41,6 +43,21 @@ Repo-Skills für wiederkehrende und kontrollierte Arbeitsabläufe:
 
 ### .codex/skills
 Veraltete Skill-Ablage. Die aktuellen Repo-Skills liegen unter `.agents/skills`.
+
+### Repetitionen
+Wiederverwendbare Repetitions- und Vertiefungsserien mit getrennten Versionen für Lernende und Lehrpersonen:
+
+Standardstruktur:
+
+```text
+Repetitionen/<Name_der_Repetition>/Lernende/<Name_der_Repetition>.md
+Repetitionen/<Name_der_Repetition>/Lehrperson/<Name_der_Repetition>_LP.md
+```
+
+Repetitionen werden nicht zusätzlich unter `Uebungen` geführt.
+
+- [Repetition_Java_Intro.md](./Repetitionen/Repetition_Java_Intro/Lernende/Repetition_Java_Intro.md)
+- [Repetition_Java_Intro_LP.md](./Repetitionen/Repetition_Java_Intro/Lehrperson/Repetition_Java_Intro_LP.md)
 
 ### Arbeitsblaetter
 Lehr- und Arbeitsblätter zu Java- und Grundlagenthemen:
@@ -63,6 +80,8 @@ Lehr- und Arbeitsblätter zu Java- und Grundlagenthemen:
 - [Arbeitsblatt_JUnit_Einstieg.md](./Arbeitsblaetter/Arbeitsblatt_JUnit_Einstieg.md)
 - [Arbeitsblatt_JUnit_Fehleranalyse.md](./Arbeitsblaetter/Arbeitsblatt_JUnit_Fehleranalyse.md)
 - [Arbeitsblatt_Refactoring_mit_Tests.md](./Arbeitsblaetter/Arbeitsblatt_Refactoring_mit_Tests.md)
+- [Arbeitsblatt_CSV_Laden.md](./Arbeitsblaetter/Arbeitsblatt_CSV_Laden.md)
+- [Arbeitsblatt_CSV_Speichern.md](./Arbeitsblaetter/Arbeitsblatt_CSV_Speichern.md)
 - [arbeitsblatt_java_wrapper.md](./Arbeitsblaetter/arbeitsblatt_java_wrapper.md)
 - [arbeitsblatt_stringbuilder.md](./Arbeitsblaetter/arbeitsblatt_stringbuilder.md)
 - [arbeitsblatt_theorie_kombiniert.md](./Arbeitsblaetter/arbeitsblatt_theorie_kombiniert.md)
@@ -98,6 +117,8 @@ SVG-Grafiken und zugehörige Datei für eingebettete Arbeitsblattgrafiken:
 - [Uebungen_JUnit_Einstieg.md](./Uebungen/Uebungen_JUnit_Einstieg.md)
 - [Uebungen_JUnit_Fehleranalyse.md](./Uebungen/Uebungen_JUnit_Fehleranalyse.md)
 - [Uebungen_Refactoring_mit_Tests.md](./Uebungen/Uebungen_Refactoring_mit_Tests.md)
+- [Uebungen_CSV_Laden.md](./Uebungen/Uebungen_CSV_Laden.md)
+- [Uebungen_CSV_Speichern.md](./Uebungen/Uebungen_CSV_Speichern.md)
 - [string_uebungen.md](./Uebungen/string_uebungen.md)
 - [string_uebungen_v2.md](./Uebungen/string_uebungen_v2.md)
 - [string_mini_projekt_v3.md](./Uebungen/string_mini_projekt_v3.md)
@@ -127,6 +148,8 @@ Kompakte Referenzlösungen zu den Übungen, Simulationen, Package-Strukturierung
 - [Loesungen_JUnit_Einstieg.md](./Musterloesungen/Loesungen_JUnit_Einstieg.md)
 - [Loesungen_JUnit_Fehleranalyse.md](./Musterloesungen/Loesungen_JUnit_Fehleranalyse.md)
 - [Loesungen_Refactoring_mit_Tests.md](./Musterloesungen/Loesungen_Refactoring_mit_Tests.md)
+- [Loesungen_CSV_Laden.md](./Musterloesungen/Loesungen_CSV_Laden.md)
+- [Loesungen_CSV_Speichern.md](./Musterloesungen/Loesungen_CSV_Speichern.md)
 - [musterloesungen_stringbuilder.md](./Musterloesungen/musterloesungen_stringbuilder.md)
 - [string_parser_loesungen.md](./Musterloesungen/string_parser_loesungen.md)
 
@@ -146,6 +169,8 @@ Allgemeine SVG-Grafiken für den Unterricht:
 - [junit_manuell_zu_automatisiert.svg](./graphics/junit_manuell_zu_automatisiert.svg)
 - [junit_test_fehlschlag_workflow.svg](./graphics/junit_test_fehlschlag_workflow.svg)
 - [refactoring_mit_tests_workflow.svg](./graphics/refactoring_mit_tests_workflow.svg)
+- [csv_laden_produktverwaltung.svg](./graphics/csv_laden_produktverwaltung.svg)
+- [csv_speichern_produktverwaltung.svg](./graphics/csv_speichern_produktverwaltung.svg)
 - [parser_grafik.svg](./graphics/parser_grafik.svg)
 
 ### templates

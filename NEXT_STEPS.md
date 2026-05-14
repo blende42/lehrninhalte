@@ -22,18 +22,30 @@ Aktuell vorbereitet sind:
 12. Kapselung, Getter und Setter
 13. Objektarrays und Verwaltungslogik
 14. ArrayList
-15. Java-Packages
-16. Algorithmen und Datenstrukturen
-17. Maven Einstieg
-18. Maven-Projekte ausführen und paketieren
-19. Maven-Projekte mit einfachen Tests vorbereiten
-20. Von manuellen Tests zu automatisierten Tests mit JUnit
-21. Wenn automatisierte Tests fehlschlagen
-22. Refactoring mit Tests absichern
+15. Repetition Java Intro
+16. Java-Packages
+17. Algorithmen und Datenstrukturen
+18. Maven Einstieg
+19. Maven-Projekte ausführen und paketieren
+20. Maven-Projekte mit einfachen Tests vorbereiten
+21. Von manuellen Tests zu automatisierten Tests mit JUnit
+22. Wenn automatisierte Tests fehlschlagen
+23. Refactoring mit Tests absichern
+24. Produktdaten aus CSV-Dateien laden
+25. Produktdaten als CSV-Dateien speichern
 
-Die zuletzt erstellte Unterrichtseinheit ist **Refactoring mit Tests absichern**. Zusätzlich wurde eine kleine Prozess- und Begriffsbibliothek für KI-gestützte Lehrmittel-Erstellung angelegt.
+Die zuletzt erstellte Unterrichtseinheit ist **Produktdaten als CSV-Dateien speichern**. Zusätzlich wurde eine kleine Prozess- und Begriffsbibliothek für KI-gestützte Lehrmittel-Erstellung angelegt.
 
-Neue Dateien im Maven-, Testing- und Refactoring-Block:
+Neue Repetitions- und Vertiefungsübung:
+
+- [Repetition_Java_Intro.md](./Repetitionen/Repetition_Java_Intro/Lernende/Repetition_Java_Intro.md)
+- [Repetition_Java_Intro_LP.md](./Repetitionen/Repetition_Java_Intro/Lehrperson/Repetition_Java_Intro_LP.md)
+  - kombiniert Klassen und Objekte, Kapselung, `ArrayList` und Methoden
+  - nutzt die bekannte Produktverwaltung
+  - enthält viele kleine Pflichtaufgaben, optionale Transferaufgaben und eine separate Lehrpersonen-Version mit diagnostischen Hinweisen
+  - neue Repetitionsserien sollen standardmässig unter `Repetitionen/<Name>/Lernende` und `Repetitionen/<Name>/Lehrperson` abgelegt werden
+
+Neue Dateien im Maven-, Testing-, Refactoring- und Persistenz-Block:
 
 - [Arbeitsblatt_Maven_Einstieg.md](./Arbeitsblaetter/Arbeitsblatt_Maven_Einstieg.md)
 - [Uebungen_Maven_Einstieg.md](./Uebungen/Uebungen_Maven_Einstieg.md)
@@ -53,6 +65,14 @@ Neue Dateien im Maven-, Testing- und Refactoring-Block:
 - [Arbeitsblatt_Refactoring_mit_Tests.md](./Arbeitsblaetter/Arbeitsblatt_Refactoring_mit_Tests.md)
 - [Uebungen_Refactoring_mit_Tests.md](./Uebungen/Uebungen_Refactoring_mit_Tests.md)
 - [Loesungen_Refactoring_mit_Tests.md](./Musterloesungen/Loesungen_Refactoring_mit_Tests.md)
+- [Arbeitsblatt_CSV_Laden.md](./Arbeitsblaetter/Arbeitsblatt_CSV_Laden.md)
+- [Uebungen_CSV_Laden.md](./Uebungen/Uebungen_CSV_Laden.md)
+- [Loesungen_CSV_Laden.md](./Musterloesungen/Loesungen_CSV_Laden.md)
+- [csv_laden_produktverwaltung.svg](./graphics/csv_laden_produktverwaltung.svg)
+- [Arbeitsblatt_CSV_Speichern.md](./Arbeitsblaetter/Arbeitsblatt_CSV_Speichern.md)
+- [Uebungen_CSV_Speichern.md](./Uebungen/Uebungen_CSV_Speichern.md)
+- [Loesungen_CSV_Speichern.md](./Musterloesungen/Loesungen_CSV_Speichern.md)
+- [csv_speichern_produktverwaltung.svg](./graphics/csv_speichern_produktverwaltung.svg)
 - [maven_orchestriert_build.svg](./graphics/maven_orchestriert_build.svg)
 - [maven_compile_run_package.svg](./graphics/maven_compile_run_package.svg)
 - [maven_tests_vorbereiten.svg](./graphics/maven_tests_vorbereiten.svg)
@@ -115,14 +135,15 @@ Die Dateien unter `docs/begriffe` erklären zentrale Begriffe kurz und unterrich
 
 ## Nächster geplanter Block
 
-Als nächstes bietet sich **Dateien und Persistenz** an.
+Als nächstes bietet sich **Persistenzablauf vertiefen** an.
 
 Sinnvolle Inhalte:
 
-- CSV-Dateien lesen und schreiben
-- Produktdaten laden und speichern
-- einfache Persistenz ohne Datenbank
-- Fehlerfälle bei Dateien ruhig einführen
+- Produktdaten laden, bearbeiten und wieder speichern
+- Speicher- und Ladeformat bewusst vergleichen
+- einfache Sicherung oder Exportdatei als Ausblick
+- Datei- und Fachlogik weiter sauber trennen
+- Fehlerfälle bei Dateien ruhig weiterführen
 - weiterhin keine Datenbank und keine komplexen Frameworks
 
 ## Passender Anschluss
@@ -146,6 +167,41 @@ Didaktisch sinnvoll ist als nächstes ein Vergleich:
 - Daten aus einer CSV-Datei laden
 - Daten wieder in eine CSV-Datei speichern
 
+## Wichtige Inhalte aus Produktdaten als CSV-Dateien speichern
+
+- Persistenz wird um den Rückweg von Objekten in Dateien ergänzt.
+- `Produkt`-Objekte werden mit einfacher String-Verkettung in CSV-Zeilen umgewandelt.
+- Mehrere Produkte werden aus einer `ArrayList<Produkt>` mit einer Schleife in `ArrayList<String>` übertragen.
+- `Files.write(...)` wird als einfache Datei-Ausgabe verwendet; Überschreiben wird bewusst thematisiert.
+- Gespeicherte Dateien werden erneut geladen, um Speicher- und Ladeformat zu prüfen.
+- `CsvProduktSpeicher` übernimmt Dateilogik, `ProduktVerwaltung` bleibt für Fachlogik zuständig.
+- Einfache Fehlerfälle werden sichtbar behandelt:
+  - Datei kann nicht geschrieben werden
+  - Zielordner fehlt
+  - leerer Produktname
+  - ungültiger Preis
+  - leere Produktliste
+  - Speicher- und Ladeformat passen nicht zusammen
+- Nicht behandelt werden Datenbanken, ORM, JSON, Streams API, generische CSV-Frameworks, Serialisierung, Multi-Threading und komplexe Exception-Strukturen.
+- Die Musterlösung `Loesungen_CSV_Speichern.md` zeigt eine kompakte Standardlösung mit `CsvProduktSpeicher`, erneutem Laden über `CsvProduktLeser`, `ProduktVerwaltung`, `Files.write(...)`, leeren Listen, Überschreiben und einfachen Fehlerfällen.
+- Die Grafik `csv_speichern_produktverwaltung.svg` zeigt den Ablauf von `ArrayList<Produkt>` über CSV-Zeilen und `Files.write(...)` bis zur CSV-Datei sowie die Trennung von Datei- und Fachlogik.
+
+## Wichtige Inhalte aus Produktdaten aus CSV-Dateien laden
+
+- Persistenz wird als dauerhafte Speicherung ausserhalb des Programms eingeführt.
+- CSV wird als einfache strukturierte Textdatei mit einer Produktzeile pro Datensatz verwendet.
+- Produktdaten werden mit `split(";")`, `trim()` und `Double.parseDouble(...)` aus Text in Objekte umgewandelt.
+- Mehrere Produkte werden in einer `ArrayList<Produkt>` gesammelt und an die bekannte Produktverwaltung übergeben.
+- `CsvProduktLeser` übernimmt Dateilogik, `ProduktVerwaltung` bleibt für Fachlogik wie Zählen und Gesamtwert zuständig.
+- Einfache Fehlerfälle werden sichtbar behandelt:
+  - Datei nicht gefunden
+  - leere Zeile
+  - fehlende oder zusätzliche Spalten
+  - ungültiger Preis
+- Nicht behandelt werden Datenbanken, ORM, JSON, Streams API, generische Parser, Multi-Threading und komplexe Dateiformate.
+- Die Musterlösung `Loesungen_CSV_Laden.md` zeigt eine kompakte Standardlösung mit `CsvProduktLeser`, `Produkt`, `ProduktVerwaltung`, `ArrayList`, einfachen Fehlerfällen und dokumentierter `mvn test`-Verifikation.
+- Die Grafik `csv_laden_produktverwaltung.svg` zeigt den Ablauf von CSV-Text über `split(";")` und Parsing bis zur `ArrayList<Produkt>` sowie die Trennung von Datei- und Fachlogik.
+
 ## Verifikation der zuletzt erstellten Einheiten
 
 Für die früheren Java-Einheiten wurden temporäre Testklassen unter `/tmp` erstellt und geprüft:
@@ -164,6 +220,10 @@ Die Java-Beispiele wurden mit `javac` kompiliert und mit `java` ausgeführt. Der
 Für den Maven-Einstieg wurden Markdown-Struktur, Dateiverweise und Schreibweise geprüft. Die SVG-Grafik wurde auf XML-Wohlgeformtheit geprüft. Es wurden keine ausführbaren Projektdateien im Repository angelegt.
 
 Für **Maven-Projekte ausführen und paketieren** wurden Markdown-Struktur, Dateiverweise, de-CH-Schreibweise und die Maven-/Java-Begriffstrennung geprüft. Die Grafik `maven_compile_run_package.svg` wurde ergänzt und im Arbeitsblatt eingebunden. Es wurden keine ausführbaren Projektdateien im Repository angelegt.
+
+Für **Produktdaten aus CSV-Dateien laden** wurden Arbeitsblatt, Übungen, Musterlösung, Übersichtseinträge und de-CH-Schreibweise geprüft. Die Java-Beispiele der Musterlösung wurden als temporäres Maven-Projekt unter `/tmp/csv-laden-validierung` mit `mvn test` geprüft; zusätzlich wurde die kompilierte `Main`-Klasse mit `java -cp target/classes ch.allianz.youngoitv.produktverwaltung.Main` ausgeführt. Die Grafik `csv_laden_produktverwaltung.svg` wurde mit `xmllint` validiert und mit `rsvg-convert` gerendert.
+
+Für **Produktdaten als CSV-Dateien speichern** wurden Arbeitsblatt, Übungen, Musterlösung, Übersichtseinträge, Markdown-Codeblöcke und de-CH-Schreibweise geprüft. Die zentralen Java-Beispiele zu `Produkt`, `CsvProduktLeser`, `CsvProduktSpeicher`, `ProduktVerwaltung`, `ArrayList`, `Files.write(...)` und `Main` wurden als temporäre Maven-Projekte unter `/tmp/csv-speichern-validierung` und `/tmp/csv-speichern-loesung-validierung` mit `mvn test` geprüft; zusätzlich wurde die kompilierte `Main`-Klasse mit `java -cp target/classes ch.allianz.youngoitv.produktverwaltung.Main` ausgeführt und die erzeugte CSV-Datei kontrolliert. Die Grafik `csv_speichern_produktverwaltung.svg` wurde mit `xmllint` validiert und mit `rsvg-convert` gerendert.
 
 ## Wichtige Inhalte aus Maven-Projekte mit einfachen Tests vorbereiten
 

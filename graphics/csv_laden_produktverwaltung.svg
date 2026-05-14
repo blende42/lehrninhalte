@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1120" viewBox="0 0 1800 1120" role="img" aria-labelledby="title desc">
+  <title id="title">CSV-Daten in Java-Objekte umwandeln</title>
+  <desc id="desc">Prozessgrafik: Eine CSV-Textdatei wird zeilenweise gelesen, mit split zerlegt, geparst und als Produktobjekte in einer ArrayList gespeichert.</desc>
+
+  <defs>
+    <style>
+      .title { font: 700 42px Arial, Helvetica, sans-serif; fill: #111; }
+      .subtitle { font: 400 20px Arial, Helvetica, sans-serif; fill: #555; }
+      .section { font: 700 30px Arial, Helvetica, sans-serif; fill: #111; }
+      .heading { font: 700 25px Arial, Helvetica, sans-serif; fill: #111; }
+      .text { font: 700 22px Arial, Helvetica, sans-serif; fill: #111; }
+      .text-tight { font: 700 20px Arial, Helvetica, sans-serif; fill: #111; }
+      .small { font: 400 18px Arial, Helvetica, sans-serif; fill: #555; }
+      .mono { font: 700 24px "Courier New", Courier, monospace; fill: #111; }
+
+      .page { fill: #ffffff; }
+      .panel { fill: #fbfcfd; stroke: #b9bcc3; stroke-width: 2.2; }
+      .panel-soft { fill: #f7f8fa; stroke: #b9bcc3; stroke-width: 2.2; }
+      .file-box { fill: #edf6ea; stroke: #4d8f3a; stroke-width: 2.6; }
+      .step-box { fill: #eef5ff; stroke: #2b65b3; stroke-width: 2.4; }
+      .parse-box { fill: #fff7e8; stroke: #c67f17; stroke-width: 2.4; }
+      .object-box { fill: #f1eefb; stroke: #7356b6; stroke-width: 2.4; }
+      .error-box { fill: #fff1f1; stroke: #b83232; stroke-width: 2.4; }
+      .note-box { fill: #ffffff; stroke: #b9bcc3; stroke-width: 2.2; }
+
+      .blue { fill: #2b65b3; }
+      .green { fill: #4d8f3a; }
+      .orange { fill: #c67f17; }
+      .purple { fill: #7356b6; }
+      .red { fill: #b83232; }
+      .grey { fill: #555; }
+
+      .flow { stroke: #6b7078; stroke-width: 3.4; fill: none; }
+      .flow-blue { stroke: #2b65b3; stroke-width: 3.6; fill: none; }
+      .flow-red { stroke: #b83232; stroke-width: 3.4; fill: none; stroke-dasharray: 10 8; }
+    </style>
+
+    <marker id="arrowGrey" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#6b7078"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2b65b3"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#b83232"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1800" height="1120" class="page"/>
+  <text x="900" y="72" text-anchor="middle" class="title">CSV-Daten werden zu Java-Objekten</text>
+  <text x="900" y="106" text-anchor="middle" class="subtitle">Parsing verbindet Text aus einer Datei mit Objekten im Programm.</text>
+
+  <rect x="70" y="145" rx="20" ry="20" width="1660" height="640" class="panel"/>
+  <rect x="95" y="165" rx="16" ry="16" width="1610" height="66" class="panel-soft"/>
+  <text x="900" y="208" text-anchor="middle" class="section">Vom CSV-Text zur Produktliste</text>
+
+  <rect x="115" y="295" rx="16" ry="16" width="235" height="126" class="file-box"/>
+  <text x="232" y="338" text-anchor="middle" class="heading green">CSV-Datei</text>
+  <text x="232" y="372" text-anchor="middle" class="text-tight">Textdatei</text>
+  <text x="232" y="402" text-anchor="middle" class="mono">Tastatur;79.90</text>
+
+  <rect x="420" y="295" rx="16" ry="16" width="230" height="126" class="step-box"/>
+  <text x="535" y="338" text-anchor="middle" class="heading blue">Zeile lesen</text>
+  <text x="535" y="372" text-anchor="middle" class="text-tight">eine Zeile</text>
+  <text x="535" y="402" text-anchor="middle" class="text-tight">als String</text>
+
+  <rect x="720" y="295" rx="16" ry="16" width="230" height="126" class="parse-box"/>
+  <text x="835" y="338" text-anchor="middle" class="heading orange">split(&quot;;&quot;)</text>
+  <text x="835" y="372" text-anchor="middle" class="text-tight">Name und Preis</text>
+  <text x="835" y="402" text-anchor="middle" class="text-tight">trennen</text>
+
+  <rect x="1020" y="295" rx="16" ry="16" width="250" height="126" class="object-box"/>
+  <text x="1145" y="338" text-anchor="middle" class="heading purple">Produkt erzeugen</text>
+  <text x="1145" y="372" text-anchor="middle" class="text-tight">parseDouble</text>
+  <text x="1145" y="402" text-anchor="middle" class="text-tight">new Produkt(...)</text>
+
+  <rect x="1340" y="295" rx="16" ry="16" width="290" height="126" class="file-box"/>
+  <text x="1485" y="338" text-anchor="middle" class="heading green">ArrayList&lt;Produkt&gt;</text>
+  <text x="1485" y="372" text-anchor="middle" class="text-tight">mehrere Objekte</text>
+  <text x="1485" y="402" text-anchor="middle" class="text-tight">weiterverwenden</text>
+
+  <line x1="350" y1="358" x2="420" y2="358" class="flow" marker-end="url(#arrowGrey)"/>
+  <line x1="650" y1="358" x2="720" y2="358" class="flow-blue" marker-end="url(#arrowBlue)"/>
+  <line x1="950" y1="358" x2="1020" y2="358" class="flow-blue" marker-end="url(#arrowBlue)"/>
+  <line x1="1270" y1="358" x2="1340" y2="358" class="flow" marker-end="url(#arrowGrey)"/>
+
+  <rect x="150" y="545" rx="16" ry="16" width="420" height="132" class="note-box"/>
+  <text x="360" y="588" text-anchor="middle" class="heading blue">Dateilogik</text>
+  <text x="360" y="624" text-anchor="middle" class="text-tight">CsvProduktLeser</text>
+  <text x="360" y="654" text-anchor="middle" class="text-tight">liest und parst</text>
+
+  <rect x="690" y="545" rx="16" ry="16" width="420" height="132" class="parse-box"/>
+  <text x="900" y="588" text-anchor="middle" class="heading orange">Parsing</text>
+  <text x="900" y="624" text-anchor="middle" class="text-tight">Strings prüfen</text>
+  <text x="900" y="654" text-anchor="middle" class="text-tight">und umwandeln</text>
+
+  <rect x="1230" y="545" rx="16" ry="16" width="420" height="132" class="note-box"/>
+  <text x="1440" y="588" text-anchor="middle" class="heading green">Fachlogik</text>
+  <text x="1440" y="624" text-anchor="middle" class="text-tight">ProduktVerwaltung</text>
+  <text x="1440" y="654" text-anchor="middle" class="text-tight">zählt und rechnet</text>
+
+  <path d="M 360 545 C 400 485 450 455 535 421" class="flow-blue" marker-end="url(#arrowBlue)"/>
+  <path d="M 900 545 C 890 495 860 455 835 421" class="flow-blue" marker-end="url(#arrowBlue)"/>
+  <path d="M 1440 545 C 1490 495 1495 455 1485 421" class="flow-blue" marker-end="url(#arrowBlue)"/>
+
+  <rect x="120" y="835" rx="18" ry="18" width="500" height="134" class="error-box"/>
+  <text x="370" y="878" text-anchor="middle" class="heading red">Einfache Fehlerfälle</text>
+  <text x="370" y="914" text-anchor="middle" class="text-tight">fehlende Datei, leere Zeile</text>
+  <text x="370" y="944" text-anchor="middle" class="text-tight">ungültiger Preis, Spaltenfehler</text>
+
+  <rect x="650" y="835" rx="18" ry="18" width="500" height="134" class="note-box"/>
+  <text x="900" y="878" text-anchor="middle" class="heading orange">Merksatz</text>
+  <text x="900" y="914" text-anchor="middle" class="text-tight">CSV bleibt Text</text>
+  <text x="900" y="944" text-anchor="middle" class="text-tight">Parsing macht daraus Werte</text>
+
+  <rect x="1180" y="835" rx="18" ry="18" width="500" height="134" class="note-box"/>
+  <text x="1430" y="878" text-anchor="middle" class="heading green">Trennung hilft</text>
+  <text x="1430" y="914" text-anchor="middle" class="text-tight">Datei lesen ist nicht</text>
+  <text x="1430" y="944" text-anchor="middle" class="text-tight">Gesamtwert berechnen</text>
+
+  <path d="M 835 421 C 820 510 500 760 370 835" class="flow-red" marker-end="url(#arrowRed)"/>
+
+  <text x="900" y="1058" text-anchor="middle" class="text">Kernidee: Aus sichtbaren Textzeilen entstehen geprüfte Produktobjekte für die Produktverwaltung.</text>
+</svg>
