@@ -34,8 +34,10 @@ Aktuell vorbereitet sind:
 24. Produktdaten aus CSV-Dateien laden
 25. Produktdaten als CSV-Dateien speichern
 26. Persistenzablauf vertiefen
+27. Code strukturieren und Verantwortlichkeiten aufteilen
+28. Interfaces für austauschbare Services
 
-Die zuletzt erstellte Unterrichtseinheit ist **Persistenzablauf vertiefen**. Zusätzlich wurde eine kleine Prozess- und Begriffsbibliothek für KI-gestützte Lehrmittel-Erstellung angelegt.
+Die zuletzt erstellte Unterrichtseinheit ist **Interfaces für austauschbare Services**. Zusätzlich wurde eine kleine Prozess- und Begriffsbibliothek für KI-gestützte Lehrmittel-Erstellung angelegt.
 
 Neue Repetitions- und Vertiefungsübung:
 
@@ -78,6 +80,14 @@ Neue Dateien im Maven-, Testing-, Refactoring- und Persistenz-Block:
 - [Uebungen_Persistenzablauf_Vertiefen.md](./Uebungen/Uebungen_Persistenzablauf_Vertiefen.md)
 - [Loesungen_Persistenzablauf_Vertiefen.md](./Musterloesungen/Loesungen_Persistenzablauf_Vertiefen.md)
 - [persistenzablauf_laden_bearbeiten_speichern.svg](./graphics/persistenzablauf_laden_bearbeiten_speichern.svg)
+- [Arbeitsblatt_Verantwortlichkeiten_Aufteilen.md](./Arbeitsblaetter/Arbeitsblatt_Verantwortlichkeiten_Aufteilen.md)
+- [Uebungen_Verantwortlichkeiten_Aufteilen.md](./Uebungen/Uebungen_Verantwortlichkeiten_Aufteilen.md)
+- [Loesungen_Verantwortlichkeiten_Aufteilen.md](./Musterloesungen/Loesungen_Verantwortlichkeiten_Aufteilen.md)
+- [verantwortlichkeiten_aufteilen.svg](./graphics/verantwortlichkeiten_aufteilen.svg)
+- [Arbeitsblatt_Interfaces_Austauschbare_Services.md](./Arbeitsblaetter/Arbeitsblatt_Interfaces_Austauschbare_Services.md)
+- [Uebungen_Interfaces_Austauschbare_Services.md](./Uebungen/Uebungen_Interfaces_Austauschbare_Services.md)
+- [Loesungen_Interfaces_Austauschbare_Services.md](./Musterloesungen/Loesungen_Interfaces_Austauschbare_Services.md)
+- [interface_produkt_speicher.svg](./graphics/interface_produkt_speicher.svg)
 - [maven_orchestriert_build.svg](./graphics/maven_orchestriert_build.svg)
 - [maven_compile_run_package.svg](./graphics/maven_compile_run_package.svg)
 - [maven_tests_vorbereiten.svg](./graphics/maven_tests_vorbereiten.svg)
@@ -140,14 +150,14 @@ Die Dateien unter `docs/begriffe` erklären zentrale Begriffe kurz und unterrich
 
 ## Nächster geplanter Block
 
-Als nächstes bietet sich eine **Persistenz-Repetition oder einfache Architekturvorbereitung** an.
+Als nächstes bietet sich eine **Interface-Vertiefung oder Service-/Schichten-Vorbereitung** an.
 
 Sinnvolle Inhalte:
 
-- vollständigen Lade-Bearbeiten-Speichern-Zyklus wiederholen
-- Dateilogik, Fachlogik und Ablaufsteuerung nochmals gezielt trennen
-- typische Fehlerbilder aus Laden, Speichern und Persistenzablauf diagnostisch prüfen
-- einfache Schichten-Idee als Ausblick vorbereiten
+- Interface als Vertrag diagnostisch prüfen
+- konkrete Implementierung und Interface-Typ unterscheiden
+- austauschbare Implementierungen vorsichtig vertiefen
+- einfache Service- und Schichten-Idee vorbereiten
 - weiterhin keine Datenbank und keine komplexen Frameworks
 
 ## Passender Anschluss
@@ -167,10 +177,63 @@ produktverwaltung-maven/
 
 Didaktisch sinnvoll ist als nächstes ein Vergleich:
 
-- Daten nur im Arbeitsspeicher
-- Daten aus einer CSV-Datei laden
-- Daten wieder in eine CSV-Datei speichern
-- Verantwortlichkeiten in `Main`, `ProduktVerwaltung`, `CsvProduktLeser` und `CsvProduktSpeicher`
+- konkrete Klasse direkt verwenden
+- Interface als Vertrag verwenden
+- `ProduktSpeicher speicher = new CsvProduktSpeicher();`
+- spätere zweite Implementierung nur als Idee vorbereiten
+
+## Wichtige Inhalte aus Interfaces für austauschbare Services
+
+- Ein Interface beschreibt einen Vertrag.
+- Eine Klasse kann diesen Vertrag mit `implements` erfüllen.
+- Es wird bewusst nur ein Interface eingeführt: `ProduktSpeicher`.
+- `ProduktSpeicher` beschreibt eine Methode `speichern(...)`.
+- `CsvProduktSpeicher` bleibt die konkrete Implementierung und schreibt Produkte als CSV-Datei.
+- `Main` kann eine Variable vom Interface-Typ verwenden:
+  - `ProduktSpeicher speicher = new CsvProduktSpeicher();`
+- Die Grafik `interface_produkt_speicher.svg` zeigt `Main`, das Interface `ProduktSpeicher`, die konkrete Umsetzung `CsvProduktSpeicher` und die CSV-Datei als Ablauf von Vertrag zu Umsetzung.
+- Das Verhalten bleibt gleich: Produkte werden weiterhin als CSV-Datei gespeichert.
+- Die Struktur wird etwas austauschbarer, weil `Main` den Vertrag kennt und nicht überall die konkrete Speicherart wissen muss.
+- Basisaufgaben erstellen das Interface, passen `CsvProduktSpeicher` mit `implements` an, ändern `Main` und prüfen das unveränderte Verhalten.
+- Vertiefungsaufgaben unterscheiden Vertrag und Umsetzung, ordnen Codeabschnitte zu und prüfen Methodensignaturen.
+- Transferaufgaben beschreiben mögliche spätere Implementierungen wie `KonsolenProduktSpeicher` oder `BackupProduktSpeicher`, ohne sie verpflichtend zu implementieren.
+- Die Musterlösung `Loesungen_Interfaces_Austauschbare_Services.md` zeigt eine kompakte Standardlösung mit `ProduktSpeicher`, `CsvProduktSpeicher implements ProduktSpeicher`, `Main` mit Interface-Typ, unverändertem Verhalten, typischen Fehlerhinweisen und kurzen Transferantworten.
+- Die Java-Beispiele wurden als temporäres Maven-Projekt unter `/tmp/interfaces-services-validierung` mit `mvn package` geprüft; die Produktionsklassen kompilierten erfolgreich. Es waren keine Testklassen hinterlegt. Zusätzlich wurde die kompilierte `Main`-Klasse mit `java -cp target/classes ch.allianz.youngoitv.produktverwaltung.Main` ausgeführt.
+- Bewusst nicht behandelt werden Spring, Dependency Injection, abstrakte Klassen, komplexe Polymorphie, Datenbanken, ORM und formales Repository-Pattern.
+
+## Wichtige Inhalte aus Code strukturieren und Verantwortlichkeiten aufteilen
+
+- Eine Klasse soll nicht alles machen.
+- `Main` startet das Programm und orchestriert den Ablauf, enthält aber keine Fachlogik.
+- Fachlogik gehört in passende Klassen wie `ProduktVerwaltung`:
+  - Produkte suchen
+  - Preise ändern
+  - Gesamtwert berechnen
+  - Produkte zählen
+- Dateilogik gehört in passende Klassen wie `CsvProduktLeser` und `CsvProduktSpeicher`:
+  - CSV-Dateien lesen
+  - CSV-Zeilen parsen
+  - Produkte als CSV-Zeilen schreiben
+- `Produkt` bleibt ein einfaches Datenobjekt.
+- Basisaufgaben ordnen Verantwortlichkeiten zu und verschieben Fach- und Dateilogik aus `Main`.
+- Vertiefungsaufgaben behandeln schrittweises Refactoring, doppelte Logik, sprechende Methodennamen, Tests und Verantwortlichkeitstabellen.
+- Transferaufgaben behandeln:
+  - einfachen Statistik-Service entwerfen
+  - Export-Service als Idee skizzieren
+  - Backup-Funktion passend zuordnen
+  - entscheiden, ob eine neue Verantwortung eine neue Klasse rechtfertigt
+- Die Grafik `verantwortlichkeiten_aufteilen.svg` zeigt `Main`, `Produkt`, `ProduktVerwaltung`, `CsvProduktLeser` und `CsvProduktSpeicher` als getrennte Rollen. Sie macht sichtbar, dass `Main` nicht alles selbst macht, Fachlogik und Dateilogik getrennt bleiben und die Struktur Tests sowie spätere Erweiterungen erleichtert.
+- Die Musterlösung `Loesungen_Verantwortlichkeiten_Aufteilen.md` zeigt eine kompakte Standardlösung mit Verantwortlichkeitstabelle, entlasteter `Main`, `ProduktVerwaltung` für Fachlogik, CSV-Klassen für Dateilogik, sprechenden Methodennamen und einfachen Transferentscheidungen.
+- Die Java-Beispiele der Musterlösung wurden als temporäres Maven-Projekt unter `/tmp/verantwortlichkeiten-loesung-validierung` mit `mvn package` geprüft; die Produktionsklassen kompilierten erfolgreich. Zusätzlich wurde die kompilierte `Main`-Klasse mit `java -cp target/classes ch.allianz.youngoitv.produktverwaltung.Main` ausgeführt. Die JUnit-Beispiele sind im Lösungstext enthalten, waren im temporären Projekt aber nicht als Testdateien hinterlegt.
+- Typische Fehlerbilder:
+  - alles bleibt in `Main`
+  - Datei- und Fachlogik werden vermischt
+  - Klassen werden nur umbenannt, aber nicht entlastet
+  - Methodennamen bleiben unklar
+  - Tests werden nach dem Refactoring nicht ausgeführt
+  - neue Klassen haben keine klare Verantwortung
+  - zu viele kleine Klassen ohne Nutzen
+- Datenbanken, ORM, Spring, Clean Architecture, formales Repository-Pattern, REST-APIs und generische CSV-Frameworks werden bewusst nicht behandelt.
 
 ## Wichtige Inhalte aus Persistenzablauf vertiefen
 

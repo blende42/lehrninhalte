@@ -338,13 +338,36 @@ Material:
 - [Übungen – Persistenzablauf vertiefen](./Uebungen/Uebungen_Persistenzablauf_Vertiefen.md)
 - [Lösungen – Persistenzablauf vertiefen](./Musterloesungen/Loesungen_Persistenzablauf_Vertiefen.md)
 
+### 27. Code strukturieren und Verantwortlichkeiten aufteilen
+
+Ziel: Verantwortlichkeiten in der bekannten Produktverwaltung erkennen, `Main` entlasten, Fachlogik, Dateilogik und Ablaufsteuerung trennen sowie Code einfacher testbar und wartbar machen, ohne formale Enterprise-Architektur einzuführen.
+
+Material:
+
+- [Arbeitsblatt – Code strukturieren und Verantwortlichkeiten aufteilen](./Arbeitsblaetter/Arbeitsblatt_Verantwortlichkeiten_Aufteilen.md)
+- [Code strukturieren: Verantwortlichkeiten aufteilen](./graphics/verantwortlichkeiten_aufteilen.svg)
+- [Übungen – Code strukturieren und Verantwortlichkeiten aufteilen](./Uebungen/Uebungen_Verantwortlichkeiten_Aufteilen.md)
+- [Lösungen – Code strukturieren und Verantwortlichkeiten aufteilen](./Musterloesungen/Loesungen_Verantwortlichkeiten_Aufteilen.md)
+
+### 28. Interfaces für austauschbare Services
+
+Ziel: Ein erstes Interface als Vertrag verstehen, `CsvProduktSpeicher` als konkrete Implementierung einordnen und `Main` so anpassen, dass es mit dem Typ `ProduktSpeicher` arbeitet, ohne Spring, Dependency Injection oder komplexe Architektur einzuführen.
+
+Material:
+
+- [Arbeitsblatt – Interfaces für austauschbare Services](./Arbeitsblaetter/Arbeitsblatt_Interfaces_Austauschbare_Services.md)
+- [Interface als Vertrag: ProduktSpeicher](./graphics/interface_produkt_speicher.svg)
+- [Übungen – Interfaces für austauschbare Services](./Uebungen/Uebungen_Interfaces_Austauschbare_Services.md)
+- [Lösungen – Interfaces für austauschbare Services](./Musterloesungen/Loesungen_Interfaces_Austauschbare_Services.md)
+
 ### Nächster sinnvoller Block
 
-Nach `Persistenzablauf vertiefen` bietet sich als nächstes Thema eine kompakte **Persistenz-Repetition oder einfache Architekturvorbereitung** an:
+Nach `Interfaces für austauschbare Services` bietet sich als nächstes Thema eine kompakte **Interface-Vertiefung oder Service-/Schichten-Vorbereitung** an:
 
-- vollständigen Lade-Bearbeiten-Speichern-Zyklus festigen
-- Verantwortlichkeiten in `Main`, Fachlogik und Dateilogik wiederholen
-- spätere Schichten-Ideen vorbereiten, ohne bereits formale Patterns einzuführen
+- Interface als Vertrag wiederholen
+- austauschbare Implementierungen vorsichtig vertiefen
+- Schichtenbegriffe vorsichtig einführen
+- weiterhin keine Datenbank, kein Spring und keine formale Clean Architecture
 
 ## Geplante spätere Themenblöcke
 
@@ -565,6 +588,23 @@ Arbeitsblätter führen neue Konzepte ein, enthalten kurze Theorie, Beispiele, t
   - Speicher- und Ladeformat mit Kopfzeile `name;preis` vergleichen
   - Prozessgrafik zum vollständigen Ablauf mit Datei, Arbeitsspeicher, Fachlogik und Prüfung
   - Fehlerfälle, Backup, Export und Ausblick auf spätere Schichten-Themen
+- [Arbeitsblatt – Code strukturieren und Verantwortlichkeiten aufteilen](./Arbeitsblaetter/Arbeitsblatt_Verantwortlichkeiten_Aufteilen.md)
+  - Verantwortung als Hauptaufgabe einer Klasse erklären
+  - `Main` als Startpunkt und Orchestrator einordnen
+  - Fachlogik, Dateilogik und Ablaufsteuerung unterscheiden
+  - bekannte Rollen `Produkt`, `ProduktVerwaltung`, `CsvProduktLeser`, `CsvProduktSpeicher` und `Main` zuordnen
+  - Architekturgrafik zur Trennung von Rollen und Verantwortlichkeiten
+  - typische Fehlerbilder bei überladener `Main` und künstlichen Klassen sichtbar machen
+  - Ausblick auf spätere Schichten, Services und REST geben
+- [Arbeitsblatt – Interfaces für austauschbare Services](./Arbeitsblaetter/Arbeitsblatt_Interfaces_Austauschbare_Services.md)
+  - Interface als Vertrag erklären
+  - `ProduktSpeicher` als erstes einzelnes Interface einführen
+  - `CsvProduktSpeicher implements ProduktSpeicher` als konkrete Umsetzung zeigen
+  - `Main` mit Variable vom Interface-Typ arbeiten lassen
+  - Konzeptgrafik zum Vertrag zwischen `Main`, `ProduktSpeicher`, `CsvProduktSpeicher` und CSV-Datei
+  - Austauschbarkeit als kleine, nachvollziehbare Idee vorbereiten
+  - Fehlerbilder wie Implementierungsdetails im Interface und zu viele Interfaces sichtbar machen
+  - Ausblick auf spätere Services, Schichten und weitere Implementierungen geben
 
 ## Konzeptgrafiken
 
@@ -639,6 +679,16 @@ Konzeptgrafiken visualisieren Beziehungen, Abläufe und typische Denkmodelle. Si
   - Arbeitsspeicher als temporär und Datei als dauerhaft sichtbar machen
   - Speicher- und Ladeformat, Datei- und Fachlogik sowie Prüfung durch erneutes Laden einordnen
   - Backup und Export als einfache Erweiterung markieren
+- [Code strukturieren: Verantwortlichkeiten aufteilen](./graphics/verantwortlichkeiten_aufteilen.svg)
+  - `Main`, `Produkt`, `ProduktVerwaltung`, `CsvProduktLeser` und `CsvProduktSpeicher` als getrennte Rollen zeigen
+  - `Main` als Orchestrator statt Sammelort für alle Logik einordnen
+  - Fachlogik und Dateilogik klar trennen
+  - Testbarkeit und spätere Erweiterungen als Nutzen der Struktur sichtbar machen
+- [Interface als Vertrag: ProduktSpeicher](./graphics/interface_produkt_speicher.svg)
+  - `Main` arbeitet gegen das Interface `ProduktSpeicher`
+  - `CsvProduktSpeicher` setzt den Vertrag um und enthält die Dateilogik
+  - CSV-Datei bleibt das konkrete Speicherziel
+  - Verhalten bleibt gleich, Struktur wird flexibler
 
 ### Arbeitsblattgrafiken zu StringBuilder
 
@@ -836,6 +886,19 @@ Konzeptgrafiken visualisieren Beziehungen, Abläufe und typische Denkmodelle. Si
   - Gesamtwert vor und nach der Änderung vergleichen
   - ungültige CSV-Zeilen zählen und leere Produktlisten behandeln
   - Transfer mit Backup-Datei, Exportdatei, Kopfzeile und Änderungsstatistik
+- [Übungen – Code strukturieren und Verantwortlichkeiten aufteilen](./Uebungen/Uebungen_Verantwortlichkeiten_Aufteilen.md)
+  - Verantwortlichkeiten bestehenden Codeabschnitten zuordnen
+  - Fachlogik aus `Main` in `ProduktVerwaltung` verschieben
+  - CSV-Laden und CSV-Speichern aus `Main` in passende Klassen verschieben
+  - überladene `Main` schrittweise refaktorieren und Tests ausführen
+  - Transfer mit Statistik-Service, Export-Service-Idee, Backup-Zuordnung und Entscheidung neue Klasse oder Methode
+- [Übungen – Interfaces für austauschbare Services](./Uebungen/Uebungen_Interfaces_Austauschbare_Services.md)
+  - `ProduktSpeicher` als Interface erstellen
+  - `CsvProduktSpeicher` mit `implements ProduktSpeicher` anpassen
+  - `Main` auf den Interface-Typ umstellen
+  - unverändertes Speicherverhalten mit `mvn test` oder `mvn package` prüfen
+  - Vertrag und Umsetzung in Codeabschnitten unterscheiden
+  - Transfer mit Ideen für `KonsolenProduktSpeicher` und `BackupProduktSpeicher`
 
 ## Repetitionen
 
@@ -895,6 +958,18 @@ Musterlösungen halten kompakte Referenzlösungen und Bewertungshilfen bereit.
   - kompakte Standardlösung mit `Produkt`, `ProduktVerwaltung`, `CsvProduktLeser`, `CsvProduktSpeicher` und `Main`
   - vollständiger Ablauf aus Laden, Bearbeiten, Speichern, erneutem Laden und Prüfen
   - Gesamtwertvergleich, fehlerhafte CSV-Zeilen, leere Listen, Backup, Export, Kopfzeile und Änderungsstatistik
+  - dokumentierte Validierung mit temporärem Maven-Projekt
+- [Lösungen – Code strukturieren und Verantwortlichkeiten aufteilen](./Musterloesungen/Loesungen_Verantwortlichkeiten_Aufteilen.md)
+  - kompakte Standardlösung zur Zuordnung von Verantwortlichkeiten
+  - `Main` als Orchestrator, `ProduktVerwaltung` für Fachlogik und CSV-Klassen für Dateilogik
+  - sprechende Methodennamen, schrittweises Refactoring und einfache Verantwortlichkeitstabelle
+  - Transferhinweise zu Statistik-Service, Export-Idee, Backup-Zuordnung und neuer Klasse oder Methode
+  - dokumentierte Validierung mit temporärem Maven-Projekt
+- [Lösungen – Interfaces für austauschbare Services](./Musterloesungen/Loesungen_Interfaces_Austauschbare_Services.md)
+  - kompakte Standardlösung mit `ProduktSpeicher`, `CsvProduktSpeicher implements ProduktSpeicher` und `Main` mit Interface-Typ
+  - Vertrag und Umsetzung unterscheiden
+  - Verhalten bleibt gleich, Speicherlogik bleibt in `CsvProduktSpeicher`
+  - typische Fehlerhinweise und kurze Transferantworten
   - dokumentierte Validierung mit temporärem Maven-Projekt
 - [Musterlösungen – StringBuilder & Parser](./Musterloesungen/musterloesungen_stringbuilder.md)
   - StringBuilder-Methoden und vereinfachter Parser

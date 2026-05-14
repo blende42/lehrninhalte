@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">Interface als Vertrag: ProduktSpeicher</title>
+  <desc id="desc">Prozessgrafik: Main verwendet das Interface ProduktSpeicher, CsvProduktSpeicher setzt den Vertrag um und schreibt eine CSV-Datei.</desc>
+
+  <defs>
+    <style>
+      .bg { fill: #f7fbff; }
+      .title { font-family: Arial, sans-serif; font-size: 32px; font-weight: 700; fill: #16324f; }
+      .subtitle { font-family: Arial, sans-serif; font-size: 18px; font-weight: 600; fill: #2b4c6f; }
+      .sectionTitle { font-family: Arial, sans-serif; font-size: 20px; font-weight: 700; fill: #16324f; }
+      .boxTitle { font-family: Arial, sans-serif; font-size: 20px; font-weight: 700; fill: #16324f; }
+      .text { font-family: Arial, sans-serif; font-size: 16px; fill: #1f2d3d; }
+      .small { font-family: Arial, sans-serif; font-size: 14px; fill: #1f2d3d; }
+      .note { font-family: Arial, sans-serif; font-size: 16px; font-weight: 700; fill: #7a3e00; }
+      .mono { font-family: "Courier New", monospace; font-size: 15px; fill: #1f2d3d; }
+      .box { fill: #ffffff; stroke: #4e79a7; stroke-width: 2.5; }
+      .boxGreen { fill: #eef7ea; stroke: #6aa84f; stroke-width: 2.5; }
+      .boxBlue { fill: #e8f1fb; stroke: #4e79a7; stroke-width: 2.5; }
+      .boxOrange { fill: #fff4e8; stroke: #d9903d; stroke-width: 2.5; }
+      .boxGrey { fill: #f1f5f9; stroke: #64748b; stroke-width: 2.5; }
+      .boxHint { fill: #fff6da; stroke: #d6a73b; stroke-width: 2.5; }
+      .line { stroke: #4e79a7; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .lineOrange { stroke: #d9903d; stroke-width: 3; fill: none; marker-end: url(#arrowOrange); }
+      .lineSoft { stroke: #7aa6d8; stroke-width: 2.5; fill: none; stroke-dasharray: 8 7; marker-end: url(#arrowSoft); }
+      .label { font-family: Arial, sans-serif; font-size: 15px; font-weight: 700; fill: #2b4c6f; }
+    </style>
+
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#4e79a7"/>
+    </marker>
+    <marker id="arrowSoft" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#7aa6d8"/>
+    </marker>
+    <marker id="arrowOrange" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#d9903d"/>
+    </marker>
+
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1400" height="900"/>
+
+  <text x="700" y="54" text-anchor="middle" class="title">Interface als Vertrag: ProduktSpeicher</text>
+  <text x="700" y="86" text-anchor="middle" class="subtitle">Eine Klasse liefert die konkrete Umsetzung.</text>
+
+  <g filter="url(#shadow)">
+    <rect x="500" y="125" width="400" height="110" rx="18" class="boxGreen"/>
+  </g>
+  <text x="700" y="160" text-anchor="middle" class="boxTitle">Main</text>
+  <text x="700" y="188" text-anchor="middle" class="text">arbeitet gegen den Vertrag</text>
+  <text x="700" y="213" text-anchor="middle" class="mono">ProduktSpeicher speicher</text>
+
+  <path d="M700 235 C700 265, 700 285, 700 315" class="line"/>
+  <text x="730" y="278" text-anchor="start" class="label">verwendet</text>
+
+  <g filter="url(#shadow)">
+    <rect x="430" y="315" width="540" height="130" rx="20" class="boxBlue"/>
+  </g>
+  <text x="700" y="352" text-anchor="middle" class="boxTitle">Interface ProduktSpeicher</text>
+  <text x="700" y="382" text-anchor="middle" class="text">beschreibt den Methodenvertrag</text>
+  <text x="700" y="409" text-anchor="middle" class="mono">void speichern(...)</text>
+  <text x="700" y="430" text-anchor="middle" class="small">keine CSV-Details, keine Dateioperation</text>
+
+  <path d="M700 445 C700 475, 700 500, 700 530" class="line"/>
+  <text x="730" y="492" text-anchor="start" class="label">wird umgesetzt durch</text>
+
+  <g filter="url(#shadow)">
+    <rect x="430" y="530" width="540" height="130" rx="20" class="boxOrange"/>
+  </g>
+  <text x="700" y="567" text-anchor="middle" class="boxTitle">CsvProduktSpeicher</text>
+  <text x="700" y="597" text-anchor="middle" class="text">implements ProduktSpeicher</text>
+  <text x="700" y="624" text-anchor="middle" class="small">enthält die konkrete Dateilogik</text>
+  <text x="700" y="646" text-anchor="middle" class="small">erzeugt CSV-Zeilen und schreibt Datei</text>
+
+  <path d="M700 660 C700 690, 700 710, 700 740" class="lineOrange"/>
+  <text x="730" y="704" text-anchor="start" class="label">schreibt</text>
+
+  <g filter="url(#shadow)">
+    <rect x="500" y="740" width="400" height="95" rx="18" class="box"/>
+  </g>
+  <text x="700" y="775" text-anchor="middle" class="boxTitle">CSV-Datei</text>
+  <text x="700" y="803" text-anchor="middle" class="text">Verhalten bleibt gleich</text>
+  <text x="700" y="824" text-anchor="middle" class="small">Produkte werden weiterhin gespeichert</text>
+
+  <g filter="url(#shadow)">
+    <rect x="70" y="245" width="300" height="180" rx="20" class="boxHint"/>
+  </g>
+  <text x="220" y="285" text-anchor="middle" class="sectionTitle">Merksatz</text>
+  <text x="220" y="318" text-anchor="middle" class="text">Main kennt den Vertrag</text>
+  <text x="220" y="346" text-anchor="middle" class="text">nicht die Details</text>
+  <text x="220" y="382" text-anchor="middle" class="small">Speicherart wird</text>
+  <text x="220" y="405" text-anchor="middle" class="small">austauschbarer</text>
+
+  <path d="M370 335 C390 335, 405 360, 430 380" class="lineSoft"/>
+
+  <g filter="url(#shadow)">
+    <rect x="1030" y="455" width="300" height="180" rx="20" class="boxGrey"/>
+  </g>
+  <text x="1180" y="495" text-anchor="middle" class="sectionTitle">Wichtig</text>
+  <text x="1180" y="528" text-anchor="middle" class="text">Struktur wird flexibler</text>
+  <text x="1180" y="556" text-anchor="middle" class="text">Verhalten bleibt gleich</text>
+  <text x="1180" y="592" text-anchor="middle" class="small">keine neue Speicherart</text>
+  <text x="1180" y="615" text-anchor="middle" class="small">zwingend nötig</text>
+
+  <path d="M1030 545 C1000 545, 990 595, 970 595" class="lineSoft"/>
+
+  <g filter="url(#shadow)">
+    <rect x="170" y="855" width="1060" height="34" rx="16" fill="#fff6da" stroke="#d6a73b" stroke-width="2.5"/>
+  </g>
+  <text x="700" y="878" text-anchor="middle" class="note">Interface = Vertrag, Implementierung = konkrete Arbeit.</text>
+</svg>

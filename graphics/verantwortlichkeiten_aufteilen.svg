@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">Code strukturieren: Verantwortlichkeiten aufteilen</title>
+  <desc id="desc">Architekturgrafik zur Produktverwaltung: Main orchestriert, Produkt hält Daten, ProduktVerwaltung enthält Fachlogik, CSV-Klassen laden und speichern Daten.</desc>
+
+  <defs>
+    <style>
+      .bg { fill: #f7fbff; }
+      .title { font-family: Arial, sans-serif; font-size: 32px; font-weight: 700; fill: #16324f; }
+      .subtitle { font-family: Arial, sans-serif; font-size: 18px; font-weight: 600; fill: #2b4c6f; }
+      .sectionTitle { font-family: Arial, sans-serif; font-size: 20px; font-weight: 700; fill: #16324f; }
+      .boxTitle { font-family: Arial, sans-serif; font-size: 18px; font-weight: 700; fill: #16324f; }
+      .text { font-family: Arial, sans-serif; font-size: 15px; fill: #1f2d3d; }
+      .small { font-family: Arial, sans-serif; font-size: 14px; fill: #1f2d3d; }
+      .note { font-family: Arial, sans-serif; font-size: 16px; font-weight: 700; fill: #7a3e00; }
+      .box { fill: #ffffff; stroke: #4e79a7; stroke-width: 2.5; }
+      .boxSoft { fill: #e8f1fb; stroke: #4e79a7; stroke-width: 2.5; }
+      .boxGreen { fill: #eef7ea; stroke: #6aa84f; stroke-width: 2.5; }
+      .boxOrange { fill: #fff4e8; stroke: #d9903d; stroke-width: 2.5; }
+      .boxPurple { fill: #f4efff; stroke: #8e6cc7; stroke-width: 2.5; }
+      .boxGrey { fill: #f1f5f9; stroke: #64748b; stroke-width: 2.5; }
+      .line { stroke: #4e79a7; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .lineSoft { stroke: #7aa6d8; stroke-width: 2.5; fill: none; stroke-dasharray: 8 7; marker-end: url(#arrowSoft); }
+      .lineGreen { stroke: #6aa84f; stroke-width: 3; fill: none; marker-end: url(#arrowGreen); }
+      .lineOrange { stroke: #d9903d; stroke-width: 3; fill: none; marker-end: url(#arrowOrange); }
+    </style>
+
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#4e79a7"/>
+    </marker>
+    <marker id="arrowSoft" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#7aa6d8"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#6aa84f"/>
+    </marker>
+    <marker id="arrowOrange" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#d9903d"/>
+    </marker>
+
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1400" height="900"/>
+
+  <text id="titleText" x="700" y="54" text-anchor="middle" class="title">Code strukturieren: Verantwortlichkeiten aufteilen</text>
+  <text x="700" y="86" text-anchor="middle" class="subtitle">Verständlicher Code entsteht durch klare Rollen.</text>
+
+  <g filter="url(#shadow)">
+    <rect x="540" y="125" width="320" height="130" rx="18" class="boxGreen"/>
+  </g>
+  <text x="700" y="162" text-anchor="middle" class="boxTitle">Main</text>
+  <text x="700" y="190" text-anchor="middle" class="text">orchestriert den Ablauf</text>
+  <text x="700" y="215" text-anchor="middle" class="small">lädt, ruft auf, speichert</text>
+  <text x="700" y="237" text-anchor="middle" class="small">macht nicht alles selbst</text>
+
+  <g filter="url(#shadow)">
+    <rect x="410" y="320" width="580" height="260" rx="22" class="boxSoft"/>
+  </g>
+  <text x="700" y="360" text-anchor="middle" class="sectionTitle">Daten und Fachlogik</text>
+
+  <g filter="url(#shadow)">
+    <rect x="455" y="405" width="230" height="120" rx="16" class="box"/>
+  </g>
+  <text x="570" y="438" text-anchor="middle" class="boxTitle">Produkt</text>
+  <text x="570" y="466" text-anchor="middle" class="text">hält Daten</text>
+  <text x="570" y="491" text-anchor="middle" class="small">Name und Preis</text>
+
+  <g filter="url(#shadow)">
+    <rect x="715" y="405" width="230" height="120" rx="16" class="boxPurple"/>
+  </g>
+  <text x="830" y="438" text-anchor="middle" class="boxTitle">ProduktVerwaltung</text>
+  <text x="830" y="466" text-anchor="middle" class="text">enthält Fachlogik</text>
+  <text x="830" y="491" text-anchor="middle" class="small">suchen, ändern, rechnen</text>
+
+  <g filter="url(#shadow)">
+    <rect x="80" y="390" width="290" height="150" rx="18" class="boxOrange"/>
+  </g>
+  <text x="225" y="425" text-anchor="middle" class="boxTitle">CsvProduktLeser</text>
+  <text x="225" y="455" text-anchor="middle" class="text">lädt CSV-Daten</text>
+  <text x="225" y="480" text-anchor="middle" class="small">liest Datei</text>
+  <text x="225" y="505" text-anchor="middle" class="small">erzeugt Produkte</text>
+
+  <g filter="url(#shadow)">
+    <rect x="1030" y="390" width="290" height="150" rx="18" class="boxOrange"/>
+  </g>
+  <text x="1175" y="425" text-anchor="middle" class="boxTitle">CsvProduktSpeicher</text>
+  <text x="1175" y="455" text-anchor="middle" class="text">speichert CSV-Daten</text>
+  <text x="1175" y="480" text-anchor="middle" class="small">erzeugt CSV-Zeilen</text>
+  <text x="1175" y="505" text-anchor="middle" class="small">schreibt Datei</text>
+
+  <path d="M700 255 C700 285, 700 300, 700 320" class="line"/>
+  <text x="730" y="292" text-anchor="start" class="small">ruft passende Klassen auf</text>
+
+  <path d="M370 465 C390 465, 405 465, 455 465" class="lineOrange"/>
+
+  <path d="M945 465 C995 465, 1010 465, 1030 465" class="lineOrange"/>
+
+  <path d="M685 465 C700 465, 700 465, 715 465" class="lineGreen"/>
+  <text x="700" y="548" text-anchor="middle" class="small">Fachlogik arbeitet mit Produktdaten</text>
+
+  <g filter="url(#shadow)">
+    <rect x="170" y="650" width="1060" height="130" rx="24" class="boxGrey"/>
+  </g>
+  <text x="700" y="690" text-anchor="middle" class="sectionTitle">Warum diese Struktur hilft</text>
+
+  <g filter="url(#shadow)">
+    <rect x="220" y="720" width="280" height="95" rx="16" class="box"/>
+  </g>
+  <text x="360" y="750" text-anchor="middle" class="boxTitle">Trennung</text>
+  <text x="360" y="777" text-anchor="middle" class="text">Fachlogik und Datei</text>
+  <text x="360" y="800" text-anchor="middle" class="text">bleiben getrennt</text>
+
+  <g filter="url(#shadow)">
+    <rect x="560" y="720" width="280" height="95" rx="16" class="box"/>
+  </g>
+  <text x="700" y="750" text-anchor="middle" class="boxTitle">Tests</text>
+  <text x="700" y="777" text-anchor="middle" class="text">Fachlogik ist</text>
+  <text x="700" y="800" text-anchor="middle" class="text">ohne Datei prüfbar</text>
+
+  <g filter="url(#shadow)">
+    <rect x="900" y="720" width="280" height="95" rx="16" class="box"/>
+  </g>
+  <text x="1040" y="750" text-anchor="middle" class="boxTitle">Erweiterung</text>
+  <text x="1040" y="777" text-anchor="middle" class="text">neue Aufgaben</text>
+  <text x="1040" y="800" text-anchor="middle" class="text">finden ihren Ort</text>
+
+  <path d="M700 580 C700 610, 700 625, 700 650" class="lineSoft"/>
+
+  <g filter="url(#shadow)">
+    <rect x="170" y="835" width="1060" height="42" rx="16" fill="#fff6da" stroke="#d6a73b" stroke-width="2.5"/>
+  </g>
+  <text x="700" y="862" text-anchor="middle" class="note">Klare Rollen machen Code lesbarer, testbarer und leichter erweiterbar.</text>
+</svg>
