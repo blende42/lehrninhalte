@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">Code-Duplikate vermeiden und gemeinsamen Code wiederverwenden</title>
+  <desc id="desc">Konzeptgrafik: CsvProduktSpeicher und KonsolenProduktSpeicher enthalten ähnliche Logik. Gemeinsame Teile werden in Hilfsmethoden ausgelagert. Eine gemeinsame Basis bleibt ein späterer Ausblick.</desc>
+
+  <defs>
+    <style>
+      .bg { fill: #f7fbff; }
+      .title { font-family: Arial, sans-serif; font-size: 32px; font-weight: 700; fill: #16324f; }
+      .subtitle { font-family: Arial, sans-serif; font-size: 18px; font-weight: 600; fill: #2b4c6f; }
+      .boxTitle { font-family: Arial, sans-serif; font-size: 20px; font-weight: 700; fill: #16324f; }
+      .text { font-family: Arial, sans-serif; font-size: 16px; fill: #1f2d3d; }
+      .small { font-family: Arial, sans-serif; font-size: 14px; fill: #1f2d3d; }
+      .mono { font-family: "Courier New", monospace; font-size: 16px; font-weight: 700; fill: #1f2d3d; }
+      .note { font-family: Arial, sans-serif; font-size: 16px; font-weight: 700; fill: #7a3e00; }
+      .label { font-family: Arial, sans-serif; font-size: 15px; font-weight: 700; fill: #2b4c6f; }
+      .box { fill: #ffffff; stroke: #4e79a7; stroke-width: 2.5; }
+      .boxBlue { fill: #e8f1fb; stroke: #4e79a7; stroke-width: 2.5; }
+      .boxGreen { fill: #eef7ea; stroke: #6aa84f; stroke-width: 2.5; }
+      .boxOrange { fill: #fff4e8; stroke: #d9903d; stroke-width: 2.5; }
+      .boxGrey { fill: #f1f5f9; stroke: #64748b; stroke-width: 2.5; }
+      .boxHint { fill: #fff6da; stroke: #d6a73b; stroke-width: 2.5; }
+      .line { stroke: #4e79a7; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .linePlain { stroke: #4e79a7; stroke-width: 3; fill: none; }
+      .lineSoft { stroke: #7aa6d8; stroke-width: 2.5; fill: none; stroke-dasharray: 8 7; marker-end: url(#arrowSoft); }
+    </style>
+
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#4e79a7"/>
+    </marker>
+    <marker id="arrowSoft" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#7aa6d8"/>
+    </marker>
+
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1400" height="900"/>
+
+  <text x="700" y="54" text-anchor="middle" class="title">Code-Duplikate vermeiden</text>
+  <text x="700" y="86" text-anchor="middle" class="subtitle">Gemeinsamer Code sollte nicht mehrfach kopiert werden.</text>
+
+  <!-- Zwei konkrete Klassen mit ähnlicher Logik -->
+  <g filter="url(#shadow)">
+    <rect x="145" y="135" width="450" height="145" rx="18" class="boxBlue"/>
+  </g>
+  <text x="370" y="178" text-anchor="middle" class="boxTitle">CsvProduktSpeicher</text>
+  <text x="370" y="212" text-anchor="middle" class="mono">produkt.getName()</text>
+  <text x="370" y="240" text-anchor="middle" class="mono">produkt.getPreis()</text>
+  <text x="370" y="264" text-anchor="middle" class="small">ähnliche Logik</text>
+
+  <g filter="url(#shadow)">
+    <rect x="805" y="135" width="450" height="145" rx="18" class="boxGreen"/>
+  </g>
+  <text x="1030" y="178" text-anchor="middle" class="boxTitle">KonsolenProduktSpeicher</text>
+  <text x="1030" y="212" text-anchor="middle" class="mono">produkt.getName()</text>
+  <text x="1030" y="240" text-anchor="middle" class="mono">produkt.getPreis()</text>
+  <text x="1030" y="264" text-anchor="middle" class="small">ähnliche Logik</text>
+
+  <path d="M370 280 L370 360" class="line"/>
+  <path d="M1030 280 L1030 360" class="line"/>
+
+  <g filter="url(#shadow)">
+    <rect x="185" y="360" width="370" height="95" rx="18" class="boxHint"/>
+  </g>
+  <text x="370" y="398" text-anchor="middle" class="boxTitle">Duplikat prüfen</text>
+  <text x="370" y="430" text-anchor="middle" class="text">gleich oder nur ähnlich?</text>
+
+  <g filter="url(#shadow)">
+    <rect x="845" y="360" width="370" height="95" rx="18" class="boxHint"/>
+  </g>
+  <text x="1030" y="398" text-anchor="middle" class="boxTitle">Verantwortung prüfen</text>
+  <text x="1030" y="430" text-anchor="middle" class="text">CSV bleibt anders als Konsole</text>
+
+  <!-- Zusammenführen -->
+  <path d="M370 455 C370 520, 520 520, 655 555" class="lineSoft"/>
+  <path d="M1030 455 C1030 520, 880 520, 745 555" class="lineSoft"/>
+  <text x="700" y="520" text-anchor="middle" class="label">gemeinsam auslagern</text>
+
+  <g filter="url(#shadow)">
+    <rect x="455" y="555" width="490" height="145" rx="22" class="boxOrange"/>
+  </g>
+  <text x="700" y="598" text-anchor="middle" class="boxTitle">Hilfsmethoden</text>
+  <text x="700" y="632" text-anchor="middle" class="mono">produktAlsCsvZeile(...)</text>
+  <text x="700" y="662" text-anchor="middle" class="mono">produktAlsKonsolenZeile(...)</text>
+  <text x="700" y="688" text-anchor="middle" class="small">Ausblick: gemeinsame Basis / extends</text>
+
+  <!-- Vorteile -->
+  <path d="M700 700 L700 748" class="line"/>
+
+  <g filter="url(#shadow)">
+    <rect x="95" y="755" width="270" height="95" rx="18" class="box"/>
+  </g>
+  <text x="230" y="795" text-anchor="middle" class="boxTitle">weniger Duplikate</text>
+  <text x="230" y="826" text-anchor="middle" class="text">kein Kopieren</text>
+
+  <g filter="url(#shadow)">
+    <rect x="405" y="755" width="280" height="95" rx="18" class="box"/>
+  </g>
+  <text x="545" y="795" text-anchor="middle" class="boxTitle">eine Stelle</text>
+  <text x="545" y="826" text-anchor="middle" class="text">Änderung zentral</text>
+
+  <g filter="url(#shadow)">
+    <rect x="725" y="755" width="280" height="95" rx="18" class="box"/>
+  </g>
+  <text x="865" y="795" text-anchor="middle" class="boxTitle">wartbarer Code</text>
+  <text x="865" y="826" text-anchor="middle" class="text">klarer Ablauf</text>
+
+  <g filter="url(#shadow)">
+    <rect x="1045" y="755" width="260" height="95" rx="18" class="box"/>
+  </g>
+  <text x="1175" y="795" text-anchor="middle" class="boxTitle">Ausblick</text>
+  <text x="1175" y="826" text-anchor="middle" class="text">Vererbung später</text>
+
+  <path d="M700 748 C700 735, 230 735, 230 755" class="linePlain"/>
+  <path d="M700 748 C700 735, 545 735, 545 755" class="linePlain"/>
+  <path d="M700 748 C700 735, 865 735, 865 755" class="linePlain"/>
+  <path d="M700 748 C700 735, 1175 735, 1175 755" class="linePlain"/>
+</svg>

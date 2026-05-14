@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">Polymorphie mit Interface-Typ</title>
+  <desc id="desc">Konzeptgrafik: Main verwendet die Variable ProduktSpeicher speicher. Darin können CsvProduktSpeicher oder KonsolenProduktSpeicher stecken. Der Methodenaufruf bleibt gleich, das Verhalten unterscheidet sich.</desc>
+
+  <defs>
+    <style>
+      .bg { fill: #f7fbff; }
+      .title { font-family: Arial, sans-serif; font-size: 32px; font-weight: 700; fill: #16324f; }
+      .subtitle { font-family: Arial, sans-serif; font-size: 18px; font-weight: 600; fill: #2b4c6f; }
+      .boxTitle { font-family: Arial, sans-serif; font-size: 20px; font-weight: 700; fill: #16324f; }
+      .text { font-family: Arial, sans-serif; font-size: 16px; fill: #1f2d3d; }
+      .small { font-family: Arial, sans-serif; font-size: 14px; fill: #1f2d3d; }
+      .mono { font-family: "Courier New", monospace; font-size: 16px; font-weight: 700; fill: #1f2d3d; }
+      .note { font-family: Arial, sans-serif; font-size: 16px; font-weight: 700; fill: #7a3e00; }
+      .label { font-family: Arial, sans-serif; font-size: 15px; font-weight: 700; fill: #2b4c6f; }
+      .box { fill: #ffffff; stroke: #4e79a7; stroke-width: 2.5; }
+      .boxBlue { fill: #e8f1fb; stroke: #4e79a7; stroke-width: 2.5; }
+      .boxGreen { fill: #eef7ea; stroke: #6aa84f; stroke-width: 2.5; }
+      .boxOrange { fill: #fff4e8; stroke: #d9903d; stroke-width: 2.5; }
+      .boxGrey { fill: #f1f5f9; stroke: #64748b; stroke-width: 2.5; }
+      .boxHint { fill: #fff6da; stroke: #d6a73b; stroke-width: 2.5; }
+      .line { stroke: #4e79a7; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .linePlain { stroke: #4e79a7; stroke-width: 3; fill: none; }
+      .lineSoft { stroke: #7aa6d8; stroke-width: 2.5; fill: none; stroke-dasharray: 8 7; marker-end: url(#arrowSoft); }
+    </style>
+
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#4e79a7"/>
+    </marker>
+    <marker id="arrowSoft" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#7aa6d8"/>
+    </marker>
+
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1400" height="900"/>
+
+  <text x="700" y="54" text-anchor="middle" class="title">Unterschiedliche Objekte über dasselbe Interface</text>
+  <text x="700" y="86" text-anchor="middle" class="subtitle">Über denselben Interface-Typ werden unterschiedliche konkrete Objekte verwendet.</text>
+
+  <!-- Main bleibt weitgehend gleich -->
+  <g filter="url(#shadow)">
+    <rect x="120" y="135" width="300" height="130" rx="18" class="boxGreen"/>
+  </g>
+  <text x="270" y="176" text-anchor="middle" class="boxTitle">Main</text>
+  <text x="270" y="208" text-anchor="middle" class="text">bleibt weitgehend gleich</text>
+  <text x="270" y="238" text-anchor="middle" class="small">arbeitet mit dem Vertrag</text>
+
+  <path d="M420 200 C490 200, 510 200, 560 200" class="line"/>
+  <text x="490" y="178" text-anchor="middle" class="label">verwendet</text>
+
+  <!-- Interface-Variable -->
+  <g filter="url(#shadow)">
+    <rect x="560" y="125" width="360" height="150" rx="20" class="boxBlue"/>
+  </g>
+  <text x="740" y="166" text-anchor="middle" class="boxTitle">ProduktSpeicher speicher</text>
+  <text x="740" y="200" text-anchor="middle" class="text">Variable vom Interface-Typ</text>
+  <text x="740" y="232" text-anchor="middle" class="mono">speicher.speichern(...)</text>
+  <text x="740" y="256" text-anchor="middle" class="small">gleicher Methodenaufruf</text>
+
+  <g filter="url(#shadow)">
+    <rect x="990" y="135" width="290" height="130" rx="18" class="boxHint"/>
+  </g>
+  <text x="1135" y="176" text-anchor="middle" class="boxTitle">Wichtig</text>
+  <text x="1135" y="208" text-anchor="middle" class="text">konkrete Klasse</text>
+  <text x="1135" y="238" text-anchor="middle" class="text">entscheidet Verhalten</text>
+
+  <path d="M990 200 C955 200, 945 200, 920 200" class="lineSoft"/>
+
+  <!-- Verzweigung -->
+  <path d="M740 275 L740 350" class="linePlain"/>
+  <path d="M380 350 L1020 350" class="linePlain"/>
+  <path d="M380 350 L380 420" class="line"/>
+  <path d="M1020 350 L1020 420" class="line"/>
+  <text x="700" y="334" text-anchor="middle" class="label">austauschbare Implementierungen</text>
+
+  <!-- Konkrete Objekte -->
+  <g filter="url(#shadow)">
+    <rect x="165" y="420" width="430" height="145" rx="20" class="boxOrange"/>
+  </g>
+  <text x="380" y="462" text-anchor="middle" class="boxTitle">CsvProduktSpeicher</text>
+  <text x="380" y="494" text-anchor="middle" class="text">konkretes Objekt</text>
+  <text x="380" y="524" text-anchor="middle" class="mono">speicher.speichern(...)</text>
+  <text x="380" y="548" text-anchor="middle" class="small">gleicher Aufruf</text>
+
+  <g filter="url(#shadow)">
+    <rect x="805" y="420" width="430" height="145" rx="20" class="boxOrange"/>
+  </g>
+  <text x="1020" y="462" text-anchor="middle" class="boxTitle">KonsolenProduktSpeicher</text>
+  <text x="1020" y="494" text-anchor="middle" class="text">konkretes Objekt</text>
+  <text x="1020" y="524" text-anchor="middle" class="mono">speicher.speichern(...)</text>
+  <text x="1020" y="548" text-anchor="middle" class="small">gleicher Aufruf</text>
+
+  <!-- Verhalten -->
+  <path d="M380 565 L380 640" class="line"/>
+  <path d="M1020 565 L1020 640" class="line"/>
+
+  <g filter="url(#shadow)">
+    <rect x="190" y="640" width="380" height="100" rx="18" class="box"/>
+  </g>
+  <text x="380" y="681" text-anchor="middle" class="boxTitle">CSV-Datei</text>
+  <text x="380" y="714" text-anchor="middle" class="text">Datei wird geschrieben</text>
+
+  <g filter="url(#shadow)">
+    <rect x="830" y="640" width="380" height="100" rx="18" class="box"/>
+  </g>
+  <text x="1020" y="681" text-anchor="middle" class="boxTitle">Konsolenausgabe</text>
+  <text x="1020" y="714" text-anchor="middle" class="text">Produkte werden angezeigt</text>
+
+  <!-- Merksatz -->
+  <g filter="url(#shadow)">
+    <rect x="145" y="800" width="1110" height="58" rx="18" class="boxGrey"/>
+  </g>
+  <text x="700" y="836" text-anchor="middle" class="note">Gleicher Interface-Typ und gleicher Aufruf, aber unterschiedliches Verhalten.</text>
+</svg>

@@ -36,8 +36,11 @@ Aktuell vorbereitet sind:
 26. Persistenzablauf vertiefen
 27. Code strukturieren und Verantwortlichkeiten aufteilen
 28. Interfaces für austauschbare Services
+29. Mehrere Klassen mit demselben Interface
+30. Unterschiedliche Objekte über dasselbe Interface verwenden
+31. Code-Duplikate vermeiden und gemeinsamen Code wiederverwenden
 
-Die zuletzt erstellte Unterrichtseinheit ist **Interfaces für austauschbare Services**. Zusätzlich wurde eine kleine Prozess- und Begriffsbibliothek für KI-gestützte Lehrmittel-Erstellung angelegt.
+Die zuletzt erstellte Unterrichtseinheit ist **Code-Duplikate vermeiden und gemeinsamen Code wiederverwenden**. Zusätzlich wurde eine kleine Prozess- und Begriffsbibliothek für KI-gestützte Lehrmittel-Erstellung angelegt.
 
 Neue Repetitions- und Vertiefungsübung:
 
@@ -87,7 +90,19 @@ Neue Dateien im Maven-, Testing-, Refactoring- und Persistenz-Block:
 - [Arbeitsblatt_Interfaces_Austauschbare_Services.md](./Arbeitsblaetter/Arbeitsblatt_Interfaces_Austauschbare_Services.md)
 - [Uebungen_Interfaces_Austauschbare_Services.md](./Uebungen/Uebungen_Interfaces_Austauschbare_Services.md)
 - [Loesungen_Interfaces_Austauschbare_Services.md](./Musterloesungen/Loesungen_Interfaces_Austauschbare_Services.md)
+- [Arbeitsblatt_Mehrere_Implementierungen_Interface.md](./Arbeitsblaetter/Arbeitsblatt_Mehrere_Implementierungen_Interface.md)
+- [Uebungen_Mehrere_Implementierungen_Interface.md](./Uebungen/Uebungen_Mehrere_Implementierungen_Interface.md)
+- [Loesungen_Mehrere_Implementierungen_Interface.md](./Musterloesungen/Loesungen_Mehrere_Implementierungen_Interface.md)
+- [Arbeitsblatt_Polymorphie_Interface.md](./Arbeitsblaetter/Arbeitsblatt_Polymorphie_Interface.md)
+- [Uebungen_Polymorphie_Interface.md](./Uebungen/Uebungen_Polymorphie_Interface.md)
+- [Loesungen_Polymorphie_Interface.md](./Musterloesungen/Loesungen_Polymorphie_Interface.md)
+- [Arbeitsblatt_Code_Wiederverwenden.md](./Arbeitsblaetter/Arbeitsblatt_Code_Wiederverwenden.md)
+- [Uebungen_Code_Wiederverwenden.md](./Uebungen/Uebungen_Code_Wiederverwenden.md)
+- [Loesungen_Code_Wiederverwenden.md](./Musterloesungen/Loesungen_Code_Wiederverwenden.md)
 - [interface_produkt_speicher.svg](./graphics/interface_produkt_speicher.svg)
+- [mehrere_implementierungen_interface.svg](./graphics/mehrere_implementierungen_interface.svg)
+- [polymorphie_interface.svg](./graphics/polymorphie_interface.svg)
+- [code_wiederverwenden.svg](./graphics/code_wiederverwenden.svg)
 - [maven_orchestriert_build.svg](./graphics/maven_orchestriert_build.svg)
 - [maven_compile_run_package.svg](./graphics/maven_compile_run_package.svg)
 - [maven_tests_vorbereiten.svg](./graphics/maven_tests_vorbereiten.svg)
@@ -150,13 +165,16 @@ Die Dateien unter `docs/begriffe` erklären zentrale Begriffe kurz und unterrich
 
 ## Nächster geplanter Block
 
-Als nächstes bietet sich eine **Interface-Vertiefung oder Service-/Schichten-Vorbereitung** an.
+Als nächstes bietet sich eine **vorsichtige Einführung in Vererbung oder eine Service-/Schichten-Vorbereitung** an.
 
 Sinnvolle Inhalte:
 
 - Interface als Vertrag diagnostisch prüfen
-- konkrete Implementierung und Interface-Typ unterscheiden
-- austauschbare Implementierungen vorsichtig vertiefen
+- konkrete Implementierung und Interface-Typ weiter unterscheiden
+- gleiche Methodenaufrufe mit unterschiedlichen Implementierungen reflektieren
+- eine Variable vom Interface-Typ mit unterschiedlichen konkreten Objekten erklären
+- Code-Duplikate erkennen und kleine Hilfsmethoden sinnvoll einsetzen
+- `extends` als mögliche Wiederverwendungsidee vorsichtig vorbereiten
 - einfache Service- und Schichten-Idee vorbereiten
 - weiterhin keine Datenbank und keine komplexen Frameworks
 
@@ -175,12 +193,13 @@ produktverwaltung-maven/
   target/
 ```
 
-Didaktisch sinnvoll ist als nächstes ein Vergleich:
+Für den nächsten Block kann an diesen Vergleich angeschlossen werden:
 
 - konkrete Klasse direkt verwenden
 - Interface als Vertrag verwenden
 - `ProduktSpeicher speicher = new CsvProduktSpeicher();`
-- spätere zweite Implementierung nur als Idee vorbereiten
+- `ProduktSpeicher speicher = new KonsolenProduktSpeicher();`
+- gleiche Methodensignatur, anderes Verhalten
 
 ## Wichtige Inhalte aus Interfaces für austauschbare Services
 
@@ -200,6 +219,100 @@ Didaktisch sinnvoll ist als nächstes ein Vergleich:
 - Die Musterlösung `Loesungen_Interfaces_Austauschbare_Services.md` zeigt eine kompakte Standardlösung mit `ProduktSpeicher`, `CsvProduktSpeicher implements ProduktSpeicher`, `Main` mit Interface-Typ, unverändertem Verhalten, typischen Fehlerhinweisen und kurzen Transferantworten.
 - Die Java-Beispiele wurden als temporäres Maven-Projekt unter `/tmp/interfaces-services-validierung` mit `mvn package` geprüft; die Produktionsklassen kompilierten erfolgreich. Es waren keine Testklassen hinterlegt. Zusätzlich wurde die kompilierte `Main`-Klasse mit `java -cp target/classes ch.allianz.youngoitv.produktverwaltung.Main` ausgeführt.
 - Bewusst nicht behandelt werden Spring, Dependency Injection, abstrakte Klassen, komplexe Polymorphie, Datenbanken, ORM und formales Repository-Pattern.
+
+## Wichtige Inhalte aus Mehrere Klassen mit demselben Interface
+
+- Das bestehende Interface `ProduktSpeicher` bleibt unverändert.
+- Neu wird genau eine zweite konkrete Implementierung eingeführt: `KonsolenProduktSpeicher`.
+- `CsvProduktSpeicher` und `KonsolenProduktSpeicher` implementieren beide denselben Vertrag.
+- Beide Klassen besitzen dieselbe Methodensignatur `speichern(...)`, zeigen aber unterschiedliches Verhalten:
+  - `CsvProduktSpeicher` schreibt eine CSV-Datei.
+  - `KonsolenProduktSpeicher` gibt Produkte auf der Konsole aus.
+- `Main` arbeitet weiterhin mit dem Interface-Typ:
+  - `ProduktSpeicher speicher = new CsvProduktSpeicher();`
+  - `ProduktSpeicher speicher = new KonsolenProduktSpeicher();`
+- Beim Wechsel der Implementierung wird nur die konkrete Klasse rechts von `new` ausgetauscht.
+- Basisaufgaben erstellen `KonsolenProduktSpeicher`, implementieren `ProduktSpeicher`, setzen `speichern(...)` für die Konsole um und wechseln in `Main` zwischen beiden Implementierungen.
+- Vertiefungsaufgaben vergleichen gemeinsame Elemente und Unterschiede, trennen Vertrag, Umsetzung und Nutzung und prüfen Methodensignaturen mit `mvn test` oder `mvn package`.
+- Transferaufgaben diskutieren `BackupProduktSpeicher`, `StatistikProduktSpeicher` und `JsonProduktSpeicher` bewusst nur als Ideen.
+- Die Musterlösung `Loesungen_Mehrere_Implementierungen_Interface.md` zeigt eine kompakte Standardlösung mit `ProduktSpeicher`, `CsvProduktSpeicher implements ProduktSpeicher`, `KonsolenProduktSpeicher implements ProduktSpeicher`, `Main` mit Interface-Typ, typischen Fehlerhinweisen und dokumentierter Maven-Verifikation.
+- Die Grafik `mehrere_implementierungen_interface.svg` zeigt `ProduktSpeicher` als gemeinsamen Vertrag, zwei konkrete Implementierungen, `Main` mit Interface-Typ sowie gleichbleibenden Vertrag bei unterschiedlichem Verhalten.
+- Typische Fehlerbilder:
+  - Interface wird verändert statt implementiert
+  - Methodensignatur stimmt nicht überein
+  - `Main` verwendet wieder nur konkrete Klassen
+  - `KonsolenProduktSpeicher` verletzt den Vertrag
+  - beide Klassen verhalten sich identisch ohne erkennbaren Unterschied
+  - zu viele neue Implementierungen auf einmal
+  - Verwechslung zwischen Vertrag und konkreter Klasse
+- Bewusst nicht behandelt werden Spring, Dependency Injection, Factory, abstrakte Klassen, Datenbanken, Repository-Pattern und komplexe Polymorphie.
+
+## Wichtige Inhalte aus Unterschiedliche Objekte über dasselbe Interface verwenden
+
+- Eine Variable vom Interface-Typ `ProduktSpeicher` kann nacheinander unterschiedliche konkrete Objekte enthalten.
+- Die bekannten Klassen bleiben im Fokus:
+  - `ProduktSpeicher`
+  - `CsvProduktSpeicher`
+  - `KonsolenProduktSpeicher`
+  - `Main`
+- Der Methodenaufruf bleibt gleich:
+  - `speicher.speichern(produkte, "data/produkte.csv");`
+- Die konkrete Klasse entscheidet das Verhalten:
+  - `CsvProduktSpeicher` schreibt eine CSV-Datei.
+  - `KonsolenProduktSpeicher` gibt Produkte auf der Konsole aus.
+- Die Einheit führt Polymorphie praktisch über Beobachtung ein:
+  - gleiche Variable
+  - gleicher Interface-Typ
+  - gleicher Methodenaufruf
+  - unterschiedliches konkretes Objekt
+  - unterschiedliche Wirkung
+- Die Grafik `polymorphie_interface.svg` zeigt `ProduktSpeicher speicher` als Interface-Variable, zwei austauschbare konkrete Objekte, den gleichen Methodenaufruf und die unterschiedlichen Wirkungen CSV-Datei oder Konsolenausgabe.
+- Basisaufgaben lassen zuerst `CsvProduktSpeicher` und danach `KonsolenProduktSpeicher` über dieselbe `ProduktSpeicher`-Variable verwenden.
+- Vertiefungsaufgaben dokumentieren den Ablauf, vergleichen Ausgaben und ergänzen eine Verantwortlichkeitstabelle.
+- Transferaufgaben skizzieren doppeltes Speichern, `LoggingProduktSpeicher` und `BackupProduktSpeicher` nur als Ideen.
+- Die Musterlösung `Loesungen_Polymorphie_Interface.md` zeigt eine kompakte Standardlösung mit `ProduktSpeicher` als Interface-Typ, `CsvProduktSpeicher`, `KonsolenProduktSpeicher`, gleichem Methodenaufruf, unterschiedlichem beobachtbarem Verhalten, typischen Fehlerhinweisen und dokumentierter Maven-Verifikation.
+- Typische Fehlerbilder:
+  - Interface und konkrete Klasse verwechseln
+  - `ProduktSpeicher` direkt instanziieren wollen
+  - Verhalten der konkreten Klasse falsch einschätzen
+  - `Main` wieder unnötig stark an konkrete Klassen koppeln
+  - gleiche Methode mit gleichem Verhalten verwechseln
+  - zu viele neue Implementierungen gleichzeitig einführen
+- Bewusst nicht behandelt werden abstrakte Klassen, `instanceof`, Downcasting, Dependency Injection, Spring, Factory, Datenbanken und komplexe Vererbung.
+
+## Wichtige Inhalte aus Code-Duplikate vermeiden und gemeinsamen Code wiederverwenden
+
+- Mehrfach kopierter Code erschwert spätere Änderungen.
+- Die bekannten Speicherklassen bleiben im Fokus:
+  - `ProduktSpeicher`
+  - `CsvProduktSpeicher`
+  - `KonsolenProduktSpeicher`
+- Ähnliche Codeblöcke werden zuerst sichtbar gemacht, bevor eine Lösung eingeführt wird.
+- Gemeinsamkeiten:
+  - Produkte iterieren
+  - Produktnamen lesen
+  - Produktpreis lesen
+  - Produkt als Text formatieren
+- Unterschiede bleiben bewusst erhalten:
+  - CSV-Datei nutzt `;`
+  - Konsolenausgabe nutzt lesbaren Text mit `:`
+- Basisaufgaben markieren doppelte und ähnliche Codeabschnitte, beschreiben Gemeinsamkeiten und lagern Formatierung in kleine Hilfsmethoden aus.
+- Vertiefungsaufgaben verwenden Hilfsmethoden mehrfach, prüfen Änderungen an einer Stelle und beschreiben die Auswirkungen auf Wartbarkeit.
+- Transferaufgaben behandeln weitere mögliche Duplikate, Logging-Ausgabe, Statistik-Hilfsmethoden und Vor- und Nachteile gemeinsamer Basisklassen.
+- Die Musterlösung `Loesungen_Code_Wiederverwenden.md` zeigt kompakte Standardlösungen mit Hilfsmethoden in `CsvProduktSpeicher` und `KonsolenProduktSpeicher`, Verhaltensprüfung nach dem Refactoring, typischen Fehlerhinweisen und dokumentierter Maven-Verifikation.
+- Die Grafik `code_wiederverwenden.svg` zeigt ähnliche Logik in `CsvProduktSpeicher` und `KonsolenProduktSpeicher`, das gemeinsame Auslagern in Hilfsmethoden und die Vorteile weniger Duplikate, Änderungen an einer Stelle, bessere Wartbarkeit und Vorbereitung auf Vererbung.
+- `extends` wird nur als vorsichtiger Ausblick erwähnt:
+  - Vererbung ist kein Selbstzweck.
+  - Sie kann später helfen, wenn wirklich gemeinsamer Code vorhanden ist.
+- Typische Fehlerbilder:
+  - zu früh komplexe Vererbung einführen
+  - Unterschiede zwischen Klassen ignorieren
+  - gemeinsame Methode zu allgemein machen
+  - Verhalten unabsichtlich verändern
+  - Duplikate nur umbenennen statt reduzieren
+  - alles in eine einzige Hilfsklasse verschieben
+  - Wiederverwendung mit Kopieren verwechseln
+- Bewusst nicht behandelt werden tiefe Vererbungshierarchien, abstrakte Klassen, Mehrfachvererbung, `instanceof`, Downcasting, UML-Formalismus und komplexe OOP-Theorie.
 
 ## Wichtige Inhalte aus Code strukturieren und Verantwortlichkeiten aufteilen
 

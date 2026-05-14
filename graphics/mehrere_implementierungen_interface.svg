@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">Mehrere Klassen mit demselben Interface</title>
+  <desc id="desc">Konzeptgrafik: ProduktSpeicher ist der gemeinsame Vertrag. CsvProduktSpeicher und KonsolenProduktSpeicher erfüllen ihn mit unterschiedlichem Verhalten. Main arbeitet weiterhin mit ProduktSpeicher.</desc>
+
+  <defs>
+    <style>
+      .bg { fill: #f7fbff; }
+      .title { font-family: Arial, sans-serif; font-size: 32px; font-weight: 700; fill: #16324f; }
+      .subtitle { font-family: Arial, sans-serif; font-size: 18px; font-weight: 600; fill: #2b4c6f; }
+      .sectionTitle { font-family: Arial, sans-serif; font-size: 20px; font-weight: 700; fill: #16324f; }
+      .boxTitle { font-family: Arial, sans-serif; font-size: 20px; font-weight: 700; fill: #16324f; }
+      .text { font-family: Arial, sans-serif; font-size: 16px; fill: #1f2d3d; }
+      .small { font-family: Arial, sans-serif; font-size: 14px; fill: #1f2d3d; }
+      .mono { font-family: "Courier New", monospace; font-size: 15px; fill: #1f2d3d; }
+      .note { font-family: Arial, sans-serif; font-size: 16px; font-weight: 700; fill: #7a3e00; }
+      .box { fill: #ffffff; stroke: #4e79a7; stroke-width: 2.5; }
+      .boxBlue { fill: #e8f1fb; stroke: #4e79a7; stroke-width: 2.5; }
+      .boxGreen { fill: #eef7ea; stroke: #6aa84f; stroke-width: 2.5; }
+      .boxOrange { fill: #fff4e8; stroke: #d9903d; stroke-width: 2.5; }
+      .boxGrey { fill: #f1f5f9; stroke: #64748b; stroke-width: 2.5; }
+      .boxHint { fill: #fff6da; stroke: #d6a73b; stroke-width: 2.5; }
+      .line { stroke: #4e79a7; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .lineUp { stroke: #4e79a7; stroke-width: 3; fill: none; marker-end: url(#arrowUp); }
+      .lineSoft { stroke: #7aa6d8; stroke-width: 2.5; fill: none; stroke-dasharray: 8 7; marker-end: url(#arrowSoft); }
+      .label { font-family: Arial, sans-serif; font-size: 15px; font-weight: 700; fill: #2b4c6f; }
+    </style>
+
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#4e79a7"/>
+    </marker>
+    <marker id="arrowUp" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#4e79a7"/>
+    </marker>
+    <marker id="arrowSoft" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#7aa6d8"/>
+    </marker>
+
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1400" height="900"/>
+
+  <text x="700" y="54" text-anchor="middle" class="title">Mehrere Klassen mit demselben Interface</text>
+  <text x="700" y="86" text-anchor="middle" class="subtitle">Mehrere Klassen können denselben Vertrag erfüllen.</text>
+
+  <!-- Main nutzt den Vertrag -->
+  <g filter="url(#shadow)">
+    <rect x="70" y="145" width="330" height="155" rx="18" class="boxGreen"/>
+  </g>
+  <text x="235" y="185" text-anchor="middle" class="boxTitle">Main</text>
+  <text x="235" y="218" text-anchor="middle" class="text">arbeitet weiterhin mit</text>
+  <text x="235" y="246" text-anchor="middle" class="mono">ProduktSpeicher</text>
+  <text x="235" y="274" text-anchor="middle" class="small">Aufruf bleibt gleich</text>
+
+  <path d="M400 222 C470 222, 500 200, 560 200" class="line"/>
+  <text x="455" y="196" text-anchor="middle" class="label">verwendet</text>
+
+  <!-- Gemeinsamer Vertrag -->
+  <g filter="url(#shadow)">
+    <rect x="560" y="135" width="360" height="130" rx="20" class="boxBlue"/>
+  </g>
+  <text x="740" y="174" text-anchor="middle" class="boxTitle">ProduktSpeicher</text>
+  <text x="740" y="205" text-anchor="middle" class="text">gemeinsamer Vertrag</text>
+  <text x="740" y="232" text-anchor="middle" class="mono">speichern(...)</text>
+
+  <g filter="url(#shadow)">
+    <rect x="990" y="145" width="330" height="155" rx="18" class="boxHint"/>
+  </g>
+  <text x="1155" y="185" text-anchor="middle" class="sectionTitle">Wichtig</text>
+  <text x="1155" y="218" text-anchor="middle" class="text">Vertrag bleibt gleich</text>
+  <text x="1155" y="246" text-anchor="middle" class="text">Umsetzung austauschbar</text>
+  <text x="1155" y="274" text-anchor="middle" class="small">Verhalten darf anders sein</text>
+
+  <path d="M990 222 C955 222, 950 205, 920 200" class="lineSoft"/>
+
+  <!-- Implementierungen -->
+  <g filter="url(#shadow)">
+    <rect x="180" y="465" width="400" height="145" rx="20" class="boxOrange"/>
+  </g>
+  <text x="380" y="505" text-anchor="middle" class="boxTitle">CsvProduktSpeicher</text>
+  <text x="380" y="537" text-anchor="middle" class="text">implements ProduktSpeicher</text>
+  <text x="380" y="566" text-anchor="middle" class="small">schreibt CSV-Datei</text>
+
+  <g filter="url(#shadow)">
+    <rect x="820" y="465" width="400" height="145" rx="20" class="boxOrange"/>
+  </g>
+  <text x="1020" y="505" text-anchor="middle" class="boxTitle">KonsolenProduktSpeicher</text>
+  <text x="1020" y="537" text-anchor="middle" class="text">implements ProduktSpeicher</text>
+  <text x="1020" y="566" text-anchor="middle" class="small">gibt Produkte auf Konsole aus</text>
+
+  <!-- Linien: Implementierungen erfüllen den Vertrag -->
+  <path d="M380 465 C380 360, 575 320, 690 265" class="lineUp"/>
+  <path d="M1020 465 C1020 360, 905 320, 790 265" class="lineUp"/>
+  <text x="520" y="355" text-anchor="middle" class="label">erfüllt</text>
+  <text x="910" y="355" text-anchor="middle" class="label">erfüllt</text>
+
+  <!-- Austauschbarkeit -->
+  <path d="M585 535 C675 495, 725 495, 815 535" class="lineSoft"/>
+  <text x="700" y="500" text-anchor="middle" class="label">Umsetzung austauschbar</text>
+
+  <!-- Verhalten -->
+  <g filter="url(#shadow)">
+    <rect x="180" y="680" width="400" height="95" rx="18" class="box"/>
+  </g>
+  <text x="380" y="716" text-anchor="middle" class="sectionTitle">CSV-Verhalten</text>
+  <text x="380" y="746" text-anchor="middle" class="text">Datei wird geschrieben</text>
+
+  <g filter="url(#shadow)">
+    <rect x="820" y="680" width="400" height="95" rx="18" class="box"/>
+  </g>
+  <text x="1020" y="716" text-anchor="middle" class="sectionTitle">Konsolen-Verhalten</text>
+  <text x="1020" y="746" text-anchor="middle" class="text">Konsole zeigt Produkte</text>
+
+  <path d="M380 610 C380 635, 380 655, 380 680" class="line"/>
+  <path d="M1020 610 C1020 635, 1020 655, 1020 680" class="line"/>
+
+  <!-- Merksatz -->
+  <g filter="url(#shadow)">
+    <rect x="165" y="820" width="1070" height="52" rx="18" class="boxGrey"/>
+  </g>
+  <text x="700" y="853" text-anchor="middle" class="note">Gleicher Vertrag, austauschbare Umsetzung, unterschiedliches Verhalten.</text>
+</svg>
