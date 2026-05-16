@@ -10,7 +10,7 @@ Dieses Repository dient zur Erstellung und Pflege von Lehrinhalten für die Ausb
 - `Projekte` enthält grössere, zusammenhängende Mini-Projekte mit getrennten Versionen für Lernende und Lehrpersonen.
 - `Musterloesungen` enthält Musterlösungen.
 - `graphics` enthält allgemeine Unterrichtsgrafiken im SVG-Format.
-- `templates` enthält wiederverwendbare SVG-Templates, Prompts und begleitende Workflow-Dokumente.
+- `templates` enthält wiederverwendbare Templates, Prompts und begleitende Workflow-Dokumente.
 
 ## MUSS
 - Verwende Deutsch mit Locale `de_CH`.

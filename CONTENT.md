@@ -29,6 +29,8 @@ Diese Dateien unterstützen die KI-gestützte Erstellung und Prüfung von Lehrmi
   - Checkliste für diagnostisch nutzbare Repetitions- und Vertiefungsübungen
 - [Projekt erstellen](./docs/prozesse/projekt_erstellen.md)
   - Checkliste für grössere Mini-Projekte mit Lernenden- und Lehrpersonen-Version
+- [Projekt-Review](./docs/prozesse/projekt_review.md)
+  - Checkliste für individuelle Reviews von Mini-Projekten mit Architekturgespräch, Reflexion und nächsten Lernschritten
 - [Musterlösungen erstellen](./docs/prozesse/musterloesungen_erstellen.md)
   - Checkliste für kompakte Referenzlösungen
 - [Review Didaktik](./docs/prozesse/review_didaktik.md)
@@ -46,6 +48,8 @@ Diese Dateien unterstützen die KI-gestützte Erstellung und Prüfung von Lehrmi
   - unterstützt kurze, diagnostische Repetitions- und Vertiefungsübungen
 - [projekt-erstellen](./.agents/skills/projekt-erstellen/SKILL.md)
   - unterstützt strukturierte Mini-Projekte mit Lernenden- und Lehrpersonen-Version
+- [projekt-review](./.agents/skills/projekt-review/SKILL.md)
+  - unterstützt strukturierte Projekt-Reviews mit Architekturgespräch, Reflexionsfragen, Testreview und Refactoring-Ideen
 - [musterloesungen-erstellen](./.agents/skills/musterloesungen-erstellen/SKILL.md)
   - unterstützt kompakte, fachlich korrekte Musterlösungen
 - [svg-pruefen](./.agents/skills/svg-pruefen/SKILL.md)
@@ -56,6 +60,11 @@ Diese Dateien unterstützen die KI-gestützte Erstellung und Prüfung von Lehrmi
   - kontrollierter Git-Abschluss nur bei ausdrücklichem Benutzerauftrag
 
 Hinweis: `.codex/skills` ist eine veraltete Skill-Ablage. Die aktuellen Repo-Skills liegen unter `.agents/skills`.
+
+### Vorlagen
+
+- [Projekt-Review Vorlage](./templates/projekt_review_template.md)
+  - wiederverwendbare Markdown-Vorlage für individuelle Projekt-Reviews mit Reflexion, Beobachtungspunkten und nächsten Lernschritten
 
 ## Empfohlene Unterrichtsreihenfolge
 
@@ -1022,8 +1031,12 @@ Projekte sind grössere, zusammenhängende Mini-Projekte. Sie kombinieren mehrer
   - Überblick über Zweck, Abgrenzung und Standardstruktur für Mini-Projekte
 - [Prozess – Projekt erstellen](./docs/prozesse/projekt_erstellen.md)
   - wiederverwendbare Checkliste für Planung, Struktur, Anforderungen, Reflexion und Bewertungsideen
+- [Prozess – Projekt-Review](./docs/prozesse/projekt_review.md)
+  - wiederverwendbare Checkliste für Präsentation, Architekturgespräch, Testreview, Refactoring-Ideen und individuelle Lernschritte
 - [Skill – projekt-erstellen](./.agents/skills/projekt-erstellen/SKILL.md)
   - Repo-Skill für strukturierte Mini-Projekte mit getrennten Versionen
+- [Skill – projekt-review](./.agents/skills/projekt-review/SKILL.md)
+  - Repo-Skill für individuelle Projekt-Reviews mit Coaching-Fokus
 - [Lagerverwaltung Light](./Projekte/Lagerverwaltung_Light/README.md)
   - ausgearbeitetes Mini-Projekt im fachlichen Kontext einer einfachen Lagerverwaltung
 - [Projektauftrag Lagerverwaltung Light – Lernenden-Version](./Projekte/Lagerverwaltung_Light/Lernende/Projektauftrag_Lagerverwaltung_Light.md)

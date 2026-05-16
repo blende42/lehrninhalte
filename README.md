@@ -27,6 +27,7 @@ Begriffs- und Prozessbibliothek für KI-gestützte Lehrmittel-Erstellung:
 - [uebungen_erstellen.md](./docs/prozesse/uebungen_erstellen.md)
 - [repetition_und_vertiefung_erstellen.md](./docs/prozesse/repetition_und_vertiefung_erstellen.md)
 - [projekt_erstellen.md](./docs/prozesse/projekt_erstellen.md)
+- [projekt_review.md](./docs/prozesse/projekt_review.md)
 - [musterloesungen_erstellen.md](./docs/prozesse/musterloesungen_erstellen.md)
 - [review_didaktik.md](./docs/prozesse/review_didaktik.md)
 - [review_java_maven.md](./docs/prozesse/review_java_maven.md)
@@ -38,6 +39,7 @@ Repo-Skills für wiederkehrende und kontrollierte Arbeitsabläufe:
 - [uebungen-erstellen](./.agents/skills/uebungen-erstellen/SKILL.md)
 - [repetition-vertiefung-erstellen](./.agents/skills/repetition-vertiefung-erstellen/SKILL.md)
 - [projekt-erstellen](./.agents/skills/projekt-erstellen/SKILL.md)
+- [projekt-review](./.agents/skills/projekt-review/SKILL.md)
 - [musterloesungen-erstellen](./.agents/skills/musterloesungen-erstellen/SKILL.md)
 - [svg-pruefen](./.agents/skills/svg-pruefen/SKILL.md)
 - [java-maven-validieren](./.agents/skills/java-maven-validieren/SKILL.md)
@@ -222,7 +224,7 @@ Allgemeine SVG-Grafiken für den Unterricht:
 - [parser_grafik.svg](./graphics/parser_grafik.svg)
 
 ### templates
-Vorlagen, Workflows und Prompts für didaktische SVG-Grafiken:
+Vorlagen, Workflows und Prompts für Lehrmittel, SVG-Grafiken und Reviews:
 
 - [template_architektur.svg](./templates/template_architektur.svg)
 - [template_architektur_robust.svg](./templates/template_architektur_robust.svg)
@@ -230,6 +232,7 @@ Vorlagen, Workflows und Prompts für didaktische SVG-Grafiken:
 - [template_prozess_robust.svg](./templates/template_prozess_robust.svg)
 - [template_vergleich_robust.svg](./templates/template_vergleich_robust.svg)
 - [svg_workflow_sheet.md](./templates/svg_workflow_sheet.md)
+- [projekt_review_template.md](./templates/projekt_review_template.md)
 
 #### templates/prompts
 

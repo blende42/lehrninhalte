@@ -56,8 +56,14 @@ Neue Projektstruktur für grössere Mini-Projekte:
   - Lehrpersonen-Version mit Beobachtungspunkten, typischen Schwierigkeiten, Hilfestellungen, Bewertungsideen und möglichen Lösungsrichtungen ohne vollständige Musterlösung
 - [projekt_erstellen.md](./docs/prozesse/projekt_erstellen.md)
   - wiederverwendbarer Prozess für Mini-Projekte mit Pflichtanforderungen, optionalen Erweiterungen, technischem Rahmen und Reflexion
+- [projekt_review.md](./docs/prozesse/projekt_review.md)
+  - wiederverwendbarer Prozess für individuelle Projekt-Reviews mit Architekturgespräch, Testreview, Refactoring-Ideen und nächsten Lernschritten
 - [projekt-erstellen](./.agents/skills/projekt-erstellen/SKILL.md)
   - Repo-Skill für das Erstellen strukturierter Mini-Projekte unter `Projekte/<Projektname>/`
+- [projekt-review](./.agents/skills/projekt-review/SKILL.md)
+  - Repo-Skill für individuelle Projekt-Reviews mit Coaching-Fokus
+- [projekt_review_template.md](./templates/projekt_review_template.md)
+  - wiederverwendbare Vorlage für kurze Review-Protokolle mit Beobachtungen, Reflexion und nächsten Lernschritten
 
 Neue Repetitions- und Vertiefungsübung:
 
