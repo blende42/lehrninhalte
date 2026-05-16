@@ -1,6 +1,6 @@
 # Lerninhalte
 
-Diese Übersicht listet die vorhandenen Lerninhalte des Repositories nach Materialtyp und Thema. Sie dient als Orientierung für Unterrichtsplanung, Wiederholung und Weiterentwicklung der Unterlagen.
+Diese Übersicht listet die vorhandenen Lerninhalte des Repositories nach Materialtyp und Thema. Sie dient als Orientierung für Unterrichtsplanung, Wiederholung, Projektarbeit und Weiterentwicklung der Unterlagen.
 
 ## Begleitende Prozess- und Begriffsbibliothek
 
@@ -27,6 +27,8 @@ Diese Dateien unterstützen die KI-gestützte Erstellung und Prüfung von Lehrmi
   - Checkliste für klare, gestaffelte Übungsaufträge
 - [Repetition und Vertiefung erstellen](./docs/prozesse/repetition_und_vertiefung_erstellen.md)
   - Checkliste für diagnostisch nutzbare Repetitions- und Vertiefungsübungen
+- [Projekt erstellen](./docs/prozesse/projekt_erstellen.md)
+  - Checkliste für grössere Mini-Projekte mit Lernenden- und Lehrpersonen-Version
 - [Musterlösungen erstellen](./docs/prozesse/musterloesungen_erstellen.md)
   - Checkliste für kompakte Referenzlösungen
 - [Review Didaktik](./docs/prozesse/review_didaktik.md)
@@ -42,6 +44,8 @@ Diese Dateien unterstützen die KI-gestützte Erstellung und Prüfung von Lehrmi
   - unterstützt klare, gestaffelte und prüfbare Übungsaufträge
 - [repetition-vertiefung-erstellen](./.agents/skills/repetition-vertiefung-erstellen/SKILL.md)
   - unterstützt kurze, diagnostische Repetitions- und Vertiefungsübungen
+- [projekt-erstellen](./.agents/skills/projekt-erstellen/SKILL.md)
+  - unterstützt strukturierte Mini-Projekte mit Lernenden- und Lehrpersonen-Version
 - [musterloesungen-erstellen](./.agents/skills/musterloesungen-erstellen/SKILL.md)
   - unterstützt kompakte, fachlich korrekte Musterlösungen
 - [svg-pruefen](./.agents/skills/svg-pruefen/SKILL.md)
@@ -92,6 +96,8 @@ Material:
 ### 4. Mini-Projekt Parser
 
 Ziel: String-Verarbeitung in einem kleinen zusammenhängenden Auftrag anwenden und erste Parser-Ideen üben.
+
+Hinweis: Dieses Mini-Projekt ist Altbestand unter `Uebungen`. Neue Mini-Projekte werden unter `Projekte` abgelegt.
 
 Material:
 
@@ -1007,6 +1013,23 @@ Repetitionen kombinieren mehrere bekannte Lerneinheiten und dienen der Diagnose,
 - [Repetition Java Intro – Lehrpersonen-Version](./Repetitionen/Repetition_Java_Intro/Lehrperson/Repetition_Java_Intro_LP.md)
   - gleicher Aufgabenkern mit didaktischen Hinweisen
   - Diagnosehinweise, Beobachtungspunkte, Hilfestellungen und Zeitangaben
+
+## Projekte
+
+Projekte sind grössere, zusammenhängende Mini-Projekte. Sie kombinieren mehrere bisherige Konzepte, verlangen mehr Eigenständigkeit als normale Übungen und werden getrennt nach Lernenden- und Lehrpersonen-Version geführt.
+
+- [Projekte](./Projekte/README.md)
+  - Überblick über Zweck, Abgrenzung und Standardstruktur für Mini-Projekte
+- [Prozess – Projekt erstellen](./docs/prozesse/projekt_erstellen.md)
+  - wiederverwendbare Checkliste für Planung, Struktur, Anforderungen, Reflexion und Bewertungsideen
+- [Skill – projekt-erstellen](./.agents/skills/projekt-erstellen/SKILL.md)
+  - Repo-Skill für strukturierte Mini-Projekte mit getrennten Versionen
+- [Lagerverwaltung Light](./Projekte/Lagerverwaltung_Light/README.md)
+  - ausgearbeitetes Mini-Projekt im fachlichen Kontext einer einfachen Lagerverwaltung
+- [Projektauftrag Lagerverwaltung Light – Lernenden-Version](./Projekte/Lagerverwaltung_Light/Lernende/Projektauftrag_Lagerverwaltung_Light.md)
+  - offener Projektauftrag mit Ausgangslage, realen Lagerfällen, technischem Rahmen, Pflichtanforderungen, optionalen Erweiterungen, Tests, Abgabe und Reflexion
+- [Projektauftrag Lagerverwaltung Light – Lehrpersonen-Version](./Projekte/Lagerverwaltung_Light/Lehrperson/Projektauftrag_Lagerverwaltung_Light_LP.md)
+  - ergänzende Hinweise zu didaktischem Zweck, Beobachtungspunkten, Schwierigkeiten, Hilfestellungen, Bewertungsideen und möglichen Lösungsrichtungen
 
 ## Musterlösungen
 

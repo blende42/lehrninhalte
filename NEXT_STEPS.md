@@ -42,6 +42,23 @@ Aktuell vorbereitet sind:
 
 Die zuletzt erstellte Unterrichtseinheit ist **Code-Duplikate vermeiden und gemeinsamen Code wiederverwenden**. Zusätzlich wurde eine kleine Prozess- und Begriffsbibliothek für KI-gestützte Lehrmittel-Erstellung angelegt.
 
+Neue Projektstruktur für grössere Mini-Projekte:
+
+- [Projekte](./Projekte/README.md)
+  - eigener Bereich für grössere, zusammenhängende Mini-Projekte
+  - trennt Projekte klar von normalen Übungen
+  - führt Lernenden- und Lehrpersonen-Versionen getrennt
+- [Lagerverwaltung Light](./Projekte/Lagerverwaltung_Light/README.md)
+  - ausgearbeitetes Mini-Projekt im Kontext einer einfachen Lagerverwaltung
+- [Projektauftrag_Lagerverwaltung_Light.md](./Projekte/Lagerverwaltung_Light/Lernende/Projektauftrag_Lagerverwaltung_Light.md)
+  - Lernenden-Version mit offenem Projektauftrag, realen Lagerfällen, Pflichtanforderungen, optionalen Erweiterungen, Tests, Abgabe und Reflexion
+- [Projektauftrag_Lagerverwaltung_Light_LP.md](./Projekte/Lagerverwaltung_Light/Lehrperson/Projektauftrag_Lagerverwaltung_Light_LP.md)
+  - Lehrpersonen-Version mit Beobachtungspunkten, typischen Schwierigkeiten, Hilfestellungen, Bewertungsideen und möglichen Lösungsrichtungen ohne vollständige Musterlösung
+- [projekt_erstellen.md](./docs/prozesse/projekt_erstellen.md)
+  - wiederverwendbarer Prozess für Mini-Projekte mit Pflichtanforderungen, optionalen Erweiterungen, technischem Rahmen und Reflexion
+- [projekt-erstellen](./.agents/skills/projekt-erstellen/SKILL.md)
+  - Repo-Skill für das Erstellen strukturierter Mini-Projekte unter `Projekte/<Projektname>/`
+
 Neue Repetitions- und Vertiefungsübung:
 
 - [Repetition_Java_Intro.md](./Repetitionen/Repetition_Java_Intro/Lernende/Repetition_Java_Intro.md)

@@ -7,6 +7,7 @@ Dieses Repository dient zur Erstellung und Pflege von Lehrinhalten für die Ausb
 - `Arbeitsblaetter` enthält Lehr- und Arbeitsblätter.
 - `Arbeitsblaetter/arbeitsblatt_grafiken` enthält SVG-Grafiken, auf die Arbeitsblätter referenzieren.
 - `Uebungen` enthält Übungsblätter.
+- `Projekte` enthält grössere, zusammenhängende Mini-Projekte mit getrennten Versionen für Lernende und Lehrpersonen.
 - `Musterloesungen` enthält Musterlösungen.
 - `graphics` enthält allgemeine Unterrichtsgrafiken im SVG-Format.
 - `templates` enthält wiederverwendbare SVG-Templates, Prompts und begleitende Workflow-Dokumente.

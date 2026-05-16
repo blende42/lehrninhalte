@@ -7,7 +7,7 @@ Die verbindliche Policy für Codex mit `MUSS`, `SOLL`, `DARF NICHT`, Qualitätsg
 ## Inhaltsverzeichnis
 
 - [AGENTS.md](./AGENTS.md)
-- [CONTENT.md](./CONTENT.md) – empfohlene Unterrichtsreihenfolge und strukturierte Übersicht über Arbeitsblätter, Konzeptgrafiken, Übungen und Musterlösungen
+- [CONTENT.md](./CONTENT.md) – empfohlene Unterrichtsreihenfolge und strukturierte Übersicht über Arbeitsblätter, Konzeptgrafiken, Übungen, Repetitionen, Projekte und Musterlösungen
 - [NEXT_STEPS.md](./NEXT_STEPS.md) – Übergabe zum aktuellen Stand und nächstem geplanten Unterrichtsblock
 
 ### docs
@@ -26,6 +26,7 @@ Begriffs- und Prozessbibliothek für KI-gestützte Lehrmittel-Erstellung:
 - [arbeitsblatt_erstellen.md](./docs/prozesse/arbeitsblatt_erstellen.md)
 - [uebungen_erstellen.md](./docs/prozesse/uebungen_erstellen.md)
 - [repetition_und_vertiefung_erstellen.md](./docs/prozesse/repetition_und_vertiefung_erstellen.md)
+- [projekt_erstellen.md](./docs/prozesse/projekt_erstellen.md)
 - [musterloesungen_erstellen.md](./docs/prozesse/musterloesungen_erstellen.md)
 - [review_didaktik.md](./docs/prozesse/review_didaktik.md)
 - [review_java_maven.md](./docs/prozesse/review_java_maven.md)
@@ -36,6 +37,7 @@ Repo-Skills für wiederkehrende und kontrollierte Arbeitsabläufe:
 - [arbeitsblatt-erstellen](./.agents/skills/arbeitsblatt-erstellen/SKILL.md)
 - [uebungen-erstellen](./.agents/skills/uebungen-erstellen/SKILL.md)
 - [repetition-vertiefung-erstellen](./.agents/skills/repetition-vertiefung-erstellen/SKILL.md)
+- [projekt-erstellen](./.agents/skills/projekt-erstellen/SKILL.md)
 - [musterloesungen-erstellen](./.agents/skills/musterloesungen-erstellen/SKILL.md)
 - [svg-pruefen](./.agents/skills/svg-pruefen/SKILL.md)
 - [java-maven-validieren](./.agents/skills/java-maven-validieren/SKILL.md)
@@ -58,6 +60,26 @@ Repetitionen werden nicht zusätzlich unter `Uebungen` geführt.
 
 - [Repetition_Java_Intro.md](./Repetitionen/Repetition_Java_Intro/Lernende/Repetition_Java_Intro.md)
 - [Repetition_Java_Intro_LP.md](./Repetitionen/Repetition_Java_Intro/Lehrperson/Repetition_Java_Intro_LP.md)
+
+### Projekte
+Grössere, zusammenhängende Mini-Projekte mit getrennten Versionen für Lernende und Lehrpersonen:
+
+Standardstruktur:
+
+```text
+Projekte/<Projektname>/README.md
+Projekte/<Projektname>/Lernende/Projektauftrag_<Projektname>.md
+Projekte/<Projektname>/Lehrperson/Projektauftrag_<Projektname>_LP.md
+```
+
+Projekte kombinieren mehrere bisherige Konzepte, verlangen mehr Eigenständigkeit als normale Übungen und werden nicht zusätzlich unter `Uebungen` geführt.
+
+- [Projekte README](./Projekte/README.md)
+- [Lagerverwaltung Light](./Projekte/Lagerverwaltung_Light/README.md)
+- [Projektauftrag_Lagerverwaltung_Light.md](./Projekte/Lagerverwaltung_Light/Lernende/Projektauftrag_Lagerverwaltung_Light.md)
+- [Projektauftrag_Lagerverwaltung_Light_LP.md](./Projekte/Lagerverwaltung_Light/Lehrperson/Projektauftrag_Lagerverwaltung_Light_LP.md)
+
+`Lagerverwaltung Light` ist als ausgearbeiteter Projektauftrag vorhanden. Die Lernenden-Version enthält Anforderungen, technische Leitplanken, reale Lagerfälle, Tests, Abgabe und Reflexion. Die Lehrpersonen-Version ergänzt Beobachtungspunkte, Hilfestellungen, Bewertungsideen und mögliche Lösungsrichtungen ohne vollständige Musterlösung.
 
 ### Arbeitsblaetter
 Lehr- und Arbeitsblätter zu Java- und Grundlagenthemen:
@@ -104,7 +126,7 @@ SVG-Grafiken und zugehörige Datei für eingebettete Arbeitsblattgrafiken:
 - [tag5_stringbuilder_arbeitsblatt.md](./Arbeitsblaetter/arbeitsblatt_grafiken/tag5_stringbuilder_arbeitsblatt.md)
 
 ### Uebungen
-Übungsblätter, Vertiefungen, Simulationen, Package-Strukturierungsaufgaben und Mini-Projekte:
+Übungsblätter, Vertiefungen, Simulationen und Package-Strukturierungsaufgaben:
 
 - [Uebungen_Arrays.md](./Uebungen/Uebungen_Arrays.md)
 - [Uebungen_Arrays_Vertiefung.md](./Uebungen/Uebungen_Arrays_Vertiefung.md)
@@ -139,6 +161,8 @@ SVG-Grafiken und zugehörige Datei für eingebettete Arbeitsblattgrafiken:
 - [theorie_wrapper.md](./Uebungen/theorie_wrapper.md)
 - [uebungen_java_wrapper.md](./Uebungen/uebungen_java_wrapper.md)
 - [uebungen_stringbuilder.md](./Uebungen/uebungen_stringbuilder.md)
+
+Hinweis: Die vorhandenen `string_mini_projekt_*`-Dateien sind Altbestand. Neue Mini-Projekte werden unter `Projekte` geführt.
 
 ### Musterloesungen
 Kompakte Referenzlösungen zu den Übungen, Simulationen, Package-Strukturierungen und Arbeitsblättern:
