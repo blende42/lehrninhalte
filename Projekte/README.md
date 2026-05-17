@@ -15,3 +15,4 @@ Projekte/<Projektname>/Lehrperson/Projektauftrag_<Projektname>_LP.md
 ## Vorhandene Projekte
 
 - [Lagerverwaltung Light](./Lagerverwaltung_Light/README.md)
+- [Änderungshistorie für Lagerverwaltung](./Aenderungshistorie_Lagerverwaltung/README.md)

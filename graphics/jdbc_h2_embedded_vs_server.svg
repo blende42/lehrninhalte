@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1120" viewBox="0 0 1800 1120" role="img" aria-labelledby="title desc">
+  <title id="title">JDBC und H2: Embedded-Modus und Server-Modus</title>
+  <desc id="desc">Vergleichsgrafik: H2 kann eingebettet in der Java-Anwendung laufen oder als separater Serverprozess. JDBC verbindet Java mit der Datenbank. ProduktSpeicher ermöglicht CSV und Datenbank als alternative Persistenz.</desc>
+
+  <defs>
+    <style>
+      .title { font: 700 40px Arial, Helvetica, sans-serif; fill: #111827; }
+      .subtitle { font: 400 20px Arial, Helvetica, sans-serif; fill: #4b5563; }
+      .section { font: 700 30px Arial, Helvetica, sans-serif; fill: #111827; }
+      .heading { font: 700 25px Arial, Helvetica, sans-serif; fill: #111827; }
+      .text { font: 400 22px Arial, Helvetica, sans-serif; fill: #1f2937; }
+      .text-bold { font: 700 22px Arial, Helvetica, sans-serif; fill: #111827; }
+      .text-small { font: 400 18px Arial, Helvetica, sans-serif; fill: #374151; }
+      .mono { font: 700 22px 'Courier New', Courier, monospace; fill: #111827; }
+
+      .panel-left { fill: #fbfcfb; stroke: #6ca05f; stroke-width: 2.5; }
+      .panel-right { fill: #fbfcff; stroke: #4f7fcb; stroke-width: 2.5; }
+      .header-left { fill: #dfead8; stroke: #6ca05f; stroke-width: 2; }
+      .header-right { fill: #dfe8f7; stroke: #4f7fcb; stroke-width: 2; }
+      .box-app { fill: #ffffff; stroke: #334155; stroke-width: 2.3; }
+      .box-service { fill: #ecfdf5; stroke: #059669; stroke-width: 2.3; }
+      .box-jdbc { fill: #fff7ed; stroke: #c2410c; stroke-width: 2.3; }
+      .box-db { fill: #eef2ff; stroke: #4f46e5; stroke-width: 2.3; }
+      .box-csv { fill: #fefce8; stroke: #ca8a04; stroke-width: 2.3; }
+      .summary { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 2.3; }
+      .guide { stroke: #cbd5e1; stroke-width: 1.5; stroke-dasharray: 8 8; }
+      .arrow { stroke: #334155; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .arrow-soft { stroke: #64748b; stroke-width: 2.5; fill: none; marker-end: url(#arrowSoft); }
+      .arrow-jdbc { stroke: #c2410c; stroke-width: 3; fill: none; marker-end: url(#arrowJdbc); }
+    </style>
+
+    <marker id="arrow" markerWidth="11" markerHeight="11" refX="9" refY="5.5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 11 5.5 L 0 11 z" fill="#334155"/>
+    </marker>
+    <marker id="arrowSoft" markerWidth="11" markerHeight="11" refX="9" refY="5.5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 11 5.5 L 0 11 z" fill="#64748b"/>
+    </marker>
+    <marker id="arrowJdbc" markerWidth="11" markerHeight="11" refX="9" refY="5.5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 11 5.5 L 0 11 z" fill="#c2410c"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1800" height="1120" fill="#ffffff"/>
+
+  <text x="900" y="70" text-anchor="middle" class="title">JDBC und H2: Embedded oder Server</text>
+  <text x="900" y="104" text-anchor="middle" class="subtitle">Eine Datenbank kann in der Anwendung laufen oder als separater Prozess erreichbar sein.</text>
+
+  <rect x="60" y="140" rx="18" ry="18" width="780" height="600" class="panel-left"/>
+  <rect x="82" y="160" rx="14" ry="14" width="736" height="68" class="header-left"/>
+  <text x="450" y="204" text-anchor="middle" class="section">Embedded-Modus</text>
+
+  <rect x="170" y="270" rx="18" ry="18" width="560" height="350" class="box-app"/>
+  <text x="450" y="312" text-anchor="middle" class="heading">Java-Anwendung</text>
+  <text x="450" y="346" text-anchor="middle" class="text">Main und Fachlogik</text>
+
+  <rect x="230" y="390" rx="16" ry="16" width="440" height="145" class="box-db"/>
+  <text x="450" y="435" text-anchor="middle" class="heading">H2 Embedded</text>
+  <text x="450" y="470" text-anchor="middle" class="text">läuft innerhalb der Anwendung</text>
+  <text x="450" y="505" text-anchor="middle" class="mono">jdbc:h2:./data/lager</text>
+
+  <path d="M 450 355 L 450 382" class="arrow-soft"/>
+  <text x="450" y="670" text-anchor="middle" class="text-bold">Ein Java-Prozess</text>
+  <text x="450" y="704" text-anchor="middle" class="text">einfach für Einstieg und lokale Übungen</text>
+
+  <line x1="900" y1="136" x2="900" y2="742" class="guide"/>
+
+  <rect x="960" y="140" rx="18" ry="18" width="780" height="600" class="panel-right"/>
+  <rect x="982" y="160" rx="14" ry="14" width="736" height="68" class="header-right"/>
+  <text x="1350" y="204" text-anchor="middle" class="section">Server-Modus</text>
+
+  <rect x="1080" y="270" rx="18" ry="18" width="540" height="120" class="box-app"/>
+  <text x="1350" y="315" text-anchor="middle" class="heading">Java-Anwendung</text>
+  <text x="1350" y="350" text-anchor="middle" class="text">Main und Fachlogik</text>
+
+  <rect x="1135" y="445" rx="16" ry="16" width="430" height="95" class="box-jdbc"/>
+  <text x="1350" y="485" text-anchor="middle" class="heading">JDBC</text>
+  <text x="1350" y="518" text-anchor="middle" class="text">Verbindungsschicht</text>
+
+  <rect x="1080" y="595" rx="18" ry="18" width="540" height="120" class="box-db"/>
+  <text x="1350" y="640" text-anchor="middle" class="heading">H2-Serverprozess</text>
+  <text x="1350" y="675" text-anchor="middle" class="mono">jdbc:h2:tcp://localhost/./data/lager</text>
+
+  <path d="M 1350 390 L 1350 438" class="arrow-jdbc"/>
+  <path d="M 1350 540 L 1350 588" class="arrow-jdbc"/>
+
+  <rect x="90" y="790" rx="20" ry="20" width="1620" height="260" class="summary"/>
+  <text x="130" y="840" class="section">Austauschbare Persistenz</text>
+  <text x="130" y="880" class="text">Dieselbe Fachlogik kann CSV oder Datenbank verwenden, wenn der Vertrag stabil bleibt.</text>
+
+  <rect x="170" y="920" rx="14" ry="14" width="330" height="82" class="box-service"/>
+  <text x="335" y="970" text-anchor="middle" class="heading">LagerService</text>
+
+  <rect x="650" y="900" rx="14" ry="14" width="360" height="82" class="box-app"/>
+  <text x="830" y="950" text-anchor="middle" class="heading">ProduktSpeicher</text>
+  <text x="830" y="977" text-anchor="middle" class="text-small">gemeinsamer Vertrag</text>
+
+  <rect x="1130" y="865" rx="14" ry="14" width="330" height="78" class="box-csv"/>
+  <text x="1295" y="913" text-anchor="middle" class="heading">CsvProduktSpeicher</text>
+  <text x="1295" y="936" text-anchor="middle" class="text-small">CSV-Datei</text>
+
+  <rect x="1130" y="970" rx="14" ry="14" width="330" height="78" class="box-db"/>
+  <text x="1295" y="1018" text-anchor="middle" class="heading">DbProduktSpeicher</text>
+  <text x="1295" y="1041" text-anchor="middle" class="text-small">H2 über JDBC</text>
+
+  <path d="M 500 961 L 642 950" class="arrow-soft"/>
+  <path d="M 1010 941 L 1122 904" class="arrow-soft"/>
+  <path d="M 1010 961 L 1122 1008" class="arrow-soft"/>
+
+  <text x="830" y="1022" text-anchor="middle" class="text-bold">Fachlogik bleibt gleich</text>
+  <text x="830" y="1048" text-anchor="middle" class="text-small">nur die Persistenz-Implementierung wird ausgetauscht</text>
+</svg>

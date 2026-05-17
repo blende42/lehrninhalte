@@ -41,8 +41,12 @@ Aktuell vorbereitet sind:
 31. Code-Duplikate vermeiden und gemeinsamen Code wiederverwenden
 32. Gemeinsamen Code mit Vererbung wiederverwenden
 33. Fachlogik in Services bündeln
+34. Verantwortlichkeiten und Services festigen
+35. JDBC mit eingebetteter H2-Datenbank
 
-Die zuletzt erstellte Unterrichtseinheit ist **Fachlogik in Services bündeln**. Zusätzlich wurde eine kleine Didaktik-, Prozess- und Begriffsbibliothek für KI-gestützte Lehrmittel-Erstellung angelegt.
+Die zuletzt erstellte Unterrichtseinheit ist **JDBC mit eingebetteter H2-Datenbank**. Zusätzlich wurde eine kleine Didaktik-, Prozess- und Begriffsbibliothek für KI-gestützte Lehrmittel-Erstellung angelegt.
+
+Das zuletzt erstellte Mini-Projekt ist **Änderungshistorie für Lagerverwaltung**.
 
 Die didaktische Entwicklungslinie der Unterrichtsreihe ist in [entwicklungslogik.md](./docs/didaktik/entwicklungslogik.md) festgehalten. Sie erklärt den Aufbau von Java-Grundlagen über Datenstrukturen, OOP, Maven, Tests, Refactoring, Persistenz, Verantwortlichkeiten, Interfaces, Polymorphie, Wiederverwendung, Vererbung und Services bis zu Projektarbeit, Projekt-Review und Architektur-Festigung.
 
@@ -58,6 +62,16 @@ Neue Projektstruktur für grössere Mini-Projekte:
   - Lernenden-Version mit offenem Projektauftrag, realen Lagerfällen, Pflichtanforderungen, optionalen Erweiterungen, Tests, Abgabe und Reflexion
 - [Projektauftrag_Lagerverwaltung_Light_LP.md](./Projekte/Lagerverwaltung_Light/Lehrperson/Projektauftrag_Lagerverwaltung_Light_LP.md)
   - Lehrpersonen-Version mit Beobachtungspunkten, typischen Schwierigkeiten, Hilfestellungen, Bewertungsideen und möglichen Lösungsrichtungen ohne vollständige Musterlösung
+- [Änderungshistorie für Lagerverwaltung](./Projekte/Aenderungshistorie_Lagerverwaltung/README.md)
+  - Mini-Projekt zur Erweiterung der bekannten Lagerverwaltung um nachvollziehbare Preis- und Bestandsänderungen
+- [Projektauftrag_Aenderungshistorie_Lagerverwaltung.md](./Projekte/Aenderungshistorie_Lagerverwaltung/Lernende/Projektauftrag_Aenderungshistorie_Lagerverwaltung.md)
+  - Lernenden-Version mit offenem Projektauftrag, technischem Rahmen, prüfbaren Pflichtanforderungen, speicher- und ladbarer CSV-Historie, optionalen Erweiterungen, Tests, Abgabe, Verantwortlichkeitsbegründung und Reflexion
+- [Projektauftrag_Aenderungshistorie_Lagerverwaltung_LP.md](./Projekte/Aenderungshistorie_Lagerverwaltung/Lehrperson/Projektauftrag_Aenderungshistorie_Lagerverwaltung_LP.md)
+  - Lehrpersonen-Version mit didaktischem Zweck, diagnostischen Beobachtungspunkten, Hilfestellungen, Bewertungsideen, Mindeststandard, Architekturhinweisen und möglichen Lösungsrichtungen ohne vollständige Musterlösung
+- [Projektreview_Aenderungshistorie_Lagerverwaltung.md](./Projekte/Aenderungshistorie_Lagerverwaltung/Review/Projektreview_Aenderungshistorie_Lagerverwaltung.md)
+  - Review-Leitfaden für ein Einzelgespräch zu Architektur, Verantwortlichkeiten, Fachlogik, Testreview, Refactoring, Reflexion und nächsten Lernschritten
+- [Reflexion_Aenderungshistorie_Lagerverwaltung.md](./Projekte/Aenderungshistorie_Lagerverwaltung/Review/Reflexion_Aenderungshistorie_Lagerverwaltung.md)
+  - kurze Reflexionsvorlage für Lernende zu Struktur, Fachlogik, Tests, Architektur, Refactoring und persönlicher Einschätzung
 - [projekt_erstellen.md](./docs/prozesse/projekt_erstellen.md)
   - wiederverwendbarer Prozess für Mini-Projekte mit Pflichtanforderungen, optionalen Erweiterungen, technischem Rahmen und Reflexion
 - [projekt_review.md](./docs/prozesse/projekt_review.md)
@@ -132,7 +146,16 @@ Neue Dateien im Maven-, Testing-, Refactoring- und Persistenz-Block:
 - [Arbeitsblatt_Fachlogik_Services.md](./Arbeitsblaetter/Arbeitsblatt_Fachlogik_Services.md)
 - [Uebungen_Fachlogik_Services.md](./Uebungen/Uebungen_Fachlogik_Services.md)
 - [Loesungen_Fachlogik_Services.md](./Musterloesungen/Loesungen_Fachlogik_Services.md)
+- [Arbeitsblatt_Verantwortlichkeiten_Services_Festigen.md](./Arbeitsblaetter/Arbeitsblatt_Verantwortlichkeiten_Services_Festigen.md)
+- [Uebungen_Verantwortlichkeiten_Services_Festigen.md](./Uebungen/Uebungen_Verantwortlichkeiten_Services_Festigen.md)
+- [Loesungen_Verantwortlichkeiten_Services_Festigen.md](./Musterloesungen/Loesungen_Verantwortlichkeiten_Services_Festigen.md)
+- [Arbeitsblatt_JDBC_H2_Grundlagen.md](./Arbeitsblaetter/Arbeitsblatt_JDBC_H2_Grundlagen.md)
+- [Uebungen_JDBC_H2_Grundlagen.md](./Uebungen/Uebungen_JDBC_H2_Grundlagen.md)
+- [Loesungen_JDBC_H2_Grundlagen.md](./Musterloesungen/Loesungen_JDBC_H2_Grundlagen.md)
 - [fachlogik_services.svg](./graphics/fachlogik_services.svg)
+- [verantwortlichkeiten_services_festigen.svg](./graphics/verantwortlichkeiten_services_festigen.svg)
+- [jdbc_h2_embedded_vs_server.svg](./graphics/jdbc_h2_embedded_vs_server.svg)
+- [projektreview_aenderungshistorie_architektur.svg](./graphics/projektreview_aenderungshistorie_architektur.svg)
 - [interface_produkt_speicher.svg](./graphics/interface_produkt_speicher.svg)
 - [mehrere_implementierungen_interface.svg](./graphics/mehrere_implementierungen_interface.svg)
 - [polymorphie_interface.svg](./graphics/polymorphie_interface.svg)
@@ -201,35 +224,81 @@ Die Datei unter `docs/didaktik` beschreibt die didaktische Entwicklungslogik der
 
 ## Nächster Fokus
 
-Als nächstes steht **Verantwortlichkeiten, Persistenz, Interfaces und Services festigen** im Vordergrund.
+Als nächstes bietet sich eine Festigung von **JDBC mit H2** oder ein kleines Refactoring der Lagerverwaltung von CSV zu Datenbank-Persistenz an.
 
-Diese Phase ist bewusst für mehrere Sessions vorgesehen. Es soll jetzt keine grosse neue Technologie eingeführt werden, weil die Lernenden zuerst die bisher aufgebauten Strukturideen sicher anwenden müssen. Der Fokus liegt auf Diagnose, kleinen Verbesserungen und Architekturreflexion an bekanntem Code.
+Die Einführung in JDBC mit H2 baut direkt auf CSV-Persistenz, Verantwortlichkeiten, Interfaces und Services auf. Die neue Technik bleibt bewusst klein: H2 Embedded, JDBC, einfache SQL-Befehle und austauschbare Persistenz über `ProduktSpeicher`.
 
-Diagnostisch zu festigen:
+Weiter diagnostisch zu beobachten:
 
 - `Main`, `Produkt`, `LagerService` und `ProduktSpeicher` sauber unterscheiden
 - Fachlogik und Persistenz trennen
-- Service-Methoden wie `verkaufen(...)`, `bestandErhoehen(...)` und `warnungPruefen(...)` testen
-- bestehende Lagerverwaltung schrittweise verbessern
-- typische Fehlstrukturen erkennen, zum Beispiel zu viel Logik in `Main`, vermischte Datei- und Fachlogik oder unnötig viele Klassen
+- SQL und JDBC-Code nicht in `Main` oder `LagerService` vermischen
+- `PreparedStatement` statt zusammengesetzter SQL-Strings verwenden
+- `ResultSet` korrekt mit `next()` lesen
+- Embedded- und Server-URL unterscheiden
+- `DbProduktSpeicher` als weitere Implementierung von `ProduktSpeicher` verstehen
+- erklären, warum `DbProduktSpeicher` SQL enthalten darf, `LagerService` aber nicht
 
 Sinnvolle Session-Formate:
 
-- kleine Aufgaben zur Verantwortlichkeitszuordnung
-- kurze Refactorings mit vorher/nachher-Vergleich
-- Testaufgaben für Service-Methoden
-- Architekturreflexion mit einfachen Fragen wie: Wo liegt die Fachlogik? Wer speichert Daten? Welche Klasse kennt welchen Vertrag?
+- kurze JDBC-Demo mit H2 Embedded
+- Übungsblock zu `CREATE TABLE`, `INSERT`, `SELECT`, `UPDATE`, `DELETE`
+- Vergleich `CsvProduktSpeicher` und `DbProduktSpeicher`
+- Mini-Refactoring: Persistenz austauschen, Fachlogik gleich lassen
+- kurze Server-Modus-Demo mit angepasster JDBC-URL
 
 Bewusste Nicht-Ziele:
 
-- keine Datenbank
+- kein ORM
+- kein Hibernate
+- kein JPA
 - kein Spring
-- keine Dependency Injection
+- kein Spring Data
 - kein formales Repository Pattern
-- keine Clean Architecture
-- keine komplexen Frameworks
+- kein Connection Pooling
+- keine komplexen SQL-Joins
+- keine vertiefte Normalisierung
+- keine vertieften Transaktionen
 - keine neue grosse Architekturtheorie
 - keine zu frühe REST-API
+
+## Wichtige Inhalte aus JDBC mit eingebetteter H2-Datenbank
+
+- Datenbanken werden erstmals als alternative Persistenz zu CSV eingeführt.
+- Die bekannte Lagerverwaltung bleibt der Kontext.
+- `ProduktSpeicher` bleibt der Vertrag; `CsvProduktSpeicher` und `DbProduktSpeicher` sind mögliche Implementierungen.
+- H2 wird zuerst embedded verwendet:
+  - JDBC-URL `jdbc:h2:./data/lager`
+  - H2 läuft im Java-Prozess
+  - gut für Einstieg und lokale Übungen
+- H2 wird kurz im Server-Modus gezeigt:
+  - H2 läuft als separater Prozess
+  - JDBC-URL `jdbc:h2:tcp://localhost/./data/lager`
+  - dient nur dem Vergleich der Betriebsarten
+- Die Grafik `jdbc_h2_embedded_vs_server.svg` vergleicht Embedded- und Server-Modus und ordnet `ProduktSpeicher`, `CsvProduktSpeicher` und `DbProduktSpeicher` als austauschbare Persistenz ein.
+- Behandelte JDBC-Bausteine:
+  - `Connection`
+  - `PreparedStatement`
+  - `ResultSet`
+  - `DriverManager`
+- Behandelte SQL-Befehle:
+  - `CREATE TABLE`
+  - `INSERT`
+  - `SELECT`
+  - `UPDATE`
+  - `DELETE`
+- Kernbotschaft:
+  - Fachlogik bleibt im `LagerService`.
+  - SQL und JDBC gehören in die Persistenzklasse.
+  - `Main` steuert nur den Ablauf.
+- Typische Fehlerbilder:
+  - `Connection` nicht schliessen
+  - `Statement` oder String-Verkettung statt `PreparedStatement` für variable Werte verwenden
+  - `ResultSet.next()` vergessen
+  - Embedded- und Server-URL verwechseln
+  - SQL und Fachlogik vermischen
+  - Exceptions ignorieren
+- Die Musterlösung `Loesungen_JDBC_H2_Grundlagen.md` enthält eine kompakte `DbDemo` mit H2-Dependency, Embedded-Verbindung, CRUD-Befehlen, Server-Modus-Hinweis, typischen Fehlerhinweisen und dokumentierter Maven-Verifikation.
 
 ## Passender Anschluss
 
@@ -433,6 +502,62 @@ Für den nächsten Block kann an diesen Vergleich angeschlossen werden:
 - Transferaufgaben behandeln weitere mögliche Services, ungeeignete Verantwortlichkeiten, Vorteile kleiner Schichten, Persistenz ausserhalb von `Main` und Grenzen zu vieler Services.
 - Bewusst nicht behandelt werden Frameworks, Datenbanken, komplexe Architekturmodelle, automatische Objekterzeugung, Web-Anwendungen und grosse Paketstrukturen.
 - Die Musterlösung `Loesungen_Fachlogik_Services.md` zeigt eine kompakte Standardlösung mit `Produkt`, `LagerService`, `ProduktSpeicher`, `CsvProduktSpeicher`, `Main`, Beispieltests, typischen Fehlerhinweisen und dokumentierter Maven-Verifikation.
+
+## Wichtige Inhalte aus Verantwortlichkeiten und Services festigen
+
+- Die Einheit festigt bekannte Strukturkonzepte, statt eine neue grosse Technologie einzuführen.
+- Die bekannte Lagerverwaltung bleibt im Fokus:
+  - `Produkt`
+  - `LagerService`
+  - `ProduktSpeicher`
+  - `CsvProduktSpeicher`
+  - `Main`
+- Kernbotschaften:
+  - Fachlogik soll bewusst platziert werden.
+  - Persistenz und Fachlogik besitzen unterschiedliche Verantwortlichkeiten.
+  - `Main` soll hauptsächlich den Ablauf steuern.
+  - Services bündeln fachliche Regeln.
+  - Kleine Strukturen müssen bewusst verstanden und begründet werden.
+- Das Arbeitsblatt trennt Lernziele, Theorieblöcke, Diagnose, Refactoring, Tests, typische Fehlstrukturen und Reflexion.
+- Die Grafik `verantwortlichkeiten_services_festigen.svg` vergleicht die Fehlstruktur «alles in `Main`» mit getrennter Struktur: `Main` für Ablaufsteuerung, `LagerService` für Fachlogik, `ProduktSpeicher` als Persistenzvertrag, `CsvProduktSpeicher` für CSV und `Produkt` für Daten.
+- Das Übungsblatt ist in Basis, Vertiefung, Testaufgaben und Transfer gegliedert.
+- Basisaufgaben ordnen Verantwortlichkeiten zu, markieren problematische Logik in `Main`, unterscheiden Fachlogik und Persistenzlogik, verschieben Verkaufslogik in `LagerService`, vereinfachen `Main` und prüfen das Verhalten erneut.
+- Vertiefungsaufgaben analysieren bewusst schlechte Strukturen, erkennen doppelte Prüfungen, unterscheiden geeignete und ungeeignete Service-Methoden, verbessern Methodennamen und entfernen CSV-Schreiben aus fachlichen Klassen.
+- Testaufgaben prüfen Service-Methoden, Fehlerfälle, Bestand nach Verkauf, ungültige Werte und die Anpassung bestehender Tests an die neue Struktur.
+- Transferaufgaben diskutieren weitere mögliche Services, Grenzen kleiner Strukturen, problematisch viele Services und zukünftige Erweiterungen der Lagerverwaltung.
+- Typische Fehlstrukturen sind alles in `Main`, Persistenz im Service, Fachlogik in `Produkt`, doppelte Prüfungen, unnötige Vererbung, zu grosse Service-Klasse und Speicherklassen mit Fachregeln.
+- Bewusst nicht behandelt werden grosse Frameworks, Datenbanken, Web-APIs und grosse Architekturtheorie.
+- Die Musterlösung `Loesungen_Verantwortlichkeiten_Services_Festigen.md` zeigt eine kompakte Standardlösung mit Verantwortlichkeitstabellen, entlasteter `Main`, `LagerService` für Fachlogik, `ProduktSpeicher` als Persistenzvertrag, `CsvProduktSpeicher` für CSV, einfachen Tests, typischen Fehlerhinweisen und kurzen Strukturbegründungen.
+- Die Java-Beispiele wurden als temporäres Maven-Projekt unter `/tmp/verantwortlichkeiten-services-festigen-validierung` mit `mvn test` geprüft. Ergebnis: 8 Tests, 0 Fehler. Zusätzlich wurde `Main` mit `java -cp target/classes ch.allianz.youngoitv.lager.Main` ausgeführt; die erzeugte CSV-Datei enthielt danach den reduzierten Bestand.
+
+## Wichtige Inhalte aus Änderungshistorie für Lagerverwaltung
+
+- Das Mini-Projekt erweitert die bekannte Lagerverwaltung um eine fachliche Änderungshistorie.
+- Es wird bewusst keine neue grosse Technologie eingeführt.
+- Pflichtanforderungen:
+  - Bestandsänderungen protokollieren
+  - Preisänderungen protokollieren
+  - Zeitpunkt, alten Wert, neuen Wert, Änderungsart und Grund erfassen
+  - negative Preise und negative Bestände nicht als gültige Änderung protokollieren
+  - Änderungshistorie anzeigen
+  - Änderungshistorie als CSV speichern
+  - Änderungshistorie aus CSV laden
+  - mindestens 3 fachliche JUnit-Tests
+  - Verantwortlichkeiten kurz begründen
+- Technischer Rahmen:
+  - Java 21
+  - Maven
+  - sinnvolle Packages
+  - JUnit-Tests
+  - CSV-Persistenz
+  - keine externen Libraries ausser JUnit
+  - keine Datenbank, kein Spring, keine REST-API, keine GUI
+- Der Projektauftrag schreibt keine exakte Zielarchitektur vor.
+- Die Historie als CSV zu speichern und wieder aus CSV zu laden ist Pflicht.
+- Mögliche Lösungsrichtungen sind `AenderungsEintrag`, `AenderungsJournal`, ein optionaler `JournalService` oder eine Erweiterung des bestehenden `LagerService`.
+- Die Lehrpersonen-Version enthält diagnostische Beobachtungspunkte, typische Schwierigkeiten, mögliche Hilfestellungen, Bewertungsideen, Mindeststandard und Architekturhinweise, aber keine vollständige Musterlösung.
+- Der Projektreview-Leitfaden ist als Coaching-Gespräch angelegt und vermeidet Prüfungsrhetorik sowie Bewertungsnoten.
+- Die Review-Grafik `projektreview_aenderungshistorie_architektur.svg` zeigt, dass Historie neue Verantwortlichkeiten erzeugt, Services wachsen können, schlechte Struktur Erweiterungen erschwert und Tests Refactoring unterstützen.
 
 ## Wichtige Inhalte aus Code strukturieren und Verantwortlichkeiten aufteilen
 

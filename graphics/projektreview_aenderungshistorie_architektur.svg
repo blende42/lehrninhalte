@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">Projektreview Änderungshistorie Architektur</title>
+  <desc id="desc">Architekturgrafik zur Lagerverwaltung: Main steuert den Ablauf, Services tragen Fachlogik und Historie, Persistenz und Daten bleiben getrennt, Tests unterstützen Refactoring.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#334155"/>
+    </marker>
+    <marker id="arrow-soft" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#64748b"/>
+    </marker>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+    <style>
+      .bg { fill: #f8fafc; }
+      .title { font-family: Arial, Helvetica, sans-serif; font-size: 34px; font-weight: 700; fill: #0f172a; }
+      .subtitle { font-family: Arial, Helvetica, sans-serif; font-size: 19px; fill: #475569; }
+      .panel { fill: #ffffff; stroke: #cbd5e1; stroke-width: 2; rx: 16; filter: url(#shadow); }
+      .panel-title { font-family: Arial, Helvetica, sans-serif; font-size: 18px; font-weight: 700; fill: #1e293b; }
+      .box { fill: #ffffff; stroke: #64748b; stroke-width: 2; rx: 12; }
+      .main { fill: #e0f2fe; stroke: #0284c7; }
+      .service { fill: #ecfdf5; stroke: #059669; }
+      .data { fill: #f1f5f9; stroke: #64748b; }
+      .persist { fill: #fef9c3; stroke: #ca8a04; }
+      .test { fill: #eef2ff; stroke: #4f46e5; }
+      .bad { fill: #fff1f2; stroke: #e11d48; }
+      .box-title { font-family: Arial, Helvetica, sans-serif; font-size: 21px; font-weight: 700; fill: #0f172a; }
+      .box-text { font-family: Arial, Helvetica, sans-serif; font-size: 16px; fill: #334155; }
+      .small { font-family: Arial, Helvetica, sans-serif; font-size: 14px; fill: #475569; }
+      .tag { font-family: Arial, Helvetica, sans-serif; font-size: 15px; font-weight: 700; fill: #334155; }
+      .arrow { stroke: #334155; stroke-width: 2.4; fill: none; marker-end: url(#arrow); }
+      .arrow-soft { stroke: #64748b; stroke-width: 2.1; fill: none; marker-end: url(#arrow-soft); }
+      .arrow-dashed { stroke: #64748b; stroke-width: 2.1; fill: none; stroke-dasharray: 7 7; marker-end: url(#arrow-soft); }
+      .note { fill: #ffffff; stroke: #94a3b8; stroke-width: 2; rx: 12; }
+      .note-title { font-family: Arial, Helvetica, sans-serif; font-size: 18px; font-weight: 700; fill: #0f172a; }
+      .note-text { font-family: Arial, Helvetica, sans-serif; font-size: 16px; fill: #334155; }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1400" height="900"/>
+
+  <text class="title" x="700" y="54" text-anchor="middle">Projektreview Änderungshistorie</text>
+  <text class="subtitle" x="700" y="86" text-anchor="middle">Mit wachsender Fachlogik werden Verantwortlichkeiten wichtiger.</text>
+
+  <rect class="box main" x="555" y="125" width="290" height="98"/>
+  <text class="box-title" x="700" y="160" text-anchor="middle">Main</text>
+  <text class="box-text" x="700" y="190" text-anchor="middle">Ablaufsteuerung</text>
+  <text class="small" x="700" y="211" text-anchor="middle">Start, Eingabe, Ausgabe</text>
+
+  <rect class="panel" x="80" y="255" width="1240" height="435"/>
+  <text class="panel-title" x="115" y="292">Bessere Struktur mit klaren Verantwortlichkeiten</text>
+
+  <rect class="box service" x="145" y="325" width="250" height="125"/>
+  <text class="box-title" x="270" y="358" text-anchor="middle">LagerService</text>
+  <text class="box-text" x="270" y="386" text-anchor="middle">Fachlogik</text>
+  <text class="small" x="270" y="410" text-anchor="middle">verkaufen(...)</text>
+  <text class="small" x="270" y="431" text-anchor="middle">Preis ändern</text>
+
+  <rect class="box service" x="435" y="325" width="270" height="125"/>
+  <text class="box-title" x="570" y="358" text-anchor="middle">JournalService</text>
+  <text class="box-text" x="570" y="386" text-anchor="middle">Historie</text>
+  <text class="small" x="570" y="410" text-anchor="middle">Nachvollziehbarkeit</text>
+  <text class="small" x="570" y="431" text-anchor="middle">Einträge erzeugen</text>
+
+  <rect class="box persist" x="745" y="325" width="250" height="125"/>
+  <text class="box-title" x="870" y="358" text-anchor="middle">ProduktSpeicher</text>
+  <text class="box-text" x="870" y="386" text-anchor="middle">Persistenz</text>
+  <text class="small" x="870" y="410" text-anchor="middle">Produkte CSV</text>
+  <text class="small" x="870" y="431" text-anchor="middle">Historie CSV</text>
+
+  <rect class="box bad" x="1035" y="325" width="220" height="305"/>
+  <text class="box-title" x="1145" y="358" text-anchor="middle">Fehlstruktur</text>
+  <text class="box-text" x="1145" y="389" text-anchor="middle">alles in Main</text>
+  <text class="small" x="1145" y="423" text-anchor="middle">Regeln</text>
+  <text class="small" x="1145" y="446" text-anchor="middle">CSV</text>
+  <text class="small" x="1145" y="469" text-anchor="middle">Historie</text>
+  <text class="small" x="1145" y="492" text-anchor="middle">Ausgabe</text>
+  <line x1="1075" y1="516" x2="1215" y2="516" stroke="#fecdd3" stroke-width="2"/>
+  <text class="small" x="1145" y="547" text-anchor="middle">Erweiterungen</text>
+  <text class="small" x="1145" y="570" text-anchor="middle">werden schwierig</text>
+  <text class="small" x="1145" y="593" text-anchor="middle">Tests werden mühsam</text>
+
+  <rect class="box data" x="145" y="505" width="250" height="115"/>
+  <text class="box-title" x="270" y="538" text-anchor="middle">Produkt</text>
+  <text class="box-text" x="270" y="566" text-anchor="middle">Daten</text>
+  <text class="small" x="270" y="591" text-anchor="middle">Name, Preis, Bestand</text>
+
+  <rect class="box data" x="435" y="492" width="270" height="142"/>
+  <text class="box-title" x="570" y="525" text-anchor="middle">AenderungsEintrag</text>
+  <text class="box-text" x="570" y="552" text-anchor="middle">Zeitpunkt</text>
+  <text class="small" x="570" y="576" text-anchor="middle">alter Wert</text>
+  <text class="small" x="570" y="598" text-anchor="middle">neuer Wert</text>
+  <text class="small" x="570" y="620" text-anchor="middle">Grund</text>
+
+  <rect class="box test" x="745" y="505" width="250" height="115"/>
+  <text class="box-title" x="870" y="538" text-anchor="middle">Tests</text>
+  <text class="box-text" x="870" y="566" text-anchor="middle">Regeln absichern</text>
+  <text class="small" x="870" y="591" text-anchor="middle">helfen beim Refactoring</text>
+
+  <path class="arrow" d="M 700 223 L 700 300 L 270 300 L 270 318"/>
+  <path class="arrow" d="M 700 223 L 700 300 L 570 300 L 570 318"/>
+  <path class="arrow-soft" d="M 700 223 L 700 300 L 870 300 L 870 318"/>
+  <path class="arrow" d="M 395 388 L 428 388"/>
+  <path class="arrow" d="M 570 450 L 570 485"/>
+  <path class="arrow-soft" d="M 270 450 L 270 498"/>
+  <path class="arrow-soft" d="M 745 563 L 710 563"/>
+  <path class="arrow-dashed" d="M 870 505 L 870 470 L 570 470 L 570 455"/>
+  <path class="arrow-dashed" d="M 870 505 L 870 470 L 270 470 L 270 455"/>
+
+  <text class="tag" x="415" y="377">protokolliert</text>
+  <text class="tag" x="790" y="484">prüfen</text>
+
+  <rect class="note" x="120" y="730" width="1160" height="66"/>
+  <text class="note-title" x="150" y="758">Merksatz</text>
+  <text class="note-text" x="150" y="783">Historie erzeugt neue Verantwortung: Fachlogik, Nachvollziehbarkeit, Persistenz und Tests bewusst trennen.</text>
+
+  <text class="tag" x="180" y="842">Main bleibt klein</text>
+  <text class="tag" x="430" y="842">Services können wachsen</text>
+  <text class="tag" x="735" y="842">Persistenz bleibt separat</text>
+  <text class="tag" x="1045" y="842">Tests stützen Refactoring</text>
+  <circle cx="160" cy="836" r="6" fill="#0284c7"/>
+  <circle cx="410" cy="836" r="6" fill="#059669"/>
+  <circle cx="715" cy="836" r="6" fill="#ca8a04"/>
+  <circle cx="1025" cy="836" r="6" fill="#4f46e5"/>
+</svg>

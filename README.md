@@ -76,16 +76,25 @@ Standardstruktur:
 Projekte/<Projektname>/README.md
 Projekte/<Projektname>/Lernende/Projektauftrag_<Projektname>.md
 Projekte/<Projektname>/Lehrperson/Projektauftrag_<Projektname>_LP.md
+Projekte/<Projektname>/Review/Projektreview_<Projektname>.md
+Projekte/<Projektname>/Review/Reflexion_<Projektname>.md
 ```
 
-Projekte kombinieren mehrere bisherige Konzepte, verlangen mehr Eigenständigkeit als normale Übungen und werden nicht zusätzlich unter `Uebungen` geführt.
+Der `Review`-Ordner wird ergänzt, wenn ein Mini-Projekt mit einer strukturierten Nachbesprechung und Reflexionsvorlage begleitet wird. Projekte kombinieren mehrere bisherige Konzepte, verlangen mehr Eigenständigkeit als normale Übungen und werden nicht zusätzlich unter `Uebungen` geführt.
 
 - [Projekte README](./Projekte/README.md)
 - [Lagerverwaltung Light](./Projekte/Lagerverwaltung_Light/README.md)
 - [Projektauftrag_Lagerverwaltung_Light.md](./Projekte/Lagerverwaltung_Light/Lernende/Projektauftrag_Lagerverwaltung_Light.md)
 - [Projektauftrag_Lagerverwaltung_Light_LP.md](./Projekte/Lagerverwaltung_Light/Lehrperson/Projektauftrag_Lagerverwaltung_Light_LP.md)
+- [Änderungshistorie für Lagerverwaltung](./Projekte/Aenderungshistorie_Lagerverwaltung/README.md)
+- [Projektauftrag_Aenderungshistorie_Lagerverwaltung.md](./Projekte/Aenderungshistorie_Lagerverwaltung/Lernende/Projektauftrag_Aenderungshistorie_Lagerverwaltung.md)
+- [Projektauftrag_Aenderungshistorie_Lagerverwaltung_LP.md](./Projekte/Aenderungshistorie_Lagerverwaltung/Lehrperson/Projektauftrag_Aenderungshistorie_Lagerverwaltung_LP.md)
+- [Projektreview_Aenderungshistorie_Lagerverwaltung.md](./Projekte/Aenderungshistorie_Lagerverwaltung/Review/Projektreview_Aenderungshistorie_Lagerverwaltung.md)
+- [Reflexion_Aenderungshistorie_Lagerverwaltung.md](./Projekte/Aenderungshistorie_Lagerverwaltung/Review/Reflexion_Aenderungshistorie_Lagerverwaltung.md)
 
 `Lagerverwaltung Light` ist als ausgearbeiteter Projektauftrag vorhanden. Die Lernenden-Version enthält Anforderungen, technische Leitplanken, reale Lagerfälle, Tests, Abgabe und Reflexion. Die Lehrpersonen-Version ergänzt Beobachtungspunkte, Hilfestellungen, Bewertungsideen und mögliche Lösungsrichtungen ohne vollständige Musterlösung.
+
+`Änderungshistorie für Lagerverwaltung` erweitert die bekannte Lagerverwaltung um protokollierte Preis- und Bestandsänderungen mit Zeitpunkt, altem Wert, neuem Wert, Änderungsart und Grund. Die Lernenden-Version enthält einen offenen Projektauftrag mit speicher- und ladbarer CSV-Historie, Tests, Verantwortlichkeitsbegründung und Reflexion. Die Lehrpersonen-Version ergänzt diagnostische Beobachtungspunkte, Hilfestellungen, Bewertungsideen, Mindeststandard und mögliche Lösungsrichtungen ohne vollständige Musterlösung. Der Projektreview-Leitfaden unterstützt ein Einzelgespräch zu Architektur, Verantwortlichkeiten, Tests, Refactoring und nächsten Lernschritten; die Reflexionsvorlage unterstützt die kurze Vorbereitung durch den Lernenden. Die Review-Grafik zeigt, wie wachsende Fachlogik neue Verantwortlichkeiten sichtbar macht.
 
 ### Arbeitsblaetter
 Lehr- und Arbeitsblätter zu Java- und Grundlagenthemen:
@@ -118,6 +127,8 @@ Lehr- und Arbeitsblätter zu Java- und Grundlagenthemen:
 - [Arbeitsblatt_Code_Wiederverwenden.md](./Arbeitsblaetter/Arbeitsblatt_Code_Wiederverwenden.md)
 - [Arbeitsblatt_Vererbung_Code_Wiederverwenden.md](./Arbeitsblaetter/Arbeitsblatt_Vererbung_Code_Wiederverwenden.md)
 - [Arbeitsblatt_Fachlogik_Services.md](./Arbeitsblaetter/Arbeitsblatt_Fachlogik_Services.md)
+- [Arbeitsblatt_Verantwortlichkeiten_Services_Festigen.md](./Arbeitsblaetter/Arbeitsblatt_Verantwortlichkeiten_Services_Festigen.md)
+- [Arbeitsblatt_JDBC_H2_Grundlagen.md](./Arbeitsblaetter/Arbeitsblatt_JDBC_H2_Grundlagen.md)
 - [arbeitsblatt_java_wrapper.md](./Arbeitsblaetter/arbeitsblatt_java_wrapper.md)
 - [arbeitsblatt_stringbuilder.md](./Arbeitsblaetter/arbeitsblatt_stringbuilder.md)
 - [arbeitsblatt_theorie_kombiniert.md](./Arbeitsblaetter/arbeitsblatt_theorie_kombiniert.md)
@@ -163,6 +174,8 @@ SVG-Grafiken und zugehörige Datei für eingebettete Arbeitsblattgrafiken:
 - [Uebungen_Code_Wiederverwenden.md](./Uebungen/Uebungen_Code_Wiederverwenden.md)
 - [Uebungen_Vererbung_Code_Wiederverwenden.md](./Uebungen/Uebungen_Vererbung_Code_Wiederverwenden.md)
 - [Uebungen_Fachlogik_Services.md](./Uebungen/Uebungen_Fachlogik_Services.md)
+- [Uebungen_Verantwortlichkeiten_Services_Festigen.md](./Uebungen/Uebungen_Verantwortlichkeiten_Services_Festigen.md)
+- [Uebungen_JDBC_H2_Grundlagen.md](./Uebungen/Uebungen_JDBC_H2_Grundlagen.md)
 - [string_uebungen.md](./Uebungen/string_uebungen.md)
 - [string_uebungen_v2.md](./Uebungen/string_uebungen_v2.md)
 - [string_mini_projekt_v3.md](./Uebungen/string_mini_projekt_v3.md)
@@ -204,6 +217,8 @@ Kompakte Referenzlösungen zu den Übungen, Simulationen, Package-Strukturierung
 - [Loesungen_Code_Wiederverwenden.md](./Musterloesungen/Loesungen_Code_Wiederverwenden.md)
 - [Loesungen_Vererbung_Code_Wiederverwenden.md](./Musterloesungen/Loesungen_Vererbung_Code_Wiederverwenden.md)
 - [Loesungen_Fachlogik_Services.md](./Musterloesungen/Loesungen_Fachlogik_Services.md)
+- [Loesungen_Verantwortlichkeiten_Services_Festigen.md](./Musterloesungen/Loesungen_Verantwortlichkeiten_Services_Festigen.md)
+- [Loesungen_JDBC_H2_Grundlagen.md](./Musterloesungen/Loesungen_JDBC_H2_Grundlagen.md)
 - [musterloesungen_stringbuilder.md](./Musterloesungen/musterloesungen_stringbuilder.md)
 - [string_parser_loesungen.md](./Musterloesungen/string_parser_loesungen.md)
 
@@ -233,6 +248,9 @@ Allgemeine SVG-Grafiken für den Unterricht:
 - [code_wiederverwenden.svg](./graphics/code_wiederverwenden.svg)
 - [vererbung_code_wiederverwenden.svg](./graphics/vererbung_code_wiederverwenden.svg)
 - [fachlogik_services.svg](./graphics/fachlogik_services.svg)
+- [verantwortlichkeiten_services_festigen.svg](./graphics/verantwortlichkeiten_services_festigen.svg)
+- [jdbc_h2_embedded_vs_server.svg](./graphics/jdbc_h2_embedded_vs_server.svg)
+- [projektreview_aenderungshistorie_architektur.svg](./graphics/projektreview_aenderungshistorie_architektur.svg)
 - [parser_grafik.svg](./graphics/parser_grafik.svg)
 
 ### templates

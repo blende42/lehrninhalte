@@ -23,6 +23,7 @@ Grundlagen
 -> Projekte
 -> Projekt-Review
 -> Architektur-Festigung
+-> erste relationale Datenbank mit JDBC
 ```
 
 ## Grundlagen und Datenstrukturen
@@ -79,14 +80,37 @@ Nach den Services sind viele wichtige Strukturideen eingeführt. Genau deshalb i
 
 Die Architektur-Festigung soll keine neue grosse Theorie einführen. Sie soll sichtbar machen, ob Verantwortlichkeiten, Persistenz, Interfaces und Services in einer bekannten Lagerverwaltung wirklich verstanden wurden.
 
+## Anschluss: erste relationale Datenbank
+
+Nach CSV-Persistenz, Verantwortlichkeiten, Interfaces und Services kann eine erste Datenbank sinnvoll eingeführt werden. Die Datenbank erscheint nicht als komplett neue Architektur, sondern als weitere Persistenzform.
+
+Die bekannte Idee bleibt erhalten:
+
+```text
+ProduktSpeicher
+├── CsvProduktSpeicher
+└── DbProduktSpeicher
+```
+
+So wird sichtbar, dass Persistenz austauschbar ist. JDBC und H2 führen eine neue Technik ein, aber die Fachlogik bleibt weiterhin im Service und die Ablaufsteuerung bleibt in `Main`.
+
+Der Einstieg bleibt bewusst klein:
+
+- H2 als eingebettete Datenbank
+- JDBC mit `Connection`, `PreparedStatement` und `ResultSet`
+- einfache SQL-Befehle wie `CREATE TABLE`, `INSERT`, `SELECT`, `UPDATE` und `DELETE`
+- kurzer Vergleich zwischen Embedded- und Server-Modus
+
 ## Bewusste Nicht-Ziele
 
-Für den aktuellen Stand werden bewusst nicht eingeführt:
+Für den Datenbank-Einstieg werden bewusst nicht eingeführt:
 
-- keine Datenbank
 - kein Spring
 - keine Dependency Injection
 - kein formales Repository Pattern
+- kein ORM
+- kein Hibernate
+- kein JPA
 - keine Clean Architecture
 - keine komplexen Frameworks
 - keine zu frühe REST-API
