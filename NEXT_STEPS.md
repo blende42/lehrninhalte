@@ -40,8 +40,9 @@ Aktuell vorbereitet sind:
 30. Unterschiedliche Objekte über dasselbe Interface verwenden
 31. Code-Duplikate vermeiden und gemeinsamen Code wiederverwenden
 32. Gemeinsamen Code mit Vererbung wiederverwenden
+33. Fachlogik in Services bündeln
 
-Die zuletzt erstellte Unterrichtseinheit ist **Gemeinsamen Code mit Vererbung wiederverwenden**. Zusätzlich wurde eine kleine Prozess- und Begriffsbibliothek für KI-gestützte Lehrmittel-Erstellung angelegt.
+Die zuletzt erstellte Unterrichtseinheit ist **Fachlogik in Services bündeln**. Zusätzlich wurde eine kleine Prozess- und Begriffsbibliothek für KI-gestützte Lehrmittel-Erstellung angelegt.
 
 Neue Projektstruktur für grössere Mini-Projekte:
 
@@ -126,6 +127,10 @@ Neue Dateien im Maven-, Testing-, Refactoring- und Persistenz-Block:
 - [Arbeitsblatt_Vererbung_Code_Wiederverwenden.md](./Arbeitsblaetter/Arbeitsblatt_Vererbung_Code_Wiederverwenden.md)
 - [Uebungen_Vererbung_Code_Wiederverwenden.md](./Uebungen/Uebungen_Vererbung_Code_Wiederverwenden.md)
 - [Loesungen_Vererbung_Code_Wiederverwenden.md](./Musterloesungen/Loesungen_Vererbung_Code_Wiederverwenden.md)
+- [Arbeitsblatt_Fachlogik_Services.md](./Arbeitsblaetter/Arbeitsblatt_Fachlogik_Services.md)
+- [Uebungen_Fachlogik_Services.md](./Uebungen/Uebungen_Fachlogik_Services.md)
+- [Loesungen_Fachlogik_Services.md](./Musterloesungen/Loesungen_Fachlogik_Services.md)
+- [fachlogik_services.svg](./graphics/fachlogik_services.svg)
 - [interface_produkt_speicher.svg](./graphics/interface_produkt_speicher.svg)
 - [mehrere_implementierungen_interface.svg](./graphics/mehrere_implementierungen_interface.svg)
 - [polymorphie_interface.svg](./graphics/polymorphie_interface.svg)
@@ -193,18 +198,15 @@ Die Dateien unter `docs/begriffe` erklären zentrale Begriffe kurz und unterrich
 
 ## Nächster geplanter Block
 
-Als nächstes bietet sich eine **Repetition zu Interface, Polymorphie, Refactoring und Vererbung oder eine Service-/Schichten-Vorbereitung** an.
+Als nächstes bietet sich eine **Repetition zu Verantwortlichkeiten, Persistenz, Interfaces und Services oder eine weitere Vertiefung der Lagerverwaltung** an.
 
 Sinnvolle Inhalte:
 
-- Interface als Vertrag diagnostisch prüfen
-- konkrete Implementierung und Interface-Typ weiter unterscheiden
-- gleiche Methodenaufrufe mit unterschiedlichen Implementierungen reflektieren
-- eine Variable vom Interface-Typ mit unterschiedlichen konkreten Objekten erklären
-- Code-Duplikate erkennen und kleine Hilfsmethoden sinnvoll einsetzen
-- `extends` als Wiederverwendungsidee reflektieren
-- Grenzen von Vererbung und Alternative mit Hilfsklasse besprechen
-- einfache Service- und Schichten-Idee vorbereiten
+- Verantwortlichkeiten von `Main`, `Produkt`, `LagerService` und `ProduktSpeicher` diagnostisch prüfen
+- Fachlogik und Persistenz an konkreten Codebeispielen unterscheiden
+- Service-Methoden wie `verkaufen(...)`, `bestandErhoehen(...)` und `warnungPruefen(...)` testen
+- bestehende Lagerverwaltung schrittweise besser strukturieren
+- Grenzen zu vieler Services besprechen
 - weiterhin keine Datenbank und keine komplexen Frameworks
 
 ## Passender Anschluss
@@ -229,6 +231,8 @@ Für den nächsten Block kann an diesen Vergleich angeschlossen werden:
 - `ProduktSpeicher speicher = new CsvProduktSpeicher();`
 - `ProduktSpeicher speicher = new KonsolenProduktSpeicher();`
 - gleiche Methodensignatur, anderes Verhalten
+- `LagerService` bündelt Fachlogik
+- `ProduktSpeicher` bleibt für Persistenz zuständig
 
 ## Wichtige Inhalte aus Interfaces für austauschbare Services
 
@@ -374,6 +378,39 @@ Für den nächsten Block kann an diesen Vergleich angeschlossen werden:
   - Tests nach der Änderung vergessen
   - Basisklasse zu allgemein benennen
 - Bewusst nicht behandelt werden abstrakte Klassen als Vertiefung, tiefe Vererbungshierarchien, komplexes `super(...)`, `instanceof`, Downcasting, Template Method, Spring und Dependency Injection.
+
+## Wichtige Inhalte aus Fachlogik in Services bündeln
+
+- Die Einheit führt erstmals eine einfache Service-Idee ein.
+- Die bekannte Lagerverwaltung bleibt im Fokus:
+  - `Produkt`
+  - `LagerService`
+  - `ProduktSpeicher`
+  - `CsvProduktSpeicher`
+  - `Main`
+- `Produkt` hält Daten wie Name, Preis und Bestand.
+- `LagerService` bündelt fachliche Aufgaben.
+- `ProduktSpeicher` beschreibt den Speichervertrag.
+- `CsvProduktSpeicher` bleibt für CSV-Persistenz zuständig.
+- `Main` steuert hauptsächlich den Ablauf.
+- Die Grafik `fachlogik_services.svg` zeigt `Main`, `LagerService`, `ProduktSpeicher`, `CsvProduktSpeicher` und `Produkt` als getrennte Verantwortlichkeiten.
+- Zentrale Methoden im `LagerService`:
+  - `bestandPruefen(Produkt produkt, int menge)`
+  - `verkaufen(Produkt produkt, int menge)`
+  - `bestandErhoehen(Produkt produkt, int menge)`
+  - `warnungPruefen(Produkt produkt, int grenze)`
+- Fachlogik soll nicht breit in `Main` verteilt bleiben.
+- Speichern und fachliche Regeln werden bewusst getrennt.
+- Kleine Schichten werden nur als einfache Ordnung eingeführt:
+  - Ablaufsteuerung
+  - Fachlogik
+  - Daten
+  - Persistenz
+- Basisaufgaben markieren fachliche Regeln, erstellen `LagerService`, verschieben `verkaufen(...)`, ergänzen `bestandErhoehen(...)`, vereinfachen `Main` und prüfen das Verhalten.
+- Vertiefungsaufgaben ergänzen Warnungen, vergleichen Service und Persistenz, begründen Verantwortlichkeiten und schreiben kleine Tests.
+- Transferaufgaben behandeln weitere mögliche Services, ungeeignete Verantwortlichkeiten, Vorteile kleiner Schichten, Persistenz ausserhalb von `Main` und Grenzen zu vieler Services.
+- Bewusst nicht behandelt werden Frameworks, Datenbanken, komplexe Architekturmodelle, automatische Objekterzeugung, Web-Anwendungen und grosse Paketstrukturen.
+- Die Musterlösung `Loesungen_Fachlogik_Services.md` zeigt eine kompakte Standardlösung mit `Produkt`, `LagerService`, `ProduktSpeicher`, `CsvProduktSpeicher`, `Main`, Beispieltests, typischen Fehlerhinweisen und dokumentierter Maven-Verifikation.
 
 ## Wichtige Inhalte aus Code strukturieren und Verantwortlichkeiten aufteilen
 

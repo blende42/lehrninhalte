@@ -419,17 +419,26 @@ Material:
 - [Übungen – Gemeinsamen Code mit Vererbung wiederverwenden](./Uebungen/Uebungen_Vererbung_Code_Wiederverwenden.md)
 - [Lösungen – Gemeinsamen Code mit Vererbung wiederverwenden](./Musterloesungen/Loesungen_Vererbung_Code_Wiederverwenden.md)
 
+### 33. Fachlogik in Services bündeln
+
+Ziel: Eine einfache Service-Klasse `LagerService` einführen, fachliche Regeln aus `Main` herauslösen, Persistenz von Fachlogik trennen und kleine Schichten als verständliche Ordnung vorbereiten.
+
+Material:
+
+- [Arbeitsblatt – Fachlogik in Services bündeln](./Arbeitsblaetter/Arbeitsblatt_Fachlogik_Services.md)
+- [Fachlogik in Services bündeln](./graphics/fachlogik_services.svg)
+- [Übungen – Fachlogik in Services bündeln](./Uebungen/Uebungen_Fachlogik_Services.md)
+- [Lösungen – Fachlogik in Services bündeln](./Musterloesungen/Loesungen_Fachlogik_Services.md)
+
 ### Nächster sinnvoller Block
 
-Nach `Gemeinsamen Code mit Vererbung wiederverwenden` bietet sich als nächstes Thema eine **Repetition zu Interface, Polymorphie, Refactoring und Vererbung oder eine Service-/Schichten-Vorbereitung** an:
+Nach `Fachlogik in Services bündeln` bietet sich als nächstes Thema eine **Repetition zu Verantwortlichkeiten, Persistenz, Interfaces und Services oder eine weitere Vertiefung der Lagerverwaltung** an:
 
-- Interface als Vertrag wiederholen
-- Vererbung als gemeinsame Implementierung wiederholen
-- gleiche Methodenaufrufe mit unterschiedlichen Implementierungen reflektieren
-- Code-Duplikate und gemeinsame Hilfsmethoden beurteilen
-- Grenzen von Vererbung sichtbar machen
-- Schichtenbegriffe vorsichtig einführen
-- weiterhin keine Datenbank, kein Spring und keine formale Clean Architecture
+- Verantwortlichkeiten von `Main`, `Produkt`, `LagerService` und `ProduktSpeicher` wiederholen
+- Fachlogik und Persistenz an konkreten Codebeispielen unterscheiden
+- kleine Tests für Service-Methoden festigen
+- bestehende Lagerverwaltung schrittweise besser strukturieren
+- weiterhin keine Datenbank, keine Frameworks und keine komplexen Architekturmodelle
 
 ## Geplante spätere Themenblöcke
 
@@ -697,6 +706,13 @@ Arbeitsblätter führen neue Konzepte ein, enthalten kurze Theorie, Beispiele, t
   - Interface als Vertrag und Vererbung als gemeinsame Implementierung unterscheiden
   - Konzeptgrafik zu Interface, Basisklasse, konkreten Klassen und unterschiedlichem Verhalten einbinden
   - Grenzen von Vererbung, typische Fehler und Alternative mit Hilfsklasse sichtbar machen
+- [Arbeitsblatt – Fachlogik in Services bündeln](./Arbeitsblaetter/Arbeitsblatt_Fachlogik_Services.md)
+  - einfache Service-Idee mit `LagerService` einführen
+  - Fachlogik aus `Main` herauslösen
+  - `Produkt`, `LagerService`, `ProduktSpeicher`, `CsvProduktSpeicher` und `Main` nach Verantwortung unterscheiden
+  - Persistenz und Fachlogik klar trennen
+  - kleine Schichten als Ordnung für verständlicheren und besser testbaren Code vorbereiten
+  - typische Fehler und Reflexionsfragen zu zu viel Logik in falschen Klassen sichtbar machen
 
 ## Konzeptgrafiken
 
@@ -804,6 +820,12 @@ Konzeptgrafiken visualisieren Beziehungen, Abläufe und typische Denkmodelle. Si
   - `CsvProduktSpeicher` und `KonsolenProduktSpeicher` mit `extends` und `implements` einordnen
   - konkrete Klassen behalten CSV- beziehungsweise Konsolenverhalten
   - Interface als gleicher Vertrag und Vererbung als gemeinsame Implementierung unterscheiden
+- [Fachlogik in Services bündeln](./graphics/fachlogik_services.svg)
+  - `Main` als Ablaufsteuerung zeigen
+  - `LagerService` als Ort für Fachlogik zeigen
+  - `ProduktSpeicher` als Persistenzvertrag und `CsvProduktSpeicher` als CSV-Umsetzung einordnen
+  - `Produkt` als Datenklasse darstellen
+  - getrennte Verantwortlichkeiten und kleine Schichten-Idee sichtbar machen
 
 ### Arbeitsblattgrafiken zu StringBuilder
 
@@ -1041,6 +1063,13 @@ Konzeptgrafiken visualisieren Beziehungen, Abläufe und typische Denkmodelle. Si
   - Verhalten nach dem Refactoring mit Maven und manueller Prüfung kontrollieren
   - entscheiden, welche Methoden in Basisklasse, Interface oder konkrete Klasse gehören
   - Transfer zu Grenzen von Vererbung und Alternative mit Hilfsklasse diskutieren
+- [Übungen – Fachlogik in Services bündeln](./Uebungen/Uebungen_Fachlogik_Services.md)
+  - fachliche Regeln in bestehendem Code markieren
+  - `LagerService` erstellen und Verkaufslogik aus `Main` verschieben
+  - `bestandPruefen(...)`, `verkaufen(...)`, `bestandErhoehen(...)` und `warnungPruefen(...)` umsetzen
+  - `Main` vereinfachen und Persistenz beim `ProduktSpeicher` belassen
+  - kleine Tests oder Prüfungen für Service-Methoden ergänzen
+  - Transfer zu weiteren Services, ungeeigneten Verantwortlichkeiten und Grenzen zu vieler Services diskutieren
 
 ## Repetitionen
 
@@ -1159,6 +1188,11 @@ Musterlösungen halten kompakte Referenzlösungen und Bewertungshilfen bereit.
   - konkrete Speicherlogik bleibt in den konkreten Klassen
   - Interface als Vertrag und Vererbung als gemeinsame Implementierung kurz unterscheiden
   - typische Fehlerhinweise und dokumentierte Maven-Verifikation mit manueller `Main`-Ausführung
+- [Lösungen – Fachlogik in Services bündeln](./Musterloesungen/Loesungen_Fachlogik_Services.md)
+  - kompakte Standardlösung mit `Produkt`, `LagerService`, `ProduktSpeicher`, `CsvProduktSpeicher` und `Main`
+  - Fachlogik im `LagerService`, Persistenz in `CsvProduktSpeicher` und Ablauf in `Main`
+  - Beispieltests für Service-Methoden
+  - typische Fehlerhinweise und dokumentierte Maven-Verifikation
 - [Musterlösungen – StringBuilder & Parser](./Musterloesungen/musterloesungen_stringbuilder.md)
   - StringBuilder-Methoden und vereinfachter Parser
 - [Musterlösungen – Mini-Projekt String Parser](./Musterloesungen/string_parser_loesungen.md)

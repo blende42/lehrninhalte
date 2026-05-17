@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">Fachlogik in Services bündeln</title>
+  <desc id="desc">Konzeptgrafik: Main steuert den Ablauf, LagerService enthält Fachlogik, ProduktSpeicher beschreibt den Persistenzvertrag, CsvProduktSpeicher speichert und lädt CSV-Daten, Produkt hält Daten.</desc>
+
+  <defs>
+    <style>
+      .bg { fill: #f7fbff; }
+      .title { font-family: Arial, sans-serif; font-size: 32px; font-weight: 700; fill: #16324f; }
+      .subtitle { font-family: Arial, sans-serif; font-size: 18px; font-weight: 600; fill: #2b4c6f; }
+      .sectionTitle { font-family: Arial, sans-serif; font-size: 20px; font-weight: 700; fill: #16324f; }
+      .boxTitle { font-family: Arial, sans-serif; font-size: 19px; font-weight: 700; fill: #16324f; }
+      .text { font-family: Arial, sans-serif; font-size: 16px; fill: #1f2d3d; }
+      .small { font-family: Arial, sans-serif; font-size: 14px; fill: #1f2d3d; }
+      .code { font-family: "Courier New", monospace; font-size: 15px; fill: #17324d; }
+      .note { font-family: Arial, sans-serif; font-size: 16px; font-weight: 700; fill: #7a3e00; }
+      .box { fill: #ffffff; stroke: #4e79a7; stroke-width: 2.5; }
+      .boxBlue { fill: #e8f1fb; stroke: #4e79a7; stroke-width: 2.5; }
+      .boxGreen { fill: #eef7ea; stroke: #6aa84f; stroke-width: 2.5; }
+      .boxOrange { fill: #fff4e8; stroke: #d9903d; stroke-width: 2.5; }
+      .boxPurple { fill: #f4efff; stroke: #8e6cc7; stroke-width: 2.5; }
+      .boxGrey { fill: #f1f5f9; stroke: #64748b; stroke-width: 2.5; }
+      .boxHint { fill: #fff6da; stroke: #d6a73b; stroke-width: 2.5; }
+      .layer { fill: #ffffff; stroke: #94a3b8; stroke-width: 1.8; stroke-dasharray: 8 7; }
+      .line { stroke: #4e79a7; stroke-width: 3; fill: none; marker-end: url(#arrowBlue); }
+      .lineSoft { stroke: #7aa6d8; stroke-width: 2.5; fill: none; stroke-dasharray: 8 7; marker-end: url(#arrowSoft); }
+      .lineGreen { stroke: #6aa84f; stroke-width: 3; fill: none; marker-end: url(#arrowGreen); }
+      .label { font-family: Arial, sans-serif; font-size: 14px; font-weight: 700; fill: #2b4c6f; }
+    </style>
+
+    <marker id="arrowBlue" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#4e79a7"/>
+    </marker>
+    <marker id="arrowSoft" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#7aa6d8"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#6aa84f"/>
+    </marker>
+
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1400" height="900"/>
+
+  <text x="700" y="54" text-anchor="middle" class="title">Fachlogik in Services bündeln</text>
+  <text x="700" y="86" text-anchor="middle" class="subtitle">Fachlogik, Persistenz und Ablaufsteuerung haben getrennte Verantwortlichkeiten.</text>
+
+  <!-- Kleine Schichten-Idee -->
+  <rect x="105" y="130" width="1190" height="125" rx="22" class="layer"/>
+  <rect x="105" y="295" width="1190" height="175" rx="22" class="layer"/>
+  <rect x="105" y="510" width="1190" height="135" rx="22" class="layer"/>
+  <rect x="105" y="685" width="1190" height="90" rx="22" class="layer"/>
+
+  <text x="135" y="158" text-anchor="start" class="label">Ablauf</text>
+  <text x="135" y="323" text-anchor="start" class="label">Fachlogik</text>
+  <text x="135" y="538" text-anchor="start" class="label">Persistenz</text>
+  <text x="135" y="713" text-anchor="start" class="label">Daten</text>
+
+  <!-- Main -->
+  <g filter="url(#shadow)">
+    <rect x="455" y="150" width="490" height="85" rx="18" class="boxBlue"/>
+  </g>
+  <text x="700" y="183" text-anchor="middle" class="boxTitle">Main</text>
+  <text x="700" y="211" text-anchor="middle" class="text">Ablaufsteuerung</text>
+
+  <!-- LagerService -->
+  <g filter="url(#shadow)">
+    <rect x="330" y="330" width="740" height="110" rx="20" class="boxGreen"/>
+  </g>
+  <text x="700" y="365" text-anchor="middle" class="boxTitle">LagerService</text>
+  <text x="700" y="394" text-anchor="middle" class="text">Fachlogik im Service</text>
+  <text x="565" y="424" text-anchor="middle" class="code">verkaufen(...)</text>
+  <text x="835" y="424" text-anchor="middle" class="code">bestandErhoehen(...)</text>
+
+  <!-- Persistenz -->
+  <g filter="url(#shadow)">
+    <rect x="260" y="545" width="390" height="75" rx="18" class="boxPurple"/>
+  </g>
+  <text x="455" y="575" text-anchor="middle" class="boxTitle">ProduktSpeicher</text>
+  <text x="455" y="602" text-anchor="middle" class="text">Vertrag</text>
+
+  <g filter="url(#shadow)">
+    <rect x="750" y="545" width="390" height="75" rx="18" class="boxOrange"/>
+  </g>
+  <text x="945" y="575" text-anchor="middle" class="boxTitle">CsvProduktSpeicher</text>
+  <text x="945" y="602" text-anchor="middle" class="text">CSV speichern/laden</text>
+
+  <!-- Produkt -->
+  <g filter="url(#shadow)">
+    <rect x="455" y="700" width="490" height="60" rx="18" class="box"/>
+  </g>
+  <text x="700" y="724" text-anchor="middle" class="boxTitle">Produkt</text>
+  <text x="700" y="748" text-anchor="middle" class="text">Daten: Name, Preis, Bestand</text>
+
+  <!-- Beziehungen -->
+  <path d="M700 235 C700 270, 700 300, 700 330" class="line"/>
+  <text x="724" y="283" text-anchor="start" class="small">nutzt</text>
+
+  <path d="M650 440 C610 478, 540 510, 455 545" class="lineSoft"/>
+  <text x="520" y="505" text-anchor="middle" class="small">getrennt von Persistenz</text>
+
+  <path d="M750 582 C720 582, 685 582, 650 582" class="lineGreen"/>
+  <text x="700" y="565" text-anchor="middle" class="small">implements</text>
+
+  <path d="M700 440 C700 505, 700 635, 700 700" class="line"/>
+  <text x="724" y="665" text-anchor="start" class="small">arbeitet mit Daten</text>
+
+  <path d="M790 235 C900 305, 945 435, 945 545" class="lineSoft"/>
+  <text x="980" y="396" text-anchor="start" class="small">ruft Speicher auf</text>
+
+  <!-- Hinweise -->
+  <g filter="url(#shadow)">
+    <rect x="155" y="800" width="1090" height="52" rx="18" class="boxHint"/>
+  </g>
+  <text x="700" y="833" text-anchor="middle" class="note">Main bleibt klein. Fachlogik liegt im Service. Persistenz bleibt separat.</text>
+
+  <text x="155" y="875" text-anchor="start" class="small">• Verantwortlichkeiten getrennt</text>
+  <text x="470" y="875" text-anchor="start" class="small">• kleine Schichten-Idee</text>
+  <text x="735" y="875" text-anchor="start" class="small">• Service ist eine normale Java-Klasse</text>
+  <text x="1085" y="875" text-anchor="start" class="small">• keine grosse Architektur</text>
+</svg>
