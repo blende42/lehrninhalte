@@ -39,8 +39,9 @@ Aktuell vorbereitet sind:
 29. Mehrere Klassen mit demselben Interface
 30. Unterschiedliche Objekte über dasselbe Interface verwenden
 31. Code-Duplikate vermeiden und gemeinsamen Code wiederverwenden
+32. Gemeinsamen Code mit Vererbung wiederverwenden
 
-Die zuletzt erstellte Unterrichtseinheit ist **Code-Duplikate vermeiden und gemeinsamen Code wiederverwenden**. Zusätzlich wurde eine kleine Prozess- und Begriffsbibliothek für KI-gestützte Lehrmittel-Erstellung angelegt.
+Die zuletzt erstellte Unterrichtseinheit ist **Gemeinsamen Code mit Vererbung wiederverwenden**. Zusätzlich wurde eine kleine Prozess- und Begriffsbibliothek für KI-gestützte Lehrmittel-Erstellung angelegt.
 
 Neue Projektstruktur für grössere Mini-Projekte:
 
@@ -122,10 +123,14 @@ Neue Dateien im Maven-, Testing-, Refactoring- und Persistenz-Block:
 - [Arbeitsblatt_Code_Wiederverwenden.md](./Arbeitsblaetter/Arbeitsblatt_Code_Wiederverwenden.md)
 - [Uebungen_Code_Wiederverwenden.md](./Uebungen/Uebungen_Code_Wiederverwenden.md)
 - [Loesungen_Code_Wiederverwenden.md](./Musterloesungen/Loesungen_Code_Wiederverwenden.md)
+- [Arbeitsblatt_Vererbung_Code_Wiederverwenden.md](./Arbeitsblaetter/Arbeitsblatt_Vererbung_Code_Wiederverwenden.md)
+- [Uebungen_Vererbung_Code_Wiederverwenden.md](./Uebungen/Uebungen_Vererbung_Code_Wiederverwenden.md)
+- [Loesungen_Vererbung_Code_Wiederverwenden.md](./Musterloesungen/Loesungen_Vererbung_Code_Wiederverwenden.md)
 - [interface_produkt_speicher.svg](./graphics/interface_produkt_speicher.svg)
 - [mehrere_implementierungen_interface.svg](./graphics/mehrere_implementierungen_interface.svg)
 - [polymorphie_interface.svg](./graphics/polymorphie_interface.svg)
 - [code_wiederverwenden.svg](./graphics/code_wiederverwenden.svg)
+- [vererbung_code_wiederverwenden.svg](./graphics/vererbung_code_wiederverwenden.svg)
 - [maven_orchestriert_build.svg](./graphics/maven_orchestriert_build.svg)
 - [maven_compile_run_package.svg](./graphics/maven_compile_run_package.svg)
 - [maven_tests_vorbereiten.svg](./graphics/maven_tests_vorbereiten.svg)
@@ -188,7 +193,7 @@ Die Dateien unter `docs/begriffe` erklären zentrale Begriffe kurz und unterrich
 
 ## Nächster geplanter Block
 
-Als nächstes bietet sich eine **vorsichtige Einführung in Vererbung oder eine Service-/Schichten-Vorbereitung** an.
+Als nächstes bietet sich eine **Repetition zu Interface, Polymorphie, Refactoring und Vererbung oder eine Service-/Schichten-Vorbereitung** an.
 
 Sinnvolle Inhalte:
 
@@ -197,7 +202,8 @@ Sinnvolle Inhalte:
 - gleiche Methodenaufrufe mit unterschiedlichen Implementierungen reflektieren
 - eine Variable vom Interface-Typ mit unterschiedlichen konkreten Objekten erklären
 - Code-Duplikate erkennen und kleine Hilfsmethoden sinnvoll einsetzen
-- `extends` als mögliche Wiederverwendungsidee vorsichtig vorbereiten
+- `extends` als Wiederverwendungsidee reflektieren
+- Grenzen von Vererbung und Alternative mit Hilfsklasse besprechen
 - einfache Service- und Schichten-Idee vorbereiten
 - weiterhin keine Datenbank und keine komplexen Frameworks
 
@@ -336,6 +342,38 @@ Für den nächsten Block kann an diesen Vergleich angeschlossen werden:
   - alles in eine einzige Hilfsklasse verschieben
   - Wiederverwendung mit Kopieren verwechseln
 - Bewusst nicht behandelt werden tiefe Vererbungshierarchien, abstrakte Klassen, Mehrfachvererbung, `instanceof`, Downcasting, UML-Formalismus und komplexe OOP-Theorie.
+
+## Wichtige Inhalte aus Gemeinsamen Code mit Vererbung wiederverwenden
+
+- Vererbung wird vorsichtig aus einem echten Wiederverwendungsproblem heraus eingeführt.
+- Die bekannten Klassen bleiben im Fokus:
+  - `ProduktSpeicher`
+  - `ProduktSpeicherBasis`
+  - `CsvProduktSpeicher`
+  - `KonsolenProduktSpeicher`
+- `ProduktSpeicher` bleibt das Interface und beschreibt den Vertrag `speichern(...)`.
+- `ProduktSpeicherBasis` ist eine kleine Basisklasse für gemeinsame Hilfsmethoden.
+- `CsvProduktSpeicher` und `KonsolenProduktSpeicher` verwenden:
+  - `extends ProduktSpeicherBasis`
+  - `implements ProduktSpeicher`
+- Die gemeinsame Methode `produktZeile(Produkt produkt, String trennzeichen)` zeigt Wiederverwendung, ohne CSV- und Konsolenlogik in die Basisklasse zu verschieben.
+- `speichern(...)` bleibt bewusst in den konkreten Klassen.
+- Die Grafik `vererbung_code_wiederverwenden.svg` zeigt `ProduktSpeicher` als Interface, `ProduktSpeicherBasis` als kleine Basisklasse, die beiden konkreten Speicherklassen mit `extends` und `implements` sowie ihr unterschiedliches Verhalten.
+- Basisaufgaben markieren doppelte Hilfsmethoden, erstellen `ProduktSpeicherBasis`, passen beide Speicherklassen mit `extends` an und prüfen das Verhalten erneut.
+- Vertiefungsaufgaben unterscheiden Interface, Basisklasse und konkrete Klasse, ordnen Methoden zu und prüfen Lesbarkeit sowie Wartbarkeit.
+- Transferaufgaben behandeln weitere Hilfsmethoden, ungeeignete Auslagerungen, Grenzen von Vererbung und eine Alternative mit Hilfsklasse.
+- Die Musterlösung `Loesungen_Vererbung_Code_Wiederverwenden.md` zeigt eine kompakte Standardlösung mit `ProduktSpeicher`, `ProduktSpeicherBasis`, `CsvProduktSpeicher extends ProduktSpeicherBasis implements ProduktSpeicher` und `KonsolenProduktSpeicher extends ProduktSpeicherBasis implements ProduktSpeicher`.
+- Die gemeinsame Hilfsmethode `produktZeile(...)` liegt in der Basisklasse; Datei- und Konsolenlogik bleiben in den konkreten Klassen.
+- Die Java-Beispiele wurden als temporäres Maven-Projekt unter `/tmp/vererbung-loesung-validierung` mit `mvn package` geprüft. Zusätzlich wurde die kompilierte `Main`-Klasse mit `java -cp target/classes ch.allianz.youngoitv.produktverwaltung.Main` ausgeführt und die erzeugte CSV-Datei kontrolliert. Es waren keine JUnit-Tests hinterlegt.
+- Typische Fehlerbilder:
+  - zu viel Code in die Basisklasse verschieben
+  - Unterschiede zwischen Klassen ignorieren
+  - Interface und Basisklasse verwechseln
+  - Vererbung nur verwenden, weil es technisch möglich ist
+  - Verhalten beim Refactoring verändern
+  - Tests nach der Änderung vergessen
+  - Basisklasse zu allgemein benennen
+- Bewusst nicht behandelt werden abstrakte Klassen als Vertiefung, tiefe Vererbungshierarchien, komplexes `super(...)`, `instanceof`, Downcasting, Template Method, Spring und Dependency Injection.
 
 ## Wichtige Inhalte aus Code strukturieren und Verantwortlichkeiten aufteilen
 

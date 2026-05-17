@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">Gemeinsamen Code mit Vererbung wiederverwenden</title>
+  <desc id="desc">Konzeptgrafik: ProduktSpeicher beschreibt den Vertrag. ProduktSpeicherBasis enthält kleine gemeinsame Hilfsmethoden. CsvProduktSpeicher und KonsolenProduktSpeicher erben die Hilfsmethoden und behalten unterschiedliches Verhalten.</desc>
+
+  <defs>
+    <style>
+      .bg { fill: #f7fbff; }
+      .title { font-family: Arial, sans-serif; font-size: 32px; font-weight: 700; fill: #16324f; }
+      .subtitle { font-family: Arial, sans-serif; font-size: 18px; font-weight: 600; fill: #2b4c6f; }
+      .boxTitle { font-family: Arial, sans-serif; font-size: 20px; font-weight: 700; fill: #16324f; }
+      .sectionTitle { font-family: Arial, sans-serif; font-size: 18px; font-weight: 700; fill: #16324f; }
+      .text { font-family: Arial, sans-serif; font-size: 16px; fill: #1f2d3d; }
+      .small { font-family: Arial, sans-serif; font-size: 14px; fill: #1f2d3d; }
+      .mono { font-family: "Courier New", monospace; font-size: 15px; fill: #1f2d3d; }
+      .label { font-family: Arial, sans-serif; font-size: 15px; font-weight: 700; fill: #2b4c6f; }
+      .note { font-family: Arial, sans-serif; font-size: 16px; font-weight: 700; fill: #7a3e00; }
+      .box { fill: #ffffff; stroke: #4e79a7; stroke-width: 2.5; }
+      .boxBlue { fill: #e8f1fb; stroke: #4e79a7; stroke-width: 2.5; }
+      .boxGreen { fill: #eef7ea; stroke: #6aa84f; stroke-width: 2.5; }
+      .boxOrange { fill: #fff4e8; stroke: #d9903d; stroke-width: 2.5; }
+      .boxGrey { fill: #f1f5f9; stroke: #64748b; stroke-width: 2.5; }
+      .boxHint { fill: #fff6da; stroke: #d6a73b; stroke-width: 2.5; }
+      .lineInterface { stroke: #4e79a7; stroke-width: 3; fill: none; stroke-dasharray: 9 7; marker-end: url(#arrowBlue); }
+      .lineInheritance { stroke: #6aa84f; stroke-width: 3; fill: none; marker-end: url(#arrowGreen); }
+      .lineBehaviour { stroke: #d9903d; stroke-width: 3; fill: none; marker-end: url(#arrowOrange); }
+    </style>
+
+    <marker id="arrowBlue" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#4e79a7"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#6aa84f"/>
+    </marker>
+    <marker id="arrowOrange" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#d9903d"/>
+    </marker>
+
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1400" height="900"/>
+
+  <text x="700" y="54" text-anchor="middle" class="title">Gemeinsamen Code mit Vererbung wiederverwenden</text>
+  <text x="700" y="86" text-anchor="middle" class="subtitle">Vererbung kann gemeinsamen Code wiederverwendbar machen.</text>
+
+  <!-- Gemeinsamer Vertrag -->
+  <g filter="url(#shadow)">
+    <rect x="95" y="135" width="430" height="160" rx="20" class="boxBlue"/>
+  </g>
+  <text x="310" y="176" text-anchor="middle" class="boxTitle">ProduktSpeicher</text>
+  <text x="310" y="210" text-anchor="middle" class="text">Interface / Vertrag</text>
+  <text x="310" y="240" text-anchor="middle" class="mono">speichern(...)</text>
+  <text x="310" y="269" text-anchor="middle" class="small">gleiche Methodensignatur</text>
+
+  <!-- Gemeinsame Implementierung -->
+  <g filter="url(#shadow)">
+    <rect x="875" y="135" width="430" height="160" rx="20" class="boxGreen"/>
+  </g>
+  <text x="1090" y="176" text-anchor="middle" class="boxTitle">ProduktSpeicherBasis</text>
+  <text x="1090" y="210" text-anchor="middle" class="text">gemeinsame Hilfsmethoden</text>
+  <text x="1090" y="240" text-anchor="middle" class="mono">produktZeile(...)</text>
+  <text x="1090" y="269" text-anchor="middle" class="small">Basisklasse bleibt klein</text>
+
+  <!-- Merkpunkte oben -->
+  <g filter="url(#shadow)">
+    <rect x="555" y="135" width="290" height="185" rx="18" class="boxHint"/>
+  </g>
+  <text x="700" y="174" text-anchor="middle" class="sectionTitle">Zwei Ideen</text>
+  <text x="700" y="207" text-anchor="middle" class="text">Interface: Vertrag</text>
+  <text x="700" y="237" text-anchor="middle" class="text">Vererbung: Implementierung teilen</text>
+  <text x="695" y="281" text-anchor="middle" class="small">gestrichelt: implements</text>
+  <text x="695" y="306" text-anchor="middle" class="small">grün: extends</text>
+
+  <!-- Konkrete Klassen -->
+  <g filter="url(#shadow)">
+    <rect x="95" y="455" width="520" height="195" rx="22" class="boxOrange"/>
+  </g>
+  <text x="355" y="498" text-anchor="middle" class="boxTitle">CsvProduktSpeicher</text>
+  <text x="355" y="532" text-anchor="middle" class="mono">extends ProduktSpeicherBasis</text>
+  <text x="355" y="563" text-anchor="middle" class="mono">implements ProduktSpeicher</text>
+  <text x="355" y="596" text-anchor="middle" class="text">schreibt CSV-Datei</text>
+  <text x="355" y="625" text-anchor="middle" class="small">CSV-Logik bleibt hier</text>
+
+  <g filter="url(#shadow)">
+    <rect x="785" y="455" width="520" height="195" rx="22" class="boxOrange"/>
+  </g>
+  <text x="1045" y="498" text-anchor="middle" class="boxTitle">KonsolenProduktSpeicher</text>
+  <text x="1045" y="532" text-anchor="middle" class="mono">extends ProduktSpeicherBasis</text>
+  <text x="1045" y="563" text-anchor="middle" class="mono">implements ProduktSpeicher</text>
+  <text x="1045" y="596" text-anchor="middle" class="text">gibt Produkte auf Konsole aus</text>
+  <text x="1045" y="625" text-anchor="middle" class="small">Konsolenlogik bleibt hier</text>
+
+  <!-- Beziehungen -->
+  <path d="M355 455 C330 380, 315 335, 310 295" class="lineInterface"/>
+  <text x="275" y="382" text-anchor="middle" class="label">implements</text>
+
+  <path d="M785 500 C630 470, 455 405, 330 295" class="lineInterface"/>
+  <text x="695" y="372" text-anchor="middle" class="label">implements</text>
+
+  <path d="M405 455 C570 360, 800 325, 985 295" class="lineInheritance"/>
+  <text x="695" y="397" text-anchor="middle" class="label">extends</text>
+
+  <path d="M1045 455 C1055 380, 1072 335, 1085 295" class="lineInheritance"/>
+  <text x="1125" y="382" text-anchor="middle" class="label">extends</text>
+
+  <!-- Unterschiedliches Verhalten -->
+  <g filter="url(#shadow)">
+    <rect x="145" y="705" width="420" height="80" rx="18" class="box"/>
+  </g>
+  <text x="355" y="738" text-anchor="middle" class="sectionTitle">konkretes Verhalten</text>
+  <text x="355" y="766" text-anchor="middle" class="text">Datei mit CSV-Zeilen</text>
+
+  <g filter="url(#shadow)">
+    <rect x="835" y="705" width="420" height="80" rx="18" class="box"/>
+  </g>
+  <text x="1045" y="738" text-anchor="middle" class="sectionTitle">konkretes Verhalten</text>
+  <text x="1045" y="766" text-anchor="middle" class="text">Ausgabe auf der Konsole</text>
+
+  <path d="M355 650 C355 675, 355 685, 355 705" class="lineBehaviour"/>
+  <path d="M1045 650 C1045 675, 1045 685, 1045 705" class="lineBehaviour"/>
+
+  <!-- Merksatz -->
+  <g filter="url(#shadow)">
+    <rect x="150" y="825" width="1100" height="52" rx="18" class="boxGrey"/>
+  </g>
+  <text x="700" y="858" text-anchor="middle" class="note">Gleicher Vertrag, gemeinsame Hilfsmethoden, unterschiedliches Verhalten.</text>
+</svg>

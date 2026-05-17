@@ -112,6 +112,7 @@ Lehr- und Arbeitsblätter zu Java- und Grundlagenthemen:
 - [Arbeitsblatt_Mehrere_Implementierungen_Interface.md](./Arbeitsblaetter/Arbeitsblatt_Mehrere_Implementierungen_Interface.md)
 - [Arbeitsblatt_Polymorphie_Interface.md](./Arbeitsblaetter/Arbeitsblatt_Polymorphie_Interface.md)
 - [Arbeitsblatt_Code_Wiederverwenden.md](./Arbeitsblaetter/Arbeitsblatt_Code_Wiederverwenden.md)
+- [Arbeitsblatt_Vererbung_Code_Wiederverwenden.md](./Arbeitsblaetter/Arbeitsblatt_Vererbung_Code_Wiederverwenden.md)
 - [arbeitsblatt_java_wrapper.md](./Arbeitsblaetter/arbeitsblatt_java_wrapper.md)
 - [arbeitsblatt_stringbuilder.md](./Arbeitsblaetter/arbeitsblatt_stringbuilder.md)
 - [arbeitsblatt_theorie_kombiniert.md](./Arbeitsblaetter/arbeitsblatt_theorie_kombiniert.md)
@@ -155,6 +156,7 @@ SVG-Grafiken und zugehörige Datei für eingebettete Arbeitsblattgrafiken:
 - [Uebungen_Mehrere_Implementierungen_Interface.md](./Uebungen/Uebungen_Mehrere_Implementierungen_Interface.md)
 - [Uebungen_Polymorphie_Interface.md](./Uebungen/Uebungen_Polymorphie_Interface.md)
 - [Uebungen_Code_Wiederverwenden.md](./Uebungen/Uebungen_Code_Wiederverwenden.md)
+- [Uebungen_Vererbung_Code_Wiederverwenden.md](./Uebungen/Uebungen_Vererbung_Code_Wiederverwenden.md)
 - [string_uebungen.md](./Uebungen/string_uebungen.md)
 - [string_uebungen_v2.md](./Uebungen/string_uebungen_v2.md)
 - [string_mini_projekt_v3.md](./Uebungen/string_mini_projekt_v3.md)
@@ -194,6 +196,7 @@ Kompakte Referenzlösungen zu den Übungen, Simulationen, Package-Strukturierung
 - [Loesungen_Mehrere_Implementierungen_Interface.md](./Musterloesungen/Loesungen_Mehrere_Implementierungen_Interface.md)
 - [Loesungen_Polymorphie_Interface.md](./Musterloesungen/Loesungen_Polymorphie_Interface.md)
 - [Loesungen_Code_Wiederverwenden.md](./Musterloesungen/Loesungen_Code_Wiederverwenden.md)
+- [Loesungen_Vererbung_Code_Wiederverwenden.md](./Musterloesungen/Loesungen_Vererbung_Code_Wiederverwenden.md)
 - [musterloesungen_stringbuilder.md](./Musterloesungen/musterloesungen_stringbuilder.md)
 - [string_parser_loesungen.md](./Musterloesungen/string_parser_loesungen.md)
 
@@ -221,6 +224,7 @@ Allgemeine SVG-Grafiken für den Unterricht:
 - [mehrere_implementierungen_interface.svg](./graphics/mehrere_implementierungen_interface.svg)
 - [polymorphie_interface.svg](./graphics/polymorphie_interface.svg)
 - [code_wiederverwenden.svg](./graphics/code_wiederverwenden.svg)
+- [vererbung_code_wiederverwenden.svg](./graphics/vererbung_code_wiederverwenden.svg)
 - [parser_grafik.svg](./graphics/parser_grafik.svg)
 
 ### templates

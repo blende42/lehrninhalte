@@ -408,15 +408,26 @@ Material:
 - [Übungen – Code-Duplikate vermeiden und gemeinsamen Code wiederverwenden](./Uebungen/Uebungen_Code_Wiederverwenden.md)
 - [Lösungen – Code-Duplikate vermeiden und gemeinsamen Code wiederverwenden](./Musterloesungen/Loesungen_Code_Wiederverwenden.md)
 
+### 32. Gemeinsamen Code mit Vererbung wiederverwenden
+
+Ziel: `extends` vorsichtig aus einem echten Wiederverwendungsproblem heraus einführen, eine kleine Basisklasse `ProduktSpeicherBasis` für gemeinsame Hilfsmethoden nutzen und Interface als Vertrag von Vererbung als gemeinsamer Implementierung unterscheiden.
+
+Material:
+
+- [Arbeitsblatt – Gemeinsamen Code mit Vererbung wiederverwenden](./Arbeitsblaetter/Arbeitsblatt_Vererbung_Code_Wiederverwenden.md)
+- [Gemeinsamen Code mit Vererbung wiederverwenden](./graphics/vererbung_code_wiederverwenden.svg)
+- [Übungen – Gemeinsamen Code mit Vererbung wiederverwenden](./Uebungen/Uebungen_Vererbung_Code_Wiederverwenden.md)
+- [Lösungen – Gemeinsamen Code mit Vererbung wiederverwenden](./Musterloesungen/Loesungen_Vererbung_Code_Wiederverwenden.md)
+
 ### Nächster sinnvoller Block
 
-Nach `Code-Duplikate vermeiden und gemeinsamen Code wiederverwenden` bietet sich als nächstes Thema eine **vorsichtige Einführung in Vererbung oder eine Service-/Schichten-Vorbereitung** an:
+Nach `Gemeinsamen Code mit Vererbung wiederverwenden` bietet sich als nächstes Thema eine **Repetition zu Interface, Polymorphie, Refactoring und Vererbung oder eine Service-/Schichten-Vorbereitung** an:
 
 - Interface als Vertrag wiederholen
+- Vererbung als gemeinsame Implementierung wiederholen
 - gleiche Methodenaufrufe mit unterschiedlichen Implementierungen reflektieren
-- Verhalten über konkrete Objekte beobachten
-- Code-Duplikate erkennen und kleine Hilfsmethoden nutzen
-- `extends` als mögliche Wiederverwendungsidee vorsichtig vorbereiten
+- Code-Duplikate und gemeinsame Hilfsmethoden beurteilen
+- Grenzen von Vererbung sichtbar machen
 - Schichtenbegriffe vorsichtig einführen
 - weiterhin keine Datenbank, kein Spring und keine formale Clean Architecture
 
@@ -679,6 +690,13 @@ Arbeitsblätter führen neue Konzepte ein, enthalten kurze Theorie, Beispiele, t
   - Wiederverwendung als Wartbarkeitsvorteil einordnen
   - Unterschiede zwischen CSV-Datei und Konsolenausgabe bewusst getrennt lassen
   - Vererbung mit `extends` nur als vorsichtigen Ausblick vorbereiten
+- [Arbeitsblatt – Gemeinsamen Code mit Vererbung wiederverwenden](./Arbeitsblaetter/Arbeitsblatt_Vererbung_Code_Wiederverwenden.md)
+  - `extends` aus einem konkreten Wiederverwendungsproblem heraus einführen
+  - `ProduktSpeicherBasis` als kleine Basisklasse für gemeinsame Hilfsmethoden nutzen
+  - `CsvProduktSpeicher` und `KonsolenProduktSpeicher` mit `extends` und `implements` zeigen
+  - Interface als Vertrag und Vererbung als gemeinsame Implementierung unterscheiden
+  - Konzeptgrafik zu Interface, Basisklasse, konkreten Klassen und unterschiedlichem Verhalten einbinden
+  - Grenzen von Vererbung, typische Fehler und Alternative mit Hilfsklasse sichtbar machen
 
 ## Konzeptgrafiken
 
@@ -780,6 +798,12 @@ Konzeptgrafiken visualisieren Beziehungen, Abläufe und typische Denkmodelle. Si
   - gemeinsames Auslagern in Hilfsmethoden zeigen
   - weniger Duplikate, Änderungen an einer Stelle und bessere Wartbarkeit hervorheben
   - Vererbung nur als vorsichtigen Ausblick einordnen
+- [Gemeinsamen Code mit Vererbung wiederverwenden](./graphics/vererbung_code_wiederverwenden.svg)
+  - `ProduktSpeicher` als Interface und Vertrag zeigen
+  - `ProduktSpeicherBasis` als kleine Basisklasse mit gemeinsamen Hilfsmethoden zeigen
+  - `CsvProduktSpeicher` und `KonsolenProduktSpeicher` mit `extends` und `implements` einordnen
+  - konkrete Klassen behalten CSV- beziehungsweise Konsolenverhalten
+  - Interface als gleicher Vertrag und Vererbung als gemeinsame Implementierung unterscheiden
 
 ### Arbeitsblattgrafiken zu StringBuilder
 
@@ -1010,6 +1034,13 @@ Konzeptgrafiken visualisieren Beziehungen, Abläufe und typische Denkmodelle. Si
   - bestehendes Verhalten mit Maven erneut prüfen
   - Wartbarkeit nach kleinen Refactorings reflektieren
   - Transfer zu Logging-Ausgabe, Statistik-Hilfsmethode und gemeinsamer Basisklasse als Idee
+- [Übungen – Gemeinsamen Code mit Vererbung wiederverwenden](./Uebungen/Uebungen_Vererbung_Code_Wiederverwenden.md)
+  - doppelte Hilfsmethoden in `CsvProduktSpeicher` und `KonsolenProduktSpeicher` markieren
+  - gemeinsame Produktformatierung erkennen und in `ProduktSpeicherBasis` verschieben
+  - konkrete Speicherklassen mit `extends ProduktSpeicherBasis` und `implements ProduktSpeicher` anpassen
+  - Verhalten nach dem Refactoring mit Maven und manueller Prüfung kontrollieren
+  - entscheiden, welche Methoden in Basisklasse, Interface oder konkrete Klasse gehören
+  - Transfer zu Grenzen von Vererbung und Alternative mit Hilfsklasse diskutieren
 
 ## Repetitionen
 
@@ -1122,6 +1153,12 @@ Musterlösungen halten kompakte Referenzlösungen und Bewertungshilfen bereit.
   - Verhalten nach dem Refactoring prüfen
   - vorsichtiger Ausblick auf gemeinsame Basisklassen, ohne Vererbung zu vertiefen
   - typische Fehlerhinweise und dokumentierte Maven-Verifikation
+- [Lösungen – Gemeinsamen Code mit Vererbung wiederverwenden](./Musterloesungen/Loesungen_Vererbung_Code_Wiederverwenden.md)
+  - kompakte Standardlösung mit `ProduktSpeicher`, `ProduktSpeicherBasis`, `CsvProduktSpeicher` und `KonsolenProduktSpeicher`
+  - gemeinsame Hilfsmethode `produktZeile(...)` in einer kleinen Basisklasse
+  - konkrete Speicherlogik bleibt in den konkreten Klassen
+  - Interface als Vertrag und Vererbung als gemeinsame Implementierung kurz unterscheiden
+  - typische Fehlerhinweise und dokumentierte Maven-Verifikation mit manueller `Main`-Ausführung
 - [Musterlösungen – StringBuilder & Parser](./Musterloesungen/musterloesungen_stringbuilder.md)
   - StringBuilder-Methoden und vereinfachter Parser
 - [Musterlösungen – Mini-Projekt String Parser](./Musterloesungen/string_parser_loesungen.md)
