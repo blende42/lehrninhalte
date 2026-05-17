@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">CSV und Datenbank als austauschbare Persistenz</title>
+  <desc id="desc">Architekturgrafik: LagerService verwendet ProduktSpeicher als gemeinsamen Vertrag. CsvProduktSpeicher schreibt eine CSV-Datei, DbProduktSpeicher verwendet JDBC zur H2-Datenbank. Die Fachlogik bleibt gleich.</desc>
+
+  <defs>
+    <style>
+      .bg { fill: #f7fbff; }
+      .title { font-family: Arial, Helvetica, sans-serif; font-size: 34px; font-weight: 700; fill: #16324f; }
+      .subtitle { font-family: Arial, Helvetica, sans-serif; font-size: 19px; font-weight: 600; fill: #2b4c6f; }
+      .sectionTitle { font-family: Arial, Helvetica, sans-serif; font-size: 22px; font-weight: 700; fill: #16324f; }
+      .boxTitle { font-family: Arial, Helvetica, sans-serif; font-size: 21px; font-weight: 700; fill: #16324f; }
+      .text { font-family: Arial, Helvetica, sans-serif; font-size: 17px; fill: #1f2d3d; }
+      .small { font-family: Arial, Helvetica, sans-serif; font-size: 15px; fill: #1f2d3d; }
+      .note { font-family: Arial, Helvetica, sans-serif; font-size: 17px; font-weight: 700; fill: #7a3e00; }
+      .mono { font-family: "Courier New", monospace; font-size: 16px; fill: #1f2d3d; }
+      .box { fill: #ffffff; stroke: #4e79a7; stroke-width: 2.5; }
+      .boxGreen { fill: #eef7ea; stroke: #6aa84f; stroke-width: 2.5; }
+      .boxBlue { fill: #e8f1fb; stroke: #4e79a7; stroke-width: 2.5; }
+      .boxOrange { fill: #fff4e8; stroke: #d9903d; stroke-width: 2.5; }
+      .boxPurple { fill: #f4efff; stroke: #8e6cc7; stroke-width: 2.5; }
+      .boxGrey { fill: #f1f5f9; stroke: #64748b; stroke-width: 2.5; }
+      .boxHint { fill: #fff6da; stroke: #d6a73b; stroke-width: 2.5; }
+      .line { stroke: #4e79a7; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .lineSoft { stroke: #64748b; stroke-width: 2.5; fill: none; stroke-dasharray: 8 7; marker-end: url(#arrowSoft); }
+      .lineJdbc { stroke: #c2410c; stroke-width: 3; fill: none; marker-end: url(#arrowJdbc); }
+      .label { font-family: Arial, Helvetica, sans-serif; font-size: 15px; font-weight: 700; fill: #2b4c6f; }
+      .labelJdbc { font-family: Arial, Helvetica, sans-serif; font-size: 15px; font-weight: 700; fill: #9a3412; }
+    </style>
+
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#4e79a7"/>
+    </marker>
+    <marker id="arrowSoft" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#64748b"/>
+    </marker>
+    <marker id="arrowJdbc" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#c2410c"/>
+    </marker>
+
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1600" height="1000"/>
+
+  <text x="800" y="58" text-anchor="middle" class="title">CSV und Datenbank als austauschbare Persistenz</text>
+  <text x="800" y="92" text-anchor="middle" class="subtitle">Dieselbe Fachlogik kann unterschiedliche Speicherarten verwenden.</text>
+
+  <g filter="url(#shadow)">
+    <rect x="550" y="135" width="500" height="125" rx="20" class="boxGreen"/>
+  </g>
+  <text x="800" y="174" text-anchor="middle" class="boxTitle">LagerService</text>
+  <text x="800" y="205" text-anchor="middle" class="text">Fachlogik bleibt gleich</text>
+  <text x="800" y="232" text-anchor="middle" class="small">verkaufen, Bestand prüfen, Warnung</text>
+
+  <path d="M800 260 C800 290, 800 310, 800 340" class="line"/>
+  <text x="830" y="307" text-anchor="start" class="label">nutzt</text>
+
+  <g filter="url(#shadow)">
+    <rect x="490" y="340" width="620" height="135" rx="22" class="boxBlue"/>
+  </g>
+  <text x="800" y="380" text-anchor="middle" class="boxTitle">ProduktSpeicher</text>
+  <text x="800" y="412" text-anchor="middle" class="text">Interface als gemeinsamer Vertrag</text>
+  <text x="800" y="440" text-anchor="middle" class="mono">ladeProdukte(...) / speichereProdukte(...)</text>
+
+  <path d="M720 475 C600 535, 475 560, 360 615" class="line"/>
+  <text x="460" y="545" text-anchor="middle" class="label">Implementierung 1</text>
+
+  <path d="M880 475 C1000 535, 1125 560, 1240 615" class="line"/>
+  <text x="1140" y="545" text-anchor="middle" class="label">Implementierung 2</text>
+
+  <g filter="url(#shadow)">
+    <rect x="130" y="615" width="460" height="150" rx="22" class="boxOrange"/>
+  </g>
+  <text x="360" y="655" text-anchor="middle" class="boxTitle">CsvProduktSpeicher</text>
+  <text x="360" y="688" text-anchor="middle" class="text">Dateilogik und CSV-Format</text>
+  <text x="360" y="716" text-anchor="middle" class="small">keine Verkaufsregeln</text>
+  <text x="360" y="742" text-anchor="middle" class="mono">implements ProduktSpeicher</text>
+
+  <g filter="url(#shadow)">
+    <rect x="1010" y="615" width="460" height="150" rx="22" class="boxPurple"/>
+  </g>
+  <text x="1240" y="655" text-anchor="middle" class="boxTitle">DbProduktSpeicher</text>
+  <text x="1240" y="688" text-anchor="middle" class="text">SQL und JDBC-Code</text>
+  <text x="1240" y="716" text-anchor="middle" class="small">keine Verkaufsregeln</text>
+  <text x="1240" y="742" text-anchor="middle" class="mono">implements ProduktSpeicher</text>
+
+  <path d="M360 765 C360 800, 360 820, 360 852" class="line"/>
+  <text x="250" y="813" text-anchor="start" class="label">schreibt</text>
+
+  <g filter="url(#shadow)">
+    <rect x="170" y="852" width="380" height="95" rx="18" class="box"/>
+  </g>
+  <text x="360" y="887" text-anchor="middle" class="boxTitle">CSV-Datei</text>
+  <text x="360" y="918" text-anchor="middle" class="small">Textdatei mit Produktdaten</text>
+
+  <path d="M1240 765 C1240 790, 1240 805, 1240 828" class="lineJdbc"/>
+  <text x="1270" y="802" text-anchor="start" class="labelJdbc">JDBC verbindet</text>
+
+  <g filter="url(#shadow)">
+    <rect x="1065" y="828" width="350" height="70" rx="18" class="boxGrey"/>
+  </g>
+  <text x="1240" y="872" text-anchor="middle" class="boxTitle">JDBC</text>
+
+  <path d="M1240 898 C1240 915, 1240 927, 1240 946" class="lineJdbc"/>
+
+  <g filter="url(#shadow)">
+    <rect x="1050" y="946" width="380" height="40" rx="16" class="box"/>
+  </g>
+  <text x="1240" y="972" text-anchor="middle" class="boxTitle">H2-Datenbank</text>
+
+  <g filter="url(#shadow)">
+    <rect x="70" y="310" width="330" height="145" rx="20" class="boxHint"/>
+  </g>
+  <text x="235" y="350" text-anchor="middle" class="sectionTitle">Merksatz</text>
+  <text x="235" y="383" text-anchor="middle" class="text">Nur Persistenz ändert sich</text>
+  <text x="235" y="412" text-anchor="middle" class="text">Fachlogik bleibt gleich</text>
+
+  <path d="M400 382 C430 382, 455 398, 490 408" class="lineSoft"/>
+
+  <g filter="url(#shadow)">
+    <rect x="1200" y="310" width="330" height="145" rx="20" class="boxHint"/>
+  </g>
+  <text x="1365" y="350" text-anchor="middle" class="sectionTitle">Vertrag</text>
+  <text x="1365" y="383" text-anchor="middle" class="text">Interface bleibt stabil</text>
+  <text x="1365" y="412" text-anchor="middle" class="text">Umsetzung ist austauschbar</text>
+
+  <path d="M1200 382 C1170 382, 1145 398, 1110 408" class="lineSoft"/>
+
+  <g filter="url(#shadow)">
+    <rect x="595" y="545" width="420" height="45" rx="18" fill="#fff6da" stroke="#d6a73b" stroke-width="2.5"/>
+  </g>
+  <text x="810" y="572" text-anchor="middle" class="note">Main wählt. LagerService bleibt unabhängig.</text>
+</svg>

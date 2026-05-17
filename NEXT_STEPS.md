@@ -43,8 +43,11 @@ Aktuell vorbereitet sind:
 33. Fachlogik in Services bündeln
 34. Verantwortlichkeiten und Services festigen
 35. JDBC mit eingebetteter H2-Datenbank
+36. DbProduktSpeicher mit JDBC und H2
+37. Bestehende Persistenz auf Datenbank erweitern
+38. Mapping zwischen Objekten und Datenbank
 
-Die zuletzt erstellte Unterrichtseinheit ist **JDBC mit eingebetteter H2-Datenbank**. Zusätzlich wurde eine kleine Didaktik-, Prozess- und Begriffsbibliothek für KI-gestützte Lehrmittel-Erstellung angelegt.
+Die zuletzt erstellte Unterrichtseinheit ist **Mapping zwischen Objekten und Datenbank**. Sie macht bewusst sichtbar, dass Java-Objekte nicht direkt in der Datenbank existieren, sondern zwischen `Produkt`, `ResultSet`, `PreparedStatement` und der Tabelle `PRODUKT` übersetzt werden müssen.
 
 Das zuletzt erstellte Mini-Projekt ist **Änderungshistorie für Lagerverwaltung**.
 
@@ -152,6 +155,17 @@ Neue Dateien im Maven-, Testing-, Refactoring- und Persistenz-Block:
 - [Arbeitsblatt_JDBC_H2_Grundlagen.md](./Arbeitsblaetter/Arbeitsblatt_JDBC_H2_Grundlagen.md)
 - [Uebungen_JDBC_H2_Grundlagen.md](./Uebungen/Uebungen_JDBC_H2_Grundlagen.md)
 - [Loesungen_JDBC_H2_Grundlagen.md](./Musterloesungen/Loesungen_JDBC_H2_Grundlagen.md)
+- [Arbeitsblatt_DbProduktSpeicher_JDBC_H2.md](./Arbeitsblaetter/Arbeitsblatt_DbProduktSpeicher_JDBC_H2.md)
+- [Uebungen_DbProduktSpeicher_JDBC_H2.md](./Uebungen/Uebungen_DbProduktSpeicher_JDBC_H2.md)
+- [Loesungen_DbProduktSpeicher_JDBC_H2.md](./Musterloesungen/Loesungen_DbProduktSpeicher_JDBC_H2.md)
+- [Arbeitsblatt_Persistenz_Datenbank_Erweitern.md](./Arbeitsblaetter/Arbeitsblatt_Persistenz_Datenbank_Erweitern.md)
+- [Uebungen_Persistenz_Datenbank_Erweitern.md](./Uebungen/Uebungen_Persistenz_Datenbank_Erweitern.md)
+- [Loesungen_Persistenz_Datenbank_Erweitern.md](./Musterloesungen/Loesungen_Persistenz_Datenbank_Erweitern.md)
+- [Arbeitsblatt_Objekt_Datenbank_Mapping.md](./Arbeitsblaetter/Arbeitsblatt_Objekt_Datenbank_Mapping.md)
+- [Uebungen_Objekt_Datenbank_Mapping.md](./Uebungen/Uebungen_Objekt_Datenbank_Mapping.md)
+- [Loesungen_Objekt_Datenbank_Mapping.md](./Musterloesungen/Loesungen_Objekt_Datenbank_Mapping.md)
+- [csv_vs_db_produkt_speicher.svg](./graphics/csv_vs_db_produkt_speicher.svg)
+- [objekt_datenbank_mapping.svg](./graphics/objekt_datenbank_mapping.svg)
 - [fachlogik_services.svg](./graphics/fachlogik_services.svg)
 - [verantwortlichkeiten_services_festigen.svg](./graphics/verantwortlichkeiten_services_festigen.svg)
 - [jdbc_h2_embedded_vs_server.svg](./graphics/jdbc_h2_embedded_vs_server.svg)
@@ -222,30 +236,90 @@ Die Datei unter `docs/didaktik` beschreibt die didaktische Entwicklungslogik der
 - Build-Server, Jenkins und CI/CD werden nur als Ausblick erwähnt.
 - Es werden bewusst noch keine externen Dependencies, kein Maven Central, kein JUnit, keine Plugin-Details, keine Fat Jars, kein Spring Boot und kein `install`/`deploy` eingeführt.
 
+## Wichtige Inhalte aus DbProduktSpeicher mit JDBC und H2
+
+- Die bekannte Lagerverwaltung erhält mit `DbProduktSpeicher` eine echte zweite Persistenzimplementierung.
+- Das Interface `ProduktSpeicher` bleibt der gemeinsame Vertrag:
+  - `CsvProduktSpeicher` speichert in CSV.
+  - `DbProduktSpeicher` speichert in H2.
+- `Main` wechselt nur die konkrete Implementierung und das Ziel:
+  - `new CsvProduktSpeicher()` mit `data/produkte.csv`
+  - `new DbProduktSpeicher()` mit `jdbc:h2:./data/lager`
+- Der `LagerService` bleibt unverändert und enthält weiterhin nur Fachlogik.
+- JDBC-Code wird in `DbProduktSpeicher` gebündelt:
+  - Verbindung herstellen
+  - Tabelle `PRODUKT` erstellen
+  - Produkte speichern und laden
+  - Produkte aktualisieren und löschen
+  - Ressourcen mit `try-with-resources` schliessen
+- Das Arbeitsblatt trennt Theorie, Beispiele, Fehlerbilder, Reflexion und bewusste Nicht-Ziele.
+- Die Grafik `csv_vs_db_produkt_speicher.svg` zeigt `LagerService`, `ProduktSpeicher`, `CsvProduktSpeicher`, `DbProduktSpeicher`, CSV-Datei, JDBC und H2-Datenbank als austauschbare Persistenzstruktur.
+- Die Übungen sind nach Basis, Vertiefung und Transfer gestaffelt und führen von der Klassenerstellung bis zum Vergleich von CSV- und DB-Persistenz.
+- Die Musterlösung enthält eine kompakte Standardlösung mit `DbProduktSpeicher`, unverändertem `LagerService`, `Main`, Testbeispiel, CSV/DB-Vergleich, typischen Fehlerhinweisen und dokumentierter Maven-Verifikation.
+
+## Wichtige Inhalte aus Bestehende Persistenz auf Datenbank erweitern
+
+- Die bekannte Lagerverwaltung wächst um einen weiteren Persistenzbereich.
+- Neben `ProduktSpeicher` entsteht `AenderungsSpeicher`.
+- Neben `DbProduktSpeicher` entsteht `DbAenderungsSpeicher`.
+- Die H2-Datenbank enthält nun konzeptionell mehrere Tabellen:
+  - `PRODUKT`
+  - `AENDERUNG`
+- Preisänderungen und Bestandsänderungen werden als `AenderungsEintrag` gespeichert.
+- Die Grafik `evolutionaere_persistenz_erweiterung.svg` zeigt, wie `ProduktSpeicher` und `AenderungsSpeicher` mit CSV- und DB-Implementierungen wachsen und wie die DB-Speicher über JDBC zu den Tabellen `PRODUKT` und `AENDERUNG` führen.
+- JDBC-Muster werden bewusst wiederholt:
+  - Verbindung herstellen
+  - Tabelle erstellen
+  - `PreparedStatement` verwenden
+  - `ResultSet` lesen
+  - Mapping in Objekt durchführen
+  - Ressourcen mit `try-with-resources` schliessen
+- Die Kernbotschaft lautet: Architektur muss Wachstum aushalten.
+- Bestehende Services, Fachlogik und `Main`-Struktur sollen möglichst stabil bleiben.
+- Die Musterlösung enthält eine kompakte Standardlösung mit CRUD für Änderungsdaten, Mapping-Hilfsmethode, CSV/DB-Vergleich, Fehlerhinweisen, Refactoring-Ausblick und dokumentierter Maven-Verifikation.
+- Bewusst nicht eingeführt werden ORM, Hibernate, JPA, Spring Data, `GenericRepository`, DAO-Frameworks, Connection Pooling, komplexe Joins, vertiefte Transaktionen und Dependency Injection.
+
+## Wichtige Inhalte aus Mapping zwischen Objekten und Datenbank
+
+- Die Einheit macht sichtbar, dass Java-Objekte nicht direkt in der Datenbank existieren.
+- `Produkt` wird der Tabelle `PRODUKT` gegenübergestellt:
+  - `id` zu `ID`
+  - `name` zu `NAME`
+  - `preis` zu `PREIS`
+  - `bestand` zu `BESTAND`
+- `ResultSet` zu Objekt und Objekt zu `PreparedStatement` werden als zwei Mapping-Richtungen behandelt.
+- `DbProduktSpeicher` bleibt die Klasse für JDBC und Mapping.
+- `Main` bleibt Ablaufsteuerung und `LagerService` bleibt Fachlogik.
+- Die Grafik `objekt_datenbank_mapping.svg` zeigt den Schreibweg `Produkt` über `DbProduktSpeicher` und `PreparedStatement` zur Tabelle `PRODUKT` sowie den Leseweg über `ResultSet` zurück zum `Produkt`.
+- Java-Typen, SQL-Typen und passende JDBC-Methoden werden auf EFZ-Niveau verglichen.
+- Typische Fehler sind fehlendes `ResultSet.next()`, falsche Spaltennamen, falsche Datentypen, falsche Platzhalter-Reihenfolge, Mapping in `Main`, Fachlogik im Mapping und doppelte Mapping-Logik.
+- Die Musterlösung enthält eine kompakte Standardlösung mit `ResultSet` zu `Produkt`, `Produkt` zu `PreparedStatement`, INSERT-, UPDATE- und SELECT-Mapping, privaten Mapping-Hilfsmethoden, CSV/DB-Vergleich, Fehlerhinweisen, ORM-Motivation und dokumentierter Maven-Verifikation.
+- Bewusst nicht eingeführt werden ORM, Hibernate, JPA, Reflection, generische Mapper, Annotationen, Spring Data und automatische Persistenzframeworks.
+
 ## Nächster Fokus
 
-Als nächstes bietet sich eine Festigung von **JDBC mit H2** oder ein kleines Refactoring der Lagerverwaltung von CSV zu Datenbank-Persistenz an.
+Als nächstes bietet sich ein Review zu **Mapping zwischen Objekten und Datenbank** an.
 
-Die Einführung in JDBC mit H2 baut direkt auf CSV-Persistenz, Verantwortlichkeiten, Interfaces und Services auf. Die neue Technik bleibt bewusst klein: H2 Embedded, JDBC, einfache SQL-Befehle und austauschbare Persistenz über `ProduktSpeicher`.
+Die Einheit baut direkt auf CSV-Persistenz, Verantwortlichkeiten, Interfaces, Services, JDBC/H2-Grundlagen, `DbProduktSpeicher` und der evolutionären Persistenz-Erweiterung auf. Die Kernbotschaft lautet: JDBC liefert rohe Daten, und `DbProduktSpeicher` übersetzt zwischen Fachobjekt und Datenbankstruktur.
 
 Weiter diagnostisch zu beobachten:
 
-- `Main`, `Produkt`, `LagerService` und `ProduktSpeicher` sauber unterscheiden
-- Fachlogik und Persistenz trennen
-- SQL und JDBC-Code nicht in `Main` oder `LagerService` vermischen
-- `PreparedStatement` statt zusammengesetzter SQL-Strings verwenden
+- `Produkt`, Tabellenzeile und `ResultSet` sauber unterscheiden
+- Mapping von `ResultSet` zu `Produkt` nachvollziehen
+- Mapping von `Produkt` zu `PreparedStatement` nachvollziehen
+- SQL und Mapping-Code nicht in `Main` oder `LagerService` vermischen
 - `ResultSet` korrekt mit `next()` lesen
-- Embedded- und Server-URL unterscheiden
-- `DbProduktSpeicher` als weitere Implementierung von `ProduktSpeicher` verstehen
-- erklären, warum `DbProduktSpeicher` SQL enthalten darf, `LagerService` aber nicht
+- Platzhalter-Reihenfolge im `PreparedStatement` prüfen
+- doppelte Mapping-Logik erkennen, aber keine zu frühe generische Abstraktion bauen
+- erklären, warum ORM-Frameworks später existieren, ohne sie hier zu verwenden
 
 Sinnvolle Session-Formate:
 
-- kurze JDBC-Demo mit H2 Embedded
-- Übungsblock zu `CREATE TABLE`, `INSERT`, `SELECT`, `UPDATE`, `DELETE`
-- Vergleich `CsvProduktSpeicher` und `DbProduktSpeicher`
-- Mini-Refactoring: Persistenz austauschen, Fachlogik gleich lassen
-- kurze Server-Modus-Demo mit angepasster JDBC-URL
+- Code-Review von `DbProduktSpeicher`: `leseProdukt`, `setzeProduktWerte`, INSERT, UPDATE, SELECT
+- kurze Mapping-Tabelle erstellen: Java-Attribut, SQL-Spalte, Java-Typ, SQL-Typ, JDBC-Methode
+- Fehlerdiagnose mit falschem Spaltennamen oder fehlendem `next()`
+- Vergleich CSV-Zeile zu Objekt und DB-Zeile zu Objekt
+- Architekturgespräch: Warum bleibt `LagerService` unverändert?
 
 Bewusste Nicht-Ziele:
 

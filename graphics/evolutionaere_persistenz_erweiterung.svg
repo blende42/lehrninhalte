@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Evolutionäre Persistenz-Erweiterung</title>
+  <desc id="desc">Architekturgrafik: LagerService bleibt stabil. ProduktSpeicher und AenderungsSpeicher verwenden verschiedene Implementierungen. Die Datenbank-Persistenz wächst über JDBC zu den Tabellen PRODUKT und AENDERUNG.</desc>
+
+  <defs>
+    <style>
+      .bg { fill: #f7fbff; }
+      .title { font-family: Arial, Helvetica, sans-serif; font-size: 34px; font-weight: 700; fill: #16324f; }
+      .subtitle { font-family: Arial, Helvetica, sans-serif; font-size: 19px; font-weight: 600; fill: #2b4c6f; }
+      .sectionTitle { font-family: Arial, Helvetica, sans-serif; font-size: 22px; font-weight: 700; fill: #16324f; }
+      .boxTitle { font-family: Arial, Helvetica, sans-serif; font-size: 19px; font-weight: 700; fill: #16324f; }
+      .text { font-family: Arial, Helvetica, sans-serif; font-size: 16px; fill: #1f2d3d; }
+      .small { font-family: Arial, Helvetica, sans-serif; font-size: 14px; fill: #1f2d3d; }
+      .mono { font-family: "Courier New", monospace; font-size: 15px; fill: #1f2d3d; }
+      .note { font-family: Arial, Helvetica, sans-serif; font-size: 17px; font-weight: 700; fill: #7a3e00; }
+      .label { font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: 700; fill: #2b4c6f; }
+      .labelJdbc { font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: 700; fill: #9a3412; }
+      .box { fill: #ffffff; stroke: #4e79a7; stroke-width: 2.5; }
+      .boxGreen { fill: #eef7ea; stroke: #6aa84f; stroke-width: 2.5; }
+      .boxBlue { fill: #e8f1fb; stroke: #4e79a7; stroke-width: 2.5; }
+      .boxOrange { fill: #fff4e8; stroke: #d9903d; stroke-width: 2.5; }
+      .boxPurple { fill: #f4efff; stroke: #8e6cc7; stroke-width: 2.5; }
+      .boxGrey { fill: #f1f5f9; stroke: #64748b; stroke-width: 2.5; }
+      .boxHint { fill: #fff6da; stroke: #d6a73b; stroke-width: 2.5; }
+      .line { stroke: #4e79a7; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .lineSoft { stroke: #64748b; stroke-width: 2.5; fill: none; stroke-dasharray: 8 7; marker-end: url(#arrowSoft); }
+      .lineJdbc { stroke: #c2410c; stroke-width: 3; fill: none; marker-end: url(#arrowJdbc); }
+    </style>
+
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#4e79a7"/>
+    </marker>
+    <marker id="arrowSoft" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#64748b"/>
+    </marker>
+    <marker id="arrowJdbc" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#c2410c"/>
+    </marker>
+
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1600" height="1000"/>
+
+  <text x="800" y="55" text-anchor="middle" class="title">Evolutionäre Persistenz-Erweiterung</text>
+  <text x="800" y="90" text-anchor="middle" class="subtitle">Eine Architektur soll schrittweise wachsen können.</text>
+
+  <g filter="url(#shadow)">
+    <rect x="520" y="125" width="560" height="105" rx="20" class="boxGreen"/>
+  </g>
+  <text x="800" y="164" text-anchor="middle" class="boxTitle">LagerService</text>
+  <text x="800" y="194" text-anchor="middle" class="text">Fachlogik bleibt stabil</text>
+
+  <g filter="url(#shadow)">
+    <rect x="110" y="140" width="330" height="95" rx="18" class="boxHint"/>
+  </g>
+  <text x="275" y="177" text-anchor="middle" class="sectionTitle">Wachstum</text>
+  <text x="275" y="207" text-anchor="middle" class="text">Persistenz wächst schrittweise</text>
+
+  <g filter="url(#shadow)">
+    <rect x="1160" y="140" width="330" height="95" rx="18" class="boxHint"/>
+  </g>
+  <text x="1325" y="177" text-anchor="middle" class="sectionTitle">Vertrag</text>
+  <text x="1325" y="207" text-anchor="middle" class="text">Interfaces bleiben nützlich</text>
+
+  <path d="M745 230 C670 260, 545 285, 425 315" class="line"/>
+  <path d="M855 230 C930 260, 1055 285, 1175 315" class="line"/>
+  <text x="800" y="275" text-anchor="middle" class="label">nutzt Verträge</text>
+
+  <g filter="url(#shadow)">
+    <rect x="130" y="315" width="590" height="120" rx="22" class="boxBlue"/>
+  </g>
+  <text x="425" y="354" text-anchor="middle" class="boxTitle">ProduktSpeicher</text>
+  <text x="425" y="383" text-anchor="middle" class="text">Interface für Produktdaten</text>
+  <text x="425" y="410" text-anchor="middle" class="mono">ladeProdukte(...) / speichereProdukte(...)</text>
+
+  <g filter="url(#shadow)">
+    <rect x="880" y="315" width="590" height="120" rx="22" class="boxBlue"/>
+  </g>
+  <text x="1175" y="354" text-anchor="middle" class="boxTitle">AenderungsSpeicher</text>
+  <text x="1175" y="383" text-anchor="middle" class="text">Interface für Änderungsdaten</text>
+  <text x="1175" y="410" text-anchor="middle" class="mono">speichereAenderung(...) / ladeAenderungen(...)</text>
+
+  <path d="M330 435 C260 475, 215 500, 185 540" class="line"/>
+  <text x="210" y="492" text-anchor="middle" class="label">CSV</text>
+  <path d="M520 435 C610 475, 640 500, 670 540" class="line"/>
+  <text x="650" y="492" text-anchor="middle" class="label">DB</text>
+
+  <path d="M1080 435 C1005 475, 960 500, 930 540" class="line"/>
+  <text x="960" y="492" text-anchor="middle" class="label">CSV</text>
+  <path d="M1260 435 C1350 475, 1380 500, 1410 540" class="line"/>
+  <text x="1390" y="492" text-anchor="middle" class="label">DB</text>
+
+  <g filter="url(#shadow)">
+    <rect x="60" y="540" width="250" height="100" rx="18" class="boxOrange"/>
+  </g>
+  <text x="185" y="575" text-anchor="middle" class="boxTitle">CsvProduktSpeicher</text>
+  <text x="185" y="604" text-anchor="middle" class="small">CSV-Datei</text>
+  <text x="185" y="626" text-anchor="middle" class="small">für Produktdaten</text>
+
+  <g filter="url(#shadow)">
+    <rect x="545" y="540" width="250" height="100" rx="18" class="boxPurple"/>
+  </g>
+  <text x="670" y="575" text-anchor="middle" class="boxTitle">DbProduktSpeicher</text>
+  <text x="670" y="604" text-anchor="middle" class="small">SQL und JDBC</text>
+  <text x="670" y="626" text-anchor="middle" class="small">für Produkte</text>
+
+  <g filter="url(#shadow)">
+    <rect x="805" y="540" width="250" height="100" rx="18" class="boxOrange"/>
+  </g>
+  <text x="930" y="575" text-anchor="middle" class="boxTitle">CsvAenderungsSpeicher</text>
+  <text x="930" y="604" text-anchor="middle" class="small">CSV-Datei</text>
+  <text x="930" y="626" text-anchor="middle" class="small">für Änderungen</text>
+
+  <g filter="url(#shadow)">
+    <rect x="1285" y="540" width="250" height="100" rx="18" class="boxPurple"/>
+  </g>
+  <text x="1410" y="575" text-anchor="middle" class="boxTitle">DbAenderungsSpeicher</text>
+  <text x="1410" y="604" text-anchor="middle" class="small">SQL und JDBC</text>
+  <text x="1410" y="626" text-anchor="middle" class="small">für Änderungen</text>
+
+  <path d="M670 640 C670 680, 670 710, 670 750" class="lineJdbc"/>
+  <text x="700" y="697" text-anchor="start" class="labelJdbc">JDBC</text>
+  <path d="M1410 640 C1410 680, 1410 710, 1410 750" class="lineJdbc"/>
+  <text x="1440" y="697" text-anchor="start" class="labelJdbc">JDBC</text>
+
+  <g filter="url(#shadow)">
+    <rect x="500" y="750" width="340" height="100" rx="18" class="boxGrey"/>
+  </g>
+  <text x="670" y="790" text-anchor="middle" class="boxTitle">Tabelle PRODUKT</text>
+  <text x="670" y="820" text-anchor="middle" class="small">aktueller Produktzustand</text>
+
+  <g filter="url(#shadow)">
+    <rect x="1240" y="750" width="340" height="100" rx="18" class="boxGrey"/>
+  </g>
+  <text x="1410" y="790" text-anchor="middle" class="boxTitle">Tabelle AENDERUNG</text>
+  <text x="1410" y="820" text-anchor="middle" class="small">Preis- und Bestandsänderungen</text>
+
+  <path d="M440 188 C470 188, 490 188, 520 188" class="lineSoft"/>
+  <path d="M1160 188 C1130 188, 1110 188, 1080 188" class="lineSoft"/>
+
+  <g filter="url(#shadow)">
+    <rect x="180" y="880" width="1240" height="60" rx="18" fill="#fff6da" stroke="#d6a73b" stroke-width="2.5"/>
+  </g>
+  <text x="800" y="918" text-anchor="middle" class="note">Architektur entwickelt sich evolutionär: stabile Fachlogik, wachsende Persistenz.</text>
+</svg>
