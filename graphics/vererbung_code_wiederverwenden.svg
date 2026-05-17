@@ -97,10 +97,10 @@
   <text x="275" y="382" text-anchor="middle" class="label">implements</text>
 
   <path d="M785 500 C630 470, 455 405, 330 295" class="lineInterface"/>
-  <text x="695" y="372" text-anchor="middle" class="label">implements</text>
+  <text x="695" y="382" text-anchor="middle" class="label">extends</text>
 
   <path d="M405 455 C570 360, 800 325, 985 295" class="lineInheritance"/>
-  <text x="695" y="397" text-anchor="middle" class="label">extends</text>
+  <text x="695" y="510" text-anchor="middle" class="label">implements</text>
 
   <path d="M1045 455 C1055 380, 1072 335, 1085 295" class="lineInheritance"/>
   <text x="1125" y="382" text-anchor="middle" class="label">extends</text>
