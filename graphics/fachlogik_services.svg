@@ -67,25 +67,25 @@
 
   <!-- LagerService -->
   <g filter="url(#shadow)">
-    <rect x="330" y="330" width="740" height="110" rx="20" class="boxGreen"/>
+    <rect x="430" y="330" width="540" height="110" rx="20" class="boxGreen"/>
   </g>
   <text x="700" y="365" text-anchor="middle" class="boxTitle">LagerService</text>
   <text x="700" y="394" text-anchor="middle" class="text">Fachlogik im Service</text>
-  <text x="565" y="424" text-anchor="middle" class="code">verkaufen(...)</text>
-  <text x="835" y="424" text-anchor="middle" class="code">bestandErhoehen(...)</text>
+  <text x="600" y="424" text-anchor="middle" class="code">verkaufen(...)</text>
+  <text x="800" y="424" text-anchor="middle" class="code">bestandErhoehen(...)</text>
 
   <!-- Persistenz -->
   <g filter="url(#shadow)">
-    <rect x="260" y="545" width="390" height="75" rx="18" class="boxPurple"/>
+    <rect x="220" y="545" width="390" height="75" rx="18" class="boxPurple"/>
   </g>
-  <text x="455" y="575" text-anchor="middle" class="boxTitle">ProduktSpeicher</text>
-  <text x="455" y="602" text-anchor="middle" class="text">Vertrag</text>
+  <text x="415" y="575" text-anchor="middle" class="boxTitle">ProduktSpeicher</text>
+  <text x="415" y="602" text-anchor="middle" class="text">Vertrag</text>
 
   <g filter="url(#shadow)">
-    <rect x="750" y="545" width="390" height="75" rx="18" class="boxOrange"/>
+    <rect x="790" y="545" width="390" height="75" rx="18" class="boxOrange"/>
   </g>
-  <text x="945" y="575" text-anchor="middle" class="boxTitle">CsvProduktSpeicher</text>
-  <text x="945" y="602" text-anchor="middle" class="text">CSV speichern/laden</text>
+  <text x="985" y="575" text-anchor="middle" class="boxTitle">CsvProduktSpeicher</text>
+  <text x="985" y="602" text-anchor="middle" class="text">CSV speichern/laden</text>
 
   <!-- Produkt -->
   <g filter="url(#shadow)">
@@ -98,17 +98,17 @@
   <path d="M700 235 C700 270, 700 300, 700 330" class="line"/>
   <text x="724" y="283" text-anchor="start" class="small">nutzt</text>
 
-  <path d="M650 440 C610 478, 540 510, 455 545" class="lineSoft"/>
-  <text x="520" y="505" text-anchor="middle" class="small">getrennt von Persistenz</text>
+  <path d="M650 440 C600 478, 520 510, 415 545" class="lineSoft"/>
+  <text x="445" y="496" text-anchor="middle" class="small">getrennt von Persistenz</text>
 
-  <path d="M750 582 C720 582, 685 582, 650 582" class="lineGreen"/>
-  <text x="700" y="565" text-anchor="middle" class="small">implements</text>
+  <path d="M790 582 C720 582, 680 582, 610 582" class="lineGreen"/>
+  <text x="744" y="575" text-anchor="middle" class="small">implements</text>
 
   <path d="M700 440 C700 505, 700 635, 700 700" class="line"/>
   <text x="724" y="665" text-anchor="start" class="small">arbeitet mit Daten</text>
 
-  <path d="M790 235 C900 305, 945 435, 945 545" class="lineSoft"/>
-  <text x="980" y="396" text-anchor="start" class="small">ruft Speicher auf</text>
+  <path d="M850 235 C1000 285, 1135 380, 985 545" class="lineSoft"/>
+  <text x="1070" y="398" text-anchor="start" class="small">ruft Speicher auf</text>
 
   <!-- Hinweise -->
   <g filter="url(#shadow)">
