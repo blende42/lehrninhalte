@@ -11,7 +11,11 @@ Die verbindliche Policy für Codex mit `MUSS`, `SOLL`, `DARF NICHT`, Qualitätsg
 - [NEXT_STEPS.md](./NEXT_STEPS.md) – Übergabe zum aktuellen Stand und nächstem geplanten Unterrichtsblock
 
 ### docs
-Begriffs- und Prozessbibliothek für KI-gestützte Lehrmittel-Erstellung:
+Didaktik-, Begriffs- und Prozessbibliothek für KI-gestützte Lehrmittel-Erstellung:
+
+#### docs/didaktik
+
+- [entwicklungslogik.md](./docs/didaktik/entwicklungslogik.md)
 
 #### docs/begriffe
 

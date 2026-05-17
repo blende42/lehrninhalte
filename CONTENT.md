@@ -2,9 +2,14 @@
 
 Diese Übersicht listet die vorhandenen Lerninhalte des Repositories nach Materialtyp und Thema. Sie dient als Orientierung für Unterrichtsplanung, Wiederholung, Projektarbeit und Weiterentwicklung der Unterlagen.
 
-## Begleitende Prozess- und Begriffsbibliothek
+## Begleitende Didaktik-, Prozess- und Begriffsbibliothek
 
 Diese Dateien unterstützen die KI-gestützte Erstellung und Prüfung von Lehrmitteln. Die verbindlichen Regeln bleiben in [AGENTS.md](./AGENTS.md).
+
+### Didaktik
+
+- [Didaktische Entwicklungslogik](./docs/didaktik/entwicklungslogik.md)
+  - begründet die Entwicklung von Java-Grundlagen über Datenstrukturen, OOP, Maven, Tests, Persistenz, Verantwortlichkeiten, Interfaces und Services bis zu Projektarbeit, Projekt-Review und Architektur-Festigung
 
 ### Begriffe
 
@@ -69,6 +74,14 @@ Hinweis: `.codex/skills` ist eine veraltete Skill-Ablage. Die aktuellen Repo-Ski
 ## Empfohlene Unterrichtsreihenfolge
 
 Diese Reihenfolge erfasst die bisher aufgebauten Konzepte und Übungen. Die Einträge bilden die bisher vorbereitete Unterrichtssequenz.
+
+### Didaktische Entwicklungslinie
+
+Die Reihenfolge ist bewusst als roter Faden aufgebaut: Grundlagen, Datenstrukturen, OOP, Maven, Tests, Refactoring, Persistenz, Verantwortlichkeiten, Interfaces, Polymorphie, Wiederverwendung, Vererbung und Services führen schrittweise zu Projektarbeit und Projekt-Review.
+
+Architektur wird dabei nicht abstrakt vorangestellt. Sie entsteht aus konkreten Problemen im Code: zu viel Logik in `Main`, vermischte Datei- und Fachlogik, doppelte Codeabschnitte, schwer testbare Methoden oder unklare Verantwortlichkeiten. Nach den Services folgt deshalb bewusst eine Festigungsphase, in der Lernende diese Strukturentscheidungen an bekannten Beispielen sichern.
+
+Die ausführliche Begründung steht in [Didaktische Entwicklungslogik](./docs/didaktik/entwicklungslogik.md).
 
 ### 1. Primitive Datentypen, Wrapper und Parsing
 

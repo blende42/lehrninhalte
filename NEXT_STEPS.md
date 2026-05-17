@@ -42,7 +42,9 @@ Aktuell vorbereitet sind:
 32. Gemeinsamen Code mit Vererbung wiederverwenden
 33. Fachlogik in Services bündeln
 
-Die zuletzt erstellte Unterrichtseinheit ist **Fachlogik in Services bündeln**. Zusätzlich wurde eine kleine Prozess- und Begriffsbibliothek für KI-gestützte Lehrmittel-Erstellung angelegt.
+Die zuletzt erstellte Unterrichtseinheit ist **Fachlogik in Services bündeln**. Zusätzlich wurde eine kleine Didaktik-, Prozess- und Begriffsbibliothek für KI-gestützte Lehrmittel-Erstellung angelegt.
+
+Die didaktische Entwicklungslinie der Unterrichtsreihe ist in [entwicklungslogik.md](./docs/didaktik/entwicklungslogik.md) festgehalten. Sie erklärt den Aufbau von Java-Grundlagen über Datenstrukturen, OOP, Maven, Tests, Refactoring, Persistenz, Verantwortlichkeiten, Interfaces, Polymorphie, Wiederverwendung, Vererbung und Services bis zu Projektarbeit, Projekt-Review und Architektur-Festigung.
 
 Neue Projektstruktur für grössere Mini-Projekte:
 
@@ -145,14 +147,15 @@ Neue Dateien im Maven-, Testing-, Refactoring- und Persistenz-Block:
 
 Neue Dokumentations- und Skill-Bereiche:
 
+- [docs/didaktik](./docs/didaktik/) – didaktische Entwicklungslogik der Unterrichtsreihe
 - [docs/begriffe](./docs/begriffe/) – kurze unterrichtstaugliche Begriffserklärungen
 - [docs/prozesse](./docs/prozesse/) – Checklisten für Erstellung und Review
 - [.agents/skills](./.agents/skills/) – aktuelle Repo-Skills für wiederkehrende und kontrollierte Arbeitsabläufe
 - [.codex/skills](./.codex/skills/) – veraltete Skill-Ablage; die aktuellen Skills liegen unter `.agents/skills`
 
-## Prozess- und Begriffsbibliothek
+## Didaktik-, Prozess- und Begriffsbibliothek
 
-Die Dateien unter `docs/begriffe` erklären zentrale Begriffe kurz und unterrichtstauglich. Die Dateien unter `docs/prozesse` formulieren konkrete Checklisten für Erstellung und Review von Lehrmitteln. Die aktuellen Repo-Skills unter `.agents/skills` verweisen auf diese Prozesse und auf [AGENTS.md](./AGENTS.md), ohne die Repo-Regeln vollständig zu duplizieren. Die frühere Ablage `.codex/skills` ist veraltet. Der Skill `git-repo-updaten` beschreibt einen kontrollierten Git-Abschluss und bleibt ausdrücklich an einen Benutzerauftrag gebunden.
+Die Datei unter `docs/didaktik` beschreibt die didaktische Entwicklungslogik der Unterrichtsreihe. Die Dateien unter `docs/begriffe` erklären zentrale Begriffe kurz und unterrichtstauglich. Die Dateien unter `docs/prozesse` formulieren konkrete Checklisten für Erstellung und Review von Lehrmitteln. Die aktuellen Repo-Skills unter `.agents/skills` verweisen auf diese Prozesse und auf [AGENTS.md](./AGENTS.md), ohne die Repo-Regeln vollständig zu duplizieren. Die frühere Ablage `.codex/skills` ist veraltet. Der Skill `git-repo-updaten` beschreibt einen kontrollierten Git-Abschluss und bleibt ausdrücklich an einen Benutzerauftrag gebunden.
 
 ## Wichtige Inhalte aus dem Maven-Einstieg
 
@@ -196,18 +199,37 @@ Die Dateien unter `docs/begriffe` erklären zentrale Begriffe kurz und unterrich
 - Build-Server, Jenkins und CI/CD werden nur als Ausblick erwähnt.
 - Es werden bewusst noch keine externen Dependencies, kein Maven Central, kein JUnit, keine Plugin-Details, keine Fat Jars, kein Spring Boot und kein `install`/`deploy` eingeführt.
 
-## Nächster geplanter Block
+## Nächster Fokus
 
-Als nächstes bietet sich eine **Repetition zu Verantwortlichkeiten, Persistenz, Interfaces und Services oder eine weitere Vertiefung der Lagerverwaltung** an.
+Als nächstes steht **Verantwortlichkeiten, Persistenz, Interfaces und Services festigen** im Vordergrund.
 
-Sinnvolle Inhalte:
+Diese Phase ist bewusst für mehrere Sessions vorgesehen. Es soll jetzt keine grosse neue Technologie eingeführt werden, weil die Lernenden zuerst die bisher aufgebauten Strukturideen sicher anwenden müssen. Der Fokus liegt auf Diagnose, kleinen Verbesserungen und Architekturreflexion an bekanntem Code.
 
-- Verantwortlichkeiten von `Main`, `Produkt`, `LagerService` und `ProduktSpeicher` diagnostisch prüfen
-- Fachlogik und Persistenz an konkreten Codebeispielen unterscheiden
+Diagnostisch zu festigen:
+
+- `Main`, `Produkt`, `LagerService` und `ProduktSpeicher` sauber unterscheiden
+- Fachlogik und Persistenz trennen
 - Service-Methoden wie `verkaufen(...)`, `bestandErhoehen(...)` und `warnungPruefen(...)` testen
-- bestehende Lagerverwaltung schrittweise besser strukturieren
-- Grenzen zu vieler Services besprechen
-- weiterhin keine Datenbank und keine komplexen Frameworks
+- bestehende Lagerverwaltung schrittweise verbessern
+- typische Fehlstrukturen erkennen, zum Beispiel zu viel Logik in `Main`, vermischte Datei- und Fachlogik oder unnötig viele Klassen
+
+Sinnvolle Session-Formate:
+
+- kleine Aufgaben zur Verantwortlichkeitszuordnung
+- kurze Refactorings mit vorher/nachher-Vergleich
+- Testaufgaben für Service-Methoden
+- Architekturreflexion mit einfachen Fragen wie: Wo liegt die Fachlogik? Wer speichert Daten? Welche Klasse kennt welchen Vertrag?
+
+Bewusste Nicht-Ziele:
+
+- keine Datenbank
+- kein Spring
+- keine Dependency Injection
+- kein formales Repository Pattern
+- keine Clean Architecture
+- keine komplexen Frameworks
+- keine neue grosse Architekturtheorie
+- keine zu frühe REST-API
 
 ## Passender Anschluss
 
