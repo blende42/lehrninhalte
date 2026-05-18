@@ -46,12 +46,13 @@ Aktuell vorbereitet sind:
 36. DbProduktSpeicher mit JDBC und H2
 37. Bestehende Persistenz auf Datenbank erweitern
 38. Mapping zwischen Objekten und Datenbank
+39. Mehrere Tabellen, Beziehungen und Repository
 
-Die zuletzt erstellte Unterrichtseinheit ist **Mapping zwischen Objekten und Datenbank**. Sie macht bewusst sichtbar, dass Java-Objekte nicht direkt in der Datenbank existieren, sondern zwischen `Produkt`, `ResultSet`, `PreparedStatement` und der Tabelle `PRODUKT` übersetzt werden müssen.
+Die zuletzt erstellte Unterrichtseinheit ist **Mehrere Tabellen, Beziehungen und Repository**. Sie zeigt, wie fachlich zusammengehörige Daten über `PRODUKT`, `PREISAENDERUNG` und `BESTANDSAENDERUNG` verteilt werden, wie `PRODUKT_ID` die Beziehung abbildet und warum `ProduktRepository` sowie `AenderungsRepository` den wachsenden JDBC- und Mapping-Code bündeln.
 
 Das zuletzt erstellte Mini-Projekt ist **Änderungshistorie für Lagerverwaltung**.
 
-Die didaktische Entwicklungslinie der Unterrichtsreihe ist in [entwicklungslogik.md](./docs/didaktik/entwicklungslogik.md) festgehalten. Sie erklärt den Aufbau von Java-Grundlagen über Datenstrukturen, OOP, Maven, Tests, Refactoring, Persistenz, Verantwortlichkeiten, Interfaces, Polymorphie, Wiederverwendung, Vererbung und Services bis zu Projektarbeit, Projekt-Review und Architektur-Festigung.
+Die didaktische Entwicklungslinie der Unterrichtsreihe ist in [entwicklungslogik.md](./docs/didaktik/entwicklungslogik.md) festgehalten. Sie erklärt den Aufbau von Java-Grundlagen über Datenstrukturen, OOP, Maven, Tests, Refactoring, CSV-Persistenz, Verantwortlichkeiten, Interfaces, Polymorphie, Wiederverwendung, Vererbung und Services bis zu Projektarbeit, Projekt-Review, Architektur-Festigung, JDBC/H2, Mapping, mehreren Tabellen und Repository als einfachem strukturiertem Datenzugriff.
 
 Neue Projektstruktur für grössere Mini-Projekte:
 
@@ -163,9 +164,14 @@ Neue Dateien im Maven-, Testing-, Refactoring- und Persistenz-Block:
 - [Loesungen_Persistenz_Datenbank_Erweitern.md](./Musterloesungen/Loesungen_Persistenz_Datenbank_Erweitern.md)
 - [Arbeitsblatt_Objekt_Datenbank_Mapping.md](./Arbeitsblaetter/Arbeitsblatt_Objekt_Datenbank_Mapping.md)
 - [Uebungen_Objekt_Datenbank_Mapping.md](./Uebungen/Uebungen_Objekt_Datenbank_Mapping.md)
+- [Arbeitsblatt_Tabellen_Beziehungen_Repository.md](./Arbeitsblaetter/Arbeitsblatt_Tabellen_Beziehungen_Repository.md)
+- [Uebungen_Tabellen_Beziehungen_Repository.md](./Uebungen/Uebungen_Tabellen_Beziehungen_Repository.md)
 - [Loesungen_Objekt_Datenbank_Mapping.md](./Musterloesungen/Loesungen_Objekt_Datenbank_Mapping.md)
+- [Loesungen_Tabellen_Beziehungen_Repository.md](./Musterloesungen/Loesungen_Tabellen_Beziehungen_Repository.md)
 - [csv_vs_db_produkt_speicher.svg](./graphics/csv_vs_db_produkt_speicher.svg)
 - [objekt_datenbank_mapping.svg](./graphics/objekt_datenbank_mapping.svg)
+- [repository_evolutionsschritt.svg](./graphics/repository_evolutionsschritt.svg)
+- [repository_und_tabellenbeziehungen.svg](./graphics/repository_und_tabellenbeziehungen.svg)
 - [fachlogik_services.svg](./graphics/fachlogik_services.svg)
 - [verantwortlichkeiten_services_festigen.svg](./graphics/verantwortlichkeiten_services_festigen.svg)
 - [jdbc_h2_embedded_vs_server.svg](./graphics/jdbc_h2_embedded_vs_server.svg)
@@ -296,30 +302,62 @@ Die Datei unter `docs/didaktik` beschreibt die didaktische Entwicklungslogik der
 - Die Musterlösung enthält eine kompakte Standardlösung mit `ResultSet` zu `Produkt`, `Produkt` zu `PreparedStatement`, INSERT-, UPDATE- und SELECT-Mapping, privaten Mapping-Hilfsmethoden, CSV/DB-Vergleich, Fehlerhinweisen, ORM-Motivation und dokumentierter Maven-Verifikation.
 - Bewusst nicht eingeführt werden ORM, Hibernate, JPA, Reflection, generische Mapper, Annotationen, Spring Data und automatische Persistenzframeworks.
 
+## Wichtige Inhalte aus Mehrere Tabellen, Beziehungen und Repository
+
+- Die bekannte Lagerverwaltung wird um mehrere fachlich zusammengehörige Tabellen erweitert:
+  - `PRODUKT`
+  - `PREISAENDERUNG`
+  - `BESTANDSAENDERUNG`
+- `PRODUKT_ID` wird als einfache Beziehung zu `PRODUKT.ID` eingeführt.
+- Preisänderungen und Bestandsänderungen werden als eigene Modellklassen `PreisAenderung` und `BestandsAenderung` betrachtet.
+- Mapping wächst sichtbar:
+  - `ResultSet` zu `Produkt`
+  - `ResultSet` zu `PreisAenderung`
+  - `ResultSet` zu `BestandsAenderung`
+  - Objektwerte zu `PreparedStatement`
+- `ProduktRepository` bündelt Datenzugriff und Mapping rund um `PRODUKT`.
+- `AenderungsRepository` bündelt Datenzugriff und Mapping rund um `PREISAENDERUNG` und `BESTANDSAENDERUNG`.
+- Die Grafik `repository_evolutionsschritt.svg` zeigt Repository als natürlichen Evolutionsschritt von einer überschaubaren Persistenzklasse zu fachlich getrennten Repositorys.
+- Die Grafik `repository_und_tabellenbeziehungen.svg` zeigt `LagerService`, Repositorys, JDBC, H2-Datenbank, Tabellenbeziehungen über `ID` und `PRODUKT_ID`, Mapping als Übersetzung und getrennte Fachlogik.
+- Für sortierte Änderungshistorien sollen Zeitpunkte als ISO-Text wie `2026-05-18T09:00` verwendet werden.
+- `LagerService` bleibt für Fachlogik zuständig und soll keinen SQL-, JDBC- oder Mapping-Code enthalten.
+- `Main` bleibt Ablaufsteuerung.
+- Die Übungen sind nach Basis, Vertiefung und Transfer gestaffelt:
+  - Tabellen erstellen
+  - `PRODUKT_ID` referenzieren
+  - Änderungen speichern und laden
+  - Repository-Klassen erstellen
+  - Mapping-Methoden auslagern
+  - doppelte JDBC-Logik bewusst reduzieren
+  - stabile Services und Verantwortlichkeiten prüfen
+- Die Musterlösung enthält eine kompakte Standardlösung mit `Produkt`, `PreisAenderung`, `BestandsAenderung`, `ProduktRepository`, `AenderungsRepository`, stabilem `LagerService`, kleiner `Main`, typischen Fehlerhinweisen und dokumentierter Maven-Verifikation mit temporärem Prüfprojekt.
+- Bewusst nicht eingeführt werden ORM, Hibernate, JPA, Spring Data, Generic Repository, automatische Query-Generierung, Dependency Injection, komplexe SQL-Joins und vertiefte Normalformen.
+
 ## Nächster Fokus
 
-Als nächstes bietet sich ein Review zu **Mapping zwischen Objekten und Datenbank** an.
+Als nächstes bietet sich ein Review zu **Mehrere Tabellen, Beziehungen und Repository** an.
 
-Die Einheit baut direkt auf CSV-Persistenz, Verantwortlichkeiten, Interfaces, Services, JDBC/H2-Grundlagen, `DbProduktSpeicher` und der evolutionären Persistenz-Erweiterung auf. Die Kernbotschaft lautet: JDBC liefert rohe Daten, und `DbProduktSpeicher` übersetzt zwischen Fachobjekt und Datenbankstruktur.
+Die Einheit baut direkt auf CSV-Persistenz, Verantwortlichkeiten, Interfaces, Services, JDBC/H2-Grundlagen, `DbProduktSpeicher`, evolutionärer Persistenz-Erweiterung und Objekt-Datenbank-Mapping auf. Die Kernbotschaft lautet: Persistenz- und Mapping-Code wächst mit der Anwendung und braucht eine klare Struktur.
 
 Weiter diagnostisch zu beobachten:
 
-- `Produkt`, Tabellenzeile und `ResultSet` sauber unterscheiden
-- Mapping von `ResultSet` zu `Produkt` nachvollziehen
-- Mapping von `Produkt` zu `PreparedStatement` nachvollziehen
-- SQL und Mapping-Code nicht in `Main` oder `LagerService` vermischen
-- `ResultSet` korrekt mit `next()` lesen
+- `PRODUKT_ID` als Beziehung zwischen Produkt und Änderungen erklären
+- mehrere Tabellen und Java-Objekte sauber zuordnen
+- Mapping von `ResultSet` zu `Produkt`, `PreisAenderung` und `BestandsAenderung` nachvollziehen
+- SQL, JDBC und Mapping-Code nicht in `Main` oder `LagerService` vermischen
+- `ProduktRepository` und `AenderungsRepository` nach Verantwortung unterscheiden
+- `ResultSet` korrekt mit `next()` lesen und mehrere Änderungen laden
 - Platzhalter-Reihenfolge im `PreparedStatement` prüfen
-- doppelte Mapping-Logik erkennen, aber keine zu frühe generische Abstraktion bauen
+- doppelte JDBC- und Mapping-Logik erkennen, aber keine zu frühe generische Abstraktion bauen
 - erklären, warum ORM-Frameworks später existieren, ohne sie hier zu verwenden
 
 Sinnvolle Session-Formate:
 
-- Code-Review von `DbProduktSpeicher`: `leseProdukt`, `setzeProduktWerte`, INSERT, UPDATE, SELECT
-- kurze Mapping-Tabelle erstellen: Java-Attribut, SQL-Spalte, Java-Typ, SQL-Typ, JDBC-Methode
-- Fehlerdiagnose mit falschem Spaltennamen oder fehlendem `next()`
-- Vergleich CSV-Zeile zu Objekt und DB-Zeile zu Objekt
+- Code-Review von `ProduktRepository` und `AenderungsRepository`
+- Mapping-Tabelle erstellen: Java-Klasse, SQL-Tabelle, Beziehung, Mapping-Methode
+- Fehlerdiagnose mit falscher `PRODUKT_ID`, falschem Spaltennamen oder fehlendem `next()`
 - Architekturgespräch: Warum bleibt `LagerService` unverändert?
+- Vergleich: eine grosse Persistenzklasse gegenüber Repository-Aufteilung
 
 Bewusste Nicht-Ziele:
 

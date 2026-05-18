@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Repository und Tabellenbeziehungen</title>
+  <desc id="desc">Architekturgrafik: LagerService bleibt fachlich. ProduktRepository und AenderungsRepository bündeln Datenzugriff und Mapping. JDBC verbindet die Repositorys mit H2 und den Tabellen PRODUKT, PREISAENDERUNG und BESTANDSAENDERUNG.</desc>
+
+  <defs>
+    <style>
+      .bg { fill: #f7fbff; }
+      .title { font-family: Arial, Helvetica, sans-serif; font-size: 34px; font-weight: 700; fill: #16324f; }
+      .subtitle { font-family: Arial, Helvetica, sans-serif; font-size: 19px; font-weight: 600; fill: #2b4c6f; }
+      .sectionTitle { font-family: Arial, Helvetica, sans-serif; font-size: 22px; font-weight: 700; fill: #16324f; }
+      .boxTitle { font-family: Arial, Helvetica, sans-serif; font-size: 20px; font-weight: 700; fill: #16324f; }
+      .text { font-family: Arial, Helvetica, sans-serif; font-size: 16px; fill: #1f2d3d; }
+      .small { font-family: Arial, Helvetica, sans-serif; font-size: 14px; fill: #1f2d3d; }
+      .mono { font-family: "Courier New", monospace; font-size: 15px; fill: #1f2d3d; }
+      .monoSmall { font-family: "Courier New", monospace; font-size: 13px; fill: #1f2d3d; }
+      .note { font-family: Arial, Helvetica, sans-serif; font-size: 17px; font-weight: 700; fill: #7a3e00; }
+      .label { font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: 700; fill: #2b4c6f; }
+      .labelJdbc { font-family: Arial, Helvetica, sans-serif; font-size: 15px; font-weight: 700; fill: #9a3412; }
+      .box { fill: #ffffff; stroke: #4e79a7; stroke-width: 2.5; }
+      .boxGreen { fill: #eef7ea; stroke: #6aa84f; stroke-width: 2.5; }
+      .boxBlue { fill: #e8f1fb; stroke: #4e79a7; stroke-width: 2.5; }
+      .boxOrange { fill: #fff4e8; stroke: #d9903d; stroke-width: 2.5; }
+      .boxPurple { fill: #f4efff; stroke: #8e6cc7; stroke-width: 2.5; }
+      .boxGrey { fill: #f1f5f9; stroke: #64748b; stroke-width: 2.5; }
+      .boxHint { fill: #fff6da; stroke: #d6a73b; stroke-width: 2.5; }
+      .dbBox { fill: #ffffff; stroke: #64748b; stroke-width: 2.2; }
+      .line { stroke: #4e79a7; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .lineSoft { stroke: #64748b; stroke-width: 2.5; fill: none; stroke-dasharray: 8 7; marker-end: url(#arrowSoft); }
+      .lineJdbc { stroke: #c2410c; stroke-width: 3.2; fill: none; marker-end: url(#arrowJdbc); }
+      .lineFk { stroke: #8e6cc7; stroke-width: 2.8; fill: none; stroke-dasharray: 7 6; marker-end: url(#arrowFk); }
+    </style>
+
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#4e79a7"/>
+    </marker>
+    <marker id="arrowSoft" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#64748b"/>
+    </marker>
+    <marker id="arrowJdbc" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#c2410c"/>
+    </marker>
+    <marker id="arrowFk" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#8e6cc7"/>
+    </marker>
+
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1600" height="1000"/>
+
+  <text x="800" y="54" text-anchor="middle" class="title">Repository und Tabellenbeziehungen</text>
+  <text x="800" y="88" text-anchor="middle" class="subtitle">Mit wachsender Persistenz werden strukturierte Repository-Klassen sinnvoll.</text>
+
+  <g filter="url(#shadow)">
+    <rect x="560" y="125" width="480" height="105" rx="20" class="boxGreen"/>
+  </g>
+  <text x="800" y="165" text-anchor="middle" class="boxTitle">LagerService</text>
+  <text x="800" y="195" text-anchor="middle" class="text">Fachlogik bleibt getrennt</text>
+
+  <path d="M720 230 C640 260, 510 275, 405 315" class="line"/>
+  <path d="M880 230 C960 260, 1090 275, 1195 315" class="line"/>
+  <text x="800" y="270" text-anchor="middle" class="label">nutzt Repositorys</text>
+
+  <g filter="url(#shadow)">
+    <rect x="105" y="315" width="600" height="260" rx="22" class="boxBlue"/>
+  </g>
+  <text x="405" y="354" text-anchor="middle" class="sectionTitle">ProduktRepository</text>
+  <text x="405" y="386" text-anchor="middle" class="text">bündelt Datenzugriff für Produkte</text>
+
+  <g filter="url(#shadow)">
+    <rect x="145" y="415" width="245" height="115" rx="16" class="box"/>
+  </g>
+  <text x="267" y="450" text-anchor="middle" class="boxTitle">Operationen</text>
+  <text x="267" y="480" text-anchor="middle" class="text">Produkt speichern</text>
+  <text x="267" y="505" text-anchor="middle" class="text">Produkt laden</text>
+
+  <g filter="url(#shadow)">
+    <rect x="420" y="415" width="245" height="115" rx="16" class="box"/>
+  </g>
+  <text x="542" y="450" text-anchor="middle" class="boxTitle">Mapping</text>
+  <text x="542" y="480" text-anchor="middle" class="text">ResultSet zu Produkt</text>
+  <text x="542" y="505" text-anchor="middle" class="text">Produkt zu Statement</text>
+
+  <g filter="url(#shadow)">
+    <rect x="895" y="315" width="600" height="260" rx="22" class="boxBlue"/>
+  </g>
+  <text x="1195" y="354" text-anchor="middle" class="sectionTitle">AenderungsRepository</text>
+  <text x="1195" y="386" text-anchor="middle" class="text">bündelt Datenzugriff für Änderungen</text>
+
+  <g filter="url(#shadow)">
+    <rect x="935" y="415" width="245" height="115" rx="16" class="box"/>
+  </g>
+  <text x="1057" y="450" text-anchor="middle" class="boxTitle">Operationen</text>
+  <text x="1057" y="480" text-anchor="middle" class="text">Preisänderungen speichern</text>
+  <text x="1057" y="505" text-anchor="middle" class="text">Bestandsänderungen speichern</text>
+
+  <g filter="url(#shadow)">
+    <rect x="1210" y="415" width="245" height="115" rx="16" class="box"/>
+  </g>
+  <text x="1332" y="450" text-anchor="middle" class="boxTitle">Mapping</text>
+  <text x="1332" y="480" text-anchor="middle" class="text">Änderungen laden</text>
+  <text x="1332" y="505" text-anchor="middle" class="text">Zeilen zu Objekten</text>
+
+  <path d="M405 575 C405 625, 560 640, 690 675" class="lineJdbc"/>
+  <path d="M1195 575 C1195 625, 1040 640, 910 675" class="lineJdbc"/>
+  <text x="800" y="640" text-anchor="middle" class="labelJdbc">Repositorys verwenden JDBC</text>
+
+  <g filter="url(#shadow)">
+    <rect x="605" y="675" width="390" height="85" rx="18" class="boxOrange"/>
+  </g>
+  <text x="800" y="712" text-anchor="middle" class="boxTitle">JDBC</text>
+  <text x="800" y="740" text-anchor="middle" class="text">technische Verbindung zur H2-Datenbank</text>
+
+  <path d="M800 760 C800 785, 800 805, 800 825" class="lineJdbc"/>
+
+  <g filter="url(#shadow)">
+    <rect x="135" y="825" width="1330" height="145" rx="24" class="boxGrey"/>
+  </g>
+  <text x="800" y="858" text-anchor="middle" class="sectionTitle">H2-Datenbank</text>
+  <text x="800" y="887" text-anchor="middle" class="label">PRODUKT_ID verbindet Änderungstabellen mit PRODUKT.ID</text>
+
+  <g filter="url(#shadow)">
+    <rect x="195" y="910" width="300" height="48" rx="12" class="dbBox"/>
+  </g>
+  <text x="345" y="940" text-anchor="middle" class="monoSmall">PRODUKT (ID)</text>
+
+  <g filter="url(#shadow)">
+    <rect x="650" y="910" width="300" height="48" rx="12" class="dbBox"/>
+  </g>
+  <text x="800" y="940" text-anchor="middle" class="monoSmall">PREISAENDERUNG (PRODUKT_ID)</text>
+
+  <g filter="url(#shadow)">
+    <rect x="1105" y="910" width="300" height="48" rx="12" class="dbBox"/>
+  </g>
+  <text x="1255" y="940" text-anchor="middle" class="monoSmall">BESTANDSAENDERUNG (PRODUKT_ID)</text>
+
+  <path d="M495 928 C555 890, 600 890, 650 925" class="lineFk"/>
+  <path d="M495 946 C715 990, 955 990, 1105 946" class="lineFk"/>
+
+  <g filter="url(#shadow)">
+    <rect x="70" y="125" width="330" height="115" rx="18" class="boxHint"/>
+  </g>
+  <text x="235" y="164" text-anchor="middle" class="sectionTitle">Mapping</text>
+  <text x="235" y="194" text-anchor="middle" class="text">Übersetzung zwischen</text>
+  <text x="235" y="219" text-anchor="middle" class="text">Objekten und Tabellen</text>
+
+  <g filter="url(#shadow)">
+    <rect x="1200" y="125" width="330" height="115" rx="18" class="boxHint"/>
+  </g>
+  <text x="1365" y="164" text-anchor="middle" class="sectionTitle">Merksatz</text>
+  <text x="1365" y="194" text-anchor="middle" class="text">Repository bündelt</text>
+  <text x="1365" y="219" text-anchor="middle" class="text">Datenzugriff und Mapping</text>
+
+  <path d="M400 182 C450 182, 500 182, 560 182" class="lineSoft"/>
+  <path d="M1200 182 C1145 182, 1095 182, 1040 182" class="lineSoft"/>
+
+</svg>

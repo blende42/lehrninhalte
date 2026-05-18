@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="620" viewBox="0 0 1400 620" role="img" aria-labelledby="title desc">
+  <title id="title">Repository als Evolutionsschritt</title>
+  <desc id="desc">Vorher-Nachher-Grafik: Eine einzelne Persistenzklasse wächst zu mehreren Repository-Klassen für Datenzugriff und Mapping.</desc>
+
+  <defs>
+    <marker id="arrowBlue" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#3f6f9f"/>
+    </marker>
+    <marker id="arrowOrange" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#c94a12"/>
+    </marker>
+    <style>
+      .bg { fill: #f7fafc; }
+      .title { font: 700 34px Arial, sans-serif; fill: #17324d; }
+      .subtitle { font: 600 18px Arial, sans-serif; fill: #2f4f73; }
+      .label { font: 700 22px Arial, sans-serif; fill: #17324d; }
+      .small { font: 17px Arial, sans-serif; fill: #1f2937; }
+      .note { font: 700 17px Arial, sans-serif; fill: #9a3412; }
+      .boxOld { fill: #fff7e6; stroke: #d89b1d; stroke-width: 3; }
+      .boxGrow { fill: #fff1e8; stroke: #c94a12; stroke-width: 3; }
+      .boxNew { fill: #e8f2fc; stroke: #3f6f9f; stroke-width: 3; }
+      .boxInner { fill: #ffffff; stroke: #3f6f9f; stroke-width: 2.5; }
+      .arrowBlue { stroke: #3f6f9f; stroke-width: 4; fill: none; marker-end: url(#arrowBlue); }
+      .arrowOrange { stroke: #c94a12; stroke-width: 4; fill: none; marker-end: url(#arrowOrange); }
+      .dash { stroke-dasharray: 8 8; }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1400" height="620"/>
+
+  <text x="700" y="54" text-anchor="middle" class="title">Repository als Evolutionsschritt</text>
+  <text x="700" y="86" text-anchor="middle" class="subtitle">Wenn Persistenz und Mapping wachsen, wird eine klarere Struktur sinnvoll.</text>
+
+  <rect x="70" y="150" width="330" height="300" rx="18" class="boxOld"/>
+  <text x="235" y="190" text-anchor="middle" class="label">Vorher</text>
+  <text x="235" y="228" text-anchor="middle" class="small">DbProduktSpeicher</text>
+  <line x1="120" y1="252" x2="350" y2="252" stroke="#d89b1d" stroke-width="2"/>
+  <text x="235" y="290" text-anchor="middle" class="small">eine Tabelle</text>
+  <text x="235" y="322" text-anchor="middle" class="small">ein Objekt</text>
+  <text x="235" y="354" text-anchor="middle" class="small">ein Mapping</text>
+  <text x="235" y="402" text-anchor="middle" class="small">noch überschaubar</text>
+
+  <rect x="515" y="150" width="370" height="300" rx="18" class="boxGrow"/>
+  <text x="700" y="190" text-anchor="middle" class="label">Anwendung wächst</text>
+  <text x="700" y="228" text-anchor="middle" class="small">mehr Tabellen</text>
+  <text x="700" y="260" text-anchor="middle" class="small">mehr Objektklassen</text>
+  <text x="700" y="292" text-anchor="middle" class="small">mehr SELECT und INSERT</text>
+  <text x="700" y="324" text-anchor="middle" class="small">mehr ResultSet-Mapping</text>
+  <text x="700" y="356" text-anchor="middle" class="small">mehr PreparedStatement-Code</text>
+  <text x="700" y="406" text-anchor="middle" class="note">Persistenzcode braucht Struktur</text>
+
+  <rect x="1000" y="122" width="330" height="355" rx="18" class="boxNew"/>
+  <text x="1165" y="162" text-anchor="middle" class="label">Nachher</text>
+
+  <rect x="1040" y="190" width="250" height="105" rx="12" class="boxInner"/>
+  <text x="1165" y="224" text-anchor="middle" class="small" font-weight="700">ProduktRepository</text>
+  <text x="1165" y="254" text-anchor="middle" class="small">PRODUKT</text>
+  <text x="1165" y="278" text-anchor="middle" class="small">Produkt-Mapping</text>
+
+  <rect x="1040" y="326" width="250" height="115" rx="12" class="boxInner"/>
+  <text x="1165" y="360" text-anchor="middle" class="small" font-weight="700">AenderungsRepository</text>
+  <text x="1165" y="390" text-anchor="middle" class="small">PREISAENDERUNG</text>
+  <text x="1165" y="414" text-anchor="middle" class="small">BESTANDSAENDERUNG</text>
+
+  <path d="M 400 300 C 450 300 465 300 505 300" class="arrowBlue"/>
+  <path d="M 885 300 C 930 300 950 300 990 300" class="arrowBlue"/>
+  <text x="452" y="268" text-anchor="middle" class="small">wächst</text>
+  <text x="940" y="268" text-anchor="middle" class="small">aufteilen</text>
+
+  <path d="M 235 485 C 405 545 995 545 1165 485" class="arrowOrange dash"/>
+  <text x="700" y="555" text-anchor="middle" class="note">Repositorys entstehen aus wachsendem Persistenz- und Mapping-Code</text>
+
+  <text x="700" y="585" text-anchor="middle" class="small">Fachlogik bleibt im LagerService. Repositorys bündeln Datenzugriff und Mapping.</text>
+</svg>

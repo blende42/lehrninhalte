@@ -9,7 +9,7 @@ Diese Dateien unterstützen die KI-gestützte Erstellung und Prüfung von Lehrmi
 ### Didaktik
 
 - [Didaktische Entwicklungslogik](./docs/didaktik/entwicklungslogik.md)
-  - begründet die Entwicklung von Java-Grundlagen über Datenstrukturen, OOP, Maven, Tests, Persistenz, Verantwortlichkeiten, Interfaces und Services bis zu Projektarbeit, Projekt-Review und Architektur-Festigung
+  - begründet die Entwicklung von Java-Grundlagen über Datenstrukturen, OOP, Maven, Tests, CSV-Persistenz, Verantwortlichkeiten, Interfaces und Services bis zu Projektarbeit, Projekt-Review, Architektur-Festigung, JDBC/H2, Mapping, mehreren Tabellen und Repository als einfachem strukturiertem Datenzugriff
 
 ### Begriffe
 
@@ -77,7 +77,7 @@ Diese Reihenfolge erfasst die bisher aufgebauten Konzepte und Übungen. Die Eint
 
 ### Didaktische Entwicklungslinie
 
-Die Reihenfolge ist bewusst als roter Faden aufgebaut: Grundlagen, Datenstrukturen, OOP, Maven, Tests, Refactoring, Persistenz, Verantwortlichkeiten, Interfaces, Polymorphie, Wiederverwendung, Vererbung und Services führen schrittweise zu Projektarbeit und Projekt-Review.
+Die Reihenfolge ist bewusst als roter Faden aufgebaut: Grundlagen, Datenstrukturen, OOP, Maven, Tests, Refactoring, CSV-Persistenz, Verantwortlichkeiten, Interfaces, Polymorphie, Wiederverwendung, Vererbung und Services führen schrittweise zu Projektarbeit, Projekt-Review, Architektur-Festigung, JDBC/H2, Mapping, mehreren Tabellen und Repository als einfachem strukturiertem Datenzugriff.
 
 Architektur wird dabei nicht abstrakt vorangestellt. Sie entsteht aus konkreten Problemen im Code: zu viel Logik in `Main`, vermischte Datei- und Fachlogik, doppelte Codeabschnitte, schwer testbare Methoden oder unklare Verantwortlichkeiten. Nach den Services folgt deshalb bewusst eine Festigungsphase, in der Lernende diese Strukturentscheidungen an bekannten Beispielen sichern.
 
@@ -496,14 +496,27 @@ Material:
 - [Übungen – Mapping zwischen Objekten und Datenbank](./Uebungen/Uebungen_Objekt_Datenbank_Mapping.md)
 - [Lösungen – Mapping zwischen Objekten und Datenbank](./Musterloesungen/Loesungen_Objekt_Datenbank_Mapping.md)
 
+### 39. Mehrere Tabellen, Beziehungen und Repository
+
+Ziel: Fachlich zusammengehörige Daten über mehrere Tabellen abbilden, `Produkt`, `PreisAenderung` und `BestandsAenderung` über `PRODUKT_ID` verbinden, Mapping über mehrere `ResultSet`-Abfragen strukturieren und `ProduktRepository` sowie `AenderungsRepository` als einfache Bündelung von JDBC- und Mapping-Code einführen, während `LagerService` fachlich bleibt.
+
+Material:
+
+- [Arbeitsblatt – Mehrere Tabellen, Beziehungen und Repository](./Arbeitsblaetter/Arbeitsblatt_Tabellen_Beziehungen_Repository.md)
+- [Repository als Evolutionsschritt](./graphics/repository_evolutionsschritt.svg)
+- [Repository und Tabellenbeziehungen](./graphics/repository_und_tabellenbeziehungen.svg)
+- [Übungen – Mehrere Tabellen, Beziehungen und Repository](./Uebungen/Uebungen_Tabellen_Beziehungen_Repository.md)
+- [Lösungen – Mehrere Tabellen, Beziehungen und Repository](./Musterloesungen/Loesungen_Tabellen_Beziehungen_Repository.md)
+
 ### Nächster sinnvoller Block
 
-Nach `Mapping zwischen Objekten und Datenbank` bietet sich als nächstes Thema ein Review zum Mapping zwischen `Produkt`, `ResultSet`, `PreparedStatement` und Tabelle `PRODUKT` an:
+Nach `Mehrere Tabellen, Beziehungen und Repository` bietet sich als nächstes Thema ein Review zur gewachsenen Persistenzstruktur an:
 
-- `ResultSet` zu `Produkt` kompakt zeigen
-- `Produkt` zu `PreparedStatement` kompakt zeigen
-- CSV-Mapping und DB-Mapping vergleichen
-- Fachlogik, Ablaufsteuerung und Persistenz erneut trennen
+- `ProduktRepository` und `AenderungsRepository` nach Verantwortung prüfen
+- `PRODUKT_ID` als Verbindung zwischen Produkt und Änderungen erklären lassen
+- Mapping von `ResultSet` zu `Produkt`, `PreisAenderung` und `BestandsAenderung` vergleichen
+- Fachlogik, Ablaufsteuerung, Datenzugriff und Mapping erneut trennen
+- doppelte JDBC- und Mapping-Logik sichtbar machen, aber nicht zu früh generisch abstrahieren
 - weiterhin kein ORM, kein Hibernate, kein JPA, kein Spring Data und keine komplexe Datenbankarchitektur
 
 ## Geplante spätere Themenblöcke
@@ -819,6 +832,17 @@ Arbeitsblätter führen neue Konzepte ein, enthalten kurze Theorie, Beispiele, t
   - Java-Typen, SQL-Typen und passende JDBC-Methoden vergleichen
   - typische Fehler wie fehlendes `ResultSet.next()`, falsche Spaltennamen und falsche Platzhalter-Reihenfolge sichtbar machen
   - erklären, warum spätere Frameworks existieren, ohne ORM einzuführen
+- [Arbeitsblatt – Mehrere Tabellen, Beziehungen und Repository](./Arbeitsblaetter/Arbeitsblatt_Tabellen_Beziehungen_Repository.md)
+  - fachlich zusammengehörige Daten über `PRODUKT`, `PREISAENDERUNG` und `BESTANDSAENDERUNG` darstellen
+  - `PRODUKT_ID` als einfachen Fremdschlüssel zu `PRODUKT.ID` erklären
+  - Mapping von mehreren Tabellen zu `Produkt`, `PreisAenderung` und `BestandsAenderung` zeigen
+  - Repository als Evolutionsschritt von einer überschaubaren Persistenzklasse zu fachlich getrennten Repositorys visualisieren
+  - sortierte Änderungshistorien mit `ORDER BY ZEITPUNKT` und ISO-Zeitpunkten einordnen
+  - Grafik zu `LagerService`, Repositorys, JDBC, H2 und Tabellenbeziehungen einbinden
+  - `ProduktRepository` und `AenderungsRepository` als normale Klassen für strukturierten Datenzugriff einführen
+  - JDBC- und Mapping-Code bündeln, ohne ORM, JPA, Hibernate, Spring Data oder generische Repositorys einzuführen
+  - Fachlogik im `LagerService` von Datenzugriff und Mapping trennen
+  - typische Fehler wie JDBC in `Main`, Mapping im Service, falsches `ResultSet`-Lesen und falsch modellierte Beziehungen sichtbar machen
 
 ## Konzeptgrafiken
 
@@ -954,6 +978,15 @@ Konzeptgrafiken visualisieren Beziehungen, Abläufe und typische Denkmodelle. Si
   - `Produkt`-Objekt, `DbProduktSpeicher`, `PreparedStatement`, Tabelle `PRODUKT` und `ResultSet` in Beziehung setzen
   - Schreibweg `Objekt -> SQL-Werte` und Leseweg `ResultSet -> Objekt` sichtbar machen
   - zeigen, dass JDBC rohe Daten liefert und Fachlogik getrennt bleibt
+- [Repository als Evolutionsschritt](./graphics/repository_evolutionsschritt.svg)
+  - von `DbProduktSpeicher` zu `ProduktRepository` und `AenderungsRepository` überleiten
+  - zeigen, dass Repositorys durch wachsenden Persistenz- und Mapping-Code sinnvoll werden
+  - Fachlogik im `LagerService` von Datenzugriff und Mapping abgrenzen
+- [Repository und Tabellenbeziehungen](./graphics/repository_und_tabellenbeziehungen.svg)
+  - `LagerService`, `ProduktRepository`, `AenderungsRepository`, JDBC und H2-Datenbank einordnen
+  - Tabellen `PRODUKT`, `PREISAENDERUNG` und `BESTANDSAENDERUNG` mit `ID` und `PRODUKT_ID` verbinden
+  - Mapping als Übersetzung und Repository als Bündelung von Datenzugriff sichtbar machen
+  - zeigen, dass Fachlogik getrennt bleibt
 - [Projektreview Änderungshistorie Architektur](./graphics/projektreview_aenderungshistorie_architektur.svg)
   - `Main`, `LagerService`, `JournalService`, `ProduktSpeicher`, `Produkt` und `AenderungsEintrag` nach Verantwortung darstellen
   - zeigen, dass Historie neue Verantwortlichkeiten erzeugt und Services wachsen können
@@ -1238,6 +1271,14 @@ Konzeptgrafiken visualisieren Beziehungen, Abläufe und typische Denkmodelle. Si
   - fehlerhafte Datensätze, `null`-Werte, Datentypen und doppelte Mapping-Logik analysieren
   - Mapping auf `AenderungsEintrag` übertragen
   - Transfer zu CSV-Mapping, ORM-Motivation, `Main`-Verantwortung und weiteren Persistenzarten bearbeiten
+- [Übungen – Mehrere Tabellen, Beziehungen und Repository](./Uebungen/Uebungen_Tabellen_Beziehungen_Repository.md)
+  - Tabellen `PREISAENDERUNG` und `BESTANDSAENDERUNG` mit `PRODUKT_ID` erstellen
+  - `PreisAenderung` und `BestandsAenderung` als Modellklassen einordnen
+  - `ProduktRepository` und `AenderungsRepository` erstellen und Verantwortlichkeiten prüfen
+  - Preis- und Bestandsänderungen mit `PreparedStatement` speichern
+  - Änderungen zu einem Produkt mit `ResultSet` laden und sortieren
+  - Mapping-Methoden auslagern, doppelte JDBC-Logik bewusst reduzieren und Fehlerfälle behandeln
+  - Transfer zu Repository-Nutzen, repetitivem Mapping, stabiler Fachlogik und späteren Persistenzframeworks bearbeiten
 
 ## Repetitionen
 
@@ -1403,6 +1444,14 @@ Musterlösungen halten kompakte Referenzlösungen und Bewertungshilfen bereit.
   - enthält INSERT-, UPDATE- und SELECT-Mapping mit privaten Hilfsmethoden
   - vergleicht CSV-Mapping und DB-Mapping, nennt typische Fehler und erklärt kurz die spätere Motivation für ORM-Frameworks
   - dokumentierte Maven-Verifikation mit H2 Embedded und ausgeführter `Main`
+- [Lösungen – Mehrere Tabellen, Beziehungen und Repository](./Musterloesungen/Loesungen_Tabellen_Beziehungen_Repository.md)
+  - kompakte Standardlösung mit `PRODUKT`, `PREISAENDERUNG` und `BESTANDSAENDERUNG`
+  - nutzt `PRODUKT_ID` als einfache Beziehung zu `PRODUKT.ID`
+  - zeigt `ProduktRepository` und `AenderungsRepository` als strukturierte Persistenzklassen
+  - enthält Mapping von `ResultSet` zu `Produkt`, `PreisAenderung` und `BestandsAenderung`
+  - enthält Objekt-zu-`PreparedStatement`-Mapping für Produkte, Preisänderungen und Bestandsänderungen
+  - zeigt, dass `LagerService` fachlich bleibt und `Main` nur Ablaufsteuerung enthält
+  - typische Fehlerhinweise und dokumentierte Maven-Verifikation mit temporärem Prüfprojekt
 - [Musterlösungen – StringBuilder & Parser](./Musterloesungen/musterloesungen_stringbuilder.md)
   - StringBuilder-Methoden und vereinfachter Parser
 - [Musterlösungen – Mini-Projekt String Parser](./Musterloesungen/string_parser_loesungen.md)
