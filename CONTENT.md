@@ -9,7 +9,7 @@ Diese Dateien unterstützen die KI-gestützte Erstellung und Prüfung von Lehrmi
 ### Didaktik
 
 - [Didaktische Entwicklungslogik](./docs/didaktik/entwicklungslogik.md)
-  - begründet die Entwicklung von Java-Grundlagen über Datenstrukturen, OOP, Maven, Tests, CSV-Persistenz, Verantwortlichkeiten, Interfaces und Services bis zu Projektarbeit, Projekt-Review, Architektur-Festigung, JDBC/H2, Mapping, mehreren Tabellen und Repository als einfachem strukturiertem Datenzugriff
+  - begründet die Entwicklung von Java-Grundlagen über Datenstrukturen, OOP, Maven, Tests, CSV-Persistenz, Verantwortlichkeiten, Interfaces und Services bis zu Projektarbeit, Projekt-Review, Architektur-Festigung, JDBC/H2, Mapping, mehreren Tabellen, Repository als einfachem strukturiertem Datenzugriff und technischem Logging als Beobachtbarkeit
 
 ### Begriffe
 
@@ -77,7 +77,7 @@ Diese Reihenfolge erfasst die bisher aufgebauten Konzepte und Übungen. Die Eint
 
 ### Didaktische Entwicklungslinie
 
-Die Reihenfolge ist bewusst als roter Faden aufgebaut: Grundlagen, Datenstrukturen, OOP, Maven, Tests, Refactoring, CSV-Persistenz, Verantwortlichkeiten, Interfaces, Polymorphie, Wiederverwendung, Vererbung und Services führen schrittweise zu Projektarbeit, Projekt-Review, Architektur-Festigung, JDBC/H2, Mapping, mehreren Tabellen und Repository als einfachem strukturiertem Datenzugriff.
+Die Reihenfolge ist bewusst als roter Faden aufgebaut: Grundlagen, Datenstrukturen, OOP, Maven, Tests, Refactoring, CSV-Persistenz, Verantwortlichkeiten, Interfaces, Polymorphie, Wiederverwendung, Vererbung und Services führen schrittweise zu Projektarbeit, Projekt-Review, Architektur-Festigung, JDBC/H2, Mapping, mehreren Tabellen, Repository als einfachem strukturiertem Datenzugriff und technischem Logging als Beobachtbarkeit.
 
 Architektur wird dabei nicht abstrakt vorangestellt. Sie entsteht aus konkreten Problemen im Code: zu viel Logik in `Main`, vermischte Datei- und Fachlogik, doppelte Codeabschnitte, schwer testbare Methoden oder unklare Verantwortlichkeiten. Nach den Services folgt deshalb bewusst eine Festigungsphase, in der Lernende diese Strukturentscheidungen an bekannten Beispielen sichern.
 
@@ -508,14 +508,27 @@ Material:
 - [Übungen – Mehrere Tabellen, Beziehungen und Repository](./Uebungen/Uebungen_Tabellen_Beziehungen_Repository.md)
 - [Lösungen – Mehrere Tabellen, Beziehungen und Repository](./Musterloesungen/Loesungen_Tabellen_Beziehungen_Repository.md)
 
+### 40. Technisches Logging in Java einführen
+
+Ziel: Technische Abläufe in der gewachsenen Lagerverwaltung mit SLF4J und Logback gezielt sichtbar machen, `System.out.println` von dauerhaftem Logging unterscheiden, Log-Level sinnvoll verwenden und Repository-Klassen bei JDBC-Zugriffen sowie Fehlerfällen sparsam und nachvollziehbar loggen, ohne Logging mit Fachlogik oder Tests zu verwechseln.
+
+Material:
+
+- [Arbeitsblatt – Technisches Logging in Java einführen](./Arbeitsblaetter/Arbeitsblatt_Technisches_Logging.md)
+- [Technisches Logging in Java](./graphics/technisches_logging_java.svg)
+- [Übungen – Technisches Logging in Java einführen](./Uebungen/Uebungen_Technisches_Logging.md)
+- [Lösungen – Technisches Logging in Java einführen](./Musterloesungen/Loesungen_Technisches_Logging.md)
+
 ### Nächster sinnvoller Block
 
-Nach `Mehrere Tabellen, Beziehungen und Repository` bietet sich als nächstes Thema ein Review zur gewachsenen Persistenzstruktur an:
+Nach `Technisches Logging in Java einführen` bietet sich als nächstes Thema ein Review zur technischen Beobachtbarkeit der gewachsenen Persistenzstruktur an:
 
 - `ProduktRepository` und `AenderungsRepository` nach Verantwortung prüfen
 - `PRODUKT_ID` als Verbindung zwischen Produkt und Änderungen erklären lassen
 - Mapping von `ResultSet` zu `Produkt`, `PreisAenderung` und `BestandsAenderung` vergleichen
 - Fachlogik, Ablaufsteuerung, Datenzugriff und Mapping erneut trennen
+- sinnvolle `INFO`-, `DEBUG`-, `WARN`- und `ERROR`-Logs in Repository-Klassen begründen
+- prüfen, ob Logs bei Fehlersuche helfen, ohne Fachlogik oder Tests zu ersetzen
 - doppelte JDBC- und Mapping-Logik sichtbar machen, aber nicht zu früh generisch abstrahieren
 - weiterhin kein ORM, kein Hibernate, kein JPA, kein Spring Data und keine komplexe Datenbankarchitektur
 
@@ -843,6 +856,14 @@ Arbeitsblätter führen neue Konzepte ein, enthalten kurze Theorie, Beispiele, t
   - JDBC- und Mapping-Code bündeln, ohne ORM, JPA, Hibernate, Spring Data oder generische Repositorys einzuführen
   - Fachlogik im `LagerService` von Datenzugriff und Mapping trennen
   - typische Fehler wie JDBC in `Main`, Mapping im Service, falsches `ResultSet`-Lesen und falsch modellierte Beziehungen sichtbar machen
+- [Arbeitsblatt – Technisches Logging in Java einführen](./Arbeitsblaetter/Arbeitsblatt_Technisches_Logging.md)
+  - Logging als technische Beobachtbarkeit nach wachsender Persistenzkomplexität einführen
+  - Grafik zu `LagerService`, Repositorys, JDBC, Loggern, Log-Ausgabe und Abgrenzung zu Tests einbinden
+  - `System.out.println` von dauerhaftem technischem Logging unterscheiden
+  - SLF4J als Schnittstelle und Logback als konkrete Umsetzung einordnen
+  - Logger pro Klasse, Log-Level und Repository-Logging praktisch zeigen
+  - Exception-Logging mit Kontext statt verschluckter Fehler erklären
+  - typische Fehler wie zu viele `INFO`-Logs, sensible Daten und Logging als Fachlogik sichtbar machen
 
 ## Konzeptgrafiken
 
@@ -987,6 +1008,10 @@ Konzeptgrafiken visualisieren Beziehungen, Abläufe und typische Denkmodelle. Si
   - Tabellen `PRODUKT`, `PREISAENDERUNG` und `BESTANDSAENDERUNG` mit `ID` und `PRODUKT_ID` verbinden
   - Mapping als Übersetzung und Repository als Bündelung von Datenzugriff sichtbar machen
   - zeigen, dass Fachlogik getrennt bleibt
+- [Technisches Logging in Java](./graphics/technisches_logging_java.svg)
+  - zeigt `LagerService` als Fachlogik und Repositorys als technische Datenzugriffsorte
+  - macht Logger mit `DEBUG`, `INFO`, `WARN` und `ERROR` sichtbar
+  - grenzt Logging von `System.out.println`, Tests und Fachlogik ab
 - [Projektreview Änderungshistorie Architektur](./graphics/projektreview_aenderungshistorie_architektur.svg)
   - `Main`, `LagerService`, `JournalService`, `ProduktSpeicher`, `Produkt` und `AenderungsEintrag` nach Verantwortung darstellen
   - zeigen, dass Historie neue Verantwortlichkeiten erzeugt und Services wachsen können
@@ -1279,6 +1304,13 @@ Konzeptgrafiken visualisieren Beziehungen, Abläufe und typische Denkmodelle. Si
   - Änderungen zu einem Produkt mit `ResultSet` laden und sortieren
   - Mapping-Methoden auslagern, doppelte JDBC-Logik bewusst reduzieren und Fehlerfälle behandeln
   - Transfer zu Repository-Nutzen, repetitivem Mapping, stabiler Fachlogik und späteren Persistenzframeworks bearbeiten
+- [Übungen – Technisches Logging in Java einführen](./Uebungen/Uebungen_Technisches_Logging.md)
+  - Maven-Dependencies für `slf4j-api` und `logback-classic` ergänzen
+  - Logger in `ProduktRepository` und `AenderungsRepository` anlegen
+  - technische `System.out.println`-Ausgaben durch Logger-Aufrufe ersetzen
+  - `DEBUG`, `INFO`, `WARN` und `ERROR` an Repository- und JDBC-Beispielen einsetzen
+  - bewusst zu viele Logs erkennen und reduzieren
+  - Transfer zu Tests, Fachlogik, sensiblen Daten und Server-Anwendungen bearbeiten
 
 ## Repetitionen
 
@@ -1452,6 +1484,12 @@ Musterlösungen halten kompakte Referenzlösungen und Bewertungshilfen bereit.
   - enthält Objekt-zu-`PreparedStatement`-Mapping für Produkte, Preisänderungen und Bestandsänderungen
   - zeigt, dass `LagerService` fachlich bleibt und `Main` nur Ablaufsteuerung enthält
   - typische Fehlerhinweise und dokumentierte Maven-Verifikation mit temporärem Prüfprojekt
+- [Lösungen – Technisches Logging in Java einführen](./Musterloesungen/Loesungen_Technisches_Logging.md)
+  - kompakte Standardlösung mit Maven-Dependencies für SLF4J und Logback
+  - zeigt Logger-Deklaration und `logger.info`, `logger.debug`, `logger.warn`, `logger.error`
+  - enthält Logging-Beispiele für `ProduktRepository` und `AenderungsRepository`
+  - grenzt Logging von `System.out.println`, Fachlogik und Tests ab
+  - typische Fehlerhinweise, kurze Reflexionsantworten und dokumentierte Maven-Verifikation
 - [Musterlösungen – StringBuilder & Parser](./Musterloesungen/musterloesungen_stringbuilder.md)
   - StringBuilder-Methoden und vereinfachter Parser
 - [Musterlösungen – Mini-Projekt String Parser](./Musterloesungen/string_parser_loesungen.md)

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1120" viewBox="0 0 1800 1120" role="img" aria-labelledby="title desc">
+  <title id="title">Technisches Logging in Java</title>
+  <desc id="desc">Architekturgrafik: Logging macht technische Abläufe in Repositorys sichtbar. Der LagerService bleibt Fachlogik. Logger schreiben DEBUG, INFO, WARN und ERROR in die Log-Ausgabe. Logging ersetzt keine Tests und keine Fachlogik.</desc>
+
+  <defs>
+    <style>
+      .title { font: 700 40px Arial, Helvetica, sans-serif; fill: #111; }
+      .subtitle { font: 400 20px Arial, Helvetica, sans-serif; fill: #444; }
+      .section { font: 700 28px Arial, Helvetica, sans-serif; fill: #111; }
+      .heading { font: 700 24px Arial, Helvetica, sans-serif; fill: #111; }
+      .text { font: 400 20px Arial, Helvetica, sans-serif; fill: #222; }
+      .text-bold { font: 700 20px Arial, Helvetica, sans-serif; fill: #111; }
+      .small { font: 400 17px Arial, Helvetica, sans-serif; fill: #444; }
+      .mono { font: 700 20px "Courier New", Courier, monospace; fill: #17324d; }
+      .level { font: 700 18px Arial, Helvetica, sans-serif; fill: #17324d; }
+
+      .service-accent { fill: #4d8f3a; }
+      .repo-accent { fill: #2b65b3; }
+      .jdbc-accent { fill: #8a5fb8; }
+      .log-accent { fill: #c67f17; }
+      .warn-accent { fill: #b34835; }
+
+      .panel { fill: #fbfcfb; stroke-width: 2.2; }
+      .panel-main { stroke: #b9bcc3; }
+      .service-box { fill: #e6efdf; stroke: #6ca05f; stroke-width: 2.4; }
+      .repo-box { fill: #e8eef9; stroke: #6f9ce0; stroke-width: 2.4; }
+      .jdbc-box { fill: #f1e8fa; stroke: #9a78c7; stroke-width: 2.4; }
+      .logger-box { fill: #fff5df; stroke: #d89b37; stroke-width: 2.4; }
+      .log-box { fill: #f7f8fa; stroke: #8b929e; stroke-width: 2.4; }
+      .note-good { fill: #edf7ed; stroke: #6ca05f; stroke-width: 2.2; }
+      .note-warn { fill: #fff4f1; stroke: #c45d4d; stroke-width: 2.2; }
+      .summary { fill: #fff8df; stroke: #d89b37; stroke-width: 2.4; }
+
+      .arrow-service { stroke: #6ca05f; stroke-width: 3.2; fill: none; marker-end: url(#arrowService); }
+      .arrow-repo { stroke: #2b65b3; stroke-width: 3.2; fill: none; marker-end: url(#arrowRepo); }
+      .arrow-jdbc { stroke: #8a5fb8; stroke-width: 3.2; fill: none; marker-end: url(#arrowJdbc); }
+      .arrow-log { stroke: #c67f17; stroke-width: 3.2; fill: none; marker-end: url(#arrowLog); }
+      .arrow-soft { stroke: #8b929e; stroke-width: 2.6; stroke-dasharray: 9 7; fill: none; marker-end: url(#arrowSoft); }
+    </style>
+
+    <marker id="arrowService" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#6ca05f"/>
+    </marker>
+    <marker id="arrowRepo" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2b65b3"/>
+    </marker>
+    <marker id="arrowJdbc" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#8a5fb8"/>
+    </marker>
+    <marker id="arrowLog" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#c67f17"/>
+    </marker>
+    <marker id="arrowSoft" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#8b929e"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1800" height="1120" fill="#ffffff"/>
+
+  <text x="900" y="72" text-anchor="middle" class="title">Technisches Logging in Java</text>
+  <text x="900" y="108" text-anchor="middle" class="subtitle">Logging macht technische Abläufe sichtbar, ohne Fachlogik zu ersetzen.</text>
+
+  <rect x="70" y="145" rx="22" ry="22" width="1660" height="675" class="panel panel-main"/>
+  <text x="900" y="190" text-anchor="middle" class="section">Bekannte Lagerverwaltung mit Repositorys</text>
+
+  <!-- Service -->
+  <rect x="690" y="230" rx="18" ry="18" width="420" height="130" class="service-box"/>
+  <text x="900" y="275" text-anchor="middle" class="heading service-accent">LagerService</text>
+  <text x="900" y="310" text-anchor="middle" class="text-bold">Fachlogik</text>
+  <text x="900" y="340" text-anchor="middle" class="small">Regeln bleiben im Service</text>
+
+  <!-- Repositorys -->
+  <rect x="170" y="455" rx="18" ry="18" width="520" height="190" class="repo-box"/>
+  <text x="430" y="500" text-anchor="middle" class="heading repo-accent">ProduktRepository</text>
+  <text x="430" y="535" text-anchor="middle" class="text">JDBC-Zugriff</text>
+  <text x="430" y="565" text-anchor="middle" class="text">Produkte laden und speichern</text>
+  <text x="430" y="605" text-anchor="middle" class="mono">logger.info(...)</text>
+
+  <rect x="1110" y="455" rx="18" ry="18" width="520" height="190" class="repo-box"/>
+  <text x="1370" y="500" text-anchor="middle" class="heading repo-accent">AenderungsRepository</text>
+  <text x="1370" y="535" text-anchor="middle" class="text">JDBC-Zugriff</text>
+  <text x="1370" y="565" text-anchor="middle" class="text">Änderungen laden und speichern</text>
+  <text x="1370" y="605" text-anchor="middle" class="mono">logger.warn(...)</text>
+
+  <path d="M 800 360 C 690 395, 560 420, 430 455" class="arrow-service"/>
+  <path d="M 1000 360 C 1110 395, 1240 420, 1370 455" class="arrow-service"/>
+  <text x="900" y="420" text-anchor="middle" class="small">Service nutzt Repositorys</text>
+
+  <!-- JDBC -->
+  <rect x="730" y="515" rx="18" ry="18" width="340" height="105" class="jdbc-box"/>
+  <text x="900" y="555" text-anchor="middle" class="heading jdbc-accent">JDBC / H2</text>
+  <text x="900" y="588" text-anchor="middle" class="text">technischer Datenzugriff</text>
+
+  <path d="M 690 550 C 710 550, 720 550, 730 550" class="arrow-jdbc"/>
+  <path d="M 1110 550 C 1090 550, 1080 550, 1070 550" class="arrow-jdbc"/>
+
+  <!-- Logger and Log output -->
+  <rect x="590" y="690" rx="18" ry="18" width="620" height="110" class="logger-box"/>
+  <text x="900" y="730" text-anchor="middle" class="heading log-accent">Logger</text>
+  <text x="900" y="762" text-anchor="middle" class="level">DEBUG · INFO · WARN · ERROR</text>
+  <text x="900" y="790" text-anchor="middle" class="small">Log-Level unterscheiden technische Meldungen</text>
+
+  <path d="M 430 645 C 500 690, 560 715, 590 735" class="arrow-log"/>
+  <path d="M 1370 645 C 1300 690, 1240 715, 1210 735" class="arrow-log"/>
+
+  <rect x="590" y="850" rx="20" ry="20" width="620" height="150" class="log-box"/>
+  <text x="900" y="895" text-anchor="middle" class="heading">Log-Ausgabe</text>
+  <text x="900" y="930" text-anchor="middle" class="text">technische Nachvollziehbarkeit</text>
+  <text x="900" y="962" text-anchor="middle" class="small">hilft bei Fehlersuche</text>
+  <text x="900" y="990" text-anchor="middle" class="small">zeigt, was im Hintergrund passiert</text>
+
+  <path d="M 900 800 C 900 820, 900 835, 900 850" class="arrow-log"/>
+
+  <!-- Side notes -->
+  <rect x="95" y="825" rx="18" ry="18" width="410" height="160" class="note-warn"/>
+  <text x="300" y="870" text-anchor="middle" class="heading warn-accent">System.out.println</text>
+  <text x="300" y="905" text-anchor="middle" class="text">nur einfache Ausgabe</text>
+  <text x="300" y="935" text-anchor="middle" class="small">keine Log-Level</text>
+  <text x="300" y="963" text-anchor="middle" class="small">Konsole, aber kein Logging</text>
+
+  <rect x="1295" y="825" rx="18" ry="18" width="410" height="160" class="note-good"/>
+  <text x="1500" y="870" text-anchor="middle" class="heading service-accent">Abgrenzung</text>
+  <text x="1500" y="905" text-anchor="middle" class="text">Logging ersetzt keine Tests</text>
+  <text x="1500" y="935" text-anchor="middle" class="text">Logging ist keine Fachlogik</text>
+  <text x="1500" y="963" text-anchor="middle" class="small">Regeln bleiben testbarer Code</text>
+
+  <path d="M 1295 920 C 1260 920, 1230 920, 1210 920" class="arrow-soft"/>
+
+  <!-- Summary -->
+  <rect x="160" y="1030" rx="18" ry="18" width="1480" height="58" class="summary"/>
+  <text x="900" y="1067" text-anchor="middle" class="heading log-accent">Merksatz: Logging beobachtet Technik, Fachlogik bleibt Fachlogik.</text>
+</svg>

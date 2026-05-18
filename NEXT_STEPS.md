@@ -47,12 +47,13 @@ Aktuell vorbereitet sind:
 37. Bestehende Persistenz auf Datenbank erweitern
 38. Mapping zwischen Objekten und Datenbank
 39. Mehrere Tabellen, Beziehungen und Repository
+40. Technisches Logging in Java einführen
 
-Die zuletzt erstellte Unterrichtseinheit ist **Mehrere Tabellen, Beziehungen und Repository**. Sie zeigt, wie fachlich zusammengehörige Daten über `PRODUKT`, `PREISAENDERUNG` und `BESTANDSAENDERUNG` verteilt werden, wie `PRODUKT_ID` die Beziehung abbildet und warum `ProduktRepository` sowie `AenderungsRepository` den wachsenden JDBC- und Mapping-Code bündeln.
+Die zuletzt erstellte Unterrichtseinheit ist **Technisches Logging in Java einführen**. Sie zeigt, warum technische Beobachtbarkeit nach JDBC/H2, mehreren Tabellen, Mapping und Repository sinnvoll wird, wie SLF4J mit Logback in einem Maven-Projekt verwendet wird und wie Repository-Klassen technische Abläufe sowie Fehlerfälle mit `DEBUG`, `INFO`, `WARN` und `ERROR` nachvollziehbar loggen.
 
 Das zuletzt erstellte Mini-Projekt ist **Änderungshistorie für Lagerverwaltung**.
 
-Die didaktische Entwicklungslinie der Unterrichtsreihe ist in [entwicklungslogik.md](./docs/didaktik/entwicklungslogik.md) festgehalten. Sie erklärt den Aufbau von Java-Grundlagen über Datenstrukturen, OOP, Maven, Tests, Refactoring, CSV-Persistenz, Verantwortlichkeiten, Interfaces, Polymorphie, Wiederverwendung, Vererbung und Services bis zu Projektarbeit, Projekt-Review, Architektur-Festigung, JDBC/H2, Mapping, mehreren Tabellen und Repository als einfachem strukturiertem Datenzugriff.
+Die didaktische Entwicklungslinie der Unterrichtsreihe ist in [entwicklungslogik.md](./docs/didaktik/entwicklungslogik.md) festgehalten. Sie erklärt den Aufbau von Java-Grundlagen über Datenstrukturen, OOP, Maven, Tests, Refactoring, CSV-Persistenz, Verantwortlichkeiten, Interfaces, Polymorphie, Wiederverwendung, Vererbung und Services bis zu Projektarbeit, Projekt-Review, Architektur-Festigung, JDBC/H2, Mapping, mehreren Tabellen, Repository als einfachem strukturiertem Datenzugriff und technischem Logging als Beobachtbarkeit.
 
 Neue Projektstruktur für grössere Mini-Projekte:
 
@@ -166,12 +167,16 @@ Neue Dateien im Maven-, Testing-, Refactoring- und Persistenz-Block:
 - [Uebungen_Objekt_Datenbank_Mapping.md](./Uebungen/Uebungen_Objekt_Datenbank_Mapping.md)
 - [Arbeitsblatt_Tabellen_Beziehungen_Repository.md](./Arbeitsblaetter/Arbeitsblatt_Tabellen_Beziehungen_Repository.md)
 - [Uebungen_Tabellen_Beziehungen_Repository.md](./Uebungen/Uebungen_Tabellen_Beziehungen_Repository.md)
+- [Arbeitsblatt_Technisches_Logging.md](./Arbeitsblaetter/Arbeitsblatt_Technisches_Logging.md)
+- [Uebungen_Technisches_Logging.md](./Uebungen/Uebungen_Technisches_Logging.md)
 - [Loesungen_Objekt_Datenbank_Mapping.md](./Musterloesungen/Loesungen_Objekt_Datenbank_Mapping.md)
 - [Loesungen_Tabellen_Beziehungen_Repository.md](./Musterloesungen/Loesungen_Tabellen_Beziehungen_Repository.md)
+- [Loesungen_Technisches_Logging.md](./Musterloesungen/Loesungen_Technisches_Logging.md)
 - [csv_vs_db_produkt_speicher.svg](./graphics/csv_vs_db_produkt_speicher.svg)
 - [objekt_datenbank_mapping.svg](./graphics/objekt_datenbank_mapping.svg)
 - [repository_evolutionsschritt.svg](./graphics/repository_evolutionsschritt.svg)
 - [repository_und_tabellenbeziehungen.svg](./graphics/repository_und_tabellenbeziehungen.svg)
+- [technisches_logging_java.svg](./graphics/technisches_logging_java.svg)
 - [fachlogik_services.svg](./graphics/fachlogik_services.svg)
 - [verantwortlichkeiten_services_festigen.svg](./graphics/verantwortlichkeiten_services_festigen.svg)
 - [jdbc_h2_embedded_vs_server.svg](./graphics/jdbc_h2_embedded_vs_server.svg)
@@ -333,11 +338,29 @@ Die Datei unter `docs/didaktik` beschreibt die didaktische Entwicklungslogik der
 - Die Musterlösung enthält eine kompakte Standardlösung mit `Produkt`, `PreisAenderung`, `BestandsAenderung`, `ProduktRepository`, `AenderungsRepository`, stabilem `LagerService`, kleiner `Main`, typischen Fehlerhinweisen und dokumentierter Maven-Verifikation mit temporärem Prüfprojekt.
 - Bewusst nicht eingeführt werden ORM, Hibernate, JPA, Spring Data, Generic Repository, automatische Query-Generierung, Dependency Injection, komplexe SQL-Joins und vertiefte Normalformen.
 
+## Wichtige Inhalte aus Technisches Logging in Java einführen
+
+- Logging wird als technische Beobachtbarkeit eingeführt, weil die bekannte Lagerverwaltung mit JDBC/H2, mehreren Tabellen, Mapping und Repositorys genug technische Abläufe im Hintergrund enthält.
+- `System.out.println` wird klar von dauerhaftem technischem Logging getrennt.
+- SLF4J wird als Logging-Schnittstelle verwendet, `logback-classic` als konkrete Umsetzung.
+- Die Maven-Dependencies für `slf4j-api` und `logback-classic` werden ergänzt; komplexe Logback-Konfiguration bleibt bewusst ausgeschlossen.
+- Logger werden einmal pro Klasse mit `private static final Logger` angelegt.
+- Die Level `DEBUG`, `INFO`, `WARN` und `ERROR` werden praktisch an Repository-Beispielen unterschieden.
+- Repository-Klassen sind gute Orte für Logging bei Datenzugriff, SQL-Vorbereitung, JDBC-Verbindungen, geladenen Datensätzen und Exceptions.
+- Die Grafik `technisches_logging_java.svg` zeigt `LagerService` als Fachlogik, Repositorys mit JDBC-Zugriff, Logger mit Log-Leveln und Log-Ausgabe als technische Nachvollziehbarkeit.
+- Exceptions werden mit Kontext und Exception-Objekt geloggt, nicht nur mit einer allgemeinen Meldung.
+- Die Musterlösung enthält eine kompakte Standardlösung mit Maven-Dependencies, Logger-Deklaration, Repository-Logging, Log-Level-Zuordnung, Exception-Logging, typischen Fehlerhinweisen, Reflexionsantworten und dokumentierter Maven-Verifikation mit temporärem Prüfprojekt.
+- Logging bleibt technische Beobachtbarkeit:
+  - keine Fachlogik
+  - kein Ersatz für Tests
+  - keine sensiblen Daten wie Passwörter oder Tokens
+  - keine übermässigen `INFO`-Logs
+
 ## Nächster Fokus
 
-Als nächstes bietet sich ein Review zu **Mehrere Tabellen, Beziehungen und Repository** an.
+Als nächstes bietet sich ein Review zu **Technisches Logging in Java einführen** und zur gewachsenen Persistenzstruktur an.
 
-Die Einheit baut direkt auf CSV-Persistenz, Verantwortlichkeiten, Interfaces, Services, JDBC/H2-Grundlagen, `DbProduktSpeicher`, evolutionärer Persistenz-Erweiterung und Objekt-Datenbank-Mapping auf. Die Kernbotschaft lautet: Persistenz- und Mapping-Code wächst mit der Anwendung und braucht eine klare Struktur.
+Die Einheit baut direkt auf CSV-Persistenz, Verantwortlichkeiten, Interfaces, Services, JDBC/H2-Grundlagen, `DbProduktSpeicher`, evolutionärer Persistenz-Erweiterung, Objekt-Datenbank-Mapping und Repositorys auf. Die Kernbotschaft lautet: Persistenz- und Mapping-Code wächst mit der Anwendung und braucht technische Beobachtbarkeit, ohne Fachlogik oder Tests zu ersetzen.
 
 Weiter diagnostisch zu beobachten:
 
@@ -349,6 +372,10 @@ Weiter diagnostisch zu beobachten:
 - `ResultSet` korrekt mit `next()` lesen und mehrere Änderungen laden
 - Platzhalter-Reihenfolge im `PreparedStatement` prüfen
 - doppelte JDBC- und Mapping-Logik erkennen, aber keine zu frühe generische Abstraktion bauen
+- sinnvolle Log-Level in Repositorys begründen
+- hilfreiche Logs von überflüssigen Logs unterscheiden
+- Exception-Logging mit Kontext erklären
+- Logging von Fachlogik und Tests abgrenzen
 - erklären, warum ORM-Frameworks später existieren, ohne sie hier zu verwenden
 
 Sinnvolle Session-Formate:
@@ -356,6 +383,8 @@ Sinnvolle Session-Formate:
 - Code-Review von `ProduktRepository` und `AenderungsRepository`
 - Mapping-Tabelle erstellen: Java-Klasse, SQL-Tabelle, Beziehung, Mapping-Methode
 - Fehlerdiagnose mit falscher `PRODUKT_ID`, falschem Spaltennamen oder fehlendem `next()`
+- Fehlerdiagnose mit fehlender Datenbankverbindung und sinnvollen `ERROR`-Logs
+- Log-Level-Karten sortieren: `DEBUG`, `INFO`, `WARN`, `ERROR`
 - Architekturgespräch: Warum bleibt `LagerService` unverändert?
 - Vergleich: eine grosse Persistenzklasse gegenüber Repository-Aufteilung
 
@@ -365,9 +394,11 @@ Bewusste Nicht-Ziele:
 - kein Hibernate
 - kein JPA
 - kein Spring
+- kein Spring Boot Logging
 - kein Spring Data
 - kein formales Repository Pattern
 - kein Connection Pooling
+- kein Monitoring, kein ELK, kein OpenTelemetry
 - keine komplexen SQL-Joins
 - keine vertiefte Normalisierung
 - keine vertieften Transaktionen

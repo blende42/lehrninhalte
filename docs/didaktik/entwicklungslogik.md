@@ -28,6 +28,7 @@ Grundlagen
 -> Mapping zwischen Objekten und Datenbank
 -> mehrere Tabellen und Beziehungen
 -> Repository als strukturierter Datenzugriff
+-> technisches Logging als Beobachtbarkeit
 ```
 
 ## Grundlagen und Datenstrukturen
@@ -122,6 +123,20 @@ Mit einer Datenbank entsteht zusätzlich Mapping. Java-Objekte liegen nicht dire
 Mehrere Tabellen erzeugen neue Strukturfragen. Ein Produkt, Preisänderungen und Bestandsänderungen gehören fachlich zusammen, liegen aber in verschiedenen Tabellen. Beziehungen wie `PRODUKT_ID` müssen im Code nachvollziehbar geladen, gespeichert und gemappt werden.
 
 Repositorys werden deshalb als einfache Persistenzklassen eingeführt. In dieser Reihe bedeutet Repository nicht Enterprise-Pattern, sondern: ein strukturierter Ort für Datenzugriff und Mapping in einem fachlichen Bereich. Ein `ProduktRepository` kennt Produktdaten, ein `AenderungsRepository` kennt Änderungsdaten. Die Fachlogik bleibt im Service.
+
+## Technische Beobachtbarkeit durch Logging
+
+Nach JDBC/H2, Mapping, mehreren Tabellen und Repositorys passiert in der bekannten Lagerverwaltung genug technische Arbeit im Hintergrund, dass einfache Konsolenausgaben nicht mehr ausreichen. Technisches Logging wird deshalb erst jetzt eingeführt: Die Lernenden haben konkrete Abläufe, die sie beobachten müssen.
+
+Logging macht sichtbar, welche Repository-Methode arbeitet, welche JDBC-Aktion vorbereitet wird und welcher Fehler technisch aufgetreten ist. Es bleibt aber Beobachtbarkeit. Fachregeln bleiben im Service und Tests bleiben die Prüfung des erwarteten Verhaltens.
+
+Der Einstieg bleibt bewusst klein:
+
+- SLF4J als Logging-Schnittstelle
+- Logback als konkrete Ausgabe-Umsetzung
+- Logger pro Klasse
+- Log-Level `DEBUG`, `INFO`, `WARN` und `ERROR`
+- Logging in Repository-Klassen bei Datenzugriff und Fehlerfällen
 
 ## Architekturbegriffe aus echten Problemen
 
