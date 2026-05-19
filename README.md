@@ -17,7 +17,7 @@ Didaktik-, Begriffs- und Prozessbibliothek für KI-gestützte Lehrmittel-Erstell
 
 - [entwicklungslogik.md](./docs/didaktik/entwicklungslogik.md)
 
-Die didaktische Entwicklungslogik beschreibt den roten Faden bis zur wachsenden Persistenz mit JDBC/H2, Objekt-Datenbank-Mapping, mehreren Tabellen, Repository als einfachem strukturiertem Datenzugriff und technischem Logging als Beobachtbarkeit.
+Die didaktische Entwicklungslogik beschreibt den roten Faden bis zur wachsenden Persistenz mit JDBC/H2, Objekt-Datenbank-Mapping, mehreren Tabellen, Repository als einfachem strukturiertem Datenzugriff, technischem Logging als Beobachtbarkeit und technischer Konfiguration.
 
 #### docs/begriffe
 
@@ -136,6 +136,7 @@ Lehr- und Arbeitsblätter zu Java- und Grundlagenthemen:
 - [Arbeitsblatt_Objekt_Datenbank_Mapping.md](./Arbeitsblaetter/Arbeitsblatt_Objekt_Datenbank_Mapping.md)
 - [Arbeitsblatt_Tabellen_Beziehungen_Repository.md](./Arbeitsblaetter/Arbeitsblatt_Tabellen_Beziehungen_Repository.md)
 - [Arbeitsblatt_Technisches_Logging.md](./Arbeitsblaetter/Arbeitsblatt_Technisches_Logging.md)
+- [Arbeitsblatt_Technische_Konfiguration.md](./Arbeitsblaetter/Arbeitsblatt_Technische_Konfiguration.md)
 - [arbeitsblatt_java_wrapper.md](./Arbeitsblaetter/arbeitsblatt_java_wrapper.md)
 - [arbeitsblatt_stringbuilder.md](./Arbeitsblaetter/arbeitsblatt_stringbuilder.md)
 - [arbeitsblatt_theorie_kombiniert.md](./Arbeitsblaetter/arbeitsblatt_theorie_kombiniert.md)
@@ -188,6 +189,7 @@ SVG-Grafiken und zugehörige Datei für eingebettete Arbeitsblattgrafiken:
 - [Uebungen_Objekt_Datenbank_Mapping.md](./Uebungen/Uebungen_Objekt_Datenbank_Mapping.md)
 - [Uebungen_Tabellen_Beziehungen_Repository.md](./Uebungen/Uebungen_Tabellen_Beziehungen_Repository.md)
 - [Uebungen_Technisches_Logging.md](./Uebungen/Uebungen_Technisches_Logging.md)
+- [Uebungen_Technische_Konfiguration.md](./Uebungen/Uebungen_Technische_Konfiguration.md)
 - [string_uebungen.md](./Uebungen/string_uebungen.md)
 - [string_uebungen_v2.md](./Uebungen/string_uebungen_v2.md)
 - [string_mini_projekt_v3.md](./Uebungen/string_mini_projekt_v3.md)
@@ -236,6 +238,7 @@ Kompakte Referenzlösungen zu den Übungen, Simulationen, Package-Strukturierung
 - [Loesungen_Objekt_Datenbank_Mapping.md](./Musterloesungen/Loesungen_Objekt_Datenbank_Mapping.md)
 - [Loesungen_Tabellen_Beziehungen_Repository.md](./Musterloesungen/Loesungen_Tabellen_Beziehungen_Repository.md)
 - [Loesungen_Technisches_Logging.md](./Musterloesungen/Loesungen_Technisches_Logging.md)
+- [Loesungen_Technische_Konfiguration.md](./Musterloesungen/Loesungen_Technische_Konfiguration.md)
 - [musterloesungen_stringbuilder.md](./Musterloesungen/musterloesungen_stringbuilder.md)
 - [string_parser_loesungen.md](./Musterloesungen/string_parser_loesungen.md)
 
@@ -263,6 +266,7 @@ Allgemeine SVG-Grafiken für den Unterricht:
 - [repository_evolutionsschritt.svg](./graphics/repository_evolutionsschritt.svg)
 - [repository_und_tabellenbeziehungen.svg](./graphics/repository_und_tabellenbeziehungen.svg)
 - [technisches_logging_java.svg](./graphics/technisches_logging_java.svg)
+- [technische_konfiguration_java.svg](./graphics/technische_konfiguration_java.svg)
 - [persistenzablauf_laden_bearbeiten_speichern.svg](./graphics/persistenzablauf_laden_bearbeiten_speichern.svg)
 - [verantwortlichkeiten_aufteilen.svg](./graphics/verantwortlichkeiten_aufteilen.svg)
 - [interface_produkt_speicher.svg](./graphics/interface_produkt_speicher.svg)
@@ -276,7 +280,7 @@ Allgemeine SVG-Grafiken für den Unterricht:
 - [projektreview_aenderungshistorie_architektur.svg](./graphics/projektreview_aenderungshistorie_architektur.svg)
 - [parser_grafik.svg](./graphics/parser_grafik.svg)
 
-Die beiden Repository-Grafiken verdeutlichen den Evolutionsschritt von wachsendem Persistenz- und Mapping-Code zu einfachen Repository-Klassen sowie die Tabellenbeziehungen über `ID` und `PRODUKT_ID`. Die Logging-Grafik zeigt technische Beobachtbarkeit über Logger und Log-Level, ohne Fachlogik oder Tests zu ersetzen.
+Die beiden Repository-Grafiken verdeutlichen den Evolutionsschritt von wachsendem Persistenz- und Mapping-Code zu einfachen Repository-Klassen sowie die Tabellenbeziehungen über `ID` und `PRODUKT_ID`. Die Logging-Grafik zeigt technische Beobachtbarkeit über Logger und Log-Level, ohne Fachlogik oder Tests zu ersetzen. Die Konfigurationsgrafik zeigt, wie `app.properties` technische Werte ausserhalb des Java-Codes bereitstellt.
 
 ### templates
 Vorlagen, Workflows und Prompts für Lehrmittel, SVG-Grafiken und Reviews:

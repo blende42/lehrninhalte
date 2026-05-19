@@ -48,12 +48,13 @@ Aktuell vorbereitet sind:
 38. Mapping zwischen Objekten und Datenbank
 39. Mehrere Tabellen, Beziehungen und Repository
 40. Technisches Logging in Java einführen
+41. Technische Konfiguration in Java
 
-Die zuletzt erstellte Unterrichtseinheit ist **Technisches Logging in Java einführen**. Sie zeigt, warum technische Beobachtbarkeit nach JDBC/H2, mehreren Tabellen, Mapping und Repository sinnvoll wird, wie SLF4J mit Logback in einem Maven-Projekt verwendet wird und wie Repository-Klassen technische Abläufe sowie Fehlerfälle mit `DEBUG`, `INFO`, `WARN` und `ERROR` nachvollziehbar loggen.
+Die zuletzt erstellte Unterrichtseinheit ist **Technische Konfiguration in Java**. Sie zeigt, warum technische Einstellungen nach JDBC/H2, Repositorys und technischem Logging nicht hartcodiert im Java-Code stehen sollen. Die Einheit verwendet klassische `.properties`-Dateien und `java.util.Properties`, um DB-URL, Dateipfade, vorbereiteten Logging-Level und H2-Modus zentral zu laden und Fachlogik von technischer Konfiguration zu trennen.
 
 Das zuletzt erstellte Mini-Projekt ist **Änderungshistorie für Lagerverwaltung**.
 
-Die didaktische Entwicklungslinie der Unterrichtsreihe ist in [entwicklungslogik.md](./docs/didaktik/entwicklungslogik.md) festgehalten. Sie erklärt den Aufbau von Java-Grundlagen über Datenstrukturen, OOP, Maven, Tests, Refactoring, CSV-Persistenz, Verantwortlichkeiten, Interfaces, Polymorphie, Wiederverwendung, Vererbung und Services bis zu Projektarbeit, Projekt-Review, Architektur-Festigung, JDBC/H2, Mapping, mehreren Tabellen, Repository als einfachem strukturiertem Datenzugriff und technischem Logging als Beobachtbarkeit.
+Die didaktische Entwicklungslinie der Unterrichtsreihe ist in [entwicklungslogik.md](./docs/didaktik/entwicklungslogik.md) festgehalten. Sie erklärt den Aufbau von Java-Grundlagen über Datenstrukturen, OOP, Maven, Tests, Refactoring, CSV-Persistenz, Verantwortlichkeiten, Interfaces, Polymorphie, Wiederverwendung, Vererbung und Services bis zu Projektarbeit, Projekt-Review, Architektur-Festigung, JDBC/H2, Mapping, mehreren Tabellen, Repository als einfachem strukturiertem Datenzugriff, technischem Logging als Beobachtbarkeit und technischer Konfiguration.
 
 Neue Projektstruktur für grössere Mini-Projekte:
 
@@ -169,14 +170,18 @@ Neue Dateien im Maven-, Testing-, Refactoring- und Persistenz-Block:
 - [Uebungen_Tabellen_Beziehungen_Repository.md](./Uebungen/Uebungen_Tabellen_Beziehungen_Repository.md)
 - [Arbeitsblatt_Technisches_Logging.md](./Arbeitsblaetter/Arbeitsblatt_Technisches_Logging.md)
 - [Uebungen_Technisches_Logging.md](./Uebungen/Uebungen_Technisches_Logging.md)
+- [Arbeitsblatt_Technische_Konfiguration.md](./Arbeitsblaetter/Arbeitsblatt_Technische_Konfiguration.md)
+- [Uebungen_Technische_Konfiguration.md](./Uebungen/Uebungen_Technische_Konfiguration.md)
 - [Loesungen_Objekt_Datenbank_Mapping.md](./Musterloesungen/Loesungen_Objekt_Datenbank_Mapping.md)
 - [Loesungen_Tabellen_Beziehungen_Repository.md](./Musterloesungen/Loesungen_Tabellen_Beziehungen_Repository.md)
 - [Loesungen_Technisches_Logging.md](./Musterloesungen/Loesungen_Technisches_Logging.md)
+- [Loesungen_Technische_Konfiguration.md](./Musterloesungen/Loesungen_Technische_Konfiguration.md)
 - [csv_vs_db_produkt_speicher.svg](./graphics/csv_vs_db_produkt_speicher.svg)
 - [objekt_datenbank_mapping.svg](./graphics/objekt_datenbank_mapping.svg)
 - [repository_evolutionsschritt.svg](./graphics/repository_evolutionsschritt.svg)
 - [repository_und_tabellenbeziehungen.svg](./graphics/repository_und_tabellenbeziehungen.svg)
 - [technisches_logging_java.svg](./graphics/technisches_logging_java.svg)
+- [technische_konfiguration_java.svg](./graphics/technische_konfiguration_java.svg)
 - [fachlogik_services.svg](./graphics/fachlogik_services.svg)
 - [verantwortlichkeiten_services_festigen.svg](./graphics/verantwortlichkeiten_services_festigen.svg)
 - [jdbc_h2_embedded_vs_server.svg](./graphics/jdbc_h2_embedded_vs_server.svg)
@@ -356,11 +361,33 @@ Die Datei unter `docs/didaktik` beschreibt die didaktische Entwicklungslogik der
   - keine sensiblen Daten wie Passwörter oder Tokens
   - keine übermässigen `INFO`-Logs
 
+## Wichtige Inhalte aus Technische Konfiguration in Java
+
+- Technische Konfiguration wird als nächster Infrastrukturschritt nach JDBC/H2, Repositorys und technischem Logging eingeführt.
+- Die Kernbotschaft lautet: Technische Einstellungen gehören nicht hartcodiert in Klassen.
+- `.properties`-Dateien werden als einfache technische Konfigurationsdateien verwendet.
+- `java.util.Properties` lädt Werte aus `config/app.properties`.
+- DB-URL, Datenbank-Benutzer, Dateipfade, vorbereiteter Logging-Level und H2-Modus werden als technische Einstellungen eingeordnet.
+- Fachlogik bleibt im `LagerService`; technische Konfiguration wird in `Main` geladen und über eine kleine Klasse wie `AppConfig` zentral gebündelt.
+- H2 Embedded und H2 Server werden über unterschiedliche DB-URLs und `h2.mode` verglichen.
+- Die Grafik `technische_konfiguration_java.svg` zeigt `app.properties`, Konfigurationsklasse, `ProduktRepository`, H2-Datenbank, unterschiedliche Konfigurationen, Abgrenzung zu Fachlogik und weniger Hardcoding.
+- Die Übungen sind nach Basis, Vertiefung und Transfer gestaffelt:
+  - `app.properties` erstellen
+  - Properties-Datei mit `try-with-resources` lesen
+  - DB-URL und Dateipfad aus Konfiguration laden
+  - H2-Konfiguration auslagern
+  - Logging-Level vorbereiten
+  - fehlende Werte, Standardwerte und ungültige Werte behandeln
+  - Embedded- und Server-H2 per Konfigurationsdatei unterscheiden
+  - Hardcoding und Abgrenzung zu Fachlogik reflektieren
+- Die Musterlösung enthält eine kompakte Standardlösung mit `app.properties`, `KonfigurationLaden`, `AppConfig`, konfigurierter Repository-Erstellung, kleiner `Main`, H2-Embedded-/Server-Konfiguration, Fehlerhinweisen, Reflexionsantworten und dokumentierter Maven-Verifikation mit temporärem Prüfprojekt.
+- Bewusst nicht eingeführt werden Spring Configuration, YAML, Dependency Injection, Docker, Kubernetes, vertiefte Environment Variables und I18N mit `ResourceBundle`.
+
 ## Nächster Fokus
 
-Als nächstes bietet sich ein Review zu **Technisches Logging in Java einführen** und zur gewachsenen Persistenzstruktur an.
+Als nächstes bietet sich ein Review zu **Technische Konfiguration in Java** und zur gewachsenen technischen Infrastruktur an.
 
-Die Einheit baut direkt auf CSV-Persistenz, Verantwortlichkeiten, Interfaces, Services, JDBC/H2-Grundlagen, `DbProduktSpeicher`, evolutionärer Persistenz-Erweiterung, Objekt-Datenbank-Mapping und Repositorys auf. Die Kernbotschaft lautet: Persistenz- und Mapping-Code wächst mit der Anwendung und braucht technische Beobachtbarkeit, ohne Fachlogik oder Tests zu ersetzen.
+Die Einheit baut direkt auf CSV-Persistenz, Verantwortlichkeiten, Interfaces, Services, JDBC/H2-Grundlagen, `DbProduktSpeicher`, evolutionärer Persistenz-Erweiterung, Objekt-Datenbank-Mapping, Repositorys und technischem Logging auf. Die Kernbotschaft lautet: Die technische Infrastruktur soll flexibel bleiben, ohne dass Fachlogik oder Java-Code für jede Umgebung angepasst werden müssen.
 
 Weiter diagnostisch zu beobachten:
 
@@ -368,6 +395,9 @@ Weiter diagnostisch zu beobachten:
 - mehrere Tabellen und Java-Objekte sauber zuordnen
 - Mapping von `ResultSet` zu `Produkt`, `PreisAenderung` und `BestandsAenderung` nachvollziehen
 - SQL, JDBC und Mapping-Code nicht in `Main` oder `LagerService` vermischen
+- DB-URL, Dateipfade, Logging-Level und H2-Modus nicht hartcodieren
+- Fachlogik nicht in `.properties`-Dateien auslagern
+- Konfiguration zentral laden und nicht in jeder Repository-Methode erneut lesen
 - `ProduktRepository` und `AenderungsRepository` nach Verantwortung unterscheiden
 - `ResultSet` korrekt mit `next()` lesen und mehrere Änderungen laden
 - Platzhalter-Reihenfolge im `PreparedStatement` prüfen

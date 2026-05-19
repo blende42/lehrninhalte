@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1120" viewBox="0 0 1800 1120" role="img" aria-labelledby="title desc">
+  <title id="title">Technische Konfiguration in Java</title>
+  <desc id="desc">Konzeptgrafik: Technische Einstellungen stehen in app.properties, werden von einer Konfigurationsklasse gelesen und an Repository und H2-Datenbank weitergegeben. Dieselbe Anwendung kann unterschiedlich konfiguriert werden. Konfiguration ist keine Fachlogik.</desc>
+
+  <defs>
+    <style>
+      .title { font: 700 40px Arial, Helvetica, sans-serif; fill: #111827; }
+      .subtitle { font: 400 20px Arial, Helvetica, sans-serif; fill: #4b5563; }
+      .section { font: 700 29px Arial, Helvetica, sans-serif; fill: #111827; }
+      .heading { font: 700 24px Arial, Helvetica, sans-serif; fill: #111827; }
+      .text { font: 400 21px Arial, Helvetica, sans-serif; fill: #1f2937; }
+      .text-bold { font: 700 21px Arial, Helvetica, sans-serif; fill: #111827; }
+      .text-small { font: 400 18px Arial, Helvetica, sans-serif; fill: #374151; }
+      .mono { font: 700 22px "Courier New", Courier, monospace; fill: #17324d; }
+      .mono-small { font: 700 18px "Courier New", Courier, monospace; fill: #17324d; }
+
+      .panel-main { fill: #fbfcfb; stroke: #b9bcc3; stroke-width: 2.4; }
+      .config-box { fill: #fff8df; stroke: #d89b37; stroke-width: 2.6; }
+      .class-box { fill: #e8eef9; stroke: #4f7fcb; stroke-width: 2.6; }
+      .repo-box { fill: #ecfdf5; stroke: #059669; stroke-width: 2.6; }
+      .db-box { fill: #eef2ff; stroke: #4f46e5; stroke-width: 2.6; }
+      .note-box { fill: #f8fafc; stroke: #94a3b8; stroke-width: 2.2; }
+      .warn-box { fill: #fff4f1; stroke: #c45d4d; stroke-width: 2.2; }
+      .good-box { fill: #edf7ed; stroke: #6ca05f; stroke-width: 2.2; }
+      .summary { fill: #fff8df; stroke: #d89b37; stroke-width: 2.4; }
+
+      .config-accent { fill: #a16207; }
+      .class-accent { fill: #2b65b3; }
+      .repo-accent { fill: #047857; }
+      .db-accent { fill: #4338ca; }
+      .warn-accent { fill: #b34835; }
+      .good-accent { fill: #4d8f3a; }
+
+      .arrow-main { stroke: #334155; stroke-width: 3.4; fill: none; marker-end: url(#arrowMain); }
+      .arrow-config { stroke: #c67f17; stroke-width: 3.2; fill: none; marker-end: url(#arrowConfig); }
+      .arrow-soft { stroke: #64748b; stroke-width: 2.8; stroke-dasharray: 9 7; fill: none; marker-end: url(#arrowSoft); }
+    </style>
+
+    <marker id="arrowMain" markerWidth="11" markerHeight="11" refX="9" refY="5.5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 11 5.5 L 0 11 z" fill="#334155"/>
+    </marker>
+    <marker id="arrowConfig" markerWidth="11" markerHeight="11" refX="9" refY="5.5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 11 5.5 L 0 11 z" fill="#c67f17"/>
+    </marker>
+    <marker id="arrowSoft" markerWidth="11" markerHeight="11" refX="9" refY="5.5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 11 5.5 L 0 11 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1800" height="1120" fill="#ffffff"/>
+
+  <text x="900" y="70" text-anchor="middle" class="title">Technische Konfiguration in Java</text>
+  <text x="900" y="106" text-anchor="middle" class="subtitle">Technische Einstellungen bleiben ausserhalb des Java-Codes.</text>
+
+  <rect x="70" y="145" rx="22" ry="22" width="1660" height="850" class="panel-main"/>
+  <text x="900" y="192" text-anchor="middle" class="section">Konfiguration steuert technische Infrastruktur</text>
+
+  <!-- Main flow -->
+  <rect x="625" y="235" rx="20" ry="20" width="550" height="155" class="config-box"/>
+  <text x="900" y="278" text-anchor="middle" class="heading config-accent">app.properties</text>
+  <text x="760" y="320" text-anchor="start" class="mono">db.url</text>
+  <text x="760" y="350" text-anchor="start" class="mono">csv.path</text>
+  <text x="760" y="380" text-anchor="start" class="mono">log.level</text>
+  <text x="1070" y="320" text-anchor="middle" class="text-small">DB-Ziel</text>
+  <text x="1070" y="350" text-anchor="middle" class="text-small">Dateipfad</text>
+  <text x="1070" y="380" text-anchor="middle" class="text-small">Logging</text>
+
+  <rect x="650" y="485" rx="20" ry="20" width="500" height="112" class="class-box"/>
+  <text x="900" y="530" text-anchor="middle" class="heading class-accent">Konfigurationsklasse</text>
+  <text x="900" y="565" text-anchor="middle" class="text">lädt und prüft technische Werte</text>
+
+  <rect x="650" y="690" rx="20" ry="20" width="500" height="112" class="repo-box"/>
+  <text x="900" y="735" text-anchor="middle" class="heading repo-accent">ProduktRepository</text>
+  <text x="900" y="770" text-anchor="middle" class="text">verwendet konfigurierte DB-URL</text>
+
+  <rect x="650" y="880" rx="20" ry="20" width="500" height="105" class="db-box"/>
+  <text x="900" y="923" text-anchor="middle" class="heading db-accent">H2-Datenbank</text>
+  <text x="900" y="957" text-anchor="middle" class="text">Embedded oder Server</text>
+
+  <path d="M 900 390 L 900 476" class="arrow-main"/>
+  <path d="M 900 597 L 900 681" class="arrow-main"/>
+  <path d="M 900 802 L 900 871" class="arrow-main"/>
+
+  <!-- Left side: same application, different configuration -->
+  <rect x="125" y="245" rx="18" ry="18" width="410" height="230" class="note-box"/>
+  <text x="330" y="290" text-anchor="middle" class="heading class-accent">Gleiche Anwendung</text>
+  <text x="330" y="327" text-anchor="middle" class="text">andere Konfiguration</text>
+  <text x="170" y="370" text-anchor="start" class="mono-small">app-dev.properties</text>
+  <text x="170" y="402" text-anchor="start" class="mono-small">app-test.properties</text>
+  <text x="170" y="434" text-anchor="start" class="mono-small">app-server.properties</text>
+  <path d="M 535 355 C 570 355, 590 355, 625 320" class="arrow-config"/>
+
+  <rect x="125" y="545" rx="18" ry="18" width="410" height="160" class="good-box"/>
+  <text x="330" y="590" text-anchor="middle" class="heading good-accent">Weniger Hardcoding</text>
+  <text x="330" y="627" text-anchor="middle" class="text">DB-URL nicht im Code</text>
+  <text x="330" y="657" text-anchor="middle" class="text">Dateipfad nicht im Code</text>
+  <text x="330" y="687" text-anchor="middle" class="text-small">Änderung ohne Codeänderung</text>
+  <path d="M 535 625 C 585 625, 610 560, 650 545" class="arrow-soft"/>
+
+  <!-- Right side: boundaries and infrastructure options -->
+  <rect x="1265" y="245" rx="18" ry="18" width="410" height="180" class="warn-box"/>
+  <text x="1470" y="290" text-anchor="middle" class="heading warn-accent">Keine Fachlogik</text>
+  <text x="1470" y="327" text-anchor="middle" class="text">Preisregeln bleiben</text>
+  <text x="1470" y="357" text-anchor="middle" class="text">im LagerService</text>
+  <text x="1470" y="390" text-anchor="middle" class="text-small">Konfiguration ist Technik</text>
+  <path d="M 1265 335 C 1215 335, 1195 335, 1175 335" class="arrow-soft"/>
+
+  <rect x="1265" y="495" rx="18" ry="18" width="410" height="185" class="note-box"/>
+  <text x="1470" y="540" text-anchor="middle" class="heading db-accent">Embedded vs. Server</text>
+  <text x="1310" y="585" text-anchor="start" class="mono-small">h2.mode=embedded</text>
+  <text x="1310" y="620" text-anchor="start" class="mono-small">h2.mode=server</text>
+  <text x="1470" y="655" text-anchor="middle" class="text-small">Auswahl per Konfiguration</text>
+  <path d="M 1265 595 C 1215 595, 1190 555, 1150 545" class="arrow-config"/>
+
+  <rect x="1265" y="740" rx="18" ry="18" width="410" height="145" class="note-box"/>
+  <text x="1470" y="785" text-anchor="middle" class="heading config-accent">Logging-Level</text>
+  <text x="1470" y="823" text-anchor="middle" class="mono-small">log.level=INFO</text>
+  <text x="1470" y="852" text-anchor="middle" class="text-small">Vorbereitung für Logging</text>
+  <path d="M 1265 810 C 1210 800, 1180 750, 1150 735" class="arrow-config"/>
+
+  <!-- Summary -->
+  <rect x="155" y="1020" rx="18" ry="18" width="1490" height="62" class="summary"/>
+  <text x="900" y="1059" text-anchor="middle" class="heading config-accent">Merksatz: Java-Code bleibt gleich, technische Einstellungen wechseln.</text>
+</svg>

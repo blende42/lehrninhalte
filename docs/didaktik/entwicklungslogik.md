@@ -29,6 +29,7 @@ Grundlagen
 -> mehrere Tabellen und Beziehungen
 -> Repository als strukturierter Datenzugriff
 -> technisches Logging als Beobachtbarkeit
+-> technische Konfiguration als flexible Infrastruktur
 ```
 
 ## Grundlagen und Datenstrukturen
@@ -138,6 +139,23 @@ Der Einstieg bleibt bewusst klein:
 - Log-Level `DEBUG`, `INFO`, `WARN` und `ERROR`
 - Logging in Repository-Klassen bei Datenzugriff und Fehlerfällen
 
+## Technische Konfiguration als flexible Infrastruktur
+
+Nach JDBC/H2, mehreren Tabellen, Repositorys und technischem Logging sind in der bekannten Lagerverwaltung nicht nur fachliche Regeln gewachsen, sondern auch technische Einstellungen. Datenbank-URLs, Dateipfade, vorbereitete Logging-Werte und technische Modi wie H2 Embedded oder Server sollen nicht hartcodiert in Java-Klassen verteilt sein.
+
+Technische Konfiguration wird deshalb als nächster Infrastrukturschritt eingeführt. Die Lernenden sehen an einem konkreten Problem: Dieselbe Anwendung soll mit unterschiedlichen technischen Einstellungen laufen können, ohne dass Fachlogik oder Repository-Code für jede Umgebung geändert werden muss.
+
+Der Einstieg bleibt bewusst klein:
+
+- klassische `.properties`-Dateien
+- `java.util.Properties`
+- zentrale Konfigurationsklasse ohne Framework
+- DB-URL und Dateipfade konfigurieren
+- vorbereiteter Logging-Level als technischer Wert
+- H2 Embedded und Server über Konfiguration unterscheiden
+
+Konfiguration wird klar von Fachlogik getrennt. Fachregeln bleiben im Service. Repositorys enthalten weiterhin Datenzugriff und Mapping. Konfiguration liefert technische Werte für die Infrastruktur. Mehrsprachigkeit wird bewusst nicht mit dieser Einheit vermischt; I18N folgt später separat mit `ResourceBundle`.
+
 ## Architekturbegriffe aus echten Problemen
 
 Neue Architekturbegriffe werden nicht abstrakt vorangestellt. Zuerst entsteht ein konkretes Problem im Code, danach erhält die passende Struktur einen Namen. So bleibt der Begriff an Erfahrung gebunden.
@@ -148,6 +166,7 @@ Beispiele:
 - Ein Service wird sinnvoll, wenn Fachlogik sonst in `Main` oder in Speicherklassen verteilt wird.
 - Vererbung wird sinnvoll diskutiert, wenn doppelter oder sehr ähnlicher Code sichtbar wird.
 - Ein Repository wird sinnvoll, wenn JDBC- und Mapping-Code durch mehrere Tabellen wächst.
+- Technische Konfiguration wird sinnvoll, wenn DB-URLs, Dateipfade und technische Modi nicht mehr hartcodiert im Code stehen sollen.
 
 Damit lernen die Lernenden Architektur nicht als Sammlung grosser Begriffe, sondern als Werkzeug zur Lösung konkreter Strukturprobleme.
 
@@ -167,6 +186,9 @@ Für den Datenbank- und Repository-Einstieg werden bewusst nicht eingeführt:
 - keine komplexe Clean Architecture
 - keine komplexen Frameworks
 - keine zu frühe REST-API
+- keine Spring-Konfiguration
+- keine YAML-Konfiguration
+- keine vertiefte Docker- oder Kubernetes-Konfiguration
 
 Repository wird nur einfach als strukturierter Datenzugriff eingeführt: JDBC-Code, SQL-Anweisungen und Mapping werden an einem nachvollziehbaren Ort gebündelt. Es geht nicht um Framework-Magie, automatische Persistenz oder Enterprise-Architektur.
 

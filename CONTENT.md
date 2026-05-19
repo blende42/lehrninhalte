@@ -9,7 +9,7 @@ Diese Dateien unterstützen die KI-gestützte Erstellung und Prüfung von Lehrmi
 ### Didaktik
 
 - [Didaktische Entwicklungslogik](./docs/didaktik/entwicklungslogik.md)
-  - begründet die Entwicklung von Java-Grundlagen über Datenstrukturen, OOP, Maven, Tests, CSV-Persistenz, Verantwortlichkeiten, Interfaces und Services bis zu Projektarbeit, Projekt-Review, Architektur-Festigung, JDBC/H2, Mapping, mehreren Tabellen, Repository als einfachem strukturiertem Datenzugriff und technischem Logging als Beobachtbarkeit
+  - begründet die Entwicklung von Java-Grundlagen über Datenstrukturen, OOP, Maven, Tests, CSV-Persistenz, Verantwortlichkeiten, Interfaces und Services bis zu Projektarbeit, Projekt-Review, Architektur-Festigung, JDBC/H2, Mapping, mehreren Tabellen, Repository als einfachem strukturiertem Datenzugriff, technischem Logging als Beobachtbarkeit und technischer Konfiguration
 
 ### Begriffe
 
@@ -77,7 +77,7 @@ Diese Reihenfolge erfasst die bisher aufgebauten Konzepte und Übungen. Die Eint
 
 ### Didaktische Entwicklungslinie
 
-Die Reihenfolge ist bewusst als roter Faden aufgebaut: Grundlagen, Datenstrukturen, OOP, Maven, Tests, Refactoring, CSV-Persistenz, Verantwortlichkeiten, Interfaces, Polymorphie, Wiederverwendung, Vererbung und Services führen schrittweise zu Projektarbeit, Projekt-Review, Architektur-Festigung, JDBC/H2, Mapping, mehreren Tabellen, Repository als einfachem strukturiertem Datenzugriff und technischem Logging als Beobachtbarkeit.
+Die Reihenfolge ist bewusst als roter Faden aufgebaut: Grundlagen, Datenstrukturen, OOP, Maven, Tests, Refactoring, CSV-Persistenz, Verantwortlichkeiten, Interfaces, Polymorphie, Wiederverwendung, Vererbung und Services führen schrittweise zu Projektarbeit, Projekt-Review, Architektur-Festigung, JDBC/H2, Mapping, mehreren Tabellen, Repository als einfachem strukturiertem Datenzugriff, technischem Logging als Beobachtbarkeit und technischer Konfiguration.
 
 Architektur wird dabei nicht abstrakt vorangestellt. Sie entsteht aus konkreten Problemen im Code: zu viel Logik in `Main`, vermischte Datei- und Fachlogik, doppelte Codeabschnitte, schwer testbare Methoden oder unklare Verantwortlichkeiten. Nach den Services folgt deshalb bewusst eine Festigungsphase, in der Lernende diese Strukturentscheidungen an bekannten Beispielen sichern.
 
@@ -519,9 +519,20 @@ Material:
 - [Übungen – Technisches Logging in Java einführen](./Uebungen/Uebungen_Technisches_Logging.md)
 - [Lösungen – Technisches Logging in Java einführen](./Musterloesungen/Loesungen_Technisches_Logging.md)
 
+### 41. Technische Konfiguration in Java
+
+Ziel: Technische Einstellungen der gewachsenen Lagerverwaltung aus dem Java-Code herauslösen, `.properties`-Dateien mit `java.util.Properties` laden, DB-URL, Dateipfade, vorbereitete Logging-Werte und H2-Modus zentral konfigurieren und Fachlogik klar von technischer Konfiguration trennen, ohne Spring, YAML oder Konfigurationsframeworks einzuführen.
+
+Material:
+
+- [Arbeitsblatt – Technische Konfiguration in Java](./Arbeitsblaetter/Arbeitsblatt_Technische_Konfiguration.md)
+- [Technische Konfiguration in Java](./graphics/technische_konfiguration_java.svg)
+- [Übungen – Technische Konfiguration in Java](./Uebungen/Uebungen_Technische_Konfiguration.md)
+- [Lösungen – Technische Konfiguration in Java](./Musterloesungen/Loesungen_Technische_Konfiguration.md)
+
 ### Nächster sinnvoller Block
 
-Nach `Technisches Logging in Java einführen` bietet sich als nächstes Thema ein Review zur technischen Beobachtbarkeit der gewachsenen Persistenzstruktur an:
+Nach `Technische Konfiguration in Java` bietet sich als nächstes Thema ein Review zur technischen Infrastruktur der gewachsenen Lagerverwaltung an:
 
 - `ProduktRepository` und `AenderungsRepository` nach Verantwortung prüfen
 - `PRODUKT_ID` als Verbindung zwischen Produkt und Änderungen erklären lassen
@@ -529,6 +540,8 @@ Nach `Technisches Logging in Java einführen` bietet sich als nächstes Thema ei
 - Fachlogik, Ablaufsteuerung, Datenzugriff und Mapping erneut trennen
 - sinnvolle `INFO`-, `DEBUG`-, `WARN`- und `ERROR`-Logs in Repository-Klassen begründen
 - prüfen, ob Logs bei Fehlersuche helfen, ohne Fachlogik oder Tests zu ersetzen
+- prüfen, ob technische Werte wie DB-URL, Dateipfade, Logging-Level und H2-Modus konfigurierbar sind
+- erklären lassen, warum Konfiguration keine Fachlogik ist
 - doppelte JDBC- und Mapping-Logik sichtbar machen, aber nicht zu früh generisch abstrahieren
 - weiterhin kein ORM, kein Hibernate, kein JPA, kein Spring Data und keine komplexe Datenbankarchitektur
 
@@ -864,6 +877,15 @@ Arbeitsblätter führen neue Konzepte ein, enthalten kurze Theorie, Beispiele, t
   - Logger pro Klasse, Log-Level und Repository-Logging praktisch zeigen
   - Exception-Logging mit Kontext statt verschluckter Fehler erklären
   - typische Fehler wie zu viele `INFO`-Logs, sensible Daten und Logging als Fachlogik sichtbar machen
+- [Arbeitsblatt – Technische Konfiguration in Java](./Arbeitsblaetter/Arbeitsblatt_Technische_Konfiguration.md)
+  - technische Konfiguration als nächsten Infrastrukturschritt nach JDBC/H2, Repository und Logging einführen
+  - Grafik zu `app.properties`, Konfigurationsklasse, `ProduktRepository` und H2-Datenbank einbinden
+  - Fachlogik von technischer Konfiguration trennen
+  - `.properties`-Dateien und `java.util.Properties` anhand kleiner Beispiele erklären
+  - DB-URL, Dateipfade, vorbereiteten Logging-Level und H2-Modus als technische Einstellungen einordnen
+  - zentrale Konfigurationsklasse `AppConfig` ohne Frameworks vorbereiten
+  - H2 Embedded und Server über Konfigurationswerte vergleichen
+  - typische Fehler wie Hardcoding, mehrfaches Laden, fehlende Pflichtwerte und I18N-Verwechslung sichtbar machen
 
 ## Konzeptgrafiken
 
@@ -1012,6 +1034,11 @@ Konzeptgrafiken visualisieren Beziehungen, Abläufe und typische Denkmodelle. Si
   - zeigt `LagerService` als Fachlogik und Repositorys als technische Datenzugriffsorte
   - macht Logger mit `DEBUG`, `INFO`, `WARN` und `ERROR` sichtbar
   - grenzt Logging von `System.out.println`, Tests und Fachlogik ab
+- [Technische Konfiguration in Java](./graphics/technische_konfiguration_java.svg)
+  - zeigt `app.properties` mit `db.url`, `csv.path` und `log.level`
+  - führt über Konfigurationsklasse zu `ProduktRepository` und H2-Datenbank
+  - macht unterschiedliche Konfigurationen für dieselbe Anwendung sichtbar
+  - grenzt technische Konfiguration von Fachlogik ab
 - [Projektreview Änderungshistorie Architektur](./graphics/projektreview_aenderungshistorie_architektur.svg)
   - `Main`, `LagerService`, `JournalService`, `ProduktSpeicher`, `Produkt` und `AenderungsEintrag` nach Verantwortung darstellen
   - zeigen, dass Historie neue Verantwortlichkeiten erzeugt und Services wachsen können
@@ -1311,6 +1338,14 @@ Konzeptgrafiken visualisieren Beziehungen, Abläufe und typische Denkmodelle. Si
   - `DEBUG`, `INFO`, `WARN` und `ERROR` an Repository- und JDBC-Beispielen einsetzen
   - bewusst zu viele Logs erkennen und reduzieren
   - Transfer zu Tests, Fachlogik, sensiblen Daten und Server-Anwendungen bearbeiten
+- [Übungen – Technische Konfiguration in Java](./Uebungen/Uebungen_Technische_Konfiguration.md)
+  - `app.properties` erstellen und mit `java.util.Properties` laden
+  - DB-URL, Dateipfad, H2-Modus und vorbereiteten Logging-Level ausgeben
+  - bestehende H2-Konfiguration aus dem Code auslagern
+  - `Main` vereinfachen und Konfiguration zentral bündeln
+  - fehlende Properties, Standardwerte und ungültige Werte prüfen
+  - Embedded- und Server-H2 über Konfigurationsdateien vergleichen
+  - Transfer zu Hardcoding, Fachlogik-Abgrenzung und grösseren Anwendungen bearbeiten
 
 ## Repetitionen
 
@@ -1490,6 +1525,12 @@ Musterlösungen halten kompakte Referenzlösungen und Bewertungshilfen bereit.
   - enthält Logging-Beispiele für `ProduktRepository` und `AenderungsRepository`
   - grenzt Logging von `System.out.println`, Fachlogik und Tests ab
   - typische Fehlerhinweise, kurze Reflexionsantworten und dokumentierte Maven-Verifikation
+- [Lösungen – Technische Konfiguration in Java](./Musterloesungen/Loesungen_Technische_Konfiguration.md)
+  - kompakte Standardlösung mit `config/app.properties`, `KonfigurationLaden`, `AppConfig`, konfigurierter `ProduktRepository`-Erstellung und kleiner `Main`
+  - zeigt `java.util.Properties`, Pflichtwerte, Standardwerte und einfache Validierung
+  - vergleicht H2 Embedded und Server über unterschiedliche `.properties`-Dateien
+  - grenzt technische Konfiguration von Fachlogik, Logging und I18N ab
+  - typische Fehlerhinweise, kurze Reflexionsantworten und dokumentierte Maven-Verifikation mit temporärem Prüfprojekt
 - [Musterlösungen – StringBuilder & Parser](./Musterloesungen/musterloesungen_stringbuilder.md)
   - StringBuilder-Methoden und vereinfachter Parser
 - [Musterlösungen – Mini-Projekt String Parser](./Musterloesungen/string_parser_loesungen.md)
