@@ -49,12 +49,13 @@ Aktuell vorbereitet sind:
 39. Mehrere Tabellen, Beziehungen und Repository
 40. Technisches Logging in Java einführen
 41. Technische Konfiguration in Java
+42. Mehrsprachigkeit mit Locale und ResourceBundle
 
-Die zuletzt erstellte Unterrichtseinheit ist **Technische Konfiguration in Java**. Sie zeigt, warum technische Einstellungen nach JDBC/H2, Repositorys und technischem Logging nicht hartcodiert im Java-Code stehen sollen. Die Einheit verwendet klassische `.properties`-Dateien und `java.util.Properties`, um DB-URL, Dateipfade, vorbereiteten Logging-Level und H2-Modus zentral zu laden und Fachlogik von technischer Konfiguration zu trennen.
+Die zuletzt erstellte Unterrichtseinheit ist **Mehrsprachigkeit mit Locale und ResourceBundle**. Sie zeigt, warum sichtbare Texte nicht hartcodiert im Java-Code stehen sollen. Die Einheit verwendet `java.util.Locale`, `java.util.ResourceBundle` und klassische `messages_*.properties`-Dateien, um einfache Konsolentexte der bekannten Lagerverwaltung auf Deutsch, Französisch und Italienisch auszulagern und technische Konfiguration klar von I18N zu trennen.
 
 Das zuletzt erstellte Mini-Projekt ist **Änderungshistorie für Lagerverwaltung**.
 
-Die didaktische Entwicklungslinie der Unterrichtsreihe ist in [entwicklungslogik.md](./docs/didaktik/entwicklungslogik.md) festgehalten. Sie erklärt den Aufbau von Java-Grundlagen über Datenstrukturen, OOP, Maven, Tests, Refactoring, CSV-Persistenz, Verantwortlichkeiten, Interfaces, Polymorphie, Wiederverwendung, Vererbung und Services bis zu Projektarbeit, Projekt-Review, Architektur-Festigung, JDBC/H2, Mapping, mehreren Tabellen, Repository als einfachem strukturiertem Datenzugriff, technischem Logging als Beobachtbarkeit und technischer Konfiguration.
+Die didaktische Entwicklungslinie der Unterrichtsreihe ist in [entwicklungslogik.md](./docs/didaktik/entwicklungslogik.md) festgehalten. Sie erklärt den Aufbau von Java-Grundlagen über Datenstrukturen, OOP, Maven, Tests, Refactoring, CSV-Persistenz, Verantwortlichkeiten, Interfaces, Polymorphie, Wiederverwendung, Vererbung und Services bis zu Projektarbeit, Projekt-Review, Architektur-Festigung, JDBC/H2, Mapping, mehreren Tabellen, Repository als einfachem strukturiertem Datenzugriff, technischem Logging als Beobachtbarkeit, technischer Konfiguration und einfacher Mehrsprachigkeit.
 
 Neue Projektstruktur für grössere Mini-Projekte:
 
@@ -172,16 +173,20 @@ Neue Dateien im Maven-, Testing-, Refactoring- und Persistenz-Block:
 - [Uebungen_Technisches_Logging.md](./Uebungen/Uebungen_Technisches_Logging.md)
 - [Arbeitsblatt_Technische_Konfiguration.md](./Arbeitsblaetter/Arbeitsblatt_Technische_Konfiguration.md)
 - [Uebungen_Technische_Konfiguration.md](./Uebungen/Uebungen_Technische_Konfiguration.md)
+- [Arbeitsblatt_I18N_ResourceBundle.md](./Arbeitsblaetter/Arbeitsblatt_I18N_ResourceBundle.md)
+- [Uebungen_I18N_ResourceBundle.md](./Uebungen/Uebungen_I18N_ResourceBundle.md)
 - [Loesungen_Objekt_Datenbank_Mapping.md](./Musterloesungen/Loesungen_Objekt_Datenbank_Mapping.md)
 - [Loesungen_Tabellen_Beziehungen_Repository.md](./Musterloesungen/Loesungen_Tabellen_Beziehungen_Repository.md)
 - [Loesungen_Technisches_Logging.md](./Musterloesungen/Loesungen_Technisches_Logging.md)
 - [Loesungen_Technische_Konfiguration.md](./Musterloesungen/Loesungen_Technische_Konfiguration.md)
+- [Loesungen_I18N_ResourceBundle.md](./Musterloesungen/Loesungen_I18N_ResourceBundle.md)
 - [csv_vs_db_produkt_speicher.svg](./graphics/csv_vs_db_produkt_speicher.svg)
 - [objekt_datenbank_mapping.svg](./graphics/objekt_datenbank_mapping.svg)
 - [repository_evolutionsschritt.svg](./graphics/repository_evolutionsschritt.svg)
 - [repository_und_tabellenbeziehungen.svg](./graphics/repository_und_tabellenbeziehungen.svg)
 - [technisches_logging_java.svg](./graphics/technisches_logging_java.svg)
 - [technische_konfiguration_java.svg](./graphics/technische_konfiguration_java.svg)
+- [i18n_resourcebundle_locale.svg](./graphics/i18n_resourcebundle_locale.svg)
 - [fachlogik_services.svg](./graphics/fachlogik_services.svg)
 - [verantwortlichkeiten_services_festigen.svg](./graphics/verantwortlichkeiten_services_festigen.svg)
 - [jdbc_h2_embedded_vs_server.svg](./graphics/jdbc_h2_embedded_vs_server.svg)
@@ -383,11 +388,36 @@ Die Datei unter `docs/didaktik` beschreibt die didaktische Entwicklungslogik der
 - Die Musterlösung enthält eine kompakte Standardlösung mit `app.properties`, `KonfigurationLaden`, `AppConfig`, konfigurierter Repository-Erstellung, kleiner `Main`, H2-Embedded-/Server-Konfiguration, Fehlerhinweisen, Reflexionsantworten und dokumentierter Maven-Verifikation mit temporärem Prüfprojekt.
 - Bewusst nicht eingeführt werden Spring Configuration, YAML, Dependency Injection, Docker, Kubernetes, vertiefte Environment Variables und I18N mit `ResourceBundle`.
 
+## Wichtige Inhalte aus Mehrsprachigkeit mit Locale und ResourceBundle
+
+- I18N wird als einfache Mehrsprachigkeit nach technischer Konfiguration eingeführt.
+- Die Kernbotschaft lautet: Sichtbare Texte gehören nicht hartcodiert in den Java-Code.
+- `Locale` beschreibt Sprache und optional Region, zum Beispiel `de`, `fr`, `it` oder später `de-CH`.
+- `ResourceBundle` lädt sprachabhängige Texte aus `messages_*.properties`.
+- Die Einheit verwendet `messages_de.properties`, `messages_fr.properties` und `messages_it.properties`.
+- Die Grafik `i18n_resourcebundle_locale.svg` zeigt `Locale`, `ResourceBundle`, Sprachdateien, sprachabhängige Ausgabe, Sprachwechsel, Schweiz-Kontext und die Abgrenzung zu technischer Konfiguration.
+- Alle Sprachdateien verwenden dieselben Schlüssel; nur die Werte unterscheiden sich.
+- Die bekannte Lagerverwaltung bleibt der Kontext, aber die Beispiele bleiben bei einfacher Konsolenausgabe.
+- Technische Konfiguration und I18N werden bewusst getrennt:
+  - `app.properties` enthält technische Werte wie DB-URL, Dateipfad oder Logging-Level
+  - `messages_*.properties` enthält sichtbare Texte wie Titel, Begrüssung und einfache Fehlermeldungen
+- Die Übungen sind nach Basis, Vertiefung und Transfer gestaffelt:
+  - hartcodierte Texte finden
+  - Sprachdateien erstellen
+  - `ResourceBundle` laden
+  - `Locale` wechseln
+  - einfache Meldungen übersetzen
+  - fehlende Übersetzungen und Standard-Locale untersuchen
+  - Standard-Locale mit nicht vorhandener Sprachdatei als möglichen Laufzeitfehler einordnen
+  - Abgrenzung zu technischer Konfiguration reflektieren
+- Die Musterlösung enthält eine kompakte Standardlösung mit `messages_de.properties`, `messages_fr.properties`, `messages_it.properties`, `Locale`, `ResourceBundle`, kleiner `Main`, Standard-Locale-Hinweis, Fehlerhinweisen, Reflexionsantworten und dokumentierter Maven-Verifikation mit temporärem Prüfprojekt.
+- Bewusst nicht eingeführt werden Spring I18N, Web-I18N, Angular-I18N, ICU, automatische Übersetzungsdienste, datenbankbasierte Übersetzungen und komplexe Formatierungsregeln.
+
 ## Nächster Fokus
 
-Als nächstes bietet sich ein Review zu **Technische Konfiguration in Java** und zur gewachsenen technischen Infrastruktur an.
+Als nächstes bietet sich ein Review zu **Mehrsprachigkeit mit Locale und ResourceBundle** und zur Trennung von sichtbaren Texten, technischer Konfiguration und Fachlogik an.
 
-Die Einheit baut direkt auf CSV-Persistenz, Verantwortlichkeiten, Interfaces, Services, JDBC/H2-Grundlagen, `DbProduktSpeicher`, evolutionärer Persistenz-Erweiterung, Objekt-Datenbank-Mapping, Repositorys und technischem Logging auf. Die Kernbotschaft lautet: Die technische Infrastruktur soll flexibel bleiben, ohne dass Fachlogik oder Java-Code für jede Umgebung angepasst werden müssen.
+Die Einheit baut direkt auf technischer Konfiguration, Logging, Repositorys, JDBC/H2 und der bekannten Lagerverwaltung auf. Die Kernbotschaft lautet: Sichtbare Texte sollen flexibel pro Sprache geladen werden, ohne Fachlogik, Repository-Code oder technische Konfiguration zu vermischen.
 
 Weiter diagnostisch zu beobachten:
 
@@ -398,6 +428,10 @@ Weiter diagnostisch zu beobachten:
 - DB-URL, Dateipfade, Logging-Level und H2-Modus nicht hartcodieren
 - Fachlogik nicht in `.properties`-Dateien auslagern
 - Konfiguration zentral laden und nicht in jeder Repository-Methode erneut lesen
+- sichtbare Texte nicht hartcodieren
+- `messages_*.properties` nicht mit `app.properties` vermischen
+- gleiche Schlüssel in allen Sprachdateien verwenden
+- `Locale` und `ResourceBundle` auf EFZ-Niveau erklären
 - `ProduktRepository` und `AenderungsRepository` nach Verantwortung unterscheiden
 - `ResultSet` korrekt mit `next()` lesen und mehrere Änderungen laden
 - Platzhalter-Reihenfolge im `PreparedStatement` prüfen

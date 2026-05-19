@@ -30,6 +30,7 @@ Grundlagen
 -> Repository als strukturierter Datenzugriff
 -> technisches Logging als Beobachtbarkeit
 -> technische Konfiguration als flexible Infrastruktur
+-> Mehrsprachigkeit mit Locale und ResourceBundle
 ```
 
 ## Grundlagen und Datenstrukturen
@@ -156,6 +157,23 @@ Der Einstieg bleibt bewusst klein:
 
 Konfiguration wird klar von Fachlogik getrennt. Fachregeln bleiben im Service. Repositorys enthalten weiterhin Datenzugriff und Mapping. Konfiguration liefert technische Werte für die Infrastruktur. Mehrsprachigkeit wird bewusst nicht mit dieser Einheit vermischt; I18N folgt später separat mit `ResourceBundle`.
 
+## Mehrsprachigkeit mit Locale und ResourceBundle
+
+Nach technischer Konfiguration ist sichtbar: `.properties` ist nur ein Dateiformat. In der vorherigen Einheit wurden `.properties`-Dateien für technische Infrastruktur verwendet. Danach kann dieselbe Dateiart bewusst für eine andere Verantwortung eingeführt werden: sprachabhängige Texte.
+
+Die bekannte Lagerverwaltung enthält sichtbare Texte wie Begrüssungen, Statusmeldungen oder einfache Fehlermeldungen. Diese Texte sollen nicht hartcodiert in `Main` oder Services stehen, wenn dieselbe Anwendung Deutsch, Französisch und Italienisch unterstützen soll.
+
+Der Einstieg bleibt bewusst klein:
+
+- `java.util.Locale`
+- `java.util.ResourceBundle`
+- `messages_de.properties`, `messages_fr.properties` und `messages_it.properties`
+- gleiche Schlüssel pro Sprache
+- einfache sprachabhängige Konsolenausgabe
+- klare Abgrenzung zu technischer Konfiguration
+
+I18N wird nicht als Web-, Spring- oder Framework-Thema eingeführt. Die Lernenden sehen zuerst nur den Strukturgedanken: gleicher Java-Code, gleiche Fachlogik, andere sichtbare Texte je nach Sprache.
+
 ## Architekturbegriffe aus echten Problemen
 
 Neue Architekturbegriffe werden nicht abstrakt vorangestellt. Zuerst entsteht ein konkretes Problem im Code, danach erhält die passende Struktur einen Namen. So bleibt der Begriff an Erfahrung gebunden.
@@ -167,6 +185,7 @@ Beispiele:
 - Vererbung wird sinnvoll diskutiert, wenn doppelter oder sehr ähnlicher Code sichtbar wird.
 - Ein Repository wird sinnvoll, wenn JDBC- und Mapping-Code durch mehrere Tabellen wächst.
 - Technische Konfiguration wird sinnvoll, wenn DB-URLs, Dateipfade und technische Modi nicht mehr hartcodiert im Code stehen sollen.
+- I18N wird sinnvoll, wenn sichtbare Texte nicht mehr hartcodiert im Code stehen sollen.
 
 Damit lernen die Lernenden Architektur nicht als Sammlung grosser Begriffe, sondern als Werkzeug zur Lösung konkreter Strukturprobleme.
 
@@ -189,6 +208,9 @@ Für den Datenbank- und Repository-Einstieg werden bewusst nicht eingeführt:
 - keine Spring-Konfiguration
 - keine YAML-Konfiguration
 - keine vertiefte Docker- oder Kubernetes-Konfiguration
+- keine Web-I18N
+- keine komplexen Übersetzungsframeworks
+- keine automatische Übersetzung
 
 Repository wird nur einfach als strukturierter Datenzugriff eingeführt: JDBC-Code, SQL-Anweisungen und Mapping werden an einem nachvollziehbaren Ort gebündelt. Es geht nicht um Framework-Magie, automatische Persistenz oder Enterprise-Architektur.
 

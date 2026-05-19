@@ -9,7 +9,7 @@ Diese Dateien unterstützen die KI-gestützte Erstellung und Prüfung von Lehrmi
 ### Didaktik
 
 - [Didaktische Entwicklungslogik](./docs/didaktik/entwicklungslogik.md)
-  - begründet die Entwicklung von Java-Grundlagen über Datenstrukturen, OOP, Maven, Tests, CSV-Persistenz, Verantwortlichkeiten, Interfaces und Services bis zu Projektarbeit, Projekt-Review, Architektur-Festigung, JDBC/H2, Mapping, mehreren Tabellen, Repository als einfachem strukturiertem Datenzugriff, technischem Logging als Beobachtbarkeit und technischer Konfiguration
+  - begründet die Entwicklung von Java-Grundlagen über Datenstrukturen, OOP, Maven, Tests, CSV-Persistenz, Verantwortlichkeiten, Interfaces und Services bis zu Projektarbeit, Projekt-Review, Architektur-Festigung, JDBC/H2, Mapping, mehreren Tabellen, Repository als einfachem strukturiertem Datenzugriff, technischem Logging als Beobachtbarkeit, technischer Konfiguration und einfacher Mehrsprachigkeit mit `Locale` und `ResourceBundle`
 
 ### Begriffe
 
@@ -77,7 +77,7 @@ Diese Reihenfolge erfasst die bisher aufgebauten Konzepte und Übungen. Die Eint
 
 ### Didaktische Entwicklungslinie
 
-Die Reihenfolge ist bewusst als roter Faden aufgebaut: Grundlagen, Datenstrukturen, OOP, Maven, Tests, Refactoring, CSV-Persistenz, Verantwortlichkeiten, Interfaces, Polymorphie, Wiederverwendung, Vererbung und Services führen schrittweise zu Projektarbeit, Projekt-Review, Architektur-Festigung, JDBC/H2, Mapping, mehreren Tabellen, Repository als einfachem strukturiertem Datenzugriff, technischem Logging als Beobachtbarkeit und technischer Konfiguration.
+Die Reihenfolge ist bewusst als roter Faden aufgebaut: Grundlagen, Datenstrukturen, OOP, Maven, Tests, Refactoring, CSV-Persistenz, Verantwortlichkeiten, Interfaces, Polymorphie, Wiederverwendung, Vererbung und Services führen schrittweise zu Projektarbeit, Projekt-Review, Architektur-Festigung, JDBC/H2, Mapping, mehreren Tabellen, Repository als einfachem strukturiertem Datenzugriff, technischem Logging als Beobachtbarkeit, technischer Konfiguration und einfacher Mehrsprachigkeit.
 
 Architektur wird dabei nicht abstrakt vorangestellt. Sie entsteht aus konkreten Problemen im Code: zu viel Logik in `Main`, vermischte Datei- und Fachlogik, doppelte Codeabschnitte, schwer testbare Methoden oder unklare Verantwortlichkeiten. Nach den Services folgt deshalb bewusst eine Festigungsphase, in der Lernende diese Strukturentscheidungen an bekannten Beispielen sichern.
 
@@ -530,9 +530,20 @@ Material:
 - [Übungen – Technische Konfiguration in Java](./Uebungen/Uebungen_Technische_Konfiguration.md)
 - [Lösungen – Technische Konfiguration in Java](./Musterloesungen/Loesungen_Technische_Konfiguration.md)
 
+### 42. Mehrsprachigkeit mit Locale und ResourceBundle
+
+Ziel: Sichtbare Texte der bekannten Lagerverwaltung aus dem Java-Code herauslösen, `Locale` als Sprache und Region einordnen, `ResourceBundle` mit `messages_de.properties`, `messages_fr.properties` und `messages_it.properties` verwenden und technische Konfiguration klar von I18N trennen, ohne Frameworks oder Web-I18N einzuführen.
+
+Material:
+
+- [Arbeitsblatt – Mehrsprachigkeit mit Locale und ResourceBundle](./Arbeitsblaetter/Arbeitsblatt_I18N_ResourceBundle.md)
+- [Mehrsprachigkeit mit Locale und ResourceBundle](./graphics/i18n_resourcebundle_locale.svg)
+- [Übungen – Mehrsprachigkeit mit Locale und ResourceBundle](./Uebungen/Uebungen_I18N_ResourceBundle.md)
+- [Lösungen – Mehrsprachigkeit mit Locale und ResourceBundle](./Musterloesungen/Loesungen_I18N_ResourceBundle.md)
+
 ### Nächster sinnvoller Block
 
-Nach `Technische Konfiguration in Java` bietet sich als nächstes Thema ein Review zur technischen Infrastruktur der gewachsenen Lagerverwaltung an:
+Nach `Mehrsprachigkeit mit Locale und ResourceBundle` bietet sich als nächstes Thema ein Review zur Trennung von technischer Infrastruktur, Fachlogik und sichtbaren Texten an:
 
 - `ProduktRepository` und `AenderungsRepository` nach Verantwortung prüfen
 - `PRODUKT_ID` als Verbindung zwischen Produkt und Änderungen erklären lassen
@@ -542,6 +553,8 @@ Nach `Technische Konfiguration in Java` bietet sich als nächstes Thema ein Revi
 - prüfen, ob Logs bei Fehlersuche helfen, ohne Fachlogik oder Tests zu ersetzen
 - prüfen, ob technische Werte wie DB-URL, Dateipfade, Logging-Level und H2-Modus konfigurierbar sind
 - erklären lassen, warum Konfiguration keine Fachlogik ist
+- prüfen, ob sichtbare Texte über `ResourceBundle` geladen werden
+- erklären lassen, warum I18N nicht technische Konfiguration ist
 - doppelte JDBC- und Mapping-Logik sichtbar machen, aber nicht zu früh generisch abstrahieren
 - weiterhin kein ORM, kein Hibernate, kein JPA, kein Spring Data und keine komplexe Datenbankarchitektur
 
@@ -886,6 +899,15 @@ Arbeitsblätter führen neue Konzepte ein, enthalten kurze Theorie, Beispiele, t
   - zentrale Konfigurationsklasse `AppConfig` ohne Frameworks vorbereiten
   - H2 Embedded und Server über Konfigurationswerte vergleichen
   - typische Fehler wie Hardcoding, mehrfaches Laden, fehlende Pflichtwerte und I18N-Verwechslung sichtbar machen
+- [Arbeitsblatt – Mehrsprachigkeit mit Locale und ResourceBundle](./Arbeitsblaetter/Arbeitsblatt_I18N_ResourceBundle.md)
+  - I18N als einfache Mehrsprachigkeit nach technischer Konfiguration einführen
+  - Grafik zu `Locale`, `ResourceBundle`, Sprachdateien und sprachabhängiger Ausgabe einbinden
+  - `Locale` als Sprache und optional Region erklären
+  - `ResourceBundle` als Java-Mechanismus für sprachabhängige Texte zeigen
+  - `messages_de.properties`, `messages_fr.properties` und `messages_it.properties` aufbauen
+  - sichtbare Texte aus `Main` auslagern
+  - technische Konfiguration und I18N trotz gleichem Dateiformat `.properties` trennen
+  - typische Fehler wie falsche Dateinamen, fehlende Schlüssel und vermischte Verantwortlichkeiten sichtbar machen
 
 ## Konzeptgrafiken
 
@@ -1039,6 +1061,11 @@ Konzeptgrafiken visualisieren Beziehungen, Abläufe und typische Denkmodelle. Si
   - führt über Konfigurationsklasse zu `ProduktRepository` und H2-Datenbank
   - macht unterschiedliche Konfigurationen für dieselbe Anwendung sichtbar
   - grenzt technische Konfiguration von Fachlogik ab
+- [Mehrsprachigkeit mit Locale und ResourceBundle](./graphics/i18n_resourcebundle_locale.svg)
+  - zeigt `Locale`, `ResourceBundle`, `messages_de.properties`, `messages_fr.properties` und `messages_it.properties`
+  - führt zu sprachabhängiger Ausgabe mit gleichem Java-Code
+  - macht sichtbar, dass Texte nicht hartcodiert werden
+  - grenzt technische Konfiguration von I18N ab
 - [Projektreview Änderungshistorie Architektur](./graphics/projektreview_aenderungshistorie_architektur.svg)
   - `Main`, `LagerService`, `JournalService`, `ProduktSpeicher`, `Produkt` und `AenderungsEintrag` nach Verantwortung darstellen
   - zeigen, dass Historie neue Verantwortlichkeiten erzeugt und Services wachsen können
@@ -1346,6 +1373,14 @@ Konzeptgrafiken visualisieren Beziehungen, Abläufe und typische Denkmodelle. Si
   - fehlende Properties, Standardwerte und ungültige Werte prüfen
   - Embedded- und Server-H2 über Konfigurationsdateien vergleichen
   - Transfer zu Hardcoding, Fachlogik-Abgrenzung und grösseren Anwendungen bearbeiten
+- [Übungen – Mehrsprachigkeit mit Locale und ResourceBundle](./Uebungen/Uebungen_I18N_ResourceBundle.md)
+  - Sprachdateien `messages_de.properties`, `messages_fr.properties` und `messages_it.properties` erstellen
+  - Begrüssungstext und einfache Meldungen über `ResourceBundle` laden
+  - `Locale` zwischen Deutsch, Französisch und Italienisch wechseln
+  - hartcodierte Texte aus `Main` entfernen
+  - einfache Fehlermeldungen übersetzen
+  - fehlende Übersetzungen, Standard-Locale und zusätzliche Sprache untersuchen
+  - Transfer zu Schweizer Mehrsprachigkeit, Konfigurationsabgrenzung und grösseren Anwendungen bearbeiten
 
 ## Repetitionen
 
@@ -1530,6 +1565,11 @@ Musterlösungen halten kompakte Referenzlösungen und Bewertungshilfen bereit.
   - zeigt `java.util.Properties`, Pflichtwerte, Standardwerte und einfache Validierung
   - vergleicht H2 Embedded und Server über unterschiedliche `.properties`-Dateien
   - grenzt technische Konfiguration von Fachlogik, Logging und I18N ab
+  - typische Fehlerhinweise, kurze Reflexionsantworten und dokumentierte Maven-Verifikation mit temporärem Prüfprojekt
+- [Lösungen – Mehrsprachigkeit mit Locale und ResourceBundle](./Musterloesungen/Loesungen_I18N_ResourceBundle.md)
+  - kompakte Standardlösung mit `messages_de.properties`, `messages_fr.properties`, `messages_it.properties`, `Locale`, `ResourceBundle` und kleiner `Main`
+  - zeigt sprachabhängige Konsolenausgabe und Entfernen hartcodierter sichtbarer Texte
+  - grenzt I18N von technischer Konfiguration ab
   - typische Fehlerhinweise, kurze Reflexionsantworten und dokumentierte Maven-Verifikation mit temporärem Prüfprojekt
 - [Musterlösungen – StringBuilder & Parser](./Musterloesungen/musterloesungen_stringbuilder.md)
   - StringBuilder-Methoden und vereinfachter Parser
