@@ -563,9 +563,20 @@ Material:
 - [Übungen – HTTP und REST-Grundlagen vertiefen](./Uebungen/Uebungen_HTTP_REST_Grundlagen.md)
 - [Lösungen – HTTP und REST-Grundlagen vertiefen](./Musterloesungen/Loesungen_HTTP_REST_Grundlagen.md)
 
+### 45. REST-Workflows mit Bruno
+
+Ziel: Bestehende REST-Aufrufe der Lagerverwaltung mit Bruno als lokalem API-Werkzeug speichern, ordnen und wiederholt ausführen. Die Lernenden verstehen Collections, gespeicherte GET- und POST-Requests, Header, JSON-Body, Response-Analyse und die Idee versionierbarer API-Workflows, ohne automatische API-Tests, OpenAPI, Security oder komplexe Environments einzuführen.
+
+Material:
+
+- [Arbeitsblatt – REST-Workflows mit Bruno](./Arbeitsblaetter/Arbeitsblatt_Bruno_REST_Workflows.md)
+- [REST-Workflows mit Bruno](./graphics/bruno_rest_workflows.svg)
+- [Übungen – REST-Workflows mit Bruno](./Uebungen/Uebungen_Bruno_REST_Workflows.md)
+- [Lösungen – REST-Workflows mit Bruno](./Musterloesungen/Loesungen_Bruno_REST_Workflows.md)
+
 ### Nächster sinnvoller Block
 
-Nach `HTTP und REST-Grundlagen vertiefen` bietet sich als nächstes Thema JSON und einfache Datenstrukturen an:
+Nach `REST-Workflows mit Bruno` bietet sich als nächstes Thema JSON und einfache Datenstrukturen an:
 
 - JSON-Objekt und JSON-Liste genauer unterscheiden
 - Java-Objekte und JSON-Felder bewusst zuordnen
@@ -937,6 +948,13 @@ Arbeitsblätter führen neue Konzepte ein, enthalten kurze Theorie, Beispiele, t
   - Ressourcenmodell mit `/produkte` und `/produkte/1` erklären
   - REST von Fachlogik im `LagerService` trennen
   - Security, DTOs, Validation, JPA, Swagger/OpenAPI, Spring Security, HATEOAS und komplexe Fehlerbehandlung bewusst ausschliessen
+- [Arbeitsblatt – REST-Workflows mit Bruno](./Arbeitsblaetter/Arbeitsblatt_Bruno_REST_Workflows.md)
+  - Bruno als lokales API-Werkzeug nach `curl` einführen
+  - Collections und gespeicherte Requests anhand der bestehenden REST-Lagerverwaltung erklären
+  - `GET /produkte` und `POST /produkte` mit Headern und JSON-Body reproduzierbar speichern
+  - Requests als Teil der Entwicklungsarbeit und als versionierbare Dateien einordnen
+  - Fachlogik im `LagerService` weiterhin von API-Werkzeug und REST Controller trennen
+  - automatische API-Tests, OpenAPI, Swagger, Security, OAuth, JWT, GraphQL, API-Mocking und komplexe Environments bewusst ausschliessen
 
 ## Konzeptgrafiken
 
@@ -1105,6 +1123,11 @@ Konzeptgrafiken visualisieren Beziehungen, Abläufe und typische Denkmodelle. Si
   - zerlegt Request in Methode, URL, Header und Body
   - zerlegt Response in Statuscode, Header und JSON Body
   - grenzt HTTP-Transport, JSON-Daten und Fachlogik sichtbar voneinander ab
+- [REST-Workflows mit Bruno](./graphics/bruno_rest_workflows.svg)
+  - zeigt Bruno als lokales API-Werkzeug vor der bestehenden REST-Architektur
+  - verbindet gespeicherte GET- und POST-Requests mit HTTP Request und Response
+  - macht Collections, Wiederholbarkeit und versionierbare API-Workflows sichtbar
+  - grenzt gespeicherte Requests von Fachlogik, DTOs, Tests und Security ab
 - [Projektreview Änderungshistorie Architektur](./graphics/projektreview_aenderungshistorie_architektur.svg)
   - `Main`, `LagerService`, `JournalService`, `ProduktSpeicher`, `Produkt` und `AenderungsEintrag` nach Verantwortung darstellen
   - zeigen, dass Historie neue Verantwortlichkeiten erzeugt und Services wachsen können
@@ -1434,6 +1457,13 @@ Konzeptgrafiken visualisieren Beziehungen, Abläufe und typische Denkmodelle. Si
   - weitere Endpunkte, Header und JSON-Strukturen an der bestehenden REST-Lagerverwaltung prüfen
   - Request/Response dokumentieren und Logging mit HTTP-Aufrufen kombinieren
   - Transfer zu REST auf HTTP, Konsole vs. HTTP, Statuscodes und REST als Zugriffsschicht bearbeiten
+- [Übungen – REST-Workflows mit Bruno](./Uebungen/Uebungen_Bruno_REST_Workflows.md)
+  - Bruno bereitstellen und eine Collection `Lagerverwaltung API` erstellen
+  - `GET /produkte` und `POST /produkte` als gespeicherte Requests anlegen
+  - Header `Content-Type: application/json`, JSON-Body und Response analysieren
+  - Requests umbenennen, strukturieren, erneut ausführen und mit `curl` vergleichen
+  - Fehlerfälle, verschiedene JSON-Daten und Logging bei REST-Aufrufen beobachten
+  - Transfer zu Reproduzierbarkeit, Versionierbarkeit und REST-Workflows als Entwicklungsarbeit bearbeiten
 
 ## Repetitionen
 
@@ -1634,6 +1664,11 @@ Musterlösungen halten kompakte Referenzlösungen und Bewertungshilfen bereit.
   - ordnet Methode, URL, Endpoint, Header, Body, JSON und Statuscodes ein
   - zeigt typische `curl -i`-Aufrufe für `GET`, `POST`, falsche Pfade und ungültiges JSON
   - grenzt HTTP, JSON, REST Controller und Fachlogik im `LagerService` voneinander ab
+- [Lösungen – REST-Workflows mit Bruno](./Musterloesungen/Loesungen_Bruno_REST_Workflows.md)
+  - kompakte Standardlösung zu Collection, gespeicherten GET- und POST-Requests und Response-Analyse
+  - zeigt sinnvolle Request-Namen, Header `Content-Type: application/json` und JSON-Beispiele
+  - ordnet Fehlerfälle, fehlenden Header, ungültiges JSON und Logging-Beobachtung ein
+  - grenzt Bruno als API-Werkzeug von Fachlogik, automatischen Tests, DTOs und Security ab
 - [Musterlösungen – StringBuilder & Parser](./Musterloesungen/musterloesungen_stringbuilder.md)
   - StringBuilder-Methoden und vereinfachter Parser
 - [Musterlösungen – Mini-Projekt String Parser](./Musterloesungen/string_parser_loesungen.md)

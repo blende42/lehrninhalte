@@ -22,6 +22,18 @@ Die bisherige Architekturentwicklung wurde bewusst problemgetrieben aufgebaut:
 42. Mehrsprachigkeit mit Locale und ResourceBundle
 43. REST-Schnittstellen mit Spring Boot einführen
 44. HTTP und REST-Grundlagen vertiefen
+45. REST-Workflows mit Bruno
+
+Die Einheit zu Bruno verwendet:
+- Bruno als lokales API-Werkzeug
+- Collections
+- gespeicherte Requests
+- `GET /produkte`
+- `POST /produkte`
+- Header `Content-Type: application/json`
+- JSON Body
+- Response-Analyse
+- reproduzierbare und grundsätzlich versionierbare API-Workflows
 
 Die Einheit zu HTTP/REST verwendet:
 - HTTP Request und HTTP Response
@@ -71,12 +83,13 @@ Die bekannte Lagerverwaltung umfasst inzwischen:
 - REST Controller mit Spring Boot
 - HTTP/JSON-Zugriff über `localhost:8080`
 - vertiefte HTTP-Analyse mit Request, Response, Header, Body und Statuscodes
+- Bruno-Collections mit gespeicherten API-Requests
 
 ## Nächste geplante Einheiten
 
-45. JSON und DTOs
-46. Fehlerbehandlung bei REST
-47. REST-Tests und API-Workflow
+46. JSON und DTOs
+47. Fehlerbehandlung bei REST
+48. REST-Tests und API-Workflow
 
 ## Didaktische Leitidee
 
@@ -88,6 +101,7 @@ Neue Konzepte entstehen aus konkreten Problemen:
 - Repository nach wachsendem JDBC-/Mapping-Code
 - Logging nach technischer Komplexität
 - REST als neue Zugriffsschicht auf bestehende Fachlogik
+- Bruno nach `curl` als Werkzeug für reproduzierbare REST-Workflows
 
 ## Wichtige Referenzen
 
