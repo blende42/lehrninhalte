@@ -552,17 +552,26 @@ Material:
 - [Übungen – REST-Schnittstellen mit Spring Boot einführen](./Uebungen/Uebungen_REST_SpringBoot_Einstieg.md)
 - [Lösungen – REST-Schnittstellen mit Spring Boot einführen](./Musterloesungen/Loesungen_REST_SpringBoot_Einstieg.md)
 
+### 44. HTTP und REST-Grundlagen vertiefen
+
+Ziel: HTTP als Transport für REST vertiefen, Request und Response mit Methode, URL, Header, Body, Statuscode und JSON analysieren, Ressourcen wie `/produkte` und `/produkte/1` einordnen und REST weiterhin klar von Fachlogik im `LagerService` trennen.
+
+Material:
+
+- [Arbeitsblatt – HTTP und REST-Grundlagen vertiefen](./Arbeitsblaetter/Arbeitsblatt_HTTP_REST_Grundlagen.md)
+- [HTTP und REST-Grundlagen](./graphics/http_rest_grundlagen.svg)
+- [Übungen – HTTP und REST-Grundlagen vertiefen](./Uebungen/Uebungen_HTTP_REST_Grundlagen.md)
+- [Lösungen – HTTP und REST-Grundlagen vertiefen](./Musterloesungen/Loesungen_HTTP_REST_Grundlagen.md)
+
 ### Nächster sinnvoller Block
 
-Nach `REST-Schnittstellen mit Spring Boot einführen` bietet sich als nächstes Thema eine Festigung von REST Controller und HTTP-Grundlagen an:
+Nach `HTTP und REST-Grundlagen vertiefen` bietet sich als nächstes Thema JSON und einfache Datenstrukturen an:
 
-- REST Controller als Zugriffsschicht wiederholen
-- `GET` und `POST` an bekannten Lager-Endpunkten festigen
-- HTTP Request, Response, Header und Body genauer unterscheiden
-- JSON-Antworten und JSON-Request-Bodies analysieren
-- `curl -i`, `Content-Type` und typische Fehler gezielt einsetzen
+- JSON-Objekt und JSON-Liste genauer unterscheiden
+- Java-Objekte und JSON-Felder bewusst zuordnen
+- Grenzen zwischen Modellklasse, JSON und späteren DTOs vorbereiten
 - Controller, Service und Repository weiterhin klar trennen
-- noch keine Security, keine DTOs, keine Validation, keine Swagger/OpenAPI-Dokumentation und keine komplexe Fehlerbehandlung einführen
+- noch keine Security, keine Validation, keine Swagger/OpenAPI-Dokumentation und keine komplexe Fehlerbehandlung einführen
 
 ## Geplante spätere Themenblöcke
 
@@ -921,6 +930,13 @@ Arbeitsblätter führen neue Konzepte ein, enthalten kurze Theorie, Beispiele, t
   - `curl` als technisches Werkzeug für `GET` und `POST` verwenden
   - typische Fehler wie Fachlogik im Controller, direkter Repository-Zugriff, falsche URL, fehlender `Content-Type` und ungültiges JSON sichtbar machen
   - Security, JPA, Spring Data, DTOs, Validation, Swagger/OpenAPI, Lombok und komplexe Fehlerbehandlung bewusst ausschliessen
+- [Arbeitsblatt – HTTP und REST-Grundlagen vertiefen](./Arbeitsblaetter/Arbeitsblatt_HTTP_REST_Grundlagen.md)
+  - HTTP als Transport zwischen Client und Server vertiefen
+  - Request und Response in Methode, URL, Header, Body, Statuscode und JSON zerlegen
+  - `GET`, `POST`, `Content-Type`, Statuscodes `200`, `201`, `400`, `404` und `500` anhand von `curl -i` sichtbar machen
+  - Ressourcenmodell mit `/produkte` und `/produkte/1` erklären
+  - REST von Fachlogik im `LagerService` trennen
+  - Security, DTOs, Validation, JPA, Swagger/OpenAPI, Spring Security, HATEOAS und komplexe Fehlerbehandlung bewusst ausschliessen
 
 ## Konzeptgrafiken
 
@@ -1084,6 +1100,11 @@ Konzeptgrafiken visualisieren Beziehungen, Abläufe und typische Denkmodelle. Si
   - führt weiter zum bestehenden `LagerService`, Repository und H2
   - macht sichtbar, dass REST die Fachlogik nicht ersetzt
   - grenzt Controller-Verantwortung von Service- und Repository-Verantwortung ab
+- [HTTP und REST-Grundlagen](./graphics/http_rest_grundlagen.svg)
+  - zeigt `curl`, HTTP Request, REST Controller, Service, Repository und H2 im Ablauf
+  - zerlegt Request in Methode, URL, Header und Body
+  - zerlegt Response in Statuscode, Header und JSON Body
+  - grenzt HTTP-Transport, JSON-Daten und Fachlogik sichtbar voneinander ab
 - [Projektreview Änderungshistorie Architektur](./graphics/projektreview_aenderungshistorie_architektur.svg)
   - `Main`, `LagerService`, `JournalService`, `ProduktSpeicher`, `Produkt` und `AenderungsEintrag` nach Verantwortung darstellen
   - zeigen, dass Historie neue Verantwortlichkeiten erzeugt und Services wachsen können
@@ -1406,6 +1427,13 @@ Konzeptgrafiken visualisieren Beziehungen, Abläufe und typische Denkmodelle. Si
   - `curl` für `GET`, `POST`, Header, Body und Statuscode-Beobachtung einsetzen
   - mehrere Produkte senden, JSON-Struktur analysieren und Logging bei REST-Aufrufen beobachten
   - Transfer zu unveränderter Fachlogik, REST als Zugriffsschicht, Konsole vs. HTTP, JSON und `curl` bearbeiten
+- [Übungen – HTTP und REST-Grundlagen vertiefen](./Uebungen/Uebungen_HTTP_REST_Grundlagen.md)
+  - `GET`- und `POST`-Requests mit `curl -i` senden und analysieren
+  - Header, Body, URL-Struktur, JSON und Response getrennt untersuchen
+  - Statuscodes bei erfolgreichen, falschen und ungültigen Requests beobachten
+  - weitere Endpunkte, Header und JSON-Strukturen an der bestehenden REST-Lagerverwaltung prüfen
+  - Request/Response dokumentieren und Logging mit HTTP-Aufrufen kombinieren
+  - Transfer zu REST auf HTTP, Konsole vs. HTTP, Statuscodes und REST als Zugriffsschicht bearbeiten
 
 ## Repetitionen
 
@@ -1601,6 +1629,11 @@ Musterlösungen halten kompakte Referenzlösungen und Bewertungshilfen bereit.
   - zeigt `GET /produkte`, `GET /produkte/{id}`, `POST /produkte`, `@RequestBody`, `@PathVariable` und automatische JSON-Ausgabe
   - verwendet den bestehenden `LagerService` statt Repositorys direkt aus dem Controller aufzurufen
   - enthält `curl`-Beispiele, Statuscode-Beobachtung, JSON-Einordnung, typische Fehlerhinweise und kurze Reflexionsantworten
+- [Lösungen – HTTP und REST-Grundlagen vertiefen](./Musterloesungen/Loesungen_HTTP_REST_Grundlagen.md)
+  - kompakte Standardlösung zur Analyse von HTTP Request und HTTP Response
+  - ordnet Methode, URL, Endpoint, Header, Body, JSON und Statuscodes ein
+  - zeigt typische `curl -i`-Aufrufe für `GET`, `POST`, falsche Pfade und ungültiges JSON
+  - grenzt HTTP, JSON, REST Controller und Fachlogik im `LagerService` voneinander ab
 - [Musterlösungen – StringBuilder & Parser](./Musterloesungen/musterloesungen_stringbuilder.md)
   - StringBuilder-Methoden und vereinfachter Parser
 - [Musterlösungen – Mini-Projekt String Parser](./Musterloesungen/string_parser_loesungen.md)

@@ -21,8 +21,17 @@ Die bisherige Architekturentwicklung wurde bewusst problemgetrieben aufgebaut:
 41. Technische Konfiguration in Java
 42. Mehrsprachigkeit mit Locale und ResourceBundle
 43. REST-Schnittstellen mit Spring Boot einführen
+44. HTTP und REST-Grundlagen vertiefen
 
-Die Einheit zu REST verwendet:
+Die Einheit zu HTTP/REST verwendet:
+- HTTP Request und HTTP Response
+- Header und Body
+- Statuscodes `200`, `201`, `400`, `404` und `500`
+- JSON als Body-Format
+- `curl -i`
+- Ressourcenmodell mit `/produkte` und `/produkte/1`
+
+Die vorherige Einheit zu REST verwendet:
 - Spring Boot
 - `@RestController`
 - `@GetMapping`
@@ -61,10 +70,10 @@ Die bekannte Lagerverwaltung umfasst inzwischen:
 - I18N mit `Locale` und `ResourceBundle`
 - REST Controller mit Spring Boot
 - HTTP/JSON-Zugriff über `localhost:8080`
+- vertiefte HTTP-Analyse mit Request, Response, Header, Body und Statuscodes
 
 ## Nächste geplante Einheiten
 
-44. REST Controller und HTTP-Grundlagen
 45. JSON und DTOs
 46. Fehlerbehandlung bei REST
 47. REST-Tests und API-Workflow
@@ -87,8 +96,7 @@ Neue Konzepte entstehen aus konkreten Problemen:
 
 ## Offene didaktische Entscheidungen
 
-- REST Controller und HTTP-Grundlagen als nächste Festigung planen
-- JSON weiter vertiefen, DTOs aber erst in der nächsten JSON-Einheit einführen
+- JSON weiter vertiefen und DTOs erst kontrolliert in der nächsten Einheit einführen
 - noch keine Security
 - noch kein JPA/Hibernate
 - noch keine komplexen DTO-Mappings

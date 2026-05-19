@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1120" viewBox="0 0 1800 1120" role="img" aria-labelledby="title desc">
+  <title id="title">HTTP und REST-Grundlagen vertiefen</title>
+  <desc id="desc">Konzeptgrafik: curl sendet einen HTTP Request an einen REST Controller. Der Controller nutzt Service, Repository und H2. Die HTTP Response kommt mit Statuscode, Header und JSON Body zurück.</desc>
+
+  <defs>
+    <style>
+      .title { font: 700 40px Arial, Helvetica, sans-serif; fill: #111827; }
+      .subtitle { font: 400 20px Arial, Helvetica, sans-serif; fill: #4b5563; }
+      .section { font: 700 28px Arial, Helvetica, sans-serif; fill: #111827; }
+      .heading { font: 700 24px Arial, Helvetica, sans-serif; fill: #111827; }
+      .text { font: 400 21px Arial, Helvetica, sans-serif; fill: #1f2937; }
+      .text-small { font: 400 18px Arial, Helvetica, sans-serif; fill: #374151; }
+      .mono { font: 700 21px "Courier New", Courier, monospace; fill: #17324d; }
+      .mono-small { font: 700 18px "Courier New", Courier, monospace; fill: #17324d; }
+
+      .panel-main { fill: #fbfcfb; stroke: #b9bcc3; stroke-width: 2.4; }
+      .client-box { fill: #e8eef9; stroke: #4f7fcb; stroke-width: 2.6; }
+      .request-box { fill: #fff8df; stroke: #d89b37; stroke-width: 2.6; }
+      .controller-box { fill: #eef2ff; stroke: #4f46e5; stroke-width: 2.6; }
+      .service-box { fill: #ecfdf5; stroke: #059669; stroke-width: 2.6; }
+      .repo-box { fill: #f8fafc; stroke: #64748b; stroke-width: 2.6; }
+      .response-box { fill: #fff4f1; stroke: #c45d4d; stroke-width: 2.6; }
+      .note-box { fill: #f8fafc; stroke: #94a3b8; stroke-width: 2.2; }
+      .summary { fill: #fff8df; stroke: #d89b37; stroke-width: 2.4; }
+
+      .client-accent { fill: #2b65b3; }
+      .request-accent { fill: #a16207; }
+      .controller-accent { fill: #4338ca; }
+      .service-accent { fill: #047857; }
+      .repo-accent { fill: #475569; }
+      .response-accent { fill: #b34835; }
+
+      .arrow-request { stroke: #c67f17; stroke-width: 3.4; fill: none; marker-end: url(#arrowRequest); }
+      .arrow-main { stroke: #334155; stroke-width: 3.4; fill: none; marker-end: url(#arrowMain); }
+      .arrow-response { stroke: #b34835; stroke-width: 3.4; fill: none; marker-end: url(#arrowResponse); }
+      .arrow-soft { stroke: #64748b; stroke-width: 2.8; stroke-dasharray: 9 7; fill: none; marker-end: url(#arrowSoft); }
+    </style>
+
+    <marker id="arrowRequest" markerWidth="11" markerHeight="11" refX="9" refY="5.5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 11 5.5 L 0 11 z" fill="#c67f17"/>
+    </marker>
+    <marker id="arrowMain" markerWidth="11" markerHeight="11" refX="9" refY="5.5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 11 5.5 L 0 11 z" fill="#334155"/>
+    </marker>
+    <marker id="arrowResponse" markerWidth="11" markerHeight="11" refX="9" refY="5.5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 11 5.5 L 0 11 z" fill="#b34835"/>
+    </marker>
+    <marker id="arrowSoft" markerWidth="11" markerHeight="11" refX="9" refY="5.5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 11 5.5 L 0 11 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1800" height="1120" fill="#ffffff"/>
+
+  <text x="900" y="70" text-anchor="middle" class="title">HTTP und REST-Grundlagen vertiefen</text>
+  <text x="900" y="106" text-anchor="middle" class="subtitle">HTTP transportiert Request und Response zwischen Client und Server.</text>
+
+  <rect x="70" y="145" rx="22" ry="22" width="1660" height="850" class="panel-main"/>
+  <text x="900" y="192" text-anchor="middle" class="section">REST nutzt HTTP als Transport</text>
+
+  <rect x="650" y="230" rx="20" ry="20" width="500" height="88" class="client-box"/>
+  <text x="900" y="265" text-anchor="middle" class="heading client-accent">curl Client</text>
+  <text x="900" y="297" text-anchor="middle" class="mono">localhost:8080</text>
+
+  <rect x="650" y="375" rx="20" ry="20" width="500" height="145" class="request-box"/>
+  <text x="900" y="415" text-anchor="middle" class="heading request-accent">HTTP Request</text>
+  <text x="745" y="455" text-anchor="start" class="mono-small">Methode: GET / POST</text>
+  <text x="745" y="485" text-anchor="start" class="mono-small">Pfad: /produkte</text>
+  <text x="745" y="515" text-anchor="start" class="mono-small">Header + Body</text>
+
+  <rect x="650" y="575" rx="20" ry="20" width="500" height="100" class="controller-box"/>
+  <text x="900" y="615" text-anchor="middle" class="heading controller-accent">REST Controller</text>
+  <text x="900" y="648" text-anchor="middle" class="text-small">übersetzt HTTP in Service-Aufruf</text>
+
+  <rect x="650" y="725" rx="20" ry="20" width="500" height="78" class="service-box"/>
+  <text x="900" y="756" text-anchor="middle" class="heading service-accent">LagerService</text>
+  <text x="900" y="784" text-anchor="middle" class="text-small">Fachlogik bleibt hier</text>
+
+  <rect x="650" y="850" rx="20" ry="20" width="500" height="78" class="repo-box"/>
+  <text x="900" y="881" text-anchor="middle" class="heading repo-accent">Repository</text>
+  <text x="900" y="909" text-anchor="middle" class="text-small">Datenzugriff</text>
+
+  <rect x="650" y="960" rx="18" ry="18" width="500" height="36" class="repo-box"/>
+  <text x="900" y="985" text-anchor="middle" class="heading repo-accent">H2</text>
+
+  <path d="M 900 318 L 900 366" class="arrow-request"/>
+  <path d="M 900 520 L 900 566" class="arrow-request"/>
+  <path d="M 900 675 L 900 716" class="arrow-main"/>
+  <path d="M 900 803 L 900 841" class="arrow-main"/>
+  <path d="M 900 928 L 900 951" class="arrow-main"/>
+
+  <rect x="120" y="245" rx="18" ry="18" width="440" height="245" class="request-box"/>
+  <text x="340" y="288" text-anchor="middle" class="heading request-accent">Request zerlegen</text>
+  <text x="165" y="330" text-anchor="start" class="mono-small">POST /produkte</text>
+  <text x="165" y="362" text-anchor="start" class="mono-small">Content-Type: application/json</text>
+  <text x="165" y="394" text-anchor="start" class="mono-small">{ "name": "Maus" }</text>
+  <text x="340" y="440" text-anchor="middle" class="text-small">Methode, Pfad, Header, Body</text>
+  <path d="M 560 365 C 600 365, 615 445, 650 445" class="arrow-soft"/>
+
+  <rect x="1240" y="245" rx="18" ry="18" width="440" height="245" class="response-box"/>
+  <text x="1460" y="288" text-anchor="middle" class="heading response-accent">HTTP Response</text>
+  <text x="1295" y="330" text-anchor="start" class="mono-small">Status: 200 / 201 / 404</text>
+  <text x="1295" y="362" text-anchor="start" class="mono-small">Header: Content-Type</text>
+  <text x="1295" y="394" text-anchor="start" class="mono-small">Body: JSON</text>
+  <text x="1460" y="440" text-anchor="middle" class="text-small">Statuscode, Header, Body</text>
+  <path d="M 1240 365 C 1200 365, 1185 445, 1150 445" class="arrow-response"/>
+
+  <rect x="120" y="585" rx="18" ry="18" width="440" height="185" class="note-box"/>
+  <text x="340" y="628" text-anchor="middle" class="heading service-accent">Ressourcen statt Methoden</text>
+  <text x="165" y="670" text-anchor="start" class="mono-small">GET /produkte</text>
+  <text x="165" y="702" text-anchor="start" class="mono-small">GET /produkte/1</text>
+  <text x="165" y="734" text-anchor="start" class="mono-small">POST /produkte</text>
+  <path d="M 560 675 C 600 675, 615 625, 650 625" class="arrow-soft"/>
+
+  <rect x="1240" y="770" rx="18" ry="18" width="440" height="165" class="note-box"/>
+  <text x="1460" y="810" text-anchor="middle" class="heading response-accent">Nicht vermischen</text>
+  <text x="1460" y="850" text-anchor="middle" class="text">HTTP ist Transport</text>
+  <text x="1460" y="880" text-anchor="middle" class="text">JSON sind Daten</text>
+  <text x="1460" y="910" text-anchor="middle" class="text">Service ist Fachlogik</text>
+  <path d="M 1240 850 C 1200 835, 1185 780, 1150 764" class="arrow-soft"/>
+
+  <path d="M 1160 875 C 1300 850, 1420 790, 1460 490" class="arrow-response"/>
+  <path d="M 1460 490 C 1360 535, 1220 555, 1150 620" class="arrow-response"/>
+
+  <rect x="155" y="1020" rx="18" ry="18" width="1490" height="62" class="summary"/>
+  <text x="900" y="1059" text-anchor="middle" class="heading request-accent">Merksatz: REST beschreibt den Zugriff, HTTP transportiert die Nachricht, der Service bleibt fachlich.</text>
+</svg>
