@@ -21,8 +21,8 @@ In diesen Übungen verwendest du dieselbe REST-Lagerverwaltung weiter.
 - Spring Boot läuft lokal auf `localhost:8080`.
 - Die bestehende Fachlogik bleibt im `LagerService`.
 - Bruno wird als lokales Werkzeug für gespeicherte Requests verwendet.
-- Du baust keine automatische Tests.
-- Du führst keine Security, DTOs, OpenAPI oder komplexe Environments ein.
+- Du baust keine automatischen Tests.
+- Du führst keine Security, JWT, DTOs, OpenAPI oder komplexe Environments ein.
 
 ---
 

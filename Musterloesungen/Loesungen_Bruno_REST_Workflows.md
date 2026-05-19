@@ -2,7 +2,7 @@
 
 ## Basis
 
-### Aufgabe 1 – Bruno bereitstellen
+### Aufgabe 1 – Bruno installieren oder öffnen
 
 Eine mögliche Notiz:
 
@@ -12,6 +12,8 @@ Spring Boot auf localhost:8080: ja
 ```
 
 Falls Spring Boot nicht läuft, können die Requests zwar gespeichert, aber nicht erfolgreich ausgeführt werden.
+
+In dieser Einheit werden keine automatischen Tests, keine Security und kein JWT eingerichtet.
 
 ---
 

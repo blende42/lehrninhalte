@@ -85,12 +85,13 @@
   <path class="arrow-blue" d="M 730 675 L 805 540"/>
   <path class="arrow-blue" d="M 920 580 L 920 635"/>
 
-  <rect class="box-red" x="80" y="500" width="260" height="170"/>
+  <rect class="box-red" x="80" y="500" width="260" height="190"/>
   <text class="label" x="115" y="540">Nicht vermischen</text>
   <text class="text" x="115" y="575">Bruno speichert Requests.</text>
   <text class="text" x="115" y="602">Der Service enthält</text>
   <text class="text" x="115" y="629">die Fachlogik.</text>
-  <text class="small" x="115" y="655">Keine Tests, DTOs oder Security.</text>
+  <text class="small" x="115" y="655">Keine Tests, DTOs, Security.</text>
+  <text class="small" x="115" y="678">Kein OpenAPI/JWT.</text>
 
   <path class="arrow-gray dash" d="M 430 548 L 340 570"/>
 
@@ -102,7 +103,7 @@
   <path class="arrow-gray" d="M 805 388 L 730 388"/>
   <path class="arrow-gray" d="M 430 388 C 280 388 205 330 205 265"/>
 
-  <rect class="box-green" x="80" y="715" width="955" height="55"/>
-  <text class="label" x="115" y="750">Kernidee:</text>
-  <text class="text" x="230" y="750">REST-Requests sollen gespeichert, wiederholt und im Projekt nachvollziehbar gemacht werden.</text>
+  <rect class="box-green" x="80" y="725" width="955" height="55"/>
+  <text class="label" x="115" y="760">Kernidee:</text>
+  <text class="text" x="230" y="760">REST-Requests sollen gespeichert, wiederholt und im Projekt nachvollziehbar gemacht werden.</text>
 </svg>

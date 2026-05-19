@@ -1,19 +1,41 @@
-# Übergabe – aktueller Stand
+# Übergabe – Abschluss Repo efz-entwicklung-j2a
 
-## Aktueller Block
+## Status dieses Repos
 
-Die Unterrichtsreihe befindet sich aktuell im Einstieg zu:
-- REST
-- Spring Boot
-- HTTP-basierter Zugriffsschicht
-- Client/Server und JSON.
+Dieses Repo bildet den Ausbildungsblock:
 
-Die bisherige Architekturentwicklung wurde bewusst problemgetrieben aufgebaut:
-- Services nach verteilter Fachlogik
-- Repository nach wachsendem JDBC-/Mapping-Code
-- Logging nach technischer Komplexität
-- Konfiguration nach hartcodierter Infrastruktur
-- I18N nach hartcodierten sichtbaren Texten
+- Java-Grundlagen
+- OOP
+- Maven
+- Tests
+- Refactoring
+- Persistenz
+- JDBC/H2
+- Repository
+- Logging
+- technische Konfiguration
+- I18N
+- REST-Einstieg
+
+ab.
+
+Didaktischer Schwerpunkt:
+Architektur entsteht aus konkreten Problemen und wachsender technischer Komplexität.
+
+Dieses Repo endet bewusst:
+- nach dem REST-Einstieg
+- nach HTTP-/JSON-Grundlagen
+- nach reproduzierbaren API-Workflows mit Bruno
+
+und vor:
+- DTOs
+- Validation
+- komplexerer REST-Strukturierung
+- JPA/Hibernate
+- Spring Data
+- Security
+
+---
 
 ## Letzte abgeschlossene Einheiten
 
@@ -24,50 +46,12 @@ Die bisherige Architekturentwicklung wurde bewusst problemgetrieben aufgebaut:
 44. HTTP und REST-Grundlagen vertiefen
 45. REST-Workflows mit Bruno
 
-Die Einheit zu Bruno verwendet:
-- Bruno als lokales API-Werkzeug
-- Collections
-- gespeicherte Requests
-- `GET /produkte`
-- `POST /produkte`
-- Header `Content-Type: application/json`
-- JSON Body
-- Response-Analyse
-- reproduzierbare und grundsätzlich versionierbare API-Workflows
-
-Die Einheit zu HTTP/REST verwendet:
-- HTTP Request und HTTP Response
-- Header und Body
-- Statuscodes `200`, `201`, `400`, `404` und `500`
-- JSON als Body-Format
-- `curl -i`
-- Ressourcenmodell mit `/produkte` und `/produkte/1`
-
-Die vorherige Einheit zu REST verwendet:
-- Spring Boot
-- `@RestController`
-- `@GetMapping`
-- `@PostMapping`
-- automatische JSON-Ausgabe
-- `curl`
-- `localhost:8080`
-
-Die Einheit hält die bestehende Architektur bewusst stabil:
-- REST Controller als neue Zugriffsschicht
-- `LagerService` als bestehende Fachlogik
-- Repositorys als bestehender Datenzugriff
-- JDBC/H2 als bestehende Persistenz
-
-Die vorherige Einheit zu I18N verwendet:
-- `Locale`
-- `ResourceBundle`
-- `messages_*.properties`
-
-und trennt technische Konfiguration bewusst von sprachabhängigen Texten.
+---
 
 ## Aktuelle Architektur
 
 Die bekannte Lagerverwaltung umfasst inzwischen:
+
 - Maven
 - JUnit
 - CSV-Persistenz
@@ -81,37 +65,45 @@ Die bekannte Lagerverwaltung umfasst inzwischen:
 - technische Konfiguration
 - I18N mit `Locale` und `ResourceBundle`
 - REST Controller mit Spring Boot
-- HTTP/JSON-Zugriff über `localhost:8080`
-- vertiefte HTTP-Analyse mit Request, Response, Header, Body und Statuscodes
+- HTTP-/JSON-Zugriff über `localhost:8080`
 - Bruno-Collections mit gespeicherten API-Requests
 
-## Nächste geplante Einheiten
-
-46. JSON und DTOs
-47. Fehlerbehandlung bei REST
-48. REST-Tests und API-Workflow
+---
 
 ## Didaktische Leitidee
 
-Architektur wird nicht abstrakt eingeführt.
-
 Neue Konzepte entstehen aus konkreten Problemen:
+
 - Interface nach austauschbarer Persistenz
 - Service nach verteilter Fachlogik
 - Repository nach wachsendem JDBC-/Mapping-Code
 - Logging nach technischer Komplexität
+- Konfiguration nach hartcodierter Infrastruktur
+- I18N nach hartcodierten sichtbaren Texten
 - REST als neue Zugriffsschicht auf bestehende Fachlogik
-- Bruno nach `curl` als Werkzeug für reproduzierbare REST-Workflows
+- Bruno nach `curl` als reproduzierbarer REST-Workflow
+
+Architektur wird evolutionär entwickelt und nicht abstrakt vorgegeben.
+
+---
+
+## Fortsetzung im Folge-Repo
+
+Die Weiterentwicklung erfolgt im Repo:
+
+`efz-entwicklung-j2b`
+
+Geplante nächste Themen:
+- JSON-Strukturen und DTOs
+- REST-Fehlerbehandlung
+- Validation bei REST-Requests
+- Services mit Spring sauber integrieren
+- Vorbereitung auf JPA/Spring Data
+
+---
 
 ## Wichtige Referenzen
 
 - CONTENT.md
 - docs/didaktik/entwicklungslogik.md
-
-## Offene didaktische Entscheidungen
-
-- JSON weiter vertiefen und DTOs erst kontrolliert in der nächsten Einheit einführen
-- noch keine Security
-- noch kein JPA/Hibernate
-- noch keine komplexen DTO-Mappings
-- Spring zunächst nur als Infrastruktur und Controller-Framework verwenden
+- efz-entwicklung-meta
