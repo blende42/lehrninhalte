@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="820" viewBox="0 0 1200 820" role="img" aria-labelledby="title desc">
+  <title id="title">REST-Workflows mit Bruno</title>
+  <desc id="desc">Die Grafik zeigt Bruno als lokales API-Werkzeug, das gespeicherte Requests über HTTP an einen REST Controller sendet. Die bestehende Architektur mit Service, Repository und H2 bleibt erhalten.</desc>
+  <defs>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2563eb"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#15803d"/>
+    </marker>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+    </marker>
+    <style>
+      .bg { fill: #f8fafc; }
+      .title { font: 700 34px Arial, sans-serif; fill: #0f172a; }
+      .subtitle { font: 400 18px Arial, sans-serif; fill: #475569; }
+      .box { fill: #ffffff; stroke: #cbd5e1; stroke-width: 2; rx: 18; }
+      .box-blue { fill: #eff6ff; stroke: #60a5fa; stroke-width: 2; rx: 18; }
+      .box-green { fill: #f0fdf4; stroke: #86efac; stroke-width: 2; rx: 18; }
+      .box-orange { fill: #fff7ed; stroke: #fdba74; stroke-width: 2; rx: 18; }
+      .box-red { fill: #fef2f2; stroke: #fca5a5; stroke-width: 2; rx: 18; }
+      .label { font: 700 20px Arial, sans-serif; fill: #0f172a; }
+      .text { font: 400 16px Arial, sans-serif; fill: #334155; }
+      .small { font: 400 14px Arial, sans-serif; fill: #475569; }
+      .code { font: 700 15px "Courier New", monospace; fill: #1e293b; }
+      .arrow-blue { stroke: #2563eb; stroke-width: 4; fill: none; marker-end: url(#arrow-blue); }
+      .arrow-green { stroke: #15803d; stroke-width: 4; fill: none; marker-end: url(#arrow-green); }
+      .arrow-gray { stroke: #64748b; stroke-width: 3; fill: none; marker-end: url(#arrow-gray); }
+      .dash { stroke-dasharray: 8 8; }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1200" height="820"/>
+
+  <text class="title" x="80" y="70">REST-Workflows mit Bruno</text>
+  <text class="subtitle" x="80" y="102">Gespeicherte Requests machen API-Aufrufe reproduzierbar und versionierbar.</text>
+
+  <rect class="box-blue" x="80" y="155" width="250" height="110"/>
+  <text class="label" x="115" y="195">Bruno</text>
+  <text class="text" x="115" y="225">lokales API-Werkzeug</text>
+  <text class="small" x="115" y="248">Requests ausführen</text>
+
+  <rect class="box-green" x="430" y="145" width="300" height="130"/>
+  <text class="label" x="465" y="185">Gespeicherte Requests</text>
+  <text class="code" x="465" y="216">GET /produkte</text>
+  <text class="code" x="465" y="241">POST /produkte</text>
+  <text class="small" x="465" y="263">Methode, URL, Header, JSON Body</text>
+
+  <rect class="box-orange" x="850" y="155" width="260" height="110"/>
+  <text class="label" x="885" y="195">Versionierbarer</text>
+  <text class="label" x="885" y="222">API-Workflow</text>
+  <text class="small" x="885" y="248">wiederholbar und teilbar</text>
+
+  <path class="arrow-green" d="M 330 210 L 430 210"/>
+  <path class="arrow-green" d="M 730 210 L 850 210"/>
+
+  <rect class="box" x="430" y="335" width="300" height="105"/>
+  <text class="label" x="465" y="375">HTTP Request</text>
+  <text class="text" x="465" y="405">Header und JSON werden</text>
+  <text class="text" x="465" y="428">an den Server gesendet</text>
+
+  <path class="arrow-blue" d="M 580 275 L 580 335"/>
+
+  <rect class="box-blue" x="430" y="500" width="300" height="95"/>
+  <text class="label" x="465" y="538">REST Controller</text>
+  <text class="text" x="465" y="568">neue Zugriffsschicht</text>
+
+  <path class="arrow-blue" d="M 580 440 L 580 500"/>
+
+  <rect class="box" x="430" y="635" width="300" height="80"/>
+  <text class="label" x="465" y="668">LagerService</text>
+  <text class="text" x="465" y="695">bestehende Fachlogik</text>
+
+  <path class="arrow-blue" d="M 580 595 L 580 635"/>
+
+  <rect class="box" x="805" y="500" width="230" height="80"/>
+  <text class="label" x="840" y="532">Repository</text>
+  <text class="text" x="840" y="558">Datenzugriff</text>
+
+  <rect class="box" x="805" y="635" width="230" height="80"/>
+  <text class="label" x="840" y="668">JDBC / H2</text>
+  <text class="text" x="840" y="695">Persistenz</text>
+
+  <path class="arrow-blue" d="M 730 675 L 805 540"/>
+  <path class="arrow-blue" d="M 920 580 L 920 635"/>
+
+  <rect class="box-red" x="80" y="500" width="260" height="170"/>
+  <text class="label" x="115" y="540">Nicht vermischen</text>
+  <text class="text" x="115" y="575">Bruno speichert Requests.</text>
+  <text class="text" x="115" y="602">Der Service enthält</text>
+  <text class="text" x="115" y="629">die Fachlogik.</text>
+  <text class="small" x="115" y="655">Keine Tests, DTOs oder Security.</text>
+
+  <path class="arrow-gray dash" d="M 430 548 L 340 570"/>
+
+  <rect class="box" x="805" y="335" width="300" height="105"/>
+  <text class="label" x="840" y="375">HTTP Response</text>
+  <text class="text" x="840" y="405">Statuscode, Header</text>
+  <text class="text" x="840" y="428">und JSON Body</text>
+
+  <path class="arrow-gray" d="M 805 388 L 730 388"/>
+  <path class="arrow-gray" d="M 430 388 C 280 388 205 330 205 265"/>
+
+  <rect class="box-green" x="80" y="715" width="955" height="55"/>
+  <text class="label" x="115" y="750">Kernidee:</text>
+  <text class="text" x="230" y="750">REST-Requests sollen gespeichert, wiederholt und im Projekt nachvollziehbar gemacht werden.</text>
+</svg>
