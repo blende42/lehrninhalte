@@ -138,6 +138,7 @@ Lehr- und Arbeitsblätter zu Java- und Grundlagenthemen:
 - [Arbeitsblatt_Technisches_Logging.md](./Arbeitsblaetter/Arbeitsblatt_Technisches_Logging.md)
 - [Arbeitsblatt_Technische_Konfiguration.md](./Arbeitsblaetter/Arbeitsblatt_Technische_Konfiguration.md)
 - [Arbeitsblatt_I18N_ResourceBundle.md](./Arbeitsblaetter/Arbeitsblatt_I18N_ResourceBundle.md)
+- [Arbeitsblatt_REST_SpringBoot_Einstieg.md](./Arbeitsblaetter/Arbeitsblatt_REST_SpringBoot_Einstieg.md)
 - [arbeitsblatt_java_wrapper.md](./Arbeitsblaetter/arbeitsblatt_java_wrapper.md)
 - [arbeitsblatt_stringbuilder.md](./Arbeitsblaetter/arbeitsblatt_stringbuilder.md)
 - [arbeitsblatt_theorie_kombiniert.md](./Arbeitsblaetter/arbeitsblatt_theorie_kombiniert.md)
@@ -192,6 +193,7 @@ SVG-Grafiken und zugehörige Datei für eingebettete Arbeitsblattgrafiken:
 - [Uebungen_Technisches_Logging.md](./Uebungen/Uebungen_Technisches_Logging.md)
 - [Uebungen_Technische_Konfiguration.md](./Uebungen/Uebungen_Technische_Konfiguration.md)
 - [Uebungen_I18N_ResourceBundle.md](./Uebungen/Uebungen_I18N_ResourceBundle.md)
+- [Uebungen_REST_SpringBoot_Einstieg.md](./Uebungen/Uebungen_REST_SpringBoot_Einstieg.md)
 - [string_uebungen.md](./Uebungen/string_uebungen.md)
 - [string_uebungen_v2.md](./Uebungen/string_uebungen_v2.md)
 - [string_mini_projekt_v3.md](./Uebungen/string_mini_projekt_v3.md)
@@ -242,6 +244,7 @@ Kompakte Referenzlösungen zu den Übungen, Simulationen, Package-Strukturierung
 - [Loesungen_Technisches_Logging.md](./Musterloesungen/Loesungen_Technisches_Logging.md)
 - [Loesungen_Technische_Konfiguration.md](./Musterloesungen/Loesungen_Technische_Konfiguration.md)
 - [Loesungen_I18N_ResourceBundle.md](./Musterloesungen/Loesungen_I18N_ResourceBundle.md)
+- [Loesungen_REST_SpringBoot_Einstieg.md](./Musterloesungen/Loesungen_REST_SpringBoot_Einstieg.md)
 - [musterloesungen_stringbuilder.md](./Musterloesungen/musterloesungen_stringbuilder.md)
 - [string_parser_loesungen.md](./Musterloesungen/string_parser_loesungen.md)
 
@@ -271,6 +274,7 @@ Allgemeine SVG-Grafiken für den Unterricht:
 - [technisches_logging_java.svg](./graphics/technisches_logging_java.svg)
 - [technische_konfiguration_java.svg](./graphics/technische_konfiguration_java.svg)
 - [i18n_resourcebundle_locale.svg](./graphics/i18n_resourcebundle_locale.svg)
+- [rest_springboot_einstieg.svg](./graphics/rest_springboot_einstieg.svg)
 - [persistenzablauf_laden_bearbeiten_speichern.svg](./graphics/persistenzablauf_laden_bearbeiten_speichern.svg)
 - [verantwortlichkeiten_aufteilen.svg](./graphics/verantwortlichkeiten_aufteilen.svg)
 - [interface_produkt_speicher.svg](./graphics/interface_produkt_speicher.svg)
@@ -284,7 +288,7 @@ Allgemeine SVG-Grafiken für den Unterricht:
 - [projektreview_aenderungshistorie_architektur.svg](./graphics/projektreview_aenderungshistorie_architektur.svg)
 - [parser_grafik.svg](./graphics/parser_grafik.svg)
 
-Die beiden Repository-Grafiken verdeutlichen den Evolutionsschritt von wachsendem Persistenz- und Mapping-Code zu einfachen Repository-Klassen sowie die Tabellenbeziehungen über `ID` und `PRODUKT_ID`. Die Logging-Grafik zeigt technische Beobachtbarkeit über Logger und Log-Level, ohne Fachlogik oder Tests zu ersetzen. Die Konfigurationsgrafik zeigt, wie `app.properties` technische Werte ausserhalb des Java-Codes bereitstellt. Die I18N-Grafik zeigt, wie `Locale` und `ResourceBundle` sprachabhängige Texte aus `messages_*.properties` laden.
+Die beiden Repository-Grafiken verdeutlichen den Evolutionsschritt von wachsendem Persistenz- und Mapping-Code zu einfachen Repository-Klassen sowie die Tabellenbeziehungen über `ID` und `PRODUKT_ID`. Die Logging-Grafik zeigt technische Beobachtbarkeit über Logger und Log-Level, ohne Fachlogik oder Tests zu ersetzen. Die Konfigurationsgrafik zeigt, wie `app.properties` technische Werte ausserhalb des Java-Codes bereitstellt. Die I18N-Grafik zeigt, wie `Locale` und `ResourceBundle` sprachabhängige Texte aus `messages_*.properties` laden. Die REST-Grafik zeigt `curl`, HTTP/JSON und den REST Controller als neue Zugriffsschicht vor dem bestehenden `LagerService`.
 
 ### templates
 Vorlagen, Workflows und Prompts für Lehrmittel, SVG-Grafiken und Reviews:

@@ -541,22 +541,28 @@ Material:
 - [Übungen – Mehrsprachigkeit mit Locale und ResourceBundle](./Uebungen/Uebungen_I18N_ResourceBundle.md)
 - [Lösungen – Mehrsprachigkeit mit Locale und ResourceBundle](./Musterloesungen/Loesungen_I18N_ResourceBundle.md)
 
+### 43. REST-Schnittstellen mit Spring Boot einführen
+
+Ziel: Die bekannte Lagerverwaltung über eine neue HTTP-/REST-Zugriffsschicht erreichbar machen, ohne `LagerService`, Repositorys und JDBC/H2 fachlich umzubauen. Die Lernenden verstehen Client/Server, HTTP Request/Response, URL, Endpoint, JSON, `@RestController`, `@GetMapping`, `@PostMapping`, automatische JSON-Ausgabe und `curl` anhand kleiner Endpoints auf `localhost:8080`.
+
+Material:
+
+- [Arbeitsblatt – REST-Schnittstellen mit Spring Boot einführen](./Arbeitsblaetter/Arbeitsblatt_REST_SpringBoot_Einstieg.md)
+- [REST-Schnittstellen mit Spring Boot](./graphics/rest_springboot_einstieg.svg)
+- [Übungen – REST-Schnittstellen mit Spring Boot einführen](./Uebungen/Uebungen_REST_SpringBoot_Einstieg.md)
+- [Lösungen – REST-Schnittstellen mit Spring Boot einführen](./Musterloesungen/Loesungen_REST_SpringBoot_Einstieg.md)
+
 ### Nächster sinnvoller Block
 
-Nach `Mehrsprachigkeit mit Locale und ResourceBundle` bietet sich als nächstes Thema ein Review zur Trennung von technischer Infrastruktur, Fachlogik und sichtbaren Texten an:
+Nach `REST-Schnittstellen mit Spring Boot einführen` bietet sich als nächstes Thema eine Festigung von REST Controller und HTTP-Grundlagen an:
 
-- `ProduktRepository` und `AenderungsRepository` nach Verantwortung prüfen
-- `PRODUKT_ID` als Verbindung zwischen Produkt und Änderungen erklären lassen
-- Mapping von `ResultSet` zu `Produkt`, `PreisAenderung` und `BestandsAenderung` vergleichen
-- Fachlogik, Ablaufsteuerung, Datenzugriff und Mapping erneut trennen
-- sinnvolle `INFO`-, `DEBUG`-, `WARN`- und `ERROR`-Logs in Repository-Klassen begründen
-- prüfen, ob Logs bei Fehlersuche helfen, ohne Fachlogik oder Tests zu ersetzen
-- prüfen, ob technische Werte wie DB-URL, Dateipfade, Logging-Level und H2-Modus konfigurierbar sind
-- erklären lassen, warum Konfiguration keine Fachlogik ist
-- prüfen, ob sichtbare Texte über `ResourceBundle` geladen werden
-- erklären lassen, warum I18N nicht technische Konfiguration ist
-- doppelte JDBC- und Mapping-Logik sichtbar machen, aber nicht zu früh generisch abstrahieren
-- weiterhin kein ORM, kein Hibernate, kein JPA, kein Spring Data und keine komplexe Datenbankarchitektur
+- REST Controller als Zugriffsschicht wiederholen
+- `GET` und `POST` an bekannten Lager-Endpunkten festigen
+- HTTP Request, Response, Header und Body genauer unterscheiden
+- JSON-Antworten und JSON-Request-Bodies analysieren
+- `curl -i`, `Content-Type` und typische Fehler gezielt einsetzen
+- Controller, Service und Repository weiterhin klar trennen
+- noch keine Security, keine DTOs, keine Validation, keine Swagger/OpenAPI-Dokumentation und keine komplexe Fehlerbehandlung einführen
 
 ## Geplante spätere Themenblöcke
 
@@ -908,6 +914,13 @@ Arbeitsblätter führen neue Konzepte ein, enthalten kurze Theorie, Beispiele, t
   - sichtbare Texte aus `Main` auslagern
   - technische Konfiguration und I18N trotz gleichem Dateiformat `.properties` trennen
   - typische Fehler wie falsche Dateinamen, fehlende Schlüssel und vermischte Verantwortlichkeiten sichtbar machen
+- [Arbeitsblatt – REST-Schnittstellen mit Spring Boot einführen](./Arbeitsblaetter/Arbeitsblatt_REST_SpringBoot_Einstieg.md)
+  - REST als neue Zugriffsschicht vor dem bestehenden `LagerService` einführen
+  - Client/Server, HTTP Request/Response, URL, Endpoint und JSON anhand von `localhost:8080` erklären
+  - `@RestController`, `@GetMapping`, `@PostMapping`, `@RequestBody` und automatische JSON-Ausgabe auf EFZ-Niveau zeigen
+  - `curl` als technisches Werkzeug für `GET` und `POST` verwenden
+  - typische Fehler wie Fachlogik im Controller, direkter Repository-Zugriff, falsche URL, fehlender `Content-Type` und ungültiges JSON sichtbar machen
+  - Security, JPA, Spring Data, DTOs, Validation, Swagger/OpenAPI, Lombok und komplexe Fehlerbehandlung bewusst ausschliessen
 
 ## Konzeptgrafiken
 
@@ -1066,6 +1079,11 @@ Konzeptgrafiken visualisieren Beziehungen, Abläufe und typische Denkmodelle. Si
   - führt zu sprachabhängiger Ausgabe mit gleichem Java-Code
   - macht sichtbar, dass Texte nicht hartcodiert werden
   - grenzt technische Konfiguration von I18N ab
+- [REST-Schnittstellen mit Spring Boot](./graphics/rest_springboot_einstieg.svg)
+  - zeigt `curl` als Client, HTTP/JSON als Austausch und den REST Controller als neue Zugriffsschicht
+  - führt weiter zum bestehenden `LagerService`, Repository und H2
+  - macht sichtbar, dass REST die Fachlogik nicht ersetzt
+  - grenzt Controller-Verantwortung von Service- und Repository-Verantwortung ab
 - [Projektreview Änderungshistorie Architektur](./graphics/projektreview_aenderungshistorie_architektur.svg)
   - `Main`, `LagerService`, `JournalService`, `ProduktSpeicher`, `Produkt` und `AenderungsEintrag` nach Verantwortung darstellen
   - zeigen, dass Historie neue Verantwortlichkeiten erzeugt und Services wachsen können
@@ -1381,6 +1399,13 @@ Konzeptgrafiken visualisieren Beziehungen, Abläufe und typische Denkmodelle. Si
   - einfache Fehlermeldungen übersetzen
   - fehlende Übersetzungen, Standard-Locale und zusätzliche Sprache untersuchen
   - Transfer zu Schweizer Mehrsprachigkeit, Konfigurationsabgrenzung und grösseren Anwendungen bearbeiten
+- [Übungen – REST-Schnittstellen mit Spring Boot einführen](./Uebungen/Uebungen_REST_SpringBoot_Einstieg.md)
+  - Spring-Boot-Anwendung starten und Port `8080` beobachten
+  - ersten `ProduktController` mit `@RestController` und bestehendem `LagerService` erstellen
+  - `GET /produkte` und `POST /produkte` mit JSON umsetzen
+  - `curl` für `GET`, `POST`, Header, Body und Statuscode-Beobachtung einsetzen
+  - mehrere Produkte senden, JSON-Struktur analysieren und Logging bei REST-Aufrufen beobachten
+  - Transfer zu unveränderter Fachlogik, REST als Zugriffsschicht, Konsole vs. HTTP, JSON und `curl` bearbeiten
 
 ## Repetitionen
 
@@ -1571,6 +1596,11 @@ Musterlösungen halten kompakte Referenzlösungen und Bewertungshilfen bereit.
   - zeigt sprachabhängige Konsolenausgabe und Entfernen hartcodierter sichtbarer Texte
   - grenzt I18N von technischer Konfiguration ab
   - typische Fehlerhinweise, kurze Reflexionsantworten und dokumentierte Maven-Verifikation mit temporärem Prüfprojekt
+- [Lösungen – REST-Schnittstellen mit Spring Boot einführen](./Musterloesungen/Loesungen_REST_SpringBoot_Einstieg.md)
+  - kompakte Standardlösung mit Spring-Boot-Startklasse, Web-Starter und `ProduktController`
+  - zeigt `GET /produkte`, `GET /produkte/{id}`, `POST /produkte`, `@RequestBody`, `@PathVariable` und automatische JSON-Ausgabe
+  - verwendet den bestehenden `LagerService` statt Repositorys direkt aus dem Controller aufzurufen
+  - enthält `curl`-Beispiele, Statuscode-Beobachtung, JSON-Einordnung, typische Fehlerhinweise und kurze Reflexionsantworten
 - [Musterlösungen – StringBuilder & Parser](./Musterloesungen/musterloesungen_stringbuilder.md)
   - StringBuilder-Methoden und vereinfachter Parser
 - [Musterlösungen – Mini-Projekt String Parser](./Musterloesungen/string_parser_loesungen.md)

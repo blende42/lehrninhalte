@@ -2,15 +2,11 @@
 
 ## Aktueller Block
 
-Die Unterrichtsreihe befindet sich aktuell am Übergang von:
-- technischer Infrastruktur
-- Persistenz
-- Architekturgrundlagen
-
-hin zu:
+Die Unterrichtsreihe befindet sich aktuell im Einstieg zu:
 - REST
 - Spring Boot
-- HTTP-basierter Zugriffsschicht.
+- HTTP-basierter Zugriffsschicht
+- Client/Server und JSON.
 
 Die bisherige Architekturentwicklung wurde bewusst problemgetrieben aufgebaut:
 - Services nach verteilter Fachlogik
@@ -24,8 +20,24 @@ Die bisherige Architekturentwicklung wurde bewusst problemgetrieben aufgebaut:
 40. Technisches Logging in Java einführen
 41. Technische Konfiguration in Java
 42. Mehrsprachigkeit mit Locale und ResourceBundle
+43. REST-Schnittstellen mit Spring Boot einführen
 
-Die Einheit zu I18N verwendet:
+Die Einheit zu REST verwendet:
+- Spring Boot
+- `@RestController`
+- `@GetMapping`
+- `@PostMapping`
+- automatische JSON-Ausgabe
+- `curl`
+- `localhost:8080`
+
+Die Einheit hält die bestehende Architektur bewusst stabil:
+- REST Controller als neue Zugriffsschicht
+- `LagerService` als bestehende Fachlogik
+- Repositorys als bestehender Datenzugriff
+- JDBC/H2 als bestehende Persistenz
+
+Die vorherige Einheit zu I18N verwendet:
 - `Locale`
 - `ResourceBundle`
 - `messages_*.properties`
@@ -47,10 +59,11 @@ Die bekannte Lagerverwaltung umfasst inzwischen:
 - `.properties`
 - technische Konfiguration
 - I18N mit `Locale` und `ResourceBundle`
+- REST Controller mit Spring Boot
+- HTTP/JSON-Zugriff über `localhost:8080`
 
 ## Nächste geplante Einheiten
 
-43. REST-Einstieg mit Spring Boot
 44. REST Controller und HTTP-Grundlagen
 45. JSON und DTOs
 46. Fehlerbehandlung bei REST
@@ -74,8 +87,9 @@ Neue Konzepte entstehen aus konkreten Problemen:
 
 ## Offene didaktische Entscheidungen
 
-- REST-Einstieg bewusst klein halten
+- REST Controller und HTTP-Grundlagen als nächste Festigung planen
+- JSON weiter vertiefen, DTOs aber erst in der nächsten JSON-Einheit einführen
 - noch keine Security
 - noch kein JPA/Hibernate
 - noch keine komplexen DTO-Mappings
-- Spring zunächst nur als Infrastruktur verwenden
+- Spring zunächst nur als Infrastruktur und Controller-Framework verwenden
